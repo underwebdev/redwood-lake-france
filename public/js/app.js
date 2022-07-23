@@ -12,7 +12,6 @@ __webpack_require__(/*! ./foundation */ "./resources/js/foundation.js");
 gsap.registerPlugin(ScrollTrigger);
 gsap.to(".hero", {
   scrollTrigger: {
-    scrub: 3,
     start: "center bottom",
     end: "center top"
   }
