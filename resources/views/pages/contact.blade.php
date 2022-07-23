@@ -14,6 +14,7 @@
 @include('layout.hero-wave')
 </div>
 
+<div class="contact">
 <div class="grid-container">
 	<div class="grid-x grid-padding-x">
 		<div class="cell small-12 medium-10 large-8 medium-offset-1 large-offset-2">
@@ -24,13 +25,15 @@
 			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
-			Email: 
-
-			Telephone: 
+			<div class="contact-info text-center">
+				<p><i class="far fa-envelope"></i> info@etangdeseuil.co.uk</p>
+				<p><i class="fas fa-mobile-alt"></i> 01895 746167</p> 
+			</div>
 
 			@livewire('contact-form')
 		</div><!-- End of cell-->    
 	</div><!--end of grid-x -->
 </div><!--End of grid container-->
+</div>
 
 @endsection

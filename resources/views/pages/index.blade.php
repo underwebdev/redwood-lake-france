@@ -279,14 +279,15 @@ Bellac offers everything you will need for your carp fishing holiday, including 
 			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 		      
 		</div><!-- End of cell-->
-		<div class="cell small-12 medium-6 text-center">
-			<i class="fal fa-envelope"></i><br>
-			<h6>email@lakename.co.uk</h6>
-			<i class="far fa-phone-alt"></i><br>
-			<h6>07801478474</h6>
+		<div class="cell small-12 medium-6 text-center align-self-middle">
+			<div class="contact-info text-center">
+				<p><i class="far fa-envelope"></i> info@etangdeseuil.co.uk</p>
+				<p><i class="fas fa-mobile-alt"></i> 01895 746167</p> 
+			</div>
 		      
 		</div><!-- End of cell-->
 		<div class="cell small-12 medium-10 large-8 medium-offset-1 large-offset-2">
+			<hr>
 			@livewire('contact-form')
 		</div><!-- End of cell-->
 	</div><!--end of grid-x -->

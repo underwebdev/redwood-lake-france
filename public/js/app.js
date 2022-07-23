@@ -144,6 +144,14 @@ gsap.utils.toArray(".slideText").forEach(function (text) {
     scale: 0.8
   }, 0);
 });
+gsap.to(".contact-info", {
+  x: -20,
+  duration: 2,
+  scrollTrigger: {
+    trigger: ".contact",
+    start: "top center"
+  }
+});
 
 /***/ }),
 

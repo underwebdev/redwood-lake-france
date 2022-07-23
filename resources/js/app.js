@@ -146,3 +146,12 @@ gsap.utils.toArray(".slideText").forEach(text => {
   .fromTo(text, {x: 250}, {x: -250}, 0)
   .from(text.nextElementSibling, {scale: 0.8}, 0)
 });
+
+gsap.to(".contact-info", {
+	x: -20,
+	duration: 2,
+	scrollTrigger: {
+		trigger: ".contact",
+		start: "top center"
+	}
+});
