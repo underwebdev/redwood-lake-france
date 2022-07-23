@@ -1,0 +1,151 @@
+<div>
+    <div class="grid-container">
+        <div class="grid-x grid-padding-x">
+            <div class="cell small-12 medium-8 large-6 medium-offset-2 large-offset-3">
+                <div class="center-border">
+                    <div class="center-border-header">
+                        <h3 class="text-center">Etang de Seuil</h3>
+                    </div>
+                    <div class="center-border-content">
+                        @if($step == 1)
+                            <h4 class="text-center">Booking Date:</h4>
+
+                            <p>Once clicking start booking your date will be held for 15 mins whilst you enter your details and make payment, if the payment process is not completed in that time then the date will become available again.</p>
+
+                            <input type="checkbox" wire:model="terms"> Please confirm you have read all the <a href="/booking-terms">booking terms and conditions</a> before proceeding
+                            <br><br>
+
+                            <div class="button-group">
+                                @if($terms)
+                                <button class="button success expanded" wire:click="start">Start Booking</button>
+                                @endif
+                                <a href="/booking" class="button hollow alert expanded">Go Back</a>
+                            </div>
+
+                        @elseif($step == 2)
+                            <h4 class="text-center">Lead Booking Details</h4>
+                            <div wire:poll.100ms>
+                                <h5 class="text-center">
+                                    {{ gmdate("i:s", Carbon\Carbon::parse($expiry)->diffInSeconds()) }}
+                                </h5>
+                            </div>
+                            
+                            <label for="">First Name
+                                @error('firstName')<span class="error">This field is required</span>@enderror
+                            </label>
+                            <input type="text" placeholder="" wire:model="firstName">
+
+                            <label for="">Last Name
+                                @error('lastName')<span class="error">This field is required</span>@enderror
+                            </label>
+                            <input type="text" placeholder="" wire:model="lastName">
+
+                            <label for="">Email
+                                @error('email')<span class="error">This field is required</span>@enderror
+                            </label>
+                            <input type="text" placeholder="" wire:model="email">
+
+                            <label for="">Confirm Email
+                                @error('')<span class="error">This field is required</span>@enderror
+                            </label>
+                            <input type="text" placeholder="" wire:model="">
+
+                            <label for="">Telephone
+                                @error('telephone')<span class="error">This field is required</span>@enderror
+                            </label>
+                            <input type="text" placeholder="" wire:model="telephone">
+
+                            <label for="">Address
+                                @error('address')<span class="error">This field is required</span>@enderror
+                            </label>
+                            <input type="text" placeholder="" wire:model="address1">
+
+                            <label for="">Address 2
+                                @error('address2')<span class="error">This field is required</span>@enderror
+                            </label>
+                            <input type="text" placeholder="" wire:model="address2">
+
+                            <label for="">Address 3
+                                @error('address3')<span class="error">This field is required</span>@enderror
+                            </label>
+                            <input type="text" placeholder="" wire:model="address3">
+
+                            <label for="">Post Code
+                                @error('postcode')<span class="error">This field is required</span>@enderror
+                            </label>
+                            <input type="text" placeholder="" wire:model="postcode">
+
+                            <label for="">Number Of Anglers (Including lead)
+                                @error('anglers')<span class="error">This field is required</span>@enderror
+                            </label>
+                            <select id=""wire:model="anglers">
+                                <option value="">Please select</option>
+                                <option value="1">1</option> 
+                                <option value="2">2</option> 
+                                <option value="3">3</option> 
+                                <option value="4">4</option> 
+                                <option value="5">5</option> 
+                            </select>
+                            <div class="button-group">
+                                <button class="button success expanded" wire:click="steptwo">Next Step 2/3</button>
+                                <button class="button alert hollow expanded" wire:click="cancel">Cancel</button>
+                            </div>
+                        @elseif($step == 3)
+                            <h4 class="text-center">Booking Details</h4>
+                            <div wire:poll.100ms>
+                                <h5 class="text-center">
+                                    {{ gmdate("i:s", Carbon\Carbon::parse($expiry)->diffInSeconds()) }}
+                                </h5>
+                            </div>
+                            <p class="text-center">Please review the details you have entered</p>
+                            <p><strong>Arriving:</strong>  <br>
+                            <strong>Leaving:</strong>  <br>
+                            <strong>Anglers:</strong> {{ $anglers }} <br>
+                            <strong>Name:</strong>  {{ $firstName }} {{ $lastName }}<br>
+                            <strong>Email:</strong>  {{ $email }}<br>
+                            <strong>Telephone:</strong>  {{ $telephone }}<br>
+                            <strong>Address:</strong>  {{ $address1 }}, {{ $address2 }} @if($address3) {{ $address3 }} @endif {{ $postcode }}</p>
+
+                            <label for="">Discount Code</label>
+                            <input type="text" placeholder="" wire:model.lazy="discount">
+
+                            <label for="">Payment</label>
+                            <select id=""wire:model="payment">
+                                <option value="">Please select</option>
+                                <option value="1">Pay Deposit</option>
+                                <option value="2">Pay Full Balance</option> 
+                            </select>
+
+                            <div class="button-group">
+                                @isset($payment)
+                                <button class="button expanded success" wire:click="stepthree">Proceed To Payment</button>
+                                @endisset
+                                <button class="button expanded alert hollow" wire:click="$set('step', 2)">Go Back</button>
+                            </div>
+
+                        @elseif($step == 4)
+                            <h4 class="text-center">Payment</h4>
+                            @if($payment == 1)
+                                <h5 class="text-center"><strong>£200</strong></h5>
+                                <p>The remaining balance is due on date</p>
+                            @elseif($payment == 2) 
+                                <h5 class="text-center"><strong>£1000</strong></h5>
+                            @endif
+
+                            <label for="">Name on Card</label>
+                            <input type="text" placeholder="" wire:model="">
+
+                            <label for="">Card Details</label>
+                            <input type="text" placeholder="" wire:model="">
+
+                            <div class="button-group">
+                                <button class="button success expanded">Pay {{ $payment }}</button>
+                                <button class="button alert hollow expanded" wire:click="$set('step', 3)">Go Back</button>
+                            </div>
+                        @endif
+                    </div>
+                </div>  
+            </div><!-- End of cell-->
+        </div><!--end of grid-x -->
+    </div><!--End of grid container-->
+</div>
