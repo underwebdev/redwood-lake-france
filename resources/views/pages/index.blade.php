@@ -7,7 +7,8 @@
 <div class="grid-container full">
 	<div class="grid-x grid-padding-x">
 		<div class="cell small-12 medium-7 hero-text">
-			<h2><strong>Lake exclusive French fishing in beautiful surroundings for up to 5 anglers.</strong></h2>
+			<h1>Quality Carp Fishing In France</h1>
+			<h2><strong>French fishing in beautiful surroundings for up to 5 anglers.</strong></h2>
 			<div class="hero-review">
 				<i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i> - Customer review snippet, social proof
 			</div>
