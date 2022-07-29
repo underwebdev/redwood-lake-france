@@ -12,7 +12,7 @@
 			<div class="hero-review">
 				<i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i> - Customer review snippet, social proof
 			</div>
-			<a href="/booking" class="button secondary hollow large">Book Now</a>
+			<a href="/booking" class="button secondary hollow">Book Now</a>
 		</div><!-- End of cell-->
 	</div><!--end of grid-x -->
 </div><!--End of grid container-->
