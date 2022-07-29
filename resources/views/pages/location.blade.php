@@ -14,6 +14,7 @@
 @include('layout.hero-wave')
 </div>
 
+<div class="section-one">
 <div class="grid-container">
 	<div class="grid-x grid-padding-x">
 		<div class="cell small-12">
@@ -53,4 +54,5 @@
 		</div><!-- End of cell-->
 	</div><!--end of grid-x -->
 </div><!--End of grid container-->
+</div>
 @endsection

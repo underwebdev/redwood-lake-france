@@ -10,6 +10,7 @@
 			<li><a href="/location">Finding Us</a></li>
 			<li><a href="/facilities">Facilities</a></li>
 			<li><a href="/rules">Rules</a></li>
+			<li><a href="/regulations">Regulations</a></li>
 			<li><a href="/news">News</a></li>
 			<li><a href="/photo-diary">Photo Diary</a></li>
 			<li><a href="/weather">Weather</a></li>

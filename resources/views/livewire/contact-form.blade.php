@@ -15,6 +15,11 @@
         </label>
         <input type="text" placeholder="" wire:model="email">
 
+        <label for="">Telephone
+            @error('telephone')<span class="error">{{ $message }}</span>@endif
+        </label>
+        <input type="text" placeholder="" wire:model="email">
+
         <label for="">Message
             @error('message')<span class="error">{{ $message }}</span>@endif
         </label>

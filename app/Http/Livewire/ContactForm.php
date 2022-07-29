@@ -33,6 +33,7 @@ class ContactForm extends Component
             Contact::create([
                 'name' => $data['name'],
                 'email' => $data['email'],
+                'telephone' => $data['telephone'],
                 'message' => $data['message']
             ]);
 

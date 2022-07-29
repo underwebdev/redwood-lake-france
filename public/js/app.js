@@ -152,6 +152,81 @@ gsap.to(".contact-info", {
     start: "top center"
   }
 });
+gsap.to(".photo-border-block", {
+  y: 16,
+  opacity: 1,
+  duration: 0.75,
+  scrollTrigger: {
+    trigger: ".fish-gallery",
+    start: "top center"
+  }
+});
+gsap.to(".intro", {
+  scrollTrigger: {
+    trigger: ".intro",
+    start: "top center",
+    end: "bottom center",
+    scrub: true,
+    toggleActions: "restart pause reverse pause"
+  },
+  y: 100,
+  duration: 6
+});
+gsap.to(".lake-info", {
+  scrollTrigger: {
+    trigger: ".lake-info",
+    start: "top center",
+    end: "bottom center",
+    scrub: true,
+    toggleActions: "restart pause reverse pause"
+  },
+  y: 100,
+  duration: 3
+});
+gsap.to(".fish-info", {
+  scrollTrigger: {
+    trigger: ".fish-info",
+    start: "top center",
+    end: "bottom center",
+    scrub: true,
+    toggleActions: "restart pause reverse pause"
+  },
+  y: 100,
+  duration: 3
+});
+gsap.to(".facilities", {
+  scrollTrigger: {
+    trigger: ".facilities",
+    start: "top center",
+    end: "bottom center",
+    scrub: true,
+    toggleActions: "restart pause reverse pause"
+  },
+  y: 100,
+  duration: 3
+});
+gsap.to(".pricing", {
+  scrollTrigger: {
+    trigger: ".pricing",
+    start: "top center",
+    end: "bottom center",
+    scrub: true,
+    toggleActions: "restart pause reverse pause"
+  },
+  y: 100,
+  duration: 3
+});
+gsap.to(".lake-info-container", {
+  scrollTrigger: {
+    trigger: ".lake-info-container",
+    start: "top center",
+    end: "bottom center",
+    scrub: true,
+    toggleActions: "restart pause reverse pause"
+  },
+  y: 100,
+  duration: 3
+});
 
 /***/ }),
 

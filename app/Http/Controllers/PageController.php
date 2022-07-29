@@ -16,6 +16,11 @@ class PageController extends Controller
     	return view('pages.booking');
     }
 
+    public function bookingterms()
+    {
+        return view('pages.bookingterms');
+    }
+
     public function deposit()
     {
         return view('pages.deposit');
@@ -29,6 +34,11 @@ class PageController extends Controller
     public function stock()
     {
         return view('pages.stock');
+    }
+
+    public function fish()
+    {
+        return view('pages.fish');
     }
 
     public function reports()
@@ -74,5 +84,25 @@ class PageController extends Controller
     public function contact()
     {
  		return view('pages.contact');   	
+    }
+
+    public function regulations()
+    {
+        return view('pages.regulations');
+    }
+
+    public function terms()
+    {
+        return view('pages.terms');
+    }
+
+    public function privacy()
+    {
+        return view('pages.privacy');        
+    }
+
+    public function covid()
+    {
+        return view('pages.covid');
     }
 }

@@ -81,7 +81,7 @@ $dark-gray: #303133;
 $black: #1a1819;
 $white: #FFFFFF;
 $gold: #ffe02c;
-$body-background: #EEEFF1;
+$body-background: #FFFFFF;
 $body-font-color: #303133;
 $body-font-family: 'Mulish', sans-serif;
 $body-antialiased: true;
@@ -783,7 +783,7 @@ $table-row-stripe-hover: darken($table-background, $table-color-scale + $table-h
 $table-is-striped: true;
 $table-striped-background: #EEEFF1;
 $table-stripe: even;
-$table-head-background: #242834;
+$table-head-background: #232323;
 $table-head-row-hover: darken($table-head-background, $table-hover-scale);
 $table-foot-background: smart-scale($table-background, $table-color-scale);
 $table-foot-row-hover: darken($table-foot-background, $table-hover-scale);
