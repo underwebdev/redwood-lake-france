@@ -8378,6 +8378,7 @@ h4 {
   margin-bottom: 0px;
   font-weight: 800;
   font-style: italic;
+  font-size: 40px;
   filter: drop-shadow(5px 5px 5px #222);
 }
 
@@ -8385,6 +8386,7 @@ h4 {
   filter: drop-shadow(5px 5px 5px #222);
   margin-bottom: 25px;
   line-height: 45px;
+  font-size: 35px;
 }
 
 .hero-text .button {
