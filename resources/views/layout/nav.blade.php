@@ -6,7 +6,7 @@
 	<li><a href="#">Information</a>
 		<ul class="menu">
 			<li><a href="/catch-reports">Catch Reports</a></li>
-			<li><a href="/stock">Fish List</a></li>
+			<li><a href="/stock">The Stock</a></li>
 			<li><a href="/location">Finding Us</a></li>
 			<li><a href="/facilities">Facilities</a></li>
 			<li><a href="/rules">Rules</a></li>
