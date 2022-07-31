@@ -34,7 +34,7 @@
 		<div class="grid-container full">
 			<div class="grid-x grid-padding-x">
 				<div class="cell small-12 medium-8">
-				   	<h3>Arial Map</h3>   
+				   	<img src="/img/map.png">
 				</div><!-- End of cell-->
 				<div class="cell small-12 medium-4">
 					<div class="grid-x grid-padding-x">
