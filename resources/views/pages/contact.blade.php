@@ -29,7 +29,8 @@
 				<div class="cell small-12 medium-6">
 					<h4><span class="weighted">Complex</span> Address</h4>
 					<p>Étang de Seuil<br>
-					87140 Saint-Pardoux-le-Lac<br>
+					Saint-Pardoux-le-Lac<br>
+					87140<br> 
 					France</p>
 					<a href="" class="button">View in Google Maps</a>
 				</div><!-- End of cell-->
