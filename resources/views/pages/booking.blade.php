@@ -19,7 +19,7 @@
 	<div class="grid-container">
 		<div class="grid-x grid-padding-x">
 			<div class="cell small-12">
-				<h3>Booking Information</h3>
+				<h3><span class="weighted">Booking</span> Information</h3>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -36,7 +36,7 @@
 	<div class="grid-container">
 		<div class="grid-x grid-padding-x">
 			<div class="cell small-12">
-				<h4 class="text-center">Pricing</h4>
+				<h3 class="text-center"><span class="weighted">Price</span> Packages</h3>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -46,7 +46,7 @@
 			</div>
 			<div class="cell small-12 medium-5 medium-offset-1"> 
 					<div class="pricing-block">
-						<h4 class=text-center><strong>Package One</strong></h4>
+						<h4 class=text-center><strong>Drive & Survive</strong></h4>
 						<ul>
 							<li>Bullet One</li>
 							<li>Bullet Two</li>
@@ -65,7 +65,7 @@
 				</div><!-- End of cell-->
 				<div class="cell small-12 medium-5 medium-offset-1"> 
 					<div class="pricing-block">
-						<h4 class=text-center><strong>Package One</strong></h4>
+						<h4 class=text-center><strong>Fly & Hire</strong></h4>
 						<ul>
 							<li>Bullet One</li>
 							<li>Bullet Two</li>
@@ -79,7 +79,7 @@
 							<li>Bullet Two</li>
 						</ul>
 						<hr>
-						<h6><strong>£1200 per week</strong><br><small>£240 p.p based on 5 anglers</small></h6>
+						<h6>Available Soon<br><small>£TBC</small></h6>
 					</div>
 				</div><!-- End of cell-->
 			<div class="cell small-12 text-center">
@@ -93,18 +93,14 @@
 	</div>
 </div>
 
-<div class="divider-curve">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-  <path fill="#EEEFF1" fill-opacity="1" d="M0,160L120,170.7C240,181,480,203,720,202.7C960,203,1200,181,1320,170.7L1440,160L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"></path>
-</svg>
-</div>
+@include('layout.wave')
 
 <div class="section-one">
 <div class="availabillity">
 <div class="grid-container">
 	<div class="grid-x grid-padding-x">
 		<div class="cell small-12 text-center">
-			<h4>Availabillity</h4>
+			<h4><span class="weighted">Booking</span> Availabillity</h4>
 			<p>We are currently taking bookings for 2022 and 2023. Please check for availability below.</p>
 		</div>
 	</div>

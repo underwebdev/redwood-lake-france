@@ -18,7 +18,7 @@
 		<div class="grid-container">
 			<div class="grid-x grid-padding-x">
 				<div class="cell small-12">
-					<h3>The Lake</h3>
+					<h3><span class="weighted">The</span> Lake</h3>
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -34,7 +34,7 @@
 		<div class="grid-container full">
 			<div class="grid-x grid-padding-x">
 				<div class="cell small-12 medium-8">
-				   	<img src="/img/map.png">
+				   	<img src="/img/lake-map.png" height="800px">
 				</div><!-- End of cell-->
 				<div class="cell small-12 medium-4">
 					<div class="grid-x grid-padding-x">

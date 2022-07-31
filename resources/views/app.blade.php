@@ -21,11 +21,10 @@
 
 		<link rel="canonical" href="@yield('url')">
 		<script src="https://kit.fontawesome.com/0a03567b35.js" crossorigin="anonymous"></script>
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;1,800&display=swap" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css2?family=Mulish:wght@600&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;600;800&display=swap" rel="stylesheet">
 		
 		<script type="application/ld+json">
 	    { "@context" : "http://schema.org",

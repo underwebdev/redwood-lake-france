@@ -3,8 +3,8 @@
 
 .section-one {
 	background: #ffffff;
-	background: -webkit-linear-gradient(0deg, #ffffff 0%, #eeeff1 100%);
-	background: linear-gradient(0deg, #ffffff 0%, #eeeff1 100%);
+	background: -webkit-linear-gradient(0deg, #ffffff 0%, #f7f6fb 100%);
+	background: linear-gradient(0deg, #ffffff 0%, #f7f6fb 100%);
 }
 
 h4 {
@@ -27,7 +27,7 @@ h4 {
 .nav a {
 	color: #FFFFFF;
 	margin-right: 20px;
-	font-weight: bold;
+	font-weight: 300;
 	letter-spacing: 2px;
 }
 
@@ -61,7 +61,6 @@ h4 {
 	padding-top: 25%;
 	margin-bottom: 0px;
 	font-weight: 800;
-	font-style: italic;
 	font-size: 40px;
 	-webkit-filter: drop-shadow(5px 5px 5px #222);
   	filter: drop-shadow(5px 5px 5px #222);
@@ -205,6 +204,10 @@ hr {
 }
 
 h3, h4 {
+	font-weight: 600;
+}
+
+.weighted {
 	font-weight: 800;
 }
 

@@ -24,7 +24,7 @@
 		<div class="grid-container">
 			<div class="grid-x grid-padding-x">
 				<div class="cell small-12">
-					<h3>Welcome to Etang de Seuil</h3>
+					<h3><span class="weighted">Welcome to</span> Etang de Seuil</h3>
 					<p>Etang de Seuil is a beautiful stream-fed Pre-Napoleonic seven-acre lake dating back to the 18th century. Nestled amongst fifteen acres of secluded woodland and meadows in the small hamlet of Seuil this stunning lake is a fifteen-minute drive from the market town of Bellac and the infamous Lac de Saint - Pardoux .
 					Bellac offers everything you will need for your carp fishing holiday, including a large fishing shop selling all the top carp brands. Limoges airport is 25 minutes away with direct flights from most UK airports.</p>
 				      
@@ -34,11 +34,7 @@
 	</div>
 </div>
 
-<div class="divider-curve">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-  <path fill="#EEEFF1" fill-opacity="1" d="M0,160L120,170.7C240,181,480,203,720,202.7C960,203,1200,181,1320,170.7L1440,160L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"></path>
-</svg>
-</div>
+@include('layout.wave')
 
 <div class="section-one">
 	<div class="lake-info">
@@ -46,7 +42,7 @@
 			<div class="grid-x grid-padding-x">
 				<div class="cell small-12 medium-6">
 					<div id="lake-desc">
-					<h4>The Lake</h4>
+					<h4><span class="weighted">The</span> Lake</h4>
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -78,7 +74,7 @@
 			</div><!-- End of cell-->
 			<div class="cell small-12 medium-6">
 				<div id="fish-desc">
-				<h4>The Fish</h4>
+				<h4><span class="weighted">The</span> Fish</h4>
 				<p>Situated in the Nouvelle-Aquitaine region renowned for long hot summers and extended growing seasons, the lake has received very little angling pressure over the years. Early catch reports show it contains a few unique original Carp with stocking records and photos from the previous owner showing three hundred or so fast-growing Carp were stocked between 2017 and 2020.
 				From the small amount of fishing done so far, it's clear the lake is more of a run's water and has produced mostly young pretty fish up to 40lb.<br> 
 				Due to the lack of anglers bait, many of these Carp are lean and hard fighting, having fed mainly on natural food. With the recent introduction of pellet and boilies, we now expect these fish to grow fast with plenty of surprises to come.</p>
@@ -89,28 +85,25 @@
 	</div>
 </div>
 
-<div class="divider-curve">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-  <path fill="#EEEFF1" fill-opacity="1" d="M0,160L120,170.7C240,181,480,203,720,202.7C960,203,1200,181,1320,170.7L1440,160L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"></path>
-</svg>
-</div>
+@include('layout.wave')
 
 <div class="section-one">
 	<div class="facilities">
-	<div class="grid-container">
+	<div class="grid-container full">
 		<div class="grid-x grid-padding-x">
 			<div class="cell small-12 medium-6">
-				<h4>Facilities</h4>
-			  	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			  	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			  	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			  	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			  	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			  	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				<h4><span class="weighted">Complex</span> Facilities</h4>
+			  	<p>Currently, we offer a drive and survive only, we provide all anglers with the basic facilities needed during your stay. The generator provides the house with power for the fridge, lighting, multiple USB charging points, etc. There is also a flushing toilet, wash basin, and hot showers heated by a gas boiler. Unfortunately, there is currently no drinking water, however, we provide all anglers with ten litres of bottled water on arrival.</p>
+
+				<p>Should you wish to reel in there is also a covered outdoor area up by the house with benches and a large table for multiple guests to relax, this area also has a brick barbecue available for guests to use.</p>
+				<p>If you prefer to leave the rods out will find two pub-style benches with a portable barbecue between swim three and seven.  </p>
 			</div><!-- End of cell-->
 			<div class="cell small-12 medium-6 align-self-middle">
-				<div class="photo-outline">
-			  		<img src="/img/facilities.jpg">
+				<div class="photo-outline show-for-large">
+			  		<img src="/img/facillity1.jpg">
+			  	</div>
+			  	<div class="photo-outline hide-for-large">
+			  		<img src="/img/facillity2.jpg">
 			  	</div>      
 			</div><!-- End of cell-->
 		</div><!--end of grid-x -->
@@ -118,23 +111,19 @@
 	</div>
 </div>
 
-<div class="divider-curve">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-  <path fill="#EEEFF1" fill-opacity="1" d="M0,160L120,170.7C240,181,480,203,720,202.7C960,203,1200,181,1320,170.7L1440,160L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"></path>
-</svg>
-</div>
+@include('layout.wave')
 
 <div class="section-one">
 	<div class="pricing">
 	<div class="grid-container">
 		<div class="grid-x grid-padding-x">
 			<div class="cell small-12">
-				<h4 class="text-center">Pricing</h4>
+				<h4 class="text-center"><span class="weighted">Price</span> Packages</h4>
 				<p>We will be operating a drive-and-survive lake exclusive only for five anglers, there are nine comfortable grass-lined swims to choose from. Discounted rates will be ongoing while we thin out the slower growing fish and get the lake facilities up to the high standard our anglers require.</p>
 			</div>
 			<div class="cell small-12 medium-5 medium-offset-1"> 
 				<div class="pricing-block">
-					<h4 class=text-center><strong>Package One</strong></h4>
+					<h4 class=text-center><strong>Drive & Survive</strong></h4>
 					<ul>
 						<li>Bullet One</li>
 						<li>Bullet Two</li>
@@ -153,7 +142,7 @@
 			</div><!-- End of cell-->
 			<div class="cell small-12 medium-5"> 
 				<div class="pricing-block">
-					<h4 class="text-center"><strong>Package Two</strong></h4>
+					<h4 class="text-center"><strong>Fly & Hire</strong></h4>
 					<ul>
 						<li>Bullet One</li>
 						<li>Bullet Two</li>
@@ -167,7 +156,7 @@
 						<li>Bullet Two</li>
 					</ul>
 					<hr>
-					<h6><strong>£1800 per week</strong><br><small>£240 p.p based on 5 anglers</small></h6>
+					<h6>Available Soon<br><small>£TBC</small></h6>
 				</div>
 			</div><!-- End of cell-->
 			<div class="cell small-12 text-center">
@@ -199,8 +188,8 @@
 		</div><!-- End of cell-->
 	</div><!--end of grid-x -->
 </div><!--End of grid container-->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 280">
-  <path fill="#eeeff1" fill-opacity="1" d="M0,160L120,170.7C240,181,480,203,720,202.7C960,203,1200,181,1320,170.7L1440,160L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"></path>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+  <path fill="#f7f6fb" fill-opacity="1" d="M0,160L120,170.7C240,181,480,203,720,202.7C960,203,1200,181,1320,170.7L1440,160L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"></path>
 </svg>
 </div>
 
@@ -209,7 +198,7 @@
 	<div class="grid-container">
 		<div class="grid-x grid-padding-x">
 			<div class="cell small-12 text-center">
-				<h4>Availabillity</h4>
+				<h4><span class="weighted">Booking</span> Availabillity</h4>
 				<p>We are currently taking bookings for 2022 and 2023. Please check for availability below.</p>
 			</div>
 		</div>
@@ -221,18 +210,14 @@
 	</div>
 </div>
 
-<div class="divider-curve">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-  <path fill="#EEEFF1" fill-opacity="1" d="M0,160L120,170.7C240,181,480,203,720,202.7C960,203,1200,181,1320,170.7L1440,160L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"></path>
-</svg>
-</div>
+@include('layout.wave')
 
 <div class="section-one">
 	<div class="info">
 	<div class="grid-container">
 		<div class="grid-x grid-padding-x">
 			<div class="cell small-12">
-				<h4>Gallery</h4>
+				<h4><span class="weighted">Complex</span> Gallery</h4>
 			</div><!-- End of cell-->
 		</div><!--end of grid-x -->
 	</div><!--End of grid container-->
@@ -266,18 +251,14 @@
 	</section>
 </div>
 
-<div class="divider-curve">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-  <path fill="#EEEFF1" fill-opacity="1" d="M0,160L120,170.7C240,181,480,203,720,202.7C960,203,1200,181,1320,170.7L1440,160L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"></path>
-</svg>
-</div>
+@include('layout.wave')
 
 <div class="section-one">
 	<div class="contact">
 	<div class="grid-container">
 		<div class="grid-x grid-padding-x">
 			<div class="cell small-12">
-				<h4>Contact</h4>
+				<h4><span class="weighted">Contact</span> Information</h4>
 			</div><!-- End of cell-->
 			<div class="cell small-12 medium-6">
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -291,7 +272,8 @@
 			<div class="cell small-12 medium-6 text-center align-self-middle">
 				<div class="contact-info text-center">
 					<p><i class="far fa-envelope"></i> info@etangdeseuil.co.uk<br>
-					<i class="fas fa-mobile-alt"></i> 01895 746167</p> 
+					<i class="fas fa-mobile-alt"></i> 01895 746167<br>
+					<i class="fab fa-instagram"></i> etangdeseuil</p> 
 				</div>
 			      
 			</div><!-- End of cell-->

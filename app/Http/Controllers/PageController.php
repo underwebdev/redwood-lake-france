@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class PageController extends Controller
 {
@@ -78,7 +79,22 @@ class PageController extends Controller
 
     public function weather()
     {
-        return view('pages.weather');
+        $key = '8c4607d2-0a9d-4ead-b87f-830720bd22fc';
+
+        $forecastdata = 'http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/json/353207?res=3hourly&key='.$key;
+        $forecastalt = 'http://datapoint.metoffice.gov.uk/public/data/val/wxobs/all/json/3672?res=hourly&key='.$key;
+
+        $client = new \GuzzleHttp\Client();
+        $res = $client->get($forecastdata);
+
+        if ($res->getStatusCode() == 200) {
+          $j = $res->getBody();
+          $weathernew = preg_replace('/\$/', 'mpm', $j);
+          $obj = json_decode($weathernew);
+          $forecast = $obj;
+        }
+
+        return view('pages.weather', ['forecast' => $forecast]);
     } 
 
     public function contact()
