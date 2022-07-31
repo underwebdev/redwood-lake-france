@@ -4,7 +4,7 @@
 </svg>
 </div>
 <div class="footer">
-	<div class="grid-container full">
+	<div class="grid-container">
 		<div class="grid-x grid-padding-x">
 			<div class="cell small-12 medium-3">
 				<h5>Quick Links</h5>

@@ -79,7 +79,9 @@
 			<div class="cell small-12 medium-6">
 				<div id="fish-desc">
 				<h4>The Fish</h4>
-				<p>Situated in the Nouvelle-Aquitaine region renowned for its long warm summers the lake has received very few anglers over the years, it is thought to contain a few originals, and stocking records and photos show around 300 very pretty carp were introduced from a handful of stockings between 2018 and 2020 by the previous owner, from the limited fishing we have seen so far the lake is currently more of a runs water and has so far produced big hits of fish up to 40lb. Due to the lack of bait and angling pressure, many of these fish are lean and incredibly hard fighting living mainly on naturals, many carp remain uncaught and we are sure there are plenty of surprises to come.</p>
+				<p>Situated in the Nouvelle-Aquitaine region renowned for long hot summers and extended growing seasons, the lake has received very little angling pressure over the years. Early catch reports show it contains a few unique original Carp with stocking records and photos from the previous owner showing three hundred or so fast-growing Carp were stocked between 2017 and 2020.
+				From the small amount of fishing done so far, it's clear the lake is more of a run's water and has produced mostly young pretty fish up to 40lb.<br> 
+				Due to the lack of anglers bait, many of these Carp are lean and hard fighting, having fed mainly on natural food. With the recent introduction of pellet and boilies, we now expect these fish to grow fast with plenty of surprises to come.</p>
 				</div>
 			</div><!-- End of cell-->
 		</div><!--end of grid-x -->
