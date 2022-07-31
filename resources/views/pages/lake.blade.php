@@ -19,12 +19,10 @@
 			<div class="grid-x grid-padding-x">
 				<div class="cell small-12">
 					<h3><span class="weighted">The</span> Lake</h3>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+					<p>Etang de Seuil is a beautiful stream-fed Pre-Napoleonic seven-acre lake dating back to the 18th century. Nestled amongst fifteen acres of secluded woodland and meadows in the small hamlet of Seuil this stunning lake is a fifteen-minute drive from the market town of Bellac and the infamous Lac de Saint - Pardoux.</p>
+
+					<p>The lake has received very little angling pressure over the years. Early catch reports show it contains a few unique original Carp with stocking records and photos from the previous owner showing three hundred or so fast-growing Carp were stocked between 2017 and 2020.
+					From the small amount of fishing done so far, it's clear the lake is more of a run's water and has produced mostly young pretty fish up to 40lb.</p>
 				</div><!-- End of cell-->
 			</div><!--end of grid-x -->
 		</div><!--End of grid container-->
