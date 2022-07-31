@@ -10,7 +10,7 @@
 			<h1>Lake Exclusive Carp Fishing In France</h1>
 			<h2><strong>French fishing in beautiful surroundings<br> for up to 5 anglers.</strong></h2>
 			<div class="hero-review">
-				<i class="fas fa-quote-left"></i> Customer review snippet, social proof <i class="fas fa-quote-right"></i>
+				<i class="fas fa-quote-left"></i> I caught 44 fish to 40lb. What a peaceful, tranquil lake this is. We will definately be back! <i class="fas fa-quote-right"></i>
 			</div>
 			<a href="/booking" class="button secondary hollow">Book Now</a>
 		</div><!-- End of cell-->
