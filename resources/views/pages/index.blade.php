@@ -12,7 +12,7 @@
 			<div class="hero-review">
 				<i class="fas fa-quote-left"></i> An unbelivable weeks fishing, we caught 44 fish to 40lb. What a peaceful, tranquil lake this is, will definately be back! <i class="fas fa-quote-right"></i>
 			</div>
-			<a href="/booking" class="button secondary hollow">Book Now</a>
+			<a href="/booking" class="button secondary hollow large">Book Now</a>
 		</div><!-- End of cell-->
 	</div><!--end of grid-x -->
 </div><!--End of grid container-->
@@ -25,8 +25,12 @@
 			<div class="grid-x grid-padding-x">
 				<div class="cell small-12">
 					<h3><span class="weighted">Welcome to</span> Etang de Seuil</h3>
-					<p>Etang de Seuil is a beautiful stream-fed Pre-Napoleonic seven-acre lake dating back to the 18th century. Nestled amongst fifteen acres of secluded woodland and meadows in the small hamlet of Seuil this stunning lake is a fifteen-minute drive from the market town of Bellac and the infamous Lac de Saint - Pardoux .
-					Bellac offers everything you will need for your carp fishing holiday, including a large fishing shop selling all the top carp brands. Limoges airport is 25 minutes away with direct flights from most UK airports.</p>
+					<p>Set in sixteen acres of picturesque Limousin countryside renowned for long hot summers, this stunning seven-acre Pre-Napoleonic lake nestled amongst woodland and meadows is the perfect place to relax and unwind. We offer drive and survive French carp fishing holidays for like-minded anglers that enjoy nature in peaceful surroundings.<br>
+
+The lake, situated close to the small hamlet of Seuil is hired out exclusively for group bookings of up to five anglers from the same party.
+ 
+
+Everything you need while on your carp fishing holiday can be found within a fifteen-minute drive of the lake, the market town of Bellac offers supermarkets, petrol stations, restaurants, and a large fishing tackle shop. Limoges airport is just 25 minutes away with direct flights from most UK airports.</p>
 				      
 				</div><!-- End of cell-->
 			</div><!--end of grid-x -->
@@ -68,7 +72,7 @@
 			<div class="cell small-12 medium-6 align-self-middle">
 				<div id="fish-image">
 				<div class="photo-outline">
-			    	<img src="/img/common-carp.jpeg"> 
+			    	<img src="/img/common-carp.jpg"> 
 			  </div>
 			  </div>  
 			</div><!-- End of cell-->

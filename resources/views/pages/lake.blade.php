@@ -70,7 +70,7 @@
 						<div class="cell small-12">
 							<div class="button-group">
 				    			<a href="/rules" class="button success expanded">Lake Rules</a>
-				    			<a href="/fishing-in-france" class="button success expanded hollow">French Fishing Regulation</a>
+				    			<a href="/fishing-in-france" class="button warning expanded">French Fishing Regulation</a>
 				    		</div>
 
 						</div><!-- End of cell-->

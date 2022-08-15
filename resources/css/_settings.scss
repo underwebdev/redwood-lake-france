@@ -69,11 +69,11 @@ $global-font-size: 125%;
 $global-width: rem-calc(1200);
 $global-lineheight: 1.5;
 $foundation-palette: (
-  primary: #00cce8,
+  primary: #A6D3F2,
   secondary: #FFFFFF,
-  success: #4E593E,
-  warning: #ffe02c,
-  alert: #cc4b37
+  success: #AFC3AB,
+  warning: #F7D78C,
+  alert: #FF5844
 );
 $light-gray: #e6e6e6;
 $medium-gray: #cacaca;
@@ -153,7 +153,7 @@ $header-styles: (
     'h1': ('font-size': 52),
     'h2': ('font-size': 42),
     'h3': ('font-size': 38),
-    'h4': ('font-size': 30),
+    'h4': ('font-size': 34),
     'h5': ('font-size': 25),
     'h6': ('font-size': 19),
   ),
@@ -288,14 +288,14 @@ $button-fill: solid;
 $button-background: $primary-color;
 $button-background-hover: scale-color($button-background, $lightness: -15%);
 $button-color: $white;
-$button-color-alt: $black;
+$button-color-alt: $white;
 $button-radius: $global-radius;
 $button-hollow-border-width: 2px;
 $button-sizes: (
   tiny: 0.6rem,
   small: 0.75rem,
   default: 0.9rem,
-  large: 1.25rem,
+  large: 1.1rem,
 );
 $button-palette: $foundation-palette;
 $button-opacity-disabled: 0.25;
