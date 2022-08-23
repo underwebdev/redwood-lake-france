@@ -19,8 +19,9 @@
 	<div class="grid-x grid-padding-x">
 		<div class="cell small-12">
 			<h3><span class="weighted">Finding</span> Us</h3>
-			<p>Etang de Seuil is situated in central west France just thirty minutes from Limoges nestled in the beautiful Limousin countryside. There are numerous different routes that can be used when driving here.<br> 
-			Toll and ferry costs vary considerably depending on the route you choose. The travel times we have listed below are only a guide and will obviously depend on traffic and routes etc. </p>
+			@foreach($page->modules->where('order', 1) as $module)
+				<p>{!! nl2br(e($module->content)) !!}</p>
+			@endforeach
 
 			<div class="grid-x grid-padding-x">
 				<div class="cell small-12 medium-6">
