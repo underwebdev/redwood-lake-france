@@ -46,6 +46,11 @@ class AdminController extends Controller
         return view('admin.stockdiary');
     }
 
+    public function lake()
+    {
+        return view('admin.lake');
+    }
+
     public function news()
     {
         return view('admin.news');

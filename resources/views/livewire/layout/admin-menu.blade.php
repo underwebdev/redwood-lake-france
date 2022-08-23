@@ -6,6 +6,7 @@
     <i class="fas fa-list-ol"></i> <a href="/admin/catch-reports">Catch Reports</a><br>
     <i class="fas fa-list-ol"></i> <a href="/admin/stock">Fish List</a><br>
     <i class="fas fa-list-ol"></i> <a href="/admin/stocking-diary">Stocking Diary</a><br>
+    <i class="fas fa-list-ol"></i> <a href="/admin/lake">Lake Info</a><br>
 
     <i class="fas fa-paragraph"></i> <a href="/admin/news">News</a><br>
     <i class="fas fa-list-ol"></i> <a href="/admin/photo-diary">Photo Diary</a><br>

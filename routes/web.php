@@ -43,6 +43,7 @@ Route::get('admin/catch-reports', [AdminController::class, 'catchreport']);
 Route::get('admin/stock', [AdminController::class, 'stock']);
 Route::get('admin/stock/{id}', [AdminController::class, 'fish']);
 Route::get('admin/stocking-diary', [AdminController::class, 'stockdiary']);
+Route::get('admin/lake', [AdminController::class, 'lake']);
 Route::get('admin/news', [AdminController::class, 'news']);
 Route::get('admin/news/{id}', [AdminController::class, 'article']);
 Route::get('admin/photo-diary', [AdminController::class, 'photodiary']);
