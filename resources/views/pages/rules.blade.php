@@ -19,12 +19,9 @@
 		<div class="grid-x grid-padding-x">
 			<div class="cell small-12">
 				<h3><span class="weighted">Fishery</span> Rules</h3>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> 
+				@foreach($page->modules->where('order', 1) as $module)
+					<p>{!! nl2br(e($module->content)) !!}</p>
+				@endforeach
 			</div><!-- End of cell-->
 			<div class="cell small-12 medium-8 large-6 medium-offset-2 large-offset-3">
 				<ol>
