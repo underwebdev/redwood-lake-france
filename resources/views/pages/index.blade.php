@@ -7,10 +7,10 @@
 <div class="grid-container full">
 	<div class="grid-x grid-padding-x">
 		<div class="cell small-12 medium-7 hero-text">
-			<h1>Lake Exclusive Carp Fishing In France</h1>
-			<h2><strong>French fishing in beautiful surroundings<br> for up to 5 anglers.</strong></h2>
+			<h1>{{ $page->heading }}</h1>
+			<h2><strong>{{ $page->subheading }}</strong></h2>
 			<div class="hero-review">
-				<i class="fas fa-quote-left"></i> An unbelivable weeks fishing, we caught 44 fish to 40lb. What a peaceful, tranquil lake this is, will definately be back! <i class="fas fa-quote-right"></i>
+				<i class="fas fa-quote-left"></i> {{ $review->body }} <i class="fas fa-quote-right"></i>
 			</div>
 			<a href="/booking" class="button secondary hollow large">Book Now</a>
 		</div><!-- End of cell-->
@@ -25,13 +25,9 @@
 			<div class="grid-x grid-padding-x">
 				<div class="cell small-12">
 					<h3><span class="weighted">Welcome to</span> Etang de Seuil</h3>
-					<p>Set in sixteen acres of picturesque Limousin countryside renowned for long hot summers, this stunning seven-acre Pre-Napoleonic lake nestled amongst woodland and meadows is the perfect place to relax and unwind. We offer drive and survive French carp fishing holidays for like-minded anglers that enjoy nature in peaceful surroundings.<br>
-
-The lake, situated close to the small hamlet of Seuil is hired out exclusively for group bookings of up to five anglers from the same party.
- 
-
-Everything you need while on your carp fishing holiday can be found within a fifteen-minute drive of the lake, the market town of Bellac offers supermarkets, petrol stations, restaurants, and a large fishing tackle shop. Limoges airport is just 25 minutes away with direct flights from most UK airports.</p>
-				      
+					@foreach($page->modules->where('order', 1) as $module)
+					<p>{!! nl2br(e($module->content)) !!}</p>
+					@endforeach
 				</div><!-- End of cell-->
 			</div><!--end of grid-x -->
 		</div><!--End of grid container-->
@@ -47,12 +43,9 @@ Everything you need while on your carp fishing holiday can be found within a fif
 				<div class="cell small-12 medium-6">
 					<div id="lake-desc">
 					<h4><span class="weighted">The</span> Lake</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+					@foreach($page->modules->where('order', 2) as $module)
+					<p>{!! nl2br(e($module->content)) !!}</p>
+					@endforeach
 				  </div>    
 				</div><!-- End of cell-->
 				<div class="cell small-12 medium-6 align-self-middle">
@@ -79,9 +72,9 @@ Everything you need while on your carp fishing holiday can be found within a fif
 			<div class="cell small-12 medium-6">
 				<div id="fish-desc">
 				<h4><span class="weighted">The</span> Fish</h4>
-				<p>Situated in the Nouvelle-Aquitaine region renowned for long hot summers and extended growing seasons, the lake has received very little angling pressure over the years. Early catch reports show it contains a few unique original Carp with stocking records and photos from the previous owner showing three hundred or so fast-growing Carp were stocked between 2017 and 2020.
-				From the small amount of fishing done so far, it's clear the lake is more of a run's water and has produced mostly young pretty fish up to 40lb.<br> 
-				Due to the lack of anglers bait, many of these Carp are lean and hard fighting, having fed mainly on natural food. With the recent introduction of pellet and boilies, we now expect these fish to grow fast with plenty of surprises to come.</p>
+				@foreach($page->modules->where('order', 3) as $module)
+					<p>{!! nl2br(e($module->content)) !!}</p>
+				@endforeach
 				</div>
 			</div><!-- End of cell-->
 		</div><!--end of grid-x -->
@@ -97,10 +90,9 @@ Everything you need while on your carp fishing holiday can be found within a fif
 		<div class="grid-x grid-padding-x">
 			<div class="cell small-12 medium-6">
 				<h4><span class="weighted">Complex</span> Facilities</h4>
-			  	<p>Currently, we offer a drive and survive only, we provide all anglers with the basic facilities needed during your stay. The generator provides the house with power for the fridge, lighting, multiple USB charging points, etc. There is also a flushing toilet, wash basin, and hot showers heated by a gas boiler. Unfortunately, there is currently no drinking water, however, we provide all anglers with ten litres of bottled water on arrival.</p>
-
-				<p>Should you wish to reel in there is also a covered outdoor area up by the house with benches and a large table for multiple guests to relax, this area also has a brick barbecue available for guests to use.</p>
-				<p>If you prefer to leave the rods out, you will find two pub-style benches with a portable barbecue between swim three and seven.  </p>
+			  @foreach($page->modules->where('order', 4) as $module)
+					<p>{!! nl2br(e($module->content)) !!}</p>
+				@endforeach
 			</div><!-- End of cell-->
 			<div class="cell small-12 medium-6 align-self-middle">
 				<div class="photo-outline show-for-large">
@@ -123,7 +115,9 @@ Everything you need while on your carp fishing holiday can be found within a fif
 		<div class="grid-x grid-padding-x">
 			<div class="cell small-12">
 				<h4 class="text-center"><span class="weighted">Price</span> Packages</h4>
-				<p>We will be operating a drive-and-survive lake exclusive only for five anglers, there are nine comfortable grass-lined swims to choose from. Discounted rates will be ongoing while we thin out the slower growing fish and get the lake facilities up to the high standard our anglers require.</p>
+				@foreach($page->modules->where('order', 5) as $module)
+					<p>{!! nl2br(e($module->content)) !!}</p>
+					@endforeach
 			</div>
 			<div class="cell small-12 medium-5 medium-offset-1"> 
 				<div class="pricing-block">

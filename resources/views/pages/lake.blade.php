@@ -7,7 +7,7 @@
 <div class="grid-container full">
 	<div class="grid-x grid-padding-x">
 		<div class="cell small-12 text-center">
-			<h1>Etang de Seuil</h1>
+			<h1>{{ $page->heading }}</h1>
 		</div><!-- End of cell-->
 	</div><!--end of grid-x -->
 </div><!--End of grid container-->
@@ -19,10 +19,9 @@
 			<div class="grid-x grid-padding-x">
 				<div class="cell small-12">
 					<h3><span class="weighted">The</span> Lake</h3>
-					<p>Etang de Seuil is a beautiful stream-fed Pre-Napoleonic seven-acre lake dating back to the 18th century. Nestled amongst fifteen acres of secluded woodland and meadows in the small hamlet of Seuil this stunning lake is a fifteen-minute drive from the market town of Bellac and the infamous Lac de Saint - Pardoux.</p>
-
-					<p>The lake has received very little angling pressure over the years. Early catch reports show it contains a few unique original Carp with stocking records and photos from the previous owner showing three hundred or so fast-growing Carp were stocked between 2017 and 2020.
-					From the small amount of fishing done so far, it's clear the lake is more of a run's water and has produced mostly young pretty fish up to 40lb.</p>
+					@foreach($page->modules->where('order', 1) as $module)
+					<p>{!! nl2br(e($module->content)) !!}</p>
+					@endforeach
 				</div><!-- End of cell-->
 			</div><!--end of grid-x -->
 		</div><!--End of grid container-->

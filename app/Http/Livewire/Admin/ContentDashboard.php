@@ -34,6 +34,7 @@ class ContentDashboard extends Component
         $this->metadesc = $this->selectedPage->metadescription;
         $this->metakeywords = $this->selectedPage->metakeywords;
         $this->heading = $this->selectedPage->heading;
+        $this->subheading = $this->selectedPage->subheading;
         $this->ctabutton = $this->selectedPage->ctabutton;
         $this->ctalink = $this->selectedPage->ctalink;
         $this->url = $this->selectedPage->url;

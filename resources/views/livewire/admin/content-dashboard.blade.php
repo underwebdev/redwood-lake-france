@@ -34,7 +34,7 @@
                         <thead>
                             <tr>
                                 <th>Name</th>
-                                <th></th>
+                                <th>#</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -42,7 +42,7 @@
                             @foreach($pages as $page)
                             <tr>
                                 <td>{{ $page->name }}</td>
-                                <td></td>
+                                <td>{{ $page->id }}</td>
                                 <td class="text-right">
                                     <button class="button success small" wire:click="selectPage('{{ $page->id }}')">View</button>
                                 </td>
@@ -153,7 +153,7 @@
 
                 @foreach($selectedPage->modules as $module)
                 <h5><strong>{{ $module->title }}</strong></h5>
-                <p>{{ $module->content }}</p>
+                <p>{!! nl2br(e($module->content)) !!}</p>
                 <button class="button warning" wire:click="selectModule('{{ $module->id }}')">Update Module</button>
                 @endforeach
 

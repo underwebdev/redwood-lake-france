@@ -5,34 +5,42 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use App\Models\Page;
+use App\Models\Review;
 
 class PageController extends Controller
 {
     public function index()
     {
         $page = Page::find(1);
+        $review = Review::where('featured', 1)->first();
 
-    	return view('pages.index', compact('page'));
+    	return view('pages.index', compact('page', 'review'));
+    }
+
+    public function lake()
+    {
+        $page = Page::find(2);
+
+        return view('pages.lake', compact('page'));
     }
 
     public function booking()
     {
-    	return view('pages.booking');
+        $page = Page::find(3);
+
+    	return view('pages.booking', compact('page'));
     }
 
     public function bookingterms()
     {
-        return view('pages.bookingterms');
+        $page = Page::find(4);
+
+        return view('pages.bookingterms', compact('page'));
     }
 
     public function deposit()
     {
         return view('pages.deposit');
-    }
-
-    public function lake()
-    {
-    	return view('pages.lake');
     }
 
     public function stock()
