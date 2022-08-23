@@ -62,7 +62,7 @@
 <div class="grid-container">
 	<div class="cell small-12">
 		<h3><span class="weighted">Driving</span> to Etang de Seuil</h3>
-		@foreach($page->modules->where('order', 1) as $module)
+		@foreach($page->modules->where('order', 2) as $module)
 			<p>{!! nl2br(e($module->content)) !!}</p>
 		@endforeach
 		<div class="button-group">
@@ -71,7 +71,7 @@
 		</div>
 
 		<h3><span class="weighted">Flying</span> to Etang de Seuil</h3>
-		@foreach($page->modules->where('order', 2) as $module)
+		@foreach($page->modules->where('order', 3) as $module)
 			<p>{!! nl2br(e($module->content)) !!}</p>
 		@endforeach
 		<a href="" class="button">View Flights</a>
