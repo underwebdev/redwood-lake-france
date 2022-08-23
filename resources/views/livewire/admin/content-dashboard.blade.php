@@ -1,0 +1,219 @@
+<div>
+    <div class="grid-container full">
+        <div class="grid-x grid-padding-x">
+            <div class="cell small-12">
+                <div class="admin-title-panel">
+                    <div class="grid-x">
+                        <div class="cell small-12 medium-6">
+                            <h1>@isset($selectedPage) {{ $selectedPage->name }} @endisset Content</h1>
+                        </div>
+                        <div class="cell small-12 medium-6 text-right align-self-middle">
+                            @if($mode == 1)
+                            <button class="button success" wire:click="$set('mode', 2)">New Page</button>
+                            @else
+                            @isset($selectedPage)
+                                @unless($mode == 4)
+                                    <button class="button warning" wire:click="$set('mode', 4)">Update</button>
+                                @endunless
+                            @endisset
+                            <button class="button alert" wire:click="back">Go Back</button>
+                            @endif
+                        </div><!-- End of cell-->
+                    </div>
+                </div>
+            </div><!-- End of cell-->
+        </div><!--end of grid-x -->
+        @include('layout.alerts')
+    </div><!--End of grid container-->
+    <div class="grid-container">
+        <div class="grid-x grid-padding-x">
+            @if($mode == 1)
+            <div class="cell small-12">
+                <div class="table-scroll">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($pages as $page)
+                            <tr>
+                                <td>{{ $page->name }}</td>
+                                <td></td>
+                                <td class="text-right">
+                                    <button class="button success small" wire:click="selectPage('{{ $page->id }}')">View</button>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                  
+            </div><!-- End of cell-->
+            @elseif($mode == 2)
+            <div class="cell small-12 medium-8 large-6 medium-offset-2 large-offset-3">
+                Create Page
+                <label for="">Page Name
+                    @error('name')<span class="error">{{ $message }} </span> @enderror
+                </label>
+                <input type="text" placeholder="" wire:model="name">
+
+                <label for="">Url
+                    @error('url')<span class="error">{{ $message }}</span>@enderror
+                </label>
+                <input type="text" placeholder="" wire:model="url">
+
+                <label for="">Meta Title
+                    @error('metatitle')<span class="error">{{ $message }} </span> @enderror
+                </label>
+                <input type="text" placeholder="" wire:model="metatitle">
+
+                <label for="">Meta Description
+                    @error('metadesc')<span class="error">{{ $message }} </span> @enderror
+                </label>
+                <input type="text" placeholder="" wire:model="metadesc">
+
+                <label for="">Meta Keywords
+                    @error('metakeywords')<span class="error">{{ $message }} </span> @enderror
+                </label>
+                <input type="text" placeholder="" wire:model="metakeywords">
+
+                <label for="">Heading
+                    @error('heading')<span class="error">{{ $message }} </span> @enderror
+                </label>
+                <input type="text" placeholder="" wire:model="heading">
+
+                <label for="">Sub Heading</label>
+                <input type="text" placeholder="" wire:model="subheading">
+
+                <label for="">CTA Button</label>
+                <input type="text" placeholder="" wire:model="ctabutton">
+
+                <label for="">CTA Link</label>
+                <input type="text" placeholder="" wire:model="ctalink">
+
+                <button class="button success" wire:click="savePage">Save Page</button>
+
+            </div>
+            @elseif($mode == 3)
+            <div class="cell small-12">
+                <div class="table-scroll">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Url</th>
+                                <td class="text-right">Last Updated</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{ $selectedPage->id }}</td>
+                                <td>{{ $selectedPage->name }}</td>
+                                <td>{{ $selectedPage->url }}</td>
+                                <td class="text-right">{{ date('j/m/y H:i', strtotime ($selectedPage->updated_at)) }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p><strong>Meta Title:</strong> {{ $selectedPage->metatitle }}</p>
+                <p><strong>Meta Description:</strong> {{ $selectedPage->metadescription }}</p>
+                <p><strong>Meta Keywords:</strong> {{ $selectedPage->metakeywords }}</p>
+                <p><strong>Main Heading:</strong> {{ $selectedPage->heading }}</p>
+                @isset($selectedPage->subheading)
+                <p><strong>Subheading:</strong> {{ $selectedPage->subheading }}</p>
+                @endisset
+
+                @isset($selectedPage->ctabutton)
+                <p><strong>CTA Button text:</strong> {{ $selectedPage->ctabutton }}</p>
+                @endisset
+
+                @isset($selectedPage->ctalink)
+                <p><strong>CTA Link:</strong> {{ $selectedPage->ctalink }}</p>
+                @endisset 
+
+                @unless($module)
+                <button class="button" wire:click="$set('module', true)">Create Module</button>
+                @endunless
+
+                @if($module)
+                <label for="">Title</label>
+                <input type="text" placeholder="" wire:model="title">
+
+                <label for=""></label>
+                <textarea wire:model="content" cols="50" rows="10"></textarea>
+
+                <button class="button success" wire:click="saveModule">Save Module</button>
+                <button class="button alert" wire:click="$set('module', false)">Cancel</button>
+                @endif
+
+                @foreach($selectedPage->modules as $module)
+                <h5><strong>{{ $module->title }}</strong></h5>
+                <p>{{ $module->content }}</p>
+                <button class="button warning" wire:click="selectModule('{{ $module->id }}')">Update Module</button>
+                @endforeach
+
+            </div>
+            @elseif($mode == 4)
+            <div class="cell small-12 medium-8 large-6 medium-offset-2 large-offset-3">
+                Create Page
+                <label for="">Page Name
+                    @error('name')<span class="error">{{ $message }} </span> @enderror
+                </label>
+                <input type="text" placeholder="" wire:model="name">
+
+                <label for="">Url
+                    @error('url')<span class="error">{{ $message }}</span>@enderror
+                </label>
+                <input type="text" placeholder="" wire:model="url">
+
+                <label for="">Meta Title
+                    @error('metatitle')<span class="error">{{ $message }} </span> @enderror
+                </label>
+                <input type="text" placeholder="" wire:model="metatitle">
+
+                <label for="">Meta Description
+                    @error('metadesc')<span class="error">{{ $message }} </span> @enderror
+                </label>
+                <input type="text" placeholder="" wire:model="metadesc">
+
+                <label for="">Meta Keywords
+                    @error('metakeywords')<span class="error">{{ $message }} </span> @enderror
+                </label>
+                <input type="text" placeholder="" wire:model="metakeywords">
+
+                <label for="">Heading
+                    @error('heading')<span class="error">{{ $message }} </span> @enderror
+                </label>
+                <input type="text" placeholder="" wire:model="heading">
+
+                <label for="">Sub Heading</label>
+                <input type="text" placeholder="" wire:model="subheading">
+
+                <label for="">CTA Button</label>
+                <input type="text" placeholder="" wire:model="ctabutton">
+
+                <label for="">CTA Link</label>
+                <input type="text" placeholder="" wire:model="ctalink">
+
+                <button class="button success" wire:click="savePageChanges">Save Page</button>
+                <button class="button alert" wire:click="$set('mode', 3)">Cancel</button>
+            @elseif($mode == 5)
+            <div class="cell small-12">
+                <label for="">Title</label>
+                <input type="text" placeholder="" wire:model="title">
+
+                <label for=""></label>
+                <textarea wire:model="content" cols="50" rows="10"></textarea>
+
+                <button class="button success" wire:click="saveModuleChanges">Save Changes</button>
+                <button class="button alert" wire:click="$set('mode', 3)">Cancel</button>
+            </div><!-- End of cell-->
+            @endif 
+        </div><!--end of grid-x -->
+    </div><!--End of grid container-->
+</div>

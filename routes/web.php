@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,3 +34,27 @@ Route::get('booking-terms', [PageController::class, 'bookingterms']);
 Route::get('terms-conditions', [PageController::class, 'terms']);
 Route::get('privacy-policy', [PageController::class, 'privacy']);
 Route::get('covid-19', [PageController::class, 'covid']);
+
+Route::get('admin/dashboard', [AdminController::class, 'index']);
+Route::get('admin/bookings', [AdminController::class, 'bookings']);
+Route::get('admin/bookings/{id}', [AdminController::class, 'booking']);
+Route::get('admin/anglers', [AdminController::class, 'anglers']);
+Route::get('admin/catch-reports', [AdminController::class, 'catchreport']);
+Route::get('admin/stock', [AdminController::class, 'stock']);
+Route::get('admin/stock/{id}', [AdminController::class, 'fish']);
+Route::get('admin/stocking-diary', [AdminController::class, 'stockdiary']);
+Route::get('admin/news', [AdminController::class, 'news']);
+Route::get('admin/news/{id}', [AdminController::class, 'article']);
+Route::get('admin/photo-diary', [AdminController::class, 'photodiary']);
+Route::get('admin/content', [AdminController::class, 'content']);
+Route::get('admin/rules', [AdminController::class, 'rules']);
+Route::get('admin/booking-terms', [AdminController::class, 'terms']);
+Route::get('admin/reviews', [AdminController::class, 'reviews']);
+Route::get('admin/pricing', [AdminController::class, 'pricing']);
+Route::get('admin/payments', [AdminController::class, 'payments']);
+Route::get('admin/payouts', [AdminController::class, 'payouts']);
+Route::get('admin/discounts', [AdminController::class, 'discounts']);
+Route::get('admin/financial', [AdminController::class, 'financial']);
+Route::get('admin/mailing-list', [AdminController::class, 'mailshot']);
+Route::get('admin/inbox', [AdminController::class, 'inbox']);
+Route::get('admin/settings', [AdminController::class, 'settings']);

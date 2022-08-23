@@ -6530,7 +6530,7 @@ a.thumbnail image {
   border-width: 6px;
   content: "";
   border-bottom-width: 0;
-  border-color: #f68d1f transparent transparent;
+  border-color: #F7D78C transparent transparent;
   right: 5px;
   left: auto;
   margin-top: -3px;
@@ -6544,7 +6544,7 @@ a.thumbnail image {
 }
 .dropdown.menu > li.is-active > a {
   background: transparent;
-  color: #f68d1f;
+  color: #F7D78C;
 }
 .no-js .dropdown.menu ul {
   display: none;
@@ -6576,7 +6576,7 @@ a.thumbnail image {
   border-width: 6px;
   content: "";
   border-left-width: 0;
-  border-color: transparent #f68d1f transparent transparent;
+  border-color: transparent #F7D78C transparent transparent;
   right: auto;
   left: 5px;
 }
@@ -6588,7 +6588,7 @@ a.thumbnail image {
   border-width: 6px;
   content: "";
   border-right-width: 0;
-  border-color: transparent transparent transparent #f68d1f;
+  border-color: transparent transparent transparent #F7D78C;
 }
 @media print, screen and (min-width: 40em) {
   .dropdown.menu.medium-horizontal > li.opens-left > .is-dropdown-submenu {
@@ -6613,7 +6613,7 @@ a.thumbnail image {
     border-width: 6px;
     content: "";
     border-bottom-width: 0;
-    border-color: #f68d1f transparent transparent;
+    border-color: #F7D78C transparent transparent;
     right: 5px;
     left: auto;
     margin-top: -3px;
@@ -6641,7 +6641,7 @@ a.thumbnail image {
     border-width: 6px;
     content: "";
     border-left-width: 0;
-    border-color: transparent #f68d1f transparent transparent;
+    border-color: transparent #F7D78C transparent transparent;
     right: auto;
     left: 5px;
   }
@@ -6653,7 +6653,7 @@ a.thumbnail image {
     border-width: 6px;
     content: "";
     border-right-width: 0;
-    border-color: transparent transparent transparent #f68d1f;
+    border-color: transparent transparent transparent #F7D78C;
   }
 }
 @media print, screen and (min-width: 69.5625em) {
@@ -6679,7 +6679,7 @@ a.thumbnail image {
     border-width: 6px;
     content: "";
     border-bottom-width: 0;
-    border-color: #f68d1f transparent transparent;
+    border-color: #F7D78C transparent transparent;
     right: 5px;
     left: auto;
     margin-top: -3px;
@@ -6707,7 +6707,7 @@ a.thumbnail image {
     border-width: 6px;
     content: "";
     border-left-width: 0;
-    border-color: transparent #f68d1f transparent transparent;
+    border-color: transparent #F7D78C transparent transparent;
     right: auto;
     left: 5px;
   }
@@ -6719,7 +6719,7 @@ a.thumbnail image {
     border-width: 6px;
     content: "";
     border-right-width: 0;
-    border-color: transparent transparent transparent #f68d1f;
+    border-color: transparent transparent transparent #F7D78C;
   }
 }
 @media print, screen and (min-width: 75em) {
@@ -6745,7 +6745,7 @@ a.thumbnail image {
     border-width: 6px;
     content: "";
     border-bottom-width: 0;
-    border-color: #f68d1f transparent transparent;
+    border-color: #F7D78C transparent transparent;
     right: 5px;
     left: auto;
     margin-top: -3px;
@@ -6773,7 +6773,7 @@ a.thumbnail image {
     border-width: 6px;
     content: "";
     border-left-width: 0;
-    border-color: transparent #f68d1f transparent transparent;
+    border-color: transparent #F7D78C transparent transparent;
     right: auto;
     left: 5px;
   }
@@ -6785,7 +6785,7 @@ a.thumbnail image {
     border-width: 6px;
     content: "";
     border-right-width: 0;
-    border-color: transparent transparent transparent #f68d1f;
+    border-color: transparent transparent transparent #F7D78C;
   }
 }
 @media screen and (min-width: 85.625em) {
@@ -6811,7 +6811,7 @@ a.thumbnail image {
     border-width: 6px;
     content: "";
     border-bottom-width: 0;
-    border-color: #f68d1f transparent transparent;
+    border-color: #F7D78C transparent transparent;
     right: 5px;
     left: auto;
     margin-top: -3px;
@@ -6839,7 +6839,7 @@ a.thumbnail image {
     border-width: 6px;
     content: "";
     border-left-width: 0;
-    border-color: transparent #f68d1f transparent transparent;
+    border-color: transparent #F7D78C transparent transparent;
     right: auto;
     left: 5px;
   }
@@ -6851,7 +6851,7 @@ a.thumbnail image {
     border-width: 6px;
     content: "";
     border-right-width: 0;
-    border-color: transparent transparent transparent #f68d1f;
+    border-color: transparent transparent transparent #F7D78C;
   }
 }
 .dropdown.menu.align-right .is-dropdown-submenu.first-sub {
@@ -6914,7 +6914,7 @@ a.thumbnail image {
   border-width: 6px;
   content: "";
   border-left-width: 0;
-  border-color: transparent #f68d1f transparent transparent;
+  border-color: transparent #F7D78C transparent transparent;
   right: auto;
   left: 5px;
 }
@@ -6926,7 +6926,7 @@ a.thumbnail image {
   border-width: 6px;
   content: "";
   border-right-width: 0;
-  border-color: transparent transparent transparent #f68d1f;
+  border-color: transparent transparent transparent #F7D78C;
 }
 .is-dropdown-submenu > li {
   width: 100%;
@@ -8827,4 +8827,9 @@ textarea {
 
 .fish-content {
   margin-bottom: 100px;
+}
+
+.error {
+  color: #cc4b37;
+  font-weight: bold;
 }

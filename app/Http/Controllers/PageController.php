@@ -4,12 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use App\Models\Page;
 
 class PageController extends Controller
 {
     public function index()
     {
-    	return view('pages.index');
+        $page = Page::find(1);
+
+    	return view('pages.index', compact('page'));
     }
 
     public function booking()
