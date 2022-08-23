@@ -7,7 +7,7 @@
 <div class="grid-container">
 	<div class="grid-x grid-padding-x">
 		<div class="cell small-12 text-center">
-			<h1>The Fish</h1>
+			<h1>{{ $page->heading }}</h1>
 		</div><!-- End of cell-->
 	</div><!--end of grid-x -->
 </div><!--End of grid container-->

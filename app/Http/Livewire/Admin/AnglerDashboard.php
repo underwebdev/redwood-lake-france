@@ -37,13 +37,13 @@ class AnglerDashboard extends Component
             'email' => 'exclude_unless:account,1|required|unique:users',
         ]);
 
-        $ref = 1;
+        $ref = Angler::latest()->pluck('ref')->first();
 
         $angler = Angler::create([
             'firstName' => Str::ucfirst($data['firstName']),
             'lastName' => Str::ucfirst($data['lastName']),
             'telephone' => $data['telephone'],
-            'ref' => $ref
+            'ref' => $ref + 1
         ]);
 
         if($this->account == 1)

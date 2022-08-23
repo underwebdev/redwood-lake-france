@@ -7,7 +7,7 @@
 <div class="grid-container">
 	<div class="grid-x grid-padding-x">
 		<div class="cell small-12 text-center">
-			<h1>Rules</h1>
+			<h1>{{ $page->heading }}</h1>
 		</div><!-- End of cell-->
 	</div><!--end of grid-x -->
 </div><!--End of grid container-->
@@ -28,19 +28,12 @@
 			</div><!-- End of cell-->
 			<div class="cell small-12 medium-8 large-6 medium-offset-2 large-offset-3">
 				<ol>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
+					@foreach($rules as $rule)
+					<li>{{ $rule->body }}</li>
+					@endforeach
 				</ol>
 				<div class="text-center">
-					<a href="" class="button success">French Fishing Regulations</a>
+					<a href="https://etangdeseuil.co.uk/regulations" class="button success">French Fishing Regulations</a>
 				</div>
 			</div><!-- End of cell-->
 		</div><!--end of grid-x -->

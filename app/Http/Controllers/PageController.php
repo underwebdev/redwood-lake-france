@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use App\Models\Page;
 use App\Models\Review;
+use App\Models\Rule;
+use App\Models\Term;
+use App\Models\Articles;
 
 class PageController extends Controller
 {
@@ -35,7 +38,9 @@ class PageController extends Controller
     {
         $page = Page::find(4);
 
-        return view('pages.bookingterms', compact('page'));
+        $terms = Term::all();
+
+        return view('pages.bookingterms', compact('page', 'terms'));
     }
 
     public function deposit()
@@ -43,9 +48,18 @@ class PageController extends Controller
         return view('pages.deposit');
     }
 
+    public function reports()
+    {
+        $page = Page::find(5);
+
+        return view('pages.reports', compact('page'));
+    }
+
     public function stock()
     {
-        return view('pages.stock');
+        $page = Page::find(6);
+
+        return view('pages.stock', compact('page'));
     }
 
     public function fish()
@@ -53,24 +67,41 @@ class PageController extends Controller
         return view('pages.fish');
     }
 
-    public function reports()
+    public function location()
     {
-    	return view('pages.reports');
+        $page = Page::find(7);
+
+        return view('pages.location', compact('page'));
+    }
+
+    public function facilities()
+    {
+        $page = Page::find(8);
+
+        return view('pages.facilities', compact('page'));
     }
 
     public function rules()
     {
-		return view('pages.rules');    	
+        $page = Page::find(9);
+        $rules = Rule::all();
+
+		return view('pages.rules', compact('page', 'rules'));    	
     } 
 
-    public function facilities()
+    public function regulations()
     {
-		return view('pages.facilities');
+        $page = Page::find(10);
+
+        return view('pages.regulations', compact('page'));
     }
 
     public function news()
     {
-        return view('pages.news');
+        $page = Page::find(11);
+        $articles = Article::all();
+
+        return view('pages.news', compact('page', 'articles'));
     }
 
     public function article()
@@ -80,16 +111,17 @@ class PageController extends Controller
 
     public function diary()
     {
-        return view('pages.diary');        
+        $page = Page::find(12);
+
+        return view('pages.diary', compact('page'));        
     } 
 
-    public function location()
-    {
-		return view('pages.location');
-    }
+    
 
     public function weather()
     {
+        $page = Page::find(13);
+
         $key = '8c4607d2-0a9d-4ead-b87f-830720bd22fc';
 
         $forecastdata = 'http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/json/353207?res=3hourly&key='.$key;
@@ -105,31 +137,34 @@ class PageController extends Controller
           $forecast = $obj;
         }
 
-        return view('pages.weather', ['forecast' => $forecast]);
+        return view('pages.weather', ['forecast' => $forecast, 'page' => $page]);
     } 
 
     public function contact()
     {
- 		return view('pages.contact');   	
-    }
+        $page = Page::find(14);
 
-    public function regulations()
-    {
-        return view('pages.regulations');
+ 		return view('pages.contact', compact('page'));   	
     }
 
     public function terms()
     {
-        return view('pages.terms');
+        $page = Page::find(15);
+
+        return view('pages.terms', compact('page'));
     }
 
     public function privacy()
     {
-        return view('pages.privacy');        
+        $page = Page::find(16);
+
+        return view('pages.privacy', compact('page'));        
     }
 
     public function covid()
     {
-        return view('pages.covid');
+        $page = Page::find(17);
+
+        return view('pages.covid', compact('page'));
     }
 }
