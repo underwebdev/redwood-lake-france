@@ -5,8 +5,8 @@
                 @isset($selectedSwim->photo)
                     <img src="{{ $selectedSwim->photo }}">
                 @else
-                    <div class="align-self-middle">
-                        Coming Soon
+                    <div class="cell small-12 align-self-middle text-center">
+                        <strong>Coming Soon</strong>
                     </div>
                 @endisset
             @else

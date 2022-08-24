@@ -15,4 +15,9 @@ class Lake extends Model
     {
         return $this->hasMany(Swim::class);
     }
+
+    public function images()
+    {
+        return $this->hasMany(Fishgallery::class);
+    }
 }
