@@ -8555,6 +8555,8 @@ h3, h4 {
   border-radius: 8px;
   padding: 5px 0 5px 0;
   margin: 25px 0 0 0;
+  font-weight: bold;
+  letter-spacing: 2px;
 }
 
 .date-container .button {

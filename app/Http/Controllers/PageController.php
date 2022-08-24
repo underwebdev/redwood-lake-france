@@ -8,7 +8,7 @@ use App\Models\Page;
 use App\Models\Review;
 use App\Models\Rule;
 use App\Models\Term;
-use App\Models\Articles;
+use App\Models\Article;
 use App\Models\Photodiary;
 
 class PageController extends Controller

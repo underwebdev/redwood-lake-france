@@ -21,13 +21,13 @@
 				<div class="photo-diary-hero">
 					<img src="{{ $featured->photo }}">
 				</div>
-				<p>{{ $featured->caption }}</p>
+				<p class="text-center"><strong>{{ $featured->caption }}</strong></p>
 			</div><!-- End of cell-->
 			<div class="cell small-12 medium-6 text-center">
 				<div class="photo-diary-hero">
 					<img src="{{ $secondary->photo }}">
 				</div>
-				<p>{{ $secondary->caption }}</p>
+				<p class="text-center"><strong>{{ $secondary->caption }}</strong></p>
 			</div><!-- End of cell-->
 		</div><!--end of grid-x -->
 	</div><!--End of grid container-->
@@ -39,7 +39,7 @@
 					<img src="{{ $photo->photo }}">
 				</div>
 				<div class="photo-diary-caption">
-					{{ $photo->caption }}
+					<p class="text-center"><strong>{{ $photo->caption }}</strong></p>
 				</div>
 			</div><!-- End of cell-->
 			@endforeach
