@@ -113,10 +113,14 @@ class PageController extends Controller
     {
         $page = Page::find(12);
 
-        return view('pages.diary', compact('page'));        
-    } 
+        $featured = Photodiary::where('is_featured', 1)->first();
 
-    
+        $secondary = Photodiary::where('is_featured', 2)->first();
+
+        $photos = Photodiary::where('id', '!=', $featured->id)->where('id', '!=', $secondary->id)->orderBy('date', 'desc')->paginate(60);
+
+        return view('pages.diary', compact('page', 'featured', 'secondary', 'photos'));        
+    } 
 
     public function weather()
     {

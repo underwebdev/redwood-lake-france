@@ -19,52 +19,30 @@
 		<div class="grid-x grid-padding-x">
 			<div class="cell small-12 medium-6 text-center">
 				<div class="photo-diary-hero">
-					Image one
+					<img src="{{ $featured->photo }}">
 				</div>
-				<p>Caption</p>
+				<p>{{ $featured->caption }}</p>
 			</div><!-- End of cell-->
 			<div class="cell small-12 medium-6 text-center">
 				<div class="photo-diary-hero">
-					Image two
+					<img src="{{ $secondary->photo }}">
 				</div>
-				<p>Caption</p>
+				<p>{{ $secondary->caption }}</p>
 			</div><!-- End of cell-->
 		</div><!--end of grid-x -->
 	</div><!--End of grid container-->
 	<div class="grid-container full">
 		<div class="grid-x grid-padding-x">
+			@foreach($photos as $photo)
 			<div class="cell small-6 medium-4 large-3">
 				<div class="photo-diary-thumb">
-					thumbnail
+					<img src="{{ $photo->photo }}">
 				</div>
 				<div class="photo-diary-caption">
-					this is some text
+					{{ $photo->caption }}
 				</div>
 			</div><!-- End of cell-->
-			<div class="cell small-6 medium-4 large-3">
-				<div class="photo-diary-thumb">
-					thumbnail
-				</div>
-				<div class="photo-diary-caption">
-					this is some text
-				</div>
-			</div><!-- End of cell-->
-			<div class="cell small-6 medium-4 large-3">
-				<div class="photo-diary-thumb">
-					thumbnail
-				</div>
-				<div class="photo-diary-caption">
-					this is some text
-				</div>
-			</div><!-- End of cell-->
-			<div class="cell small-6 medium-4 large-3">
-				<div class="photo-diary-thumb">
-					thumbnail
-				</div>
-				<div class="photo-diary-caption">
-					this is some text
-				</div>
-			</div><!-- End of cell-->
+			@endforeach
 		</div><!--end of grid-x -->
 	</div><!--End of grid container-->
 </div>
