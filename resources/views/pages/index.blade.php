@@ -96,7 +96,7 @@
 			</div><!-- End of cell-->
 			<div class="cell small-12 medium-6 align-self-middle">
 				<div class="photo-outline show-for-large">
-			  		<img src="/img/facillity1.jpg">
+			  		<img src="/img/facility1.jpg">
 			  	</div>
 			  	<div class="photo-outline hide-for-large">
 			  		<img src="/img/facillity2.jpg">
