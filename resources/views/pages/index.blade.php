@@ -8,9 +8,9 @@
 	<div class="grid-x grid-padding-x">
 		<div class="cell small-12 medium-7 hero-text">
 			<h1>{{ $page->heading }}</h1>
-			<h2><strong>{{ $page->subheading }}</strong></h2>
+			<h2><strong>{!! nl2br(e($page->subheading)) !!}</strong></h2>
 			<div class="hero-review">
-				<i class="fas fa-quote-left"></i> {{ $review->body }} <i class="fas fa-quote-right"></i>
+				<p><i class="fas fa-quote-left"></i> {{ $review->body }} <i class="fas fa-quote-right"></i></p>
 			</div>
 			<a href="/booking" class="button secondary hollow large">Book Now</a>
 		</div><!-- End of cell-->

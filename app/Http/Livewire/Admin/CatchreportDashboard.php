@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Models\Report;
 use App\Models\Angler;
 use App\Models\Specimen;
+use App\Models\Swim;
 use Carbon\Carbon;
 use Image;
 
@@ -24,6 +25,7 @@ class CatchreportDashboard extends Component
     public $oz;
     public $specimen;
     public $date;
+    public $swim;
     public $bait;
     public $notes;
     public $sideone;
@@ -38,6 +40,7 @@ class CatchreportDashboard extends Component
             'oz' => 'required',
             'specimen' => 'required',
             'date' => 'required',
+            'swim' => 'nullable',
             'bait' => 'nullable',
             'notes' => 'nullable',
             'sideone' => 'nullable|image|mimes:png,jpg,jpeg|max:12288',
@@ -113,6 +116,7 @@ class CatchreportDashboard extends Component
             'oz' => $data['oz'],
             'specimen_id' => $data['specimen'],
             'date' => Carbon::parse($data['date'])->format('Y-m-d'),
+            'swim_id' => $data['swim'],
             'bait' => $data['bait'],
             'notes' => $data['notes'],
             'sideone' => '/storage/reports/'.$sideOneName,
@@ -136,6 +140,7 @@ class CatchreportDashboard extends Component
         $this->oz = $this->selectedReport->oz;
         $this->specimen = $this->selectedReport->specimen_id;
         $this->date = Carbon::parse($this->selectedReport->date)->format('d-m-Y');
+        $this->swim = $this->selectedReport->swim_id;
         $this->bait = $this->selectedReport->bait;
         $this->notes = $this->selectedReport->notes;
         $this->sideone = $this->selectedReport->sideone;
@@ -153,6 +158,7 @@ class CatchreportDashboard extends Component
             'oz' => 'required',
             'specimen' => 'required',
             'date' => 'required',
+            'swim' => 'nullable',
             'bait' => 'nullable',
             'notes' => 'nullable',
         ]);
@@ -162,6 +168,7 @@ class CatchreportDashboard extends Component
             'oz' => $data['oz'],
             'specimen_id' => $data['specimen'],
             'date' => Carbon::parse($data['date'])->format('Y-m-d'),
+            'swim_id' => $data['swim'],
             'bait' => $data['bait'],
             'notes' => $data['notes'],
         ]);
@@ -339,6 +346,7 @@ class CatchreportDashboard extends Component
                     return $query->where('lastName', 'like', '%' . $lookup . '%')->orWhere('firstName', 'like', '%' . $lookup . '%');
                 })->orderBy('lastName', 'asc')->get(),
             'species' => Specimen::all(),
+            'swims' => Swim::all(),
             'reports' => Report::all(),
             'janstats' => Report::whereYear('date', $year)->whereMonth('date', '01')->get(),
             'febstats' => Report::whereYear('date', $year)->whereMonth('date', '02')->get(),

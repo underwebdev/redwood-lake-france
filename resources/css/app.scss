@@ -44,7 +44,7 @@ h4 {
 }
 
 .home {
-	background-image: url('/img/hero-background.png');
+	background-image: url('/img/hero-background.jpg');
 	background-repeat: no-repeat;
 	background-position: center bottom;
 	background-size: cover;
@@ -64,7 +64,7 @@ h4 {
 	font-size: 45px;
 	-webkit-filter: drop-shadow(5px 5px 5px #222);
   filter: drop-shadow(5px 5px 5px #222);
-  font-family: 'Expletus Sans', cursive;
+  font-family: 'Kaushan Script', cursive;
 }
 
 .hero-text h2 {
@@ -73,7 +73,7 @@ h4 {
   	margin-bottom: 25px;
   	line-height: 45px;
   	font-size: 40px;
-  	font-family: 'Expletus Sans', cursive;
+  	font-family: 'Kaushan Script', cursive;
 }
 
 .hero-text .button {
@@ -84,6 +84,11 @@ h4 {
 	margin-bottom: 25px;
 	font-size: 25px;
 	font-weight: bold;
+}
+
+.hero-review p {
+	-webkit-filter: drop-shadow(5px 5px 5px #222);
+  filter: drop-shadow(5px 5px 5px #222);
 }
 
 .hero-review i {
@@ -176,7 +181,20 @@ hr {
 }
 
 .footer a:hover {
-	color: #f68d1f;
+	color: #F7D78C;
+}
+
+.subfooter {
+	color: #FFFFFF; 
+	background-color: #232323;
+}
+
+.subfooter a {
+	color: #F7D78C;
+}
+
+.subfooter a:hover {
+	color: #FFFFFF;
 }
 
 .subscribe label {
@@ -498,11 +516,17 @@ textarea {
 	font-weight: 800;
 }
 
+.swim-list {
+	margin-bottom: 20px;
+}
 
-.swim-list ul {
-	columns: 2;
-  -webkit-columns: 2;
-  -moz-columns: 2;
+.swim-list button {
+	margin-bottom: 10px;
+	letter-spacing: 2px;
+}
+
+.swim-list i {
+	margin-right: 10px;
 }
 
 .booking-pricing{

@@ -3,9 +3,11 @@
         <div class="cell small-12 medium-8">
             @if($selectedSwim)
                 @isset($selectedSwim->photo)
-                    <img src="{{ $selectedSwim->photo">
+                    <img src="{{ $selectedSwim->photo }}">
                 @else
-                    
+                    <div class="align-self-middle">
+                        Coming Soon
+                    </div>
                 @endisset
             @else
                 <img src="/img/lake-map.png" height="800px">
@@ -32,12 +34,30 @@
                     <div class="swim-list">
                         <h3>Swims</h3>
                         <p>Click the swim names to see an image from each swim</p>
-                        @foreach($lake->swims as $swim)
-                            <button wire:click="selectSwim('{{ $swim->id }}')">
-                                <i class="fas fa-map-signs"></i> {{ $swim->name }}
-                            </button>
-                        @endforeach
-                        <button wire:click="back"><i class="fas fa-map"></i>Back To Map</button>
+                        <div class="grid-x grid-padding-x">
+                            <div class="cell small-12 medium-6">
+
+                                @foreach($lake->swims as $swim)
+                                    @if($loop->index < 5)
+                                    <button wire:click="selectSwim('{{ $swim->id }}')">
+                                        <i class="fas fa-map-signs"></i> {{ $swim->name }}
+                                    </button><br>
+                                    @endif
+                                @endforeach
+                            </div><!-- End of cell-->
+                            <div class="cell small-12 medium-6">
+                                @foreach($lake->swims as $swim)
+                                    @if($loop->index > 4)
+                                    <button wire:click="selectSwim('{{ $swim->id }}')">
+                                        <i class="fas fa-map-signs"></i> {{ $swim->name }}
+                                    </button><br>
+                                    @endif
+                                @endforeach
+                                @if($selectedSwim)
+                                    <button wire:click="back"><i class="fas fa-map"></i>Back To Map</button> 
+                                @endif
+                            </div><!-- End of cell-->
+                        </div><!--end of grid-x -->
                     </div>
                 </div><!-- End of cell-->
                 <div class="cell small-12">

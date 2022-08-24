@@ -66,7 +66,15 @@
 		  window.addEventListener('activate-datepicker', event => {
 		      var picker = new Pikaday({ 
 		        field: document.getElementById('datepicker'),
-		        format: 'D-MM-YYYY',
+		        format: 'D-M-YYYY',
+		          onSelect: function() {
+		              console.log(this.getMoment().format('Do MMMM YYYY'));
+		          }
+		      });
+
+		      var picker2 = new Pikaday({ 
+		        field: document.getElementById('datepicker2'),
+		        format: 'D-M-YYYY',
 		          onSelect: function() {
 		              console.log(this.getMoment().format('Do MMMM YYYY'));
 		          }

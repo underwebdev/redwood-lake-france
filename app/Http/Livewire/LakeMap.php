@@ -4,12 +4,13 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\Lake;
+use App\Models\Swim;
 
 class LakeMap extends Component
 {
     public $selectedSwim;
 
-    public function selectedSwim($id)
+    public function selectSwim($id)
     {
         $this->selectedSwim = Swim::findOrFail($id);
     }
