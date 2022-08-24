@@ -8365,6 +8365,7 @@ h4 {
   background-repeat: no-repeat;
   background-position: center bottom;
   background-size: cover;
+  background-attachment: fixed;
 }
 
 .hero {

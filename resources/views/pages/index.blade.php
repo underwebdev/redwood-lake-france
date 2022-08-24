@@ -223,28 +223,28 @@
 
 	<section class="horizSlider">
 	  <div class="slide">
-	    <h2 class="slideText">Text title</h2>
-	    <img width="1000" height="500" class="slideImage" src="https://source.unsplash.com/random/1000x500" alt="Filler image">
+	    <h2 class="slideText"></h2>
+	    <img width="1000" height="500" class="slideImage" src="/img/gallery/etangdeseuil-lakelong.jpg" alt="Filler image">
 	  </div>
 	  
 	  <div class="slide">
-	    <h2 class="slideText">Text title</h2>
-	    <img width="1000" height="500" class="slideImage" src="https://source.unsplash.com/random/1000x500" alt="Filler image">
+	    <h2 class="slideText"></h2>
+	    <img width="1000" height="500" class="slideImage" src="/img/gallery/etangdeseuil-sunrise.jpg" alt="Filler image">
 	  </div>
 	  
 	  <div class="slide">
-	    <h2 class="slideText">Text title</h2>
-	    <img width="1000" height="500" class="slideImage" src="https://source.unsplash.com/random/1000x500">
+	    <h2 class="slideText"></h2>
+	    <img width="1000" height="500" class="slideImage" src="/img/gallery/etangdeseuil-lake.jpg">
 	  </div>
 	  
 	  <div class="slide">
-	    <h2 class="slideText">Text title</h2>
-	    <img width="1000" height="500" class="slideImage" src="https://source.unsplash.com/random/1000x500">
+	    <h2 class="slideText"></h2>
+	    <img width="1000" height="500" class="slideImage" src="/img/gallery/etangdeseuil-grassbank.jpg">
 	  </div>
 	  
 	  <div class="slide">
-	    <h2 class="slideText">Text title</h2>
-	    <img width="1000" height="500" class="slideImage" src="https://source.unsplash.com/random/1000x500">
+	    <h2 class="slideText"></h2>
+	    <img width="1000" height="500" class="slideImage" src="/img/gallery/etangdeseuil-lakefacility.jpg">
 	  </div>
 	</section>
 </div>
