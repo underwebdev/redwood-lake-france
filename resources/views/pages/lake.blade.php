@@ -38,36 +38,13 @@
 	<div class="fish-gallery">
 		<div class="grid-container full">
 			<div class="grid-x grid-padding-x">
+				@foreach($lake->images as $image)
 				<div class="cell small-6 medium-4 text-center">
 					<div class="photo-border-block">
-						<h4>Photo Preview</h4>
+						<img src="{{ $image->photo }}">
 					</div>
 				</div><!-- End of cell-->
-				<div class="cell small-6 medium-4 text-center">
-					<div class="photo-border-block">
-						<h4>Photo Preview</h4>
-					</div>
-				</div><!-- End of cell-->
-				<div class="cell small-6 medium-4 text-center">
-					<div class="photo-border-block">
-						<h4>Photo Preview</h4>
-					</div>
-				</div><!-- End of cell-->
-				<div class="cell small-6 medium-4 text-center">
-					<div class="photo-border-block">
-						<h4>Photo Preview</h4>
-					</div>
-				</div><!-- End of cell-->
-				<div class="cell small-6 medium-4 text-center">
-					<div class="photo-border-block">
-						<h4>Photo Preview</h4>
-					</div>
-				</div><!-- End of cell-->
-				<div class="cell small-6 medium-4 text-center">
-					<div class="photo-border-block">
-						<h4>Photo Preview</h4>
-					</div>
-				</div><!-- End of cell-->
+				@endforeach
 			</div><!--end of grid-x -->
 		</div><!--End of grid container-->
 	</div>

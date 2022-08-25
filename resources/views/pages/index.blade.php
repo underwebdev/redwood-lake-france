@@ -131,17 +131,12 @@
 						<li>Bullet Four</li>
 						<li>Bullet Five</li>
 					</ul>
-					<p>Extra Services:</p>
-					<ul>
-						<li>Bullet One</li>
-						<li>Bullet Two</li>
-					</ul>
 					<hr>
 					<h6><strong>£1200 per week</strong><br><small>£240 p.p based on 5 anglers</small></h6>
 				</div>
 			</div><!-- End of cell-->
 			<div class="cell small-12 medium-5"> 
-				<div class="pricing-block">
+				<div class="pricing-block align-left">
 					<h4 class="text-center"><strong>Fly & Hire</strong></h4>
 					<ul>
 						<li>Bullet One</li>
@@ -149,11 +144,6 @@
 						<li>Bullet Three</li>
 						<li>Bullet Four</li>
 						<li>Bullet Five</li>
-					</ul>
-					<p>Extra Services:</p>
-					<ul>
-						<li>Bullet One</li>
-						<li>Bullet Two</li>
 					</ul>
 					<hr>
 					<h6>Available Soon<br><small>£TBC</small></h6>
@@ -175,19 +165,7 @@
 </svg>
 </div>
 <div class="subscribe">
-<div class="grid-container">
-	<div class="grid-x grid-padding-x">
-		<div class="cell small-12 medium-8 large-6 medium-offset-2 large-offset-3">
-			<h4 class="text-center">Subscribe For Updates</h4>
-			<p>We occassionally have weeks become available at short notice, these will usually be offered at a discounted rate, to get email notifications when these places become available enter your name and email below</p>
-				<label for="">First Name</label>
-				<input type="text" placeholder="" name="">
-				<label for="">Email</label>
-				<input type="text" placeholder="" name="">
-				<button class="button expanded secondary hollow">Get Updates</button>
-		</div><!-- End of cell-->
-	</div><!--end of grid-x -->
-</div><!--End of grid container-->
+@livewire('subscribe-form')
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
   <path fill="#f7f6fb" fill-opacity="1" d="M0,160L120,170.7C240,181,480,203,720,202.7C960,203,1200,181,1320,170.7L1440,160L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"></path>
 </svg>

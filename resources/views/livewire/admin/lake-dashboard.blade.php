@@ -12,7 +12,7 @@
                             @if($lake->images()->count() < 6)
                                 <button class="button" wire:click="$set('mode', 5)">Add Fish</button>   
                             @endif
-                            <button class="button success" wire:click="$set('mode', 2)">New Swim</button>
+                            <button class="button success" wire:click="$set('mode', 4)">New Swim</button>
                             @else
                             <button class="button alert" wire:click="back">Go Back</button>
                             @endif
@@ -99,7 +99,13 @@
         @elseif($mode == 4)
         <div class="grid-x grid-padding-x">
             <div class="cell small-12 medium-8 large-6 medium-offset-2 large-offset-3">
-                create new swim
+                <label for="">Swim Name</label>
+                <input type="text" placeholder="" wire:model="name">
+
+                <label for="">Short Name</label>
+                <input type="text" placeholder="" wire:model="shortname">
+
+                <button class="button success" wire:click="saveSwim">Save Swim</button>
             </div>
         </div><!--end of grid-x -->
         @elseif($mode == 5)

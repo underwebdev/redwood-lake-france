@@ -89,7 +89,9 @@ class LakeDashboard extends Component
             'shortname' => 'required'
         ]);
 
-        Swim::create([
+        $lake = Lake::find(1);
+
+        $lake->swims()->create([
             'name' => $data['name'],
             'shortname' => $data['shortname']
         ]);

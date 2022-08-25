@@ -20,4 +20,9 @@ class Report extends Model
     {
         return $this->belongsTo(Specimen::class);
     }
+
+    public function swim()
+    {
+        return $this->belongsTo(Swim::class);
+    }
 }

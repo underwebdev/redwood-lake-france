@@ -16,6 +16,8 @@ class AnglerDashboard extends Component
     public $ref;
     public $account;
     public $email;
+    public $lookup;
+    public $selectedAngler;
 
     public function selectAngler($id)
     {
@@ -87,8 +89,12 @@ class AnglerDashboard extends Component
 
     public function render()
     {
+        $lookup = '%'.$this->lookup.'%';
+
         return view('livewire.admin.angler-dashboard',[
-            'anglers' => Angler::all()
+            'anglers' => Angler::when($lookup, function ($query) use ($lookup) {
+                    return $query->where('lastName', 'like', '%' . $lookup . '%')->orWhere('firstName', 'like', '%' . $lookup . '%')->orWhere('ref', 'like', '%' . $lookup . '%');
+                })->get()
         ]);
     }
 }

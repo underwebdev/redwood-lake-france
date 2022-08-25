@@ -67,7 +67,7 @@
             <div class="grid-x grid-padding-x">
                 <div class="cell small-12 medium-4">
                     <div class="">
-                        <p><strong>Name:</strong> {{ $$selectedMessage->name }}</p>
+                        <p><strong>Name:</strong> {{ $selectedMessage->name }}</p>
                         <p><strong>Telephone:</strong> {{ $selectedMessage->telephone }}</p>
                         <p><strong>Email:</strong> {{ $selectedMessage->email }}</p>
                     </div>

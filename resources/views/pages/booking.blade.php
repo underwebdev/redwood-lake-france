@@ -56,7 +56,7 @@
 						<h6><strong>£1200 per week</strong><br><small>£240 p.p based on 5 anglers</small></h6>
 					</div>
 				</div><!-- End of cell-->
-				<div class="cell small-12 medium-5 medium-offset-1"> 
+				<div class="cell small-12 medium-5"> 
 					<div class="pricing-block">
 						<h4 class=text-center><strong>Fly & Hire</strong></h4>
 						<ul>

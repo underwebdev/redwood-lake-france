@@ -37,14 +37,14 @@
                                 <th class="tspace">Weight</th>
                                 <th>Species</th>
                                 <th></th>
-                                <th>Swim</th>
+                                <th class="text-center">Swim</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($reports as $report)
                             <tr>
                                 <td>{{ date('j/m/y', strtotime ($report->date)) }}</td>
-                                <td>{{ $report->angler->firstname }} {{ $report->angler->lastName }}</td>
+                                <td>{{ $report->angler->firstName }} {{ $report->angler->lastName }}</td>
                                 <td width="200" class="bluereport ">{{ $report->lbs }}lb {{ $report->oz }}oz</td>
                                 <td>{{ $report->specimen->name }}</td>
                                 <td class="text-center">
@@ -55,7 +55,13 @@
                                         <a href="{{ $report->sidetwo }}" data-lity><i class="fas fa-camera"></i></a>
                                     @endisset
                                 </td>
-                                <td>Swim</td>
+                                <td class="text-center">
+                                    @isset($report->swim_id)
+                                        {{ $report->swim->shortname }}
+                                    @else
+                                        N/A
+                                    @endisset 
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>

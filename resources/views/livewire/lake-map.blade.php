@@ -33,7 +33,7 @@
                 <div class="cell small-12">
                     <div class="swim-list">
                         <h3>Swims</h3>
-                        <p>Click the swim names to see an image from each swim</p>
+                        <p><i class="fas fa-info-circle"></i> Click the swim names to see the lake from each swim.</p>
                         <div class="grid-x grid-padding-x">
                             <div class="cell small-12 medium-6">
 

@@ -25,7 +25,7 @@
 		@if($mode == 1)
 		<div class="grid-container">
 			<div class="grid-x grid-padding-x">
-				<div class="cell small-12">
+				<div class="cell small-12 medium-10 large-8 medium-offset-1 large-offset-2">
 					<form wire:submit.prevent="saveArticle">
 						<label for="">Title @error('title')<span class="error">{{ $message }}</span>@enderror</label>
 						<input type="text" placeholder="" wire:model="title">

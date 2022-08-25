@@ -10,6 +10,7 @@ use App\Models\Rule;
 use App\Models\Term;
 use App\Models\Article;
 use App\Models\Photodiary;
+use App\Models\Lake;
 
 class PageController extends Controller
 {
@@ -25,7 +26,9 @@ class PageController extends Controller
     {
         $page = Page::find(2);
 
-        return view('pages.lake', compact('page'));
+        $lake = Lake::find(1);
+
+        return view('pages.lake', compact('page', 'lake'));
     }
 
     public function booking()

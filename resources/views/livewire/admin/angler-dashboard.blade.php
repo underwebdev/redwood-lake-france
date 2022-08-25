@@ -29,6 +29,7 @@
                     <table>
                         <thead>
                             <tr>
+                                <th>#</th>
                                 <th>Name</th>
                                 <th>Telephone</th>
                                 <th>Email</th>
@@ -39,6 +40,7 @@
                         <tbody>
                             @foreach($anglers as $angler)
                             <tr>
+                                <td>{{ $angler->ref }}</td>
                                 <td>{{ $angler->firstName }} {{ $angler->lastName }}</td>
                                 <td>@isset($angler->telephone) {{ $angler->telephone }} @else N/A @endisset</td>
                                 <td>
@@ -114,7 +116,7 @@
                                 </td>
                                 <td></td>
                                 <td class="text-right">
-                                    <button class="button small" wire:click="$set('mode', 4)">View</button>
+                                    <button class="button small warning" wire:click="$set('mode', 4)">Update</button>
                                 </td>
                             </tr>
                         </tbody>

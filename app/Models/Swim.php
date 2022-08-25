@@ -15,4 +15,9 @@ class Swim extends Model
     {
         return $this->belongsTo(Lake::class);
     }
+
+    public function reports()
+    {
+        return $this->hasMany(Report::class);
+    }
 }

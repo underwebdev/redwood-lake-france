@@ -1,8 +1,8 @@
 <div>
     @if($sent)
 
-        <h4>Message Sent!</h4>
-        <p>Thank you for your message. We aim to reply within 24 hours</p>
+        <h4 class="text-center">Message Sent!</h4>
+        <p class="text-center">Thank you for your message. We aim to reply within 24 hours</p>
 
     @else
         <label for="">Name
@@ -18,7 +18,7 @@
         <label for="">Telephone
             @error('telephone')<span class="error">{{ $message }}</span>@endif
         </label>
-        <input type="text" placeholder="" wire:model="email">
+        <input type="text" placeholder="" wire:model="telephone">
 
         <label for="">Message
             @error('message')<span class="error">{{ $message }}</span>@endif
