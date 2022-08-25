@@ -17,17 +17,17 @@
             <div class="grid-x grid-padding-x">
                 <div class="cell small-6 medium-6 ml-3 large-6">
                     <h3 class="heading-font yellow">Info</h3>
-                      <p><strong>Size:</strong> 7 acres<br>
-                      <strong>Swims: </strong> 9<br>
-                      <strong>Rod Limit: </strong> 3<br>
+                      <p><strong>Size:</strong> {{ $lake->size }}<br>
+                      <strong>Swims: </strong> {{ $lake->swims->count() }}<br>
+                      <strong>Rod Limit: </strong> {{ $lake->rodlimit }}<br>
                       <strong>Open:</strong> All Year</p>
                 </div><!-- End of cell-->
                 <div class="cell small-6 medium-6 ml-3 large-6">
                     <h3 class="heading-font yellow">Records</h3>
-                      <p><strong>Common: </strong>39lb 0oz<br>
-                      <strong>Mirror: </strong>39lb 0oz<br>
-                      <strong>Total fish: </strong>350<br>
-                      <strong>Average size: </strong>20lb</p>
+                      <p><strong>Common: </strong>{{ $lake->lrcommon }}<br>
+                      <strong>Mirror: </strong>{{ $lake->lrmirror }}<br>
+                      <strong>Total fish: </strong>{{ $lake->stock }}<br>
+                      <strong>Average size: </strong>{{ $lake->avgsize }}</p>
                      </p>    
                 </div><!-- End of cell-->
                 <div class="cell small-12">
