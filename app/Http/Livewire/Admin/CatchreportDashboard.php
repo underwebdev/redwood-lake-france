@@ -10,6 +10,7 @@ use App\Models\Report;
 use App\Models\Angler;
 use App\Models\Specimen;
 use App\Models\Swim;
+use App\Models\Francereport;
 use Carbon\Carbon;
 use Image;
 
@@ -31,6 +32,29 @@ class CatchreportDashboard extends Component
     public $sideone;
     public $sidetwo;
     public $selectedReport;
+
+    public function copy()
+    {
+        $reports = Francereport::get();
+
+        foreach($reports as $report)
+        {
+            Report::create([
+                'angler_id' => 1,
+                'lbs' => $report->lbs,
+                'oz' => $report->oz,
+                'specimen_id' => $report->specimen_id,
+                'date' => $report->date,
+                'sideone' => $report->sideone,
+                'sideonethumb' => $report->sideoneThumb,
+                'sidetwo' => $report->sidetwo,
+                'sidetwothumb' => $report->sidetwoThumb,
+                'notes' => $report->notes
+            ]);
+        }
+
+        session()->flash('success', 'Copy Complete!');
+    }
 
     public function saveReport()
     {

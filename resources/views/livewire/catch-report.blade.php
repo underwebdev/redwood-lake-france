@@ -11,7 +11,11 @@
             </div><!-- End of cell-->
             <div class="cell small-12 medium-4">
                <select wire:model="selectedWeight">
-                    <option value="">Select Weight</option> 
+                    <option value="">Select Weight</option>
+                    <option value="10">10+</option>
+                    <option value="20">20+</option>
+                    <option value="30">30+</option>
+                    <option value="40">40+</option> 
                 </select>        
             </div><!-- End of cell-->
             <div class="cell small-12 medium-4">

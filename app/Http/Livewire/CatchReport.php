@@ -15,8 +15,18 @@ class CatchReport extends Component
     
     public function render()
     {
+        $specimen = $this->selectedSpecies;
+        $weight = $this->selectedWeight;
+        $swim = $this->selectedSwim;
+
         return view('livewire.catch-report',[
-            'reports' => Report::all(),
+            'reports' => Report::when($specimen, function ($query) use ($specimen) {
+                    return $query->where('specimen_id', $specimen);
+                })->when($weight, function ($query) use ($weight) {
+                    return $query->where('lbs', '>', $weight);
+                })->when($swim, function ($query) use ($swim) {
+                    return $query->where('swim_id', $swim);
+                })->paginate(50),
             'specimens' => Specimen::all(),
             'swims' => Swim::all()
         ]);
