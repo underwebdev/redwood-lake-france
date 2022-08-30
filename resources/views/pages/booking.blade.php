@@ -37,44 +37,39 @@
 					<p>{!! nl2br(e($module->content)) !!}</p>
 				@endforeach
 			</div>
+			@foreach($priceguides as $priceguide)
 			<div class="cell small-12 medium-5 medium-offset-1"> 
-					<div class="pricing-block">
-						<h4 class=text-center><strong>Drive & Survive</strong></h4>
-						<ul>
-							<li>Bullet One</li>
-							<li>Bullet Two</li>
-							<li>Bullet Three</li>
-							<li>Bullet Four</li>
-							<li>Bullet Five</li>
-						</ul>
-						<p>Extra Services:</p>
-						<ul>
-							<li>Bullet One</li>
-							<li>Bullet Two</li>
-						</ul>
-						<hr>
-						<h6><strong>£1200 per week</strong><br><small>£240 p.p based on 5 anglers</small></h6>
-					</div>
-				</div><!-- End of cell-->
-				<div class="cell small-12 medium-5"> 
-					<div class="pricing-block">
-						<h4 class=text-center><strong>Fly & Hire</strong></h4>
-						<ul>
-							<li>Bullet One</li>
-							<li>Bullet Two</li>
-							<li>Bullet Three</li>
-							<li>Bullet Four</li>
-							<li>Bullet Five</li>
-						</ul>
-						<p>Extra Services:</p>
-						<ul>
-							<li>Bullet One</li>
-							<li>Bullet Two</li>
-						</ul>
-						<hr>
-						<h6>Available Soon<br><small>£TBC</small></h6>
-					</div>
-				</div><!-- End of cell-->
+				<div class="pricing-block">
+					<h4 class=text-center><strong>{{ $priceguide->package->name }}</strong></h4>
+					<ul>
+						@foreach($priceguide->package->breakdowns as $breakdown)
+							<li>{{ $breakdown->body }}</li>
+						@endforeach
+					</ul>
+					<hr>
+					<h6><strong>£{{ $priceguide->price / 100 }} per week</strong><br><small>£{{ $priceguide->price / 5 / 100 }} p.p based on 5 anglers</small></h6>
+				</div>
+			</div><!-- End of cell-->
+			@endforeach
+			<div class="cell small-12 medium-5"> 
+				<div class="pricing-block">
+					<h4 class=text-center><strong>Fly & Hire</strong></h4>
+					<ul>
+						<li>Bullet One</li>
+						<li>Bullet Two</li>
+						<li>Bullet Three</li>
+						<li>Bullet Four</li>
+						<li>Bullet Five</li>
+					</ul>
+					<p>Extra Services:</p>
+					<ul>
+						<li>Bullet One</li>
+						<li>Bullet Two</li>
+					</ul>
+					<hr>
+					<h6>Available Soon<br><small>£TBC</small></h6>
+				</div>
+			</div><!-- End of cell-->
 			<div class="cell small-12 text-center">
 				<p>All bookings require a £700 deposit to confirm the requested dates. The remaining balance is due 12 weeks prior to arrival.</p>
 

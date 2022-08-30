@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,3 +60,16 @@ Route::get('admin/financial', [AdminController::class, 'financial']);
 Route::get('admin/mailing-list', [AdminController::class, 'mailshot']);
 Route::get('admin/inbox', [AdminController::class, 'inbox']);
 Route::get('admin/settings', [AdminController::class, 'settings']);
+
+Route::middleware(['auth'])->group(function () {
+	Route::get('logout', [LoginController::class, 'logout']);
+});
+
+Route::middleware(['guest'])->group(function () {
+	Route::get('claim-account', [LoginController::class, 'claim']);
+	Route::post('claim-account', [LoginController::class, 'register']);
+	Route::get('login', [LoginController::class, 'login'])->name('login');
+	Route::post('login', [LoginController::class, 'authenticate']);
+	Route::get('forgot-password', [LoginController::class, 'forgot']);
+	Route::post('forgot-password', [LoginController::class, 'reset']);	
+});

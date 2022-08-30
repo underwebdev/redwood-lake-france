@@ -10,6 +10,7 @@ use App\Models\Rule;
 use App\Models\Term;
 use App\Models\Article;
 use App\Models\Photodiary;
+use App\Models\Priceguide;
 use App\Models\Lake;
 
 class PageController extends Controller
@@ -18,8 +19,9 @@ class PageController extends Controller
     {
         $page = Page::find(1);
         $review = Review::where('featured', 1)->first();
+        $priceguides = Priceguide::whereNotNull('featured')->get();
 
-    	return view('pages.index', compact('page', 'review'));
+    	return view('pages.index', compact('page', 'review', 'priceguides'));
     }
 
     public function lake()
@@ -35,7 +37,9 @@ class PageController extends Controller
     {
         $page = Page::find(3);
 
-    	return view('pages.booking', compact('page'));
+        $priceguides = Priceguide::whereNotNull('featured')->get();
+
+    	return view('pages.booking', compact('page', 'priceguides'));
     }
 
     public function bookingterms()

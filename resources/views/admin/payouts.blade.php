@@ -2,4 +2,6 @@
 
 @section('content')
 
+@livewire('admin.payout-dashboard')
+
 @endsection
