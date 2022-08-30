@@ -16,7 +16,6 @@
                                         Gallery View
                                     @endif
                                 </button>
-                                <button class="button alert" wire:click="copy">Copy Report</button>
                                 <button class="button success" wire:click="$set('mode', 2)">New Report</button>
                             @else
 
