@@ -47,6 +47,25 @@ class StorageDashboard extends Component
         session()->flash('success', 'Database Updated');
     }
 
+    public function cleanupSpecies()
+    {
+        $reports = Report::where('date', '<', '2022-07-05')->get();
+
+        foreach($reports as $report)
+        {
+            if($report->specimen_id == 1)
+            {
+                $report->update([
+                    'specimen_id' => 2
+                ]);
+            } elseif($report->specimen_id == 2) {
+                $report->update([
+                    'specimen_id' => 1
+                ]);
+            }
+        }
+    }
+
     public function render()
     {
         return view('livewire.admin.storage-dashboard', [

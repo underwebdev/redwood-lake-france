@@ -380,7 +380,7 @@ class CatchreportDashboard extends Component
                 })->orderBy('lastName', 'asc')->get(),
             'species' => Specimen::all(),
             'swims' => Swim::all(),
-            'reports' => Report::all(),
+            'reports' => Report::orderBy('date', 'desc')->get(),
             'janstats' => Report::whereYear('date', $year)->whereMonth('date', '01')->get(),
             'febstats' => Report::whereYear('date', $year)->whereMonth('date', '02')->get(),
             'marstats' => Report::whereYear('date', $year)->whereMonth('date', '03')->get(),
