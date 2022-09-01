@@ -86,6 +86,7 @@
                                     <td class="text-center">Weight</td>
                                     <td class="text-center">Species</td>
                                     <td class="text-center"></td>
+                                    <td>Swim</td>
                                     <td>Bait</td>
                                     <td>Notes</td>
                                     <td></td>
@@ -106,6 +107,7 @@
                                         <a href="{{ $report->sidetwo }}" data-lity><i class="fas fa-camera"></i></a>
                                         @endisset
                                     </td>
+                                    <td>{{ $report->swim->shortname }}</td>
                                     <td>{{ $report->bait }}</td>
                                     <td>{{ $report->notes }}</td>
                                     <td class="text-right">
