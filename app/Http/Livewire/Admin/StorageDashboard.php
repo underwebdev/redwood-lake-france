@@ -13,13 +13,17 @@ class StorageDashboard extends Component
 
         foreach($photos as $photo)
         {
-            
+
         }
 
         Storage::move('old/file.jpg', 'new/file.jpg');
     }
 
-    public function moveThumbnails
+    public function moveThumbnails()
+    {
+
+    }
+    
     public function render()
     {
         return view('livewire.admin.storage-dashboard'[
