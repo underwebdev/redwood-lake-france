@@ -67,7 +67,7 @@
 			<div class="cell small-12 medium-6 align-self-middle">
 				<div id="fish-image">
 				<div class="photo-outline">
-			    	<img src="/img/common-carp.jpg"> 
+			    	<img src="/img/fish-preview.jpeg"> 
 			  </div>
 			  </div>  
 			</div><!-- End of cell-->
@@ -98,7 +98,7 @@
 			</div><!-- End of cell-->
 			<div class="cell small-12 medium-6 align-self-middle">
 				<div class="photo-outline show-for-large">
-			  		<img src="/img/facility1.jpg">
+			  		<img src="/img/facility.jpeg">
 			  	</div>
 			  	<div class="photo-outline hide-for-large">
 			  		<img src="/img/facillity2.jpg">
@@ -121,11 +121,14 @@
 					<p>{!! nl2br(e($module->content)) !!}</p>
 					@endforeach
 			</div>
+		</div>
 
+		<div class="grid-x grid-padding-x" data-equalizer data-equalize-on="medium">
 			@foreach($priceguides as $priceguide)
-			<div class="cell small-12 medium-5 medium-offset-1"> 
-				<div class="pricing-block">
+			<div class="cell small-12 medium-6 medium-offset-3"> 
+				<div class="pricing-block" data-equalizer-watch>
 					<h4 class=text-center><strong>{{ $priceguide->package->name }}</strong></h4>
+						@isset($priceguide->name)<h5 class="text-center">{{ $priceguide->name }}</h5>@endisset
 					<ul>
 						@foreach($priceguide->package->breakdowns as $breakdown)
 							<li>{{ $breakdown->body }}</li>
@@ -136,22 +139,7 @@
 				</div>
 			</div><!-- End of cell-->
 			@endforeach
-			<div class="cell small-12 medium-5"> 
-				<div class="pricing-block align-left">
-					<h4 class="text-center"><strong>Fly & Hire</strong></h4>
-					<ul>
-						<li>Bullet One</li>
-						<li>Bullet Two</li>
-						<li>Bullet Three</li>
-						<li>Bullet Four</li>
-						<li>Bullet Five</li>
-					</ul>
-					<hr>
-					<h6>Available Soon<br><small>£TBC</small></h6>
-				</div>
-			</div><!-- End of cell-->
 			<div class="cell small-12 text-center">
-				<p>All bookings require a 20% deposit to confirm the requested dates. The remaining balance is due 8 weeks prior to arrival.</p>
 				<a href="/booking" class="button large">View Availabillity</a>
 			      
 			</div><!-- End of cell-->
@@ -178,7 +166,7 @@
 		<div class="grid-x grid-padding-x">
 			<div class="cell small-12 text-center">
 				<h4><span class="weighted">Booking</span> Availabillity</h4>
-				<p>We are currently taking bookings for 2022 and 2023. Please check for availability below.</p>
+				<p>We are currently taking bookings up until {{ Carbon\Carbon::parse($latestdate)->format('F Y') }}. Please check for availability below.</p>
 			</div>
 		</div>
 		@include('layout.calendar')
@@ -240,12 +228,9 @@
 				<h4><span class="weighted">Contact</span> Information</h4>
 			</div><!-- End of cell-->
 			<div class="cell small-12 medium-6">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				@foreach($page->modules->where('order', 6) as $module)
+					<p>{!! nl2br(e($module->content)) !!}</p>
+				@endforeach
 			      
 			</div><!-- End of cell-->
 			<div class="cell small-12 medium-6 text-center align-self-middle">

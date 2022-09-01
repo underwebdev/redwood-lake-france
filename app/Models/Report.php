@@ -25,4 +25,9 @@ class Report extends Model
     {
         return $this->belongsTo(Swim::class);
     }
+
+    public function stock()
+    {
+        return $this->belongsTo(Report::class);
+    }
 }

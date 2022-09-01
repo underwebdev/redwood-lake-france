@@ -14,14 +14,14 @@ class LoginController extends Controller
 {
 	public function login()
 	{
-		return view('login.login');
+		return view('auth.login');
 	}
 
     public function claim()
     {
         $years = range(Carbon::now()->subYears(12)->year, 1920);
 
-    	return view('login.claim', compact('years'));
+    	return view('auth.create', compact('years'));
     }
 
     public function register()
@@ -138,7 +138,7 @@ class LoginController extends Controller
 
     public function forgot()
     {
-        return view('login.forgot');
+        return view('auth.forgot');
     }
 
     public function reset()
@@ -155,7 +155,7 @@ class LoginController extends Controller
         
         if($member == Null)
         {
-           return redirect('/forgot-password')->with('failure', 'Details provided to not match our records, if this is incorrect please contact paulst@croxleyhall.co.uk');
+           return redirect('/forgot-password')->with('failure', 'Details provided to not match our records, if this is incorrect please contact email');
         } else {
             $member = Member::where('memberNo', $memberNo)->first();
         }
@@ -175,11 +175,11 @@ class LoginController extends Controller
 
                 return redirect('/login')->with('success', 'Password successfully reset! Please check your email for your new password');
             } else {
-                return redirect('/forgot-password')->with('failure', 'Email does not match that membership number. Please try again or contact paulst@croxleyhall.co.uk');
+                return redirect('/forgot-password')->with('failure', 'Email does not match that membership number. Please try again or contact email address');
             }
         } else {
 
-            return redirect('/forgot-password')->with('failure', 'Details provided to not match our records, if this is incorrect please contact paulst@croxleyhall.co.uk');
+            return redirect('/forgot-password')->with('failure', 'Details provided to not match our records, if this is incorrect please contact email address');
         }
 
     }

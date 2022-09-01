@@ -9,9 +9,9 @@
                         </div>
                         <div class="cell small-12 medium-6 text-right align-self-middle">
                             @if($mode == 1)
-                           
+                                <button class="button warning" wire:click="$set('mode', 2)">Unmatched</button>   
                             @else
-                            <button class="button alert" wire:click="back">Go Back</button>
+                                <button class="button alert" wire:click="back">Go Back</button>
                             @endif
                         </div><!-- End of cell-->
                     </div>
@@ -21,32 +21,358 @@
         @include('layout.alerts')
     </div><!--End of grid container-->
     <div class="grid-container full">
+        @if($mode == 1)
         <div class="grid-x grid-padding-x">
         <div class="cell small-12">
             <div class="table-scroll">
                 <table>
                     <thead>
                         <tr>
-                         
-                            <td>Mirror</td>
-                            <td>Common</td>
-                            <td>Total</td>
+                            <td class="text-center">Common</td>
+                            <td class="text-center">Mirror</td>
+                            <td class="text-center">Total</td>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td class="text-center">
+                                <button wire:click="speciesFilter('2')">
+                                    {{ $stock->where('specimen_id', 2)->count() }}
+                                </button>
+                            </td>
+                            <td class="text-center">
+                                <button wire:click="speciesFilter('1')">
+                                    {{ $stock->where('specimen_id', 1)->count() }}
+                                </button>
+                            </td>
+                            <td class="text-center">
+                                <button wire:click="clearSpeciesFilter">
+                                    {{ $stock->count() }}
+                                </button>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
 
-            <div class="text-center">
-                <div wire:loading wire:target="resultFilter">
-                    Loading Fish...
-                </div>
+            <div class="table-scroll">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Total</th>
+                            <th>55+</th>
+                            <th>50+</th>
+                            <th>45+</th>
+                            <th>40+</th>
+                            <th>35+</th>
+                            <th>30+</th>
+                            <th>25+</th>
+                            <th>20+</th>
+                            <th>20<</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <button wire:click="clearFilter">
+                                    {{ $fishlist->count() }}
+                                </button>
+                            <td>
+                                <button wire:click="weightFilter('54', '>')">
+                                    {{ $fishlist->where('lbs', '>', 54)->count() }}
+                                </button>
+                            </td>
+                            <td>
+                                <button wire:click="weightFilter('49', '>')">
+                                    {{ $fishlist->where('lbs', '>', 49)->count() }}
+                                </button>
+                            </td>
+                            <td>
+                                <button wire:click="weightFilter('44', '>')">
+                                    {{ $fishlist->where('lbs', '>', 44)->count() }}
+                                </button>
+                            </td>
+                            <td>
+                                <button wire:click="weightFilter('39', '>')">
+                                    {{ $fishlist->where('lbs', '>', 39)->count() }}
+                                </button>
+                            </td>
+                            <td>
+                                <button wire:click="weightFilter('34', '>')">
+                                    {{ $fishlist->where('lbs', '>', 34)->count() }}
+                                </button>
+                            </td>
+                            <td>
+                                <button wire:click="weightFilter('29', '>')">
+                                    {{ $fishlist->where('lbs', '>', 29)->count() }}
+                                </button>
+                            </td>
+                            <td>
+                                <button wire:click="weightFilter('24', '>')">
+                                    {{ $fishlist->where('lbs', '>', 24)->count() }}
+                                </button>
+                            </td>
+                            <td>
+                                <button wire:click="weightFilter('19', '>')">
+                                    {{ $fishlist->where('lbs', '>', 19)->count() }}
+                                </button>
+                            </td>
+                            <td>
+                                <button wire:click="weightFilter('20', '<')">
+                                    {{ $fishlist->where('lbs', '<', 20)->count() }}
+                                    </button>
+                                </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
+        </div>
+        @foreach($fishlist as $fish)
+            <div class="cell small-12 medium-4 large-3">
+                <img src="{{ $fish->sideone }}">
+                @isset($fish->name)<strong>{{ $fish->name }}</strong>@endisset
+                <strong>Top Weight:</strong> {{ $fish->lbs }}lb {{ $fish->oz }}oz<br>
+                <strong>Last Capture:</strong> 
+                @foreach($fish->reports as $report)
+                    @if($loop->first)
+                        {{ date('j/m/y', strtotime ($report->date)) }}<br>
+                    @endif
+                @endforeach
+                @if($fish->reports->count() < 1)
+                    N/A <br>
+                @endif
+                <strong>Captures:</strong>{{ $fish->reports()->count() }}
+                <button class="button success expanded" wire:click="selectFish('{{ $fish->id }}')">View Fish</button>
+            </div><!-- End of cell-->
+            @endforeach
+        </div>
+        @elseif($mode == 2)
+        <div class="grid-x grid-padding-x">
+            @foreach($reports as $report)
+            <div class="cell small-12 medium-4 large-3">
+                <img src="{{ $report->sideone }}">
+                <button class="button success expanded" wire:click="selectReport('{{ $report->id }}')">Look Up</button>
+            </div><!-- End of cell-->
+            @endforeach
+        </div><!--end of grid-x -->
+        @elseif($mode == 3)
+        <div class="grid-x grid-padding-x">
+            <div class="cell small-12 medium-4">
+                <div class="sticky">
+                    <img src="{{ $selectedReport->sideonethumb }}">
+                    <div class="button-group">
+                        <button class="button success expanded" wire:click="$set('mode', 4)">Create Fish</button>
+                        <button class="button warning expanded" wire:click="$set('mode', 2)">Back To Unmatched</button>
+                    </div>
+                </div>
+            </div><!-- End of cell-->
+            <div class="cell small-12 medium-8">
+                <div class="grid-x grid-padding-x">
+                    @foreach($stock as $fish)
+                    <div class="cell small-12 medium-6">
+                        <img src="{{ $fish->sideonethumb }}">
+                        <button class="button success expanded" wire:click="attachReport('{{ $fish->id }}')">Attach Fish</button>
+                    </div><!-- End of cell-->
+                    <div class="cell small-12 medium-6">
+                        @isset($fish->sidetwothumb)
+                        <img src="{{ $fish->sidetwothumb }}">
+                        @else
+                            <p class="text-center"><strong>Not Available</strong></p>
+                        @endisset
+                    </div><!-- End of cell-->
+                    @endforeach
+                </div><!--end of grid-x -->
+            </div><!-- End of cell-->
+        </div><!--end of grid-x -->
+        @elseif($mode == 4)
+        <div class="grid-x grid-padding-x">
+            <div class="cell small-12">
+                <h4>Create new fish</h4>
+                <img src="{{ $selectedReport->sideonethumb }}">
+                <img src="{{ $selectedReport->sidetwothumb }}">
+                <strong>Weight:</strong> {{ $selectedReport->lbs }}lb {{ $selectedReport->oz }}oz<br>
+                <strong>Species:</strong> {{ $selectedReport->specimen->name }}
+                <label for="">Name (optional)</label>
+                <input type="text" placeholder="" wire:model="name">
+                <label for=""></label>
+                <textarea wire:model="description" cols="50" rows="10"></textarea>
+                <label for="">Destock</label>
+                <select id="" wire:model="destock">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option> 
+                </select>
+                <button class="button success" wire:click="saveFish">Save Fish</button>
+                <button class="button alert" wire:click="$set('mode', 3)">Cancel</button>
+                  
+            </div><!-- End of cell-->
+        </div><!--end of grid-x -->
+        @elseif($mode == 5)
+        <div class="grid-x grid-padding-x">
+            <div class="cell small-12">
+                <div class="table-scroll">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Name</td>
+                            <td>Species</td>
+                            <td>Top Weight</td>
+                            <td>Last Capture</td>
+                            <td class="text-center">Captures</td>
+                            <td>Description</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                @isset($selectedFish->name)
+                                    <a data-open="editName">{{ $selectedFish->name }}</a>
+                                @else
+                                    <a data-open="name">Set Name</a>
+                                @endisset
+                            </td>
+                            <td>{{$selectedFish->specimen->name }}</td>
+                            <td>{{ $selectedFish->lbs }}lb {{ $selectedFish->oz }}oz</td>
+                            <td>
+                                @foreach($selectedFish->reports as $report)
+                                    @if($loop->first)
+                                        {{ date('j/m/y', strtotime ($report->date)) }}<br>
+                                    @endif
+                                @endforeach
+                            </td>
+                            <td class="text-center">{{ $selectedFish->reports->count() }}</td>
+                            <td>
+                                @isset($fish->description)
+                                    <a data-open="editDescription">{{ $selectedFish->description }}</a>
+                                @else
+                                    <a data-open="description">Set Description</a>
+                                @endisset
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+            </div><!-- End of cell-->
+        </div><!--end of grid-x -->
+        <div class="grid-x grid-padding-x">
+            <div class="cell small-12 medium-4">
+                <div class="cell small-12 text-center" data-sticky-container>
+                <div class="sticky" data-sticky data-top-anchor="dark-container:bottom">
+                    <div class="photo-border-block">
+                        <a href="{{ $selectedFish->sideone }}" data-lity>
+                        <img src="{{ $selectedFish->sideone }}">
+                        </a>
+                    </div>
+                    @isset($fish->sidetwo)
+                    <div class="photo-border-block">
+                        <a href="{{ $selectedFish->sidetwo }}" data-lity>
+                        <img src="{{ $selectedFish->sidetwo }}">
+                        </a>
+                    </div>
+                    @endisset
+                </div>
+                </div><!-- End of cell-->
+                  
+            </div><!-- End of cell-->
+            <div class="cell small-12 medium-8">
+                <div class="table-scroll">
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>jan</td>
+                                <td>feb</td>
+                                <td>mar</td>
+                                <td>apr</td>
+                                <td>may</td>
+                                <td>jun</td>
+                                <td>jul</td>
+                                <td>aug</td>
+                                <td>sep</td>
+                                <td>oct</td>
+                                <td>nov</td>
+                                <td>dec</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{ $selectedFish->reports()->whereMonth('date', '=', date('01'))->count() }} </td>
+                                <td>{{ $selectedFish->reports()->whereMonth('date', '=', date('02'))->count() }}</td>
+                                <td>{{ $selectedFish->reports()->whereMonth('date', '=', date('03'))->count() }}</td>
+                                <td>{{ $selectedFish->reports()->whereMonth('date', '=', date('04'))->count() }}</td>
+                                <td>{{ $selectedFish->reports()->whereMonth('date', '=', date('05'))->count() }}</td>
+                                <td>{{ $selectedFish->reports()->whereMonth('date', '=', date('06'))->count() }}</td>
+                                <td>{{ $selectedFish->reports()->whereMonth('date', '=', date('07'))->count() }}</td>
+                                <td>{{ $selectedFish->reports()->whereMonth('date', '=', date('08'))->count() }}</td>
+                                <td>{{ $selectedFish->reports()->whereMonth('date', '=', date('09'))->count() }}</td>
+                                <td>{{ $selectedFish->reports()->whereMonth('date', '=', date('010'))->count() }}</td>
+                                <td>{{ $selectedFish->reports()->whereMonth('date', '=', date('11'))->count() }}</td>
+                                <td>{{ $selectedFish->reports()->whereMonth('date', '=', date('12'))->count() }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="table-scroll">
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>Date</td>
+                                <td>Angler</td>
+                                <td>Weight</td>
+                                <td class="text-center">Photo</td>
+                                <td>Bait</td>
+                                <td>Notes</td>
+                                <td>Stocked</td>
+                                <td></td>
+                                
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($selectedFish->reports as $report)
+                            <tr>
+                                <td>{{ date('j/m/y', strtotime ($report->date)) }}</td>
+                                <td>{{ $report->angler->firstName }} {{ $report->angler->lastName }}</td>
+                                <td>{{ $report->lbs }}lb {{ $report->oz }}oz</td>
+                                
+                                <td class="text-center">
+                                    @isset($report->sideone)
+                                        <a href="{{ $report->sideone }}" data-lity>
+                                            <img src="/img/reportIcon.png">
+                                        </a>
+                                    @endif
+                                    @isset($report->sidetwo)
+                                        <a href="{{ $report->sidetwo }}" data-lity>
+                                            <img src="/img/reportIcon.png">
+                                        </a>
+                                    @endif
+                                </td>
+                                <td>{{ $report->bait }}</td>
+                                <td>{{ $report->notes }}</td>
+                                <td>
+                                    @isset($selectedFish->item_id)
+                                        put the date here
+                                    @endisset
+                                </td>
+                                <td class="text-right">
+                                    <div x-data="{ open: false }">
+                                        <button @click="open = true">Actions</button>
+
+                                        <ul x-show="open" @click.away="open = false">
+                                            
+                                            <li><button wire:click="primary('{{ $report->id }}')">Primary Photo</button></li>
+                                            <li><button wire:click="secondary('{{ $report->id }}')">Secondary Photo</button></li>
+                                            <li><button wire:click="detach('{{ $report->id }}')">Remove</button></li>
+                                            
+                                        </ul>
+                                    </div>
+                                </td>
+
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div><!-- End of cell-->
+        </div><!--end of grid-x -->
+        @endif
     </div><!--End of grid container-->
 </div>

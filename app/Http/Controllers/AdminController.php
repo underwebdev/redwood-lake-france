@@ -125,4 +125,9 @@ class AdminController extends Controller
     {
         return view('admin.settings');
     }
+
+    public function storage()
+    {
+        return view('admin.storage');
+    }
 }

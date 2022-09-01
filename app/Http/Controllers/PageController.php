@@ -21,7 +21,9 @@ class PageController extends Controller
         $review = Review::where('featured', 1)->first();
         $priceguides = Priceguide::whereNotNull('featured')->get();
 
-    	return view('pages.index', compact('page', 'review', 'priceguides'));
+        $latestdate = Priceguide::orderBy('end', 'desc')->pluck('end')->first();
+
+    	return view('pages.index', compact('page', 'review', 'priceguides', 'latestdate'));
     }
 
     public function lake()
@@ -39,7 +41,9 @@ class PageController extends Controller
 
         $priceguides = Priceguide::whereNotNull('featured')->get();
 
-    	return view('pages.booking', compact('page', 'priceguides'));
+        $latestdate = Priceguide::orderBy('end', 'desc')->pluck('end')->first();
+
+    	return view('pages.booking', compact('page', 'priceguides', 'latestdate'));
     }
 
     public function bookingterms()

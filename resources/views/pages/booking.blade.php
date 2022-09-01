@@ -37,10 +37,13 @@
 					<p>{!! nl2br(e($module->content)) !!}</p>
 				@endforeach
 			</div>
+		</div>
+		<div class="grid-x grid-padding-x" data-equalizer data-equalize-on="medium">
 			@foreach($priceguides as $priceguide)
 			<div class="cell small-12 medium-5 medium-offset-1"> 
-				<div class="pricing-block">
+				<div class="pricing-block" data-equalizer-watch>
 					<h4 class=text-center><strong>{{ $priceguide->package->name }}</strong></h4>
+					@isset($priceguide->name)<h5 class="text-center">{{ $priceguide->name }}</h5>@endisset
 					<ul>
 						@foreach($priceguide->package->breakdowns as $breakdown)
 							<li>{{ $breakdown->body }}</li>
@@ -52,7 +55,7 @@
 			</div><!-- End of cell-->
 			@endforeach
 			<div class="cell small-12 medium-5"> 
-				<div class="pricing-block">
+				<div class="pricing-block" data-equalizer-watch>
 					<h4 class=text-center><strong>Fly & Hire</strong></h4>
 					<ul>
 						<li>Bullet One</li>
@@ -61,17 +64,12 @@
 						<li>Bullet Four</li>
 						<li>Bullet Five</li>
 					</ul>
-					<p>Extra Services:</p>
-					<ul>
-						<li>Bullet One</li>
-						<li>Bullet Two</li>
-					</ul>
 					<hr>
 					<h6>Available Soon<br><small>£TBC</small></h6>
 				</div>
 			</div><!-- End of cell-->
 			<div class="cell small-12 text-center">
-				<p>All bookings require a £700 deposit to confirm the requested dates. The remaining balance is due 12 weeks prior to arrival.</p>
+				<p>All bookings require a 20% deposit to confirm the requested dates. The remaining balance is due 8 weeks prior to arrival.</p>
 
 				<strong>Scroll Down For Availabillity</strong><br>
 				<i class="fas fa-arrow-alt-circle-down"></i>
@@ -89,7 +87,7 @@
 	<div class="grid-x grid-padding-x">
 		<div class="cell small-12 text-center">
 			<h4><span class="weighted">Booking</span> Availabillity</h4>
-			<p>We are currently taking bookings for 2022 and 2023. Please check for availability below.</p>
+			<p>We are currently taking bookings up until {{ Carbon\Carbon::parse($latestdate)->format('F Y') }}. Please check for availability below.</p>
 		</div>
 	</div>
 	<div class="grid-x grid-padding-x">

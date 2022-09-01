@@ -20,4 +20,9 @@ class Item extends Model
     {
         return $this->belongsTo(Specimen::class);
     }
+
+    public function stock()
+    {
+        return $this->hasOne(Stock::class);
+    }
 }

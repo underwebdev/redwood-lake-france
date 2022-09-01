@@ -60,14 +60,15 @@ Route::get('admin/financial', [AdminController::class, 'financial']);
 Route::get('admin/mailing-list', [AdminController::class, 'mailshot']);
 Route::get('admin/inbox', [AdminController::class, 'inbox']);
 Route::get('admin/settings', [AdminController::class, 'settings']);
+Route::get('admin/storage', [AdminController::class, 'storage']);
 
 Route::middleware(['auth'])->group(function () {
 	Route::get('logout', [LoginController::class, 'logout']);
 });
 
 Route::middleware(['guest'])->group(function () {
-	Route::get('claim-account', [LoginController::class, 'claim']);
-	Route::post('claim-account', [LoginController::class, 'register']);
+	Route::get('create-account', [LoginController::class, 'claim']);
+	Route::post('create-account', [LoginController::class, 'register']);
 	Route::get('login', [LoginController::class, 'login'])->name('login');
 	Route::post('login', [LoginController::class, 'authenticate']);
 	Route::get('forgot-password', [LoginController::class, 'forgot']);

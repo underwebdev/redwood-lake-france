@@ -44,7 +44,7 @@ h4 {
 }
 
 .home {
-	background-image: url('/img/backgrounds/hero-background-alt3.jpg');
+	background-image: url('/img/backgrounds/hero-plain.jpeg');
 	background-repeat: no-repeat;
 	background-position: center bottom;
 	background-size: cover;
@@ -74,6 +74,16 @@ h4 {
   	line-height: 45px;
   	font-size: 40px;
   	font-family: 'Kaushan Script', cursive;
+}
+
+@media all and (min-width:420px) {
+    .hero-text h1 {
+      padding: -15px;
+    }
+
+    .hero-text h2 {
+      padding: -15px;
+    }
 }
 
 .hero-text .button {
@@ -300,6 +310,12 @@ input[type=tel] {
   font-size: 18px; 
 }
 
+input[type=password] {
+  border: 2px solid #353739;
+  height: 50px;
+  font-size: 18px; 
+}
+
 textarea {
   border: 2px solid #353739;
   font-size: 18px;
@@ -335,11 +351,7 @@ textarea {
 .pricing-block h4 {
 	font-size: 40px;
 	text-decoration-style: dashed;
-}
-
-.pricing-block h5 {
-	text-decoration: underline;
-	text-decoration-color: #f68d1f;
+	margin: 0;
 }
 
 .pricing-block h6 {

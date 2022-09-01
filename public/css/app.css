@@ -8361,7 +8361,7 @@ h4 {
 }
 
 .home {
-  background-image: url("/img/backgrounds/hero-background-alt3.jpg");
+  background-image: url("/img/backgrounds/hero-plain.jpeg");
   background-repeat: no-repeat;
   background-position: center bottom;
   background-size: cover;
@@ -8391,6 +8391,14 @@ h4 {
   font-family: "Kaushan Script", cursive;
 }
 
+@media all and (min-width: 420px) {
+  .hero-text h1 {
+    padding: -15px;
+  }
+  .hero-text h2 {
+    padding: -15px;
+  }
+}
 .hero-text .button {
   margin: 0;
 }
@@ -8612,6 +8620,12 @@ input[type=tel] {
   font-size: 18px;
 }
 
+input[type=password] {
+  border: 2px solid #353739;
+  height: 50px;
+  font-size: 18px;
+}
+
 textarea {
   border: 2px solid #353739;
   font-size: 18px;
@@ -8648,12 +8662,7 @@ textarea {
   font-size: 40px;
   -webkit-text-decoration-style: dashed;
           text-decoration-style: dashed;
-}
-
-.pricing-block h5 {
-  text-decoration: underline;
-  -webkit-text-decoration-color: #f68d1f;
-          text-decoration-color: #f68d1f;
+  margin: 0;
 }
 
 .pricing-block h6 {
