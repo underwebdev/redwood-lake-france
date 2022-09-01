@@ -178,6 +178,7 @@ class CatchreportDashboard extends Component
     public function saveReportChanges()
     {
         $data = $this->validate([
+            'angler' => 'required',
             'lbs' => 'required',
             'oz' => 'required',
             'specimen' => 'required',
@@ -188,6 +189,7 @@ class CatchreportDashboard extends Component
         ]);
 
         $this->selectedReport->update([
+            'angler_id' => $data['angler'],
             'lbs' => $data['lbs'],
             'oz' => $data['oz'],
             'specimen_id' => $data['specimen'],
