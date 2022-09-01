@@ -188,13 +188,21 @@ class CatchreportDashboard extends Component
             'notes' => 'nullable',
         ]);
 
+        if($data['swim'] > 0)
+        {
+            $swim = $data['swim'];
+        } else {
+            $swim = Null;
+        }
+
+
         $this->selectedReport->update([
             'angler_id' => $data['angler'],
             'lbs' => $data['lbs'],
             'oz' => $data['oz'],
             'specimen_id' => $data['specimen'],
             'date' => Carbon::parse($data['date'])->format('Y-m-d'),
-            'swim_id' => $data['swim'],
+            'swim_id' => $swim,
             'bait' => $data['bait'],
             'notes' => $data['notes'],
         ]);

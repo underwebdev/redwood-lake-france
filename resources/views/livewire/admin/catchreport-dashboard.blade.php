@@ -86,7 +86,7 @@
                                     <td class="text-center">Weight</td>
                                     <td class="text-center">Species</td>
                                     <td class="text-center"></td>
-                                    <td>Swim</td>
+                                    <td class="text-center">Swim</td>
                                     <td>Bait</td>
                                     <td>Notes</td>
                                     <td></td>
@@ -107,7 +107,7 @@
                                         <a href="{{ $report->sidetwo }}" data-lity><i class="fas fa-camera"></i></a>
                                         @endisset
                                     </td>
-                                    <td>{{ $report->swim->shortname }}</td>
+                                    <td class="text-center">{{ $report->swim_id }}</td>
                                     <td>{{ $report->bait }}</td>
                                     <td>{{ $report->notes }}</td>
                                     <td class="text-right">
@@ -122,6 +122,7 @@
                                     <td></td>
                                     <td class="text-center">{{ $reports->sum('lbs') + ($reports->sum('oz') / 16) }}lb</td>
                                     <td class="text-center">Average: lb</td>
+                                    <td></td>
                                     <td></td>
                                     <td></td>
                                     <td></td>
