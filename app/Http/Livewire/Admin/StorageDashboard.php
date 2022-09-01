@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Admin;
 
 use Livewire\Component;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class StorageDashboard extends Component
 {
@@ -13,22 +14,20 @@ class StorageDashboard extends Component
 
         foreach($photos as $photo)
         {
+            $newdir = Str::replace('France', 'reports', $photo);
+            $filedir = Str::remove('public/', $newdir);
 
+            Storage::move($photo, $newdir);
         }
 
-        Storage::move('old/file.jpg', 'new/file.jpg');
-    }
-
-    public function moveThumbnails()
-    {
-
+        session()->flash('success', 'Files Moved!');
+   
     }
 
     public function render()
     {
         return view('livewire.admin.storage-dashboard', [
-            'photos' => Storage::allFiles('public/france'),
-            'thumbnails' => Storage::allFiles('public/france/thumbnails')
+            'photos' => Storage::allFiles('public/france')
         ]);
     }
 }

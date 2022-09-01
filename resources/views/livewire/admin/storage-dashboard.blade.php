@@ -5,6 +5,8 @@
                 @foreach($photos as $photo)
                     {{ $photo }}<br>
                 @endforeach
+
+                <button class="button" wire:click="movePhotos">Move Files</button>
             </div><!-- End of cell-->
         </div><!--end of grid-x -->
     </div><!--End of grid container-->
