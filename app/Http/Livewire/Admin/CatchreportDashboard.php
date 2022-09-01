@@ -163,7 +163,7 @@ class CatchreportDashboard extends Component
         $this->lbs = $this->selectedReport->lbs;
         $this->oz = $this->selectedReport->oz;
         $this->specimen = $this->selectedReport->specimen_id;
-        $this->date = Carbon::parse($this->selectedReport->date)->format('d-m-Y');
+        $this->date = Carbon::parse($this->selectedReport->date)->format('Y-m-d');
         $this->swim = $this->selectedReport->swim_id;
         $this->bait = $this->selectedReport->bait;
         $this->notes = $this->selectedReport->notes;
