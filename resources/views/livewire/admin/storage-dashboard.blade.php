@@ -7,6 +7,8 @@
                 @endforeach
 
                 <button class="button" wire:click="movePhotos">Move Files</button>
+
+                <button class="button" wire:click="cleanupDatabase">Clean DB</button>
             </div><!-- End of cell-->
         </div><!--end of grid-x -->
     </div><!--End of grid container-->
