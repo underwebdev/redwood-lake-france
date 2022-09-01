@@ -436,6 +436,14 @@
                     @enderror</label>
                 <input type="text" id="datepicker" wire:model.lazy="date">
 
+                <label for="">Swim</label>
+                <select id="" wire:model="swim">
+                    <option value="">Please Select</option>
+                    @foreach($swims as $swim)
+                    <option value="{{ $swim->id }}">{{ $swim->name }}</option>
+                    @endforeach 
+                </select>
+
                 <label for="">Bait</label>
                 <input type="text" placeholder="" wire:model="bait">
 
