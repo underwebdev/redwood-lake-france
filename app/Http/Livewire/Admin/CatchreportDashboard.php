@@ -293,10 +293,9 @@ class CatchreportDashboard extends Component
             $photoToRotate = Str::after($this->selectedReport->sidetwo, '/storage/');
             $thumbToRotate = Str::after($this->selectedReport->sidetwoThumb, '/storage/');
         }
-        
 
-        $photo = Storage::get('public/'.$photoToRotate);
-        $thumbnail = Storage::get('public/'.$thumbToRotate);
+        $photo = Storage::get('public/'. $photoToRotate);
+        $thumbnail = Storage::get('public/'. $thumbToRotate);
 
         $img = Image::make($photo);
         $thumb = Image::make($thumbnail);
