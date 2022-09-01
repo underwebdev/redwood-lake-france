@@ -27,8 +27,8 @@ class StorageDashboard extends Component
     public function render()
     {
         return view('livewire.admin.storage-dashboard', [
-            'photos' => Storage::allFiles('public/France'),
-            'thumbnails' => Storage::allFiles('public/France/thumbnails')
+            'photos' => Storage::allFiles('public/france'),
+            'thumbnails' => Storage::allFiles('public/france/thumbnails')
         ]);
     }
 }
