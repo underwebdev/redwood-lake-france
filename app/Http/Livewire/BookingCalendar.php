@@ -21,7 +21,7 @@ class BookingCalendar extends Component
     public function mount()
     {
 
-        $this->firstdate = Priceguide::where('end', '>', Carbon::today())->where('start', '<', Carbon::now())->pluck('start')->first();
+        $this->firstdate = Priceguide::where('end', '>', Carbon::today())->pluck('start')->first();
 
         $this->latestdate = Priceguide::orderBy('end', 'desc')->pluck('end')->first();
 
