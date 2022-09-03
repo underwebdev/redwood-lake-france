@@ -10,7 +10,7 @@
 <div class="sticky" data-sticky data-options="marginTop:0;" data-sticky-on="small">
 <div class="top-bar" id="croxley-hall-menu">
   <div class="top-bar-left text-left show-for-large">
-    <a href="/" class="menu-text">Etang DuSueil</a>
+    <a href="/" class="menu-text">Redwood Lake</a>
   </div>
   <div class="top-bar-center">
     

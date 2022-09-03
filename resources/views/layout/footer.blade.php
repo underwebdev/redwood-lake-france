@@ -15,8 +15,8 @@
 			<div class="cell small-12 medium-3">
 				<h5>Information</h5>
 				<a href="/location">Finding Us</a><br>
-				<a href="/regulations">Fishing Regulations</a><br>
-				<a href="/covid-19">Covid-19</a>
+				<a href="/contact">Contact</a><br>
+				<a href="/rules">Rules</a>
 			</div><!-- End of cell-->
 			<div class="cell small-12 medium-3">
 				<h5>Terms & conditions</h5>

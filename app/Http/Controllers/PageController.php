@@ -12,6 +12,12 @@ use App\Models\Article;
 use App\Models\Photodiary;
 use App\Models\Priceguide;
 use App\Models\Lake;
+use App\Models\Placeholder;
+use App\Models\Priceguides;
+use App\Models\Booking;
+use Carbon\Carbon;
+use Carbon\CarbonPeriod;
+use Carbon\CarbonInterval;
 
 class PageController extends Controller
 {
@@ -20,10 +26,16 @@ class PageController extends Controller
         $page = Page::find(1);
         $review = Review::where('featured', 1)->first();
         $priceguides = Priceguide::whereNotNull('featured')->get();
-
+        
+        $firstdate = Priceguide::where('end', '>', Carbon::today())->where('start', '<', Carbon::now())->pluck('start')->first();
         $latestdate = Priceguide::orderBy('end', 'desc')->pluck('end')->first();
 
-    	return view('pages.index', compact('page', 'review', 'priceguides', 'latestdate'));
+        $bookingdates = Collect(CarbonInterval::days(7)->toPeriod($firstdate, $latestdate));
+        $bookingmonths = Collect(CarbonInterval::months(1)->toPeriod($firstdate, $latestdate));
+        $bookings = Booking::where('arrival', '>=', $firstdate)->where('arrival', '<=', $latestdate)->get()->pluck('arrival');
+        $placeholders = Placeholder::all();
+
+    	return view('pages.index', compact('page', 'review', 'priceguides', 'latestdate', 'bookingdates', 'bookingmonths', 'bookings', 'placeholders'));
     }
 
     public function lake()
@@ -41,9 +53,7 @@ class PageController extends Controller
 
         $priceguides = Priceguide::whereNotNull('featured')->get();
 
-        $latestdate = Priceguide::orderBy('end', 'desc')->pluck('end')->first();
-
-    	return view('pages.booking', compact('page', 'priceguides', 'latestdate'));
+    	return view('pages.booking', compact('page', 'priceguides'));
     }
 
     public function bookingterms()
@@ -55,9 +65,26 @@ class PageController extends Controller
         return view('pages.bookingterms', compact('page', 'terms'));
     }
 
-    public function deposit()
+    public function deposit($date)
     {
-        return view('pages.deposit');
+        $date = Carbon::parse($date)->format('Y-m-d');
+
+        $firstdate = Priceguide::where('end', '>', Carbon::today())->where('start', '<', Carbon::now())->pluck('start')->first();
+        $latestdate = Priceguide::orderBy('end', 'desc')->pluck('end')->first();
+
+        $bookingdates = Collect(CarbonInterval::days(7)->toPeriod($firstdate, $latestdate));
+
+        if(Booking::where('arrival', $date)->exists())
+        {
+            return redirect('/booking');
+        }
+
+        if(Placeholder::where('date', $date)->exists())
+        {
+            return redirect('/booking');
+        }
+
+        return view('pages.deposit', compact('date'));
     }
 
     public function reports()
@@ -100,13 +127,6 @@ class PageController extends Controller
 
 		return view('pages.rules', compact('page', 'rules'));    	
     } 
-
-    public function regulations()
-    {
-        $page = Page::find(10);
-
-        return view('pages.regulations', compact('page'));
-    }
 
     public function news()
     {
@@ -175,12 +195,5 @@ class PageController extends Controller
         $page = Page::find(16);
 
         return view('pages.privacy', compact('page'));        
-    }
-
-    public function covid()
-    {
-        $page = Page::find(17);
-
-        return view('pages.covid', compact('page'));
     }
 }

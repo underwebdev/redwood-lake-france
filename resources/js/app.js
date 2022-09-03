@@ -1,4 +1,5 @@
 require('./foundation');
+require('./lity');
 
 gsap.registerPlugin(ScrollTrigger);
 

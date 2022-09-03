@@ -4,15 +4,19 @@
             <div class="cell small-12 medium-8 large-6 medium-offset-2 large-offset-3">
                 <div class="center-border">
                     <div class="center-border-header">
-                        <h3 class="text-center">Etang de Seuil</h3>
+                        <h3 class="text-center">Redwood Lake Booking</h3>
                     </div>
                     <div class="center-border-content">
                         @if($step == 1)
-                            <h4 class="text-center">Booking Date:</h4>
+                            <h4 class="text-center">Booking Date<br> {{ Carbon\Carbon::parse($date)->format('j/m/y') }}</h4>
 
-                            <p>Once clicking start booking your date will be held for 15 mins whilst you enter your details and make payment, if the payment process is not completed in that time then the date will become available again.</p>
+                            <p>Please read and confirm you have read the booking terms & conditions before proceeding with your booking.</p>
 
-                            <input type="checkbox" wire:model="terms"> Please confirm you have read all the <a href="/booking-terms">booking terms and conditions</a> before proceeding
+                            <p>Once clicking "start booking" your chosen date will be held for 15 mins, whilst you enter your details and make payment.</p> 
+
+                            <p>Please Note: If the payment process is not completed in the 15 minuite time frame, then the date will become available again for other anglers to book.</p>
+
+                            <input type="checkbox" wire:model="terms"> <strong>Please confirm you have read all the <a href="/booking-terms">booking terms and conditions</a> by checking the box to the left before proceeding.</strong>
                             <br><br>
 
                             <div class="button-group">
@@ -98,16 +102,28 @@
                                 </h5>
                             </div>
                             <p class="text-center">Please review the details you have entered</p>
-                            <p><strong>Arriving:</strong>  <br>
-                            <strong>Leaving:</strong>  <br>
+                            <p><strong>Arriving:</strong>  {{ Carbon\Carbon::parse($date)->format('D jS M Y') }} - 15:00<br>
+                            <strong>Leaving:</strong>  {{ Carbon\Carbon::parse($date)->addDays(7)->format('D jS M Y') }} - 10:00<br>
                             <strong>Anglers:</strong> {{ $anglers }} <br>
                             <strong>Name:</strong>  {{ $firstName }} {{ $lastName }}<br>
                             <strong>Email:</strong>  {{ $email }}<br>
                             <strong>Telephone:</strong>  {{ $telephone }}<br>
                             <strong>Address:</strong>  {{ $address1 }}, {{ $address2 }} @if($address3) {{ $address3 }} @endif {{ $postcode }}</p>
 
-                            <label for="">Discount Code</label>
-                            <input type="text" placeholder="" wire:model.lazy="discount">
+
+                            @if($validcode)
+                                <p><strong>Code:</strong> {{ $voucher->code }}<br>
+                                <strong>Discount:</strong> £{{ $voucher->amount / 100 }}</p>
+                                <button wire:click="removeVoucher">Remove Voucher</button>
+                                <br>
+                            @else
+                            <label for="">Discount Code
+                                @if($invalidcode)
+                                    <span class="error">Code not valid for selected booking date</span>
+                                @endif
+                            </label>
+                            <input type="text" wire:model.lazy="discountcode">
+                            @endif
 
                             <label for="">Payment</label>
                             <select id=""wire:model="payment">

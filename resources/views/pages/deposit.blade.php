@@ -2,6 +2,6 @@
 
 @section('content')
 
-@livewire('pay-deposit')
+@livewire('pay-deposit',['date' => $date])
 
 @endsection

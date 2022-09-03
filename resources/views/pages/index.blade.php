@@ -6,7 +6,7 @@
 		@include('layout.nav')
 <div class="grid-container full">
 	<div class="grid-x grid-padding-x">
-		<div class="cell small-12 medium-7 large-6 hero-text">
+		<div class="cell small-12 medium-8 hero-text">
 			<h1>{{ $page->heading }}</h1>
 			<h2><strong>{!! nl2br(e($page->subheading)) !!}</strong></h2>
 			<div class="hero-review">
@@ -125,19 +125,7 @@
 
 		<div class="grid-x grid-padding-x" data-equalizer data-equalize-on="medium">
 			@foreach($priceguides as $priceguide)
-			<div class="cell small-12 medium-6 medium-offset-3"> 
-				<div class="pricing-block" data-equalizer-watch>
-					<h4 class=text-center><strong>{{ $priceguide->package->name }}</strong></h4>
-						@isset($priceguide->name)<h5 class="text-center">{{ $priceguide->name }}</h5>@endisset
-					<ul>
-						@foreach($priceguide->package->breakdowns as $breakdown)
-							<li>{{ $breakdown->body }}</li>
-						@endforeach
-					</ul>
-					<hr>
-					<h6><strong>£{{ $priceguide->price / 100 }} per week</strong><br><small>£{{ $priceguide->price / 5 / 100 }} p.p based on 5 anglers</small></h6>
-				</div>
-			</div><!-- End of cell-->
+				@include('layout.pricing-block')
 			@endforeach
 			<div class="cell small-12 text-center">
 				<a href="/booking" class="button large">View Availabillity</a>
@@ -169,7 +157,9 @@
 				<p>We are currently taking bookings up until {{ Carbon\Carbon::parse($latestdate)->format('F Y') }}. Please check for availability below.</p>
 			</div>
 		</div>
-		@include('layout.calendar')
+		<div class="grid-x grid-padding-x">
+				@include('layout.calendar')  
+		</div><!--end of grid-x -->
 		<div class="cell small-12 text-center view-more-container">
 		  <a href="/booking" class="button large">View Full Calendar</a>  
 		</div><!-- End of cell-->

@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin;
 
 use Livewire\Component;
+use App\Models\Payout;
 
 class PayoutDashboard extends Component
 {
@@ -10,6 +11,8 @@ class PayoutDashboard extends Component
     
     public function render()
     {
-        return view('livewire.admin.payout-dashboard');
+        return view('livewire.admin.payout-dashboard',[
+            'payouts' => Payout::all()
+        ]);
     }
 }

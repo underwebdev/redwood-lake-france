@@ -1,5 +1,111 @@
 @import "settings";
 @import "node_modules/foundation-sites/assets/foundation";
+@import "lity";
+
+.home {
+	background-image: url('/img/backgrounds/hero-plain.jpeg');
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+.lakebg {
+	background-image: url('/img/backgrounds/hero-background.jpg');
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	background-size: cover;
+	background-attachment: fixed;	
+}
+
+.bookingbg {
+	background-image: url('/img/backgrounds/hero-background-alt2.jpg');
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+.reportbg {
+	background-image: url('/img/backgrounds/report-background.jpg');
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+.stockbg {
+	background-image: url('/img/backgrounds/stock-background.jpg');
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	background-size: cover;
+	background-attachment: fixed;
+	
+}
+
+.locationbg {
+	background-image: url('/img/backgrounds/location-background.jpg');
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	background-size: cover;
+	background-attachment: fixed;
+	
+}
+
+.facilitybg {
+	background-image: url('/img/backgrounds/facility-background.jpg');
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	background-size: cover;
+	background-attachment: fixed;
+	
+}
+
+.rulebg {
+	background-image: url('/img/backgrounds/rule-background.jpg');
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+.newsbg {
+	background-image: url('/img/backgrounds/news-background.jpg');
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	background-size: cover;
+	background-attachment: fixed;
+	
+}
+
+.diarybg {
+	background-image: url('/img/backgrounds/diary-background.jpg');
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	background-size: cover;
+	background-attachment: fixed;	
+}
+
+.weatherbg {
+	background-image: url('/img/backgrounds/weather-background.jpg');
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	background-size: cover;
+	background-attachment: fixed;
+	
+}
+
+.contactbg {
+	background-image: url('/img/backgrounds/hero-background-alt3.jpg');
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+.black {
+	background-color: #000000;
+}
 
 .section-one {
 	background: #ffffff;
@@ -43,16 +149,7 @@ h4 {
 	display: block;
 }
 
-.home {
-	background-image: url('/img/backgrounds/hero-plain.jpeg');
-	background-repeat: no-repeat;
-	background-position: center bottom;
-	background-size: cover;
-	background-attachment: fixed;
-}
-
 .hero {
-	background-color: #000000;
 	color: #FFFFFF;
 	z-index: 0;
 }
@@ -64,7 +161,7 @@ h4 {
 	font-size: 45px;
 	-webkit-filter: drop-shadow(5px 5px 5px #222);
   filter: drop-shadow(5px 5px 5px #222);
-  font-family: 'Kaushan Script', cursive;
+  font-family: 'Poppins', sans-serif;
 }
 
 .hero-text h2 {
@@ -73,7 +170,7 @@ h4 {
   	margin-bottom: 25px;
   	line-height: 45px;
   	font-size: 40px;
-  	font-family: 'Kaushan Script', cursive;
+  	font-family: 'Poppins', cursive;
 }
 
 @media all and (min-width:420px) {
@@ -345,13 +442,18 @@ textarea {
 }
 
 .pricing-block hr {
-	border-top: 1px dashed #FFFFFF;
+	background-color: #A6D3F2;
 }
 
 .pricing-block h4 {
 	font-size: 40px;
 	text-decoration-style: dashed;
 	margin: 0;
+}
+
+.pricing-block h5 {
+	text-decoration: underline;
+	text-decoration-color: #A6D3F2;
 }
 
 .pricing-block h6 {
@@ -362,6 +464,11 @@ textarea {
 
 .pricing-block small {
 	color: #FFFFFF;
+}
+
+.pricing-block .price-container
+{
+	border-top: 3px solid #A6D3F2;
 }
 
 .pricing-button {
@@ -441,6 +548,9 @@ textarea {
 .content h1 {
 	padding: 150px 0 0 0;
 	font-weight: 800;
+	-webkit-filter: drop-shadow(5px 5px 5px #222);
+  filter: drop-shadow(5px 5px 5px #222);
+  font-family: 'Poppins', sans-serif;
 }
 
 .horizSlider {

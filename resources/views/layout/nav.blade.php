@@ -1,6 +1,6 @@
 <div class="nav">
 <ul class="dropdown menu" data-dropdown-menu>
-	<a href="/">Etang de Seuil</a>
+	<a href="/">Redwood Lake</a>
 	<li><a href="/lake">The Lake</a></li>
 	<li><a href="/booking">Booking</a></li>
 	<li><a href="#">Information</a>

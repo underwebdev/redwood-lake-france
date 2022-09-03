@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="hero content">
+<div class="hero content {{ $page->css }}">
 	@include('layout.nav')
 <div class="grid-container">
 	<div class="grid-x grid-padding-x">
@@ -29,9 +29,6 @@
 					<li>{{ $rule->body }}</li>
 					@endforeach
 				</ol>
-				<div class="text-center">
-					<a href="https://etangdeseuil.co.uk/regulations" class="button success">French Fishing Regulations</a>
-				</div>
 			</div><!-- End of cell-->
 		</div><!--end of grid-x -->
 	</div><!--End of grid container-->

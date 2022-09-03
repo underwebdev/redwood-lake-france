@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="hero content">
+<div class="hero content {{ $page->css }}">
 	@include('layout.nav')
 <div class="grid-container full">
 	<div class="grid-x grid-padding-x">
@@ -29,7 +29,7 @@
 					Saint-Pardoux-le-Lac<br>
 					87140<br> 
 					France</p>
-					<a href="" class="button">View in Google Maps</a>
+					<a href="https://goo.gl/maps/urbLG7Vjmt9UnULs6" class="button">View in Google Maps</a>
 				</div><!-- End of cell-->
 				<div class="cell small-12 medium-6">
 					<h4><span class="weighted">Contact</span> Details</h4>

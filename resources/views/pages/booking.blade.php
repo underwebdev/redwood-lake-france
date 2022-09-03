@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="hero content">
+<div class="hero content {{ $page->css }}">
 	@include('layout.nav')
 <div class="grid-container full">
 	<div class="grid-x grid-padding-x">
@@ -40,34 +40,8 @@
 		</div>
 		<div class="grid-x grid-padding-x" data-equalizer data-equalize-on="medium">
 			@foreach($priceguides as $priceguide)
-			<div class="cell small-12 medium-5 medium-offset-1"> 
-				<div class="pricing-block" data-equalizer-watch>
-					<h4 class=text-center><strong>{{ $priceguide->package->name }}</strong></h4>
-					@isset($priceguide->name)<h5 class="text-center">{{ $priceguide->name }}</h5>@endisset
-					<ul>
-						@foreach($priceguide->package->breakdowns as $breakdown)
-							<li>{{ $breakdown->body }}</li>
-						@endforeach
-					</ul>
-					<hr>
-					<h6><strong>£{{ $priceguide->price / 100 }} per week</strong><br><small>£{{ $priceguide->price / 5 / 100 }} p.p based on 5 anglers</small></h6>
-				</div>
-			</div><!-- End of cell-->
+				@include('layout.pricing-block')
 			@endforeach
-			<div class="cell small-12 medium-5"> 
-				<div class="pricing-block" data-equalizer-watch>
-					<h4 class=text-center><strong>Fly & Hire</strong></h4>
-					<ul>
-						<li>Bullet One</li>
-						<li>Bullet Two</li>
-						<li>Bullet Three</li>
-						<li>Bullet Four</li>
-						<li>Bullet Five</li>
-					</ul>
-					<hr>
-					<h6>Available Soon<br><small>£TBC</small></h6>
-				</div>
-			</div><!-- End of cell-->
 			<div class="cell small-12 text-center">
 				<p>All bookings require a 20% deposit to confirm the requested dates. The remaining balance is due 8 weeks prior to arrival.</p>
 
@@ -83,135 +57,6 @@
 
 <div class="section-one">
 <div class="availabillity">
-<div class="grid-container">
-	<div class="grid-x grid-padding-x">
-		<div class="cell small-12 text-center">
-			<h4><span class="weighted">Booking</span> Availabillity</h4>
-			<p>We are currently taking bookings up until {{ Carbon\Carbon::parse($latestdate)->format('F Y') }}. Please check for availability below.</p>
-		</div>
-	</div>
-	<div class="grid-x grid-padding-x">
-		<div class="cell small-6">
-			<label for="">Month</label>
-			<select id=""name="">
-				<option value="">Please Select</option> 
-				<option value="">January</option> 
-				<option value="">Febuary</option> 
-				<option value="">March</option> 
-				<option value="">April</option> 
-				<option value="">May</option> 
-				<option value="">June</option> 
-				<option value="">July</option> 
-				<option value="">August</option> 
-				<option value="">September</option> 
-				<option value="">October</option> 
-				<option value="">November</option> 
-				<option value="">December</option> 
-			</select>
-		</div><!-- End of cell-->
-		<div class="cell small-6">
-			<label for="">Year</label>
-			<select id=""name="">
-				<option value="">Please Select</option>
-				<option value="">{{ Carbon\Carbon::now()->format('Y') }}</option>
-				<option value="">{{ Carbon\Carbon::now()->addYear()->format('Y') }}</option>  
-			</select>
-		</div><!-- End of cell-->
-	</div><!--end of grid-x -->
-	<div class="grid-x grid-padding-x">
-		<div class="cell small-12 text-center">
-			<h5 class="month-bar">{{ Carbon\Carbon::now()->format('F') }}</h5></div>      
-		</div><!-- End of cell-->
-		<div class="grid-x grid-padding-x">
-			<div class="cell small-6 medium-3 text-center">
-				<div class="date-container">
-					<div class="date-tile">
-						<p>April</p>
-						<h3>1</h3>
-						<p>2022</p>
-					</div>
-					<a href="/deposit" class="button success expanded">Book Now</a>
-				</div>
-			      
-			</div><!-- End of cell-->
-			<div class="cell small-6 medium-3 text-center">
-				<div class="date-container">
-					<div class="date-tile">
-						<p>April</p>
-						<h3>8</h3>
-						<p>2022</p>
-					</div>
-					<a href="/deposit" class="button success expanded">Book Now</a>
-				</div>
-			</div><!-- End of cell-->
-			<div class="cell small-6 medium-3 text-center">
-				<div class="date-container">
-					<div class="date-tile">
-						<p>April</p>
-						<h3>15</h3>
-						<p>2022</p>
-					</div>
-					<a href="/deposit" class="button success expanded">Book Now</a>
-				</div>
-			</div><!-- End of cell-->
-			<div class="cell small-6 medium-3 text-center">
-				<div class="date-container">
-					<div class="date-tile">
-						<p>April</p>
-						<h3>22</h3>
-						<p>2022</p>
-					</div>
-					<a href="/deposit" class="button success expanded">Book Now</a>
-				</div>
-			</div><!-- End of cell-->
-		</div><!--end of grid-x -->
-	<div class="grid-x grid-padding-x">
-		<div class="cell small-12 text-center">
-			<h5 class="month-bar">{{ Carbon\Carbon::now()->addMonth()->format('F') }}</h5></div>      
-		</div><!-- End of cell-->
-		<div class="grid-x grid-padding-x">
-			<div class="cell small-6 medium-3 text-center">
-				<div class="date-container">
-					<div class="date-tile">
-						<p>April</p>
-						<h3>1</h3>
-						<p>2022</p>
-					</div>
-					<a href="/deposit" class="button success expanded">Book Now</a>
-				</div>
-			      
-			</div><!-- End of cell-->
-			<div class="cell small-6 medium-3 text-center">
-				<div class="date-container">
-					<div class="date-tile">
-						<p>April</p>
-						<h3>8</h3>
-						<p>2022</p>
-					</div>
-					<a href="/deposit" class="button success expanded">Book Now</a>
-				</div>
-			</div><!-- End of cell-->
-			<div class="cell small-6 medium-3 text-center">
-				<div class="date-container">
-					<div class="date-tile">
-						<p>April</p>
-						<h3>15</h3>
-						<p>2022</p>
-					</div>
-					<a href="/deposit" class="button success expanded">Book Now</a>
-				</div>
-			</div><!-- End of cell-->
-			<div class="cell small-6 medium-3 text-center">
-				<div class="date-container">
-					<div class="date-tile">
-						<p>April</p>
-						<h3>22</h3>
-						<p>2022</p>
-					</div>
-					<a href="/deposit" class="button success expanded">Book Now</a>
-				</div>
-			</div><!-- End of cell-->
-		</div><!--end of grid-x -->
-	</div>
-</div><!--End of grid container-->
+	@livewire('booking-calendar')
+</div>
 </div>
