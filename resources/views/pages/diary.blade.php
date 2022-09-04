@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="hero content">
+<div class="hero content {{ $page->css }}">
 	@include('layout.nav')
 <div class="grid-container full">
 	<div class="grid-x grid-padding-x">
