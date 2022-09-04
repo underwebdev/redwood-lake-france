@@ -67,7 +67,7 @@
 			<div class="cell small-12 medium-6 align-self-middle">
 				<div id="fish-image">
 				<div class="photo-outline">
-			    	<img src="/img/fish-preview.jpeg"> 
+			    	<img src="/img/redwood-lake-common-carp.jpg"> 
 			  </div>
 			  </div>  
 			</div><!-- End of cell-->
