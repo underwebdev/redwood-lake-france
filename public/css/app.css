@@ -8592,7 +8592,7 @@ html.is-reveal-open body {
 }
 
 .diarybg {
-  background-image: url("/img/backgrounds/diary-background.jpeg");
+  background-image: url("/img/backgrounds/hero-plain.jpeg");
   background-repeat: no-repeat;
   background-position: center bottom;
   background-size: cover;
