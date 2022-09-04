@@ -781,7 +781,7 @@ $table-hover-scale: 2%;
 $table-row-hover: darken($table-background, $table-hover-scale);
 $table-row-stripe-hover: darken($table-background, $table-color-scale + $table-hover-scale);
 $table-is-striped: true;
-$table-striped-background: #EEEFF1;
+$table-striped-background: #f7f6fb;
 $table-stripe: even;
 $table-head-background: #232323;
 $table-head-row-hover: darken($table-head-background, $table-hover-scale);

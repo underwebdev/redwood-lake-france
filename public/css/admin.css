@@ -5353,7 +5353,7 @@ tbody td {
 
 tbody tr:nth-child(even) {
   border-bottom: 0;
-  background-color: #EEEFF1;
+  background-color: #f7f6fb;
 }
 
 table.unstriped tbody {

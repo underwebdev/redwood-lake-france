@@ -114,15 +114,15 @@
 <div class="section-one">
 	<div class="pricing">
 	<div class="grid-container">
-		<div class="grid-x grid-padding-x">
-			<div class="cell small-12">
-				<h4 class="text-center"><span class="weighted">Price</span> Packages</h4>
-				@foreach($page->modules->where('order', 5) as $module)
-					<p>{!! nl2br(e($module->content)) !!}</p>
-					@endforeach
+			<div class="grid-x grid-padding-x">
+				<div class="cell small-12">
+					<h4 class="text-center"><span class="weighted">Price</span> Packages</h4>
+					@foreach($page->modules->where('order', 5) as $module)
+						<p>{!! nl2br(e($module->content)) !!}</p>
+						@endforeach
+				</div>
 			</div>
 		</div>
-
 		<div class="grid-x grid-padding-x" data-equalizer data-equalize-on="medium">
 			@foreach($priceguides as $priceguide)
 				@include('layout.pricing-block')
@@ -132,7 +132,7 @@
 			      
 			</div><!-- End of cell-->
 		</div><!--end of grid-x -->
-	</div><!--End of grid container-->
+	</div>
 	</div>
 </div>
 
@@ -226,7 +226,6 @@
 			<div class="cell small-12 medium-6 text-center align-self-middle">
 				<div class="contact-info text-center">
 					<p><i class="far fa-envelope"></i> info@etangdeseuil.co.uk<br>
-					<i class="fas fa-mobile-alt"></i> 01895 746167<br>
 					<i class="fab fa-instagram"></i> etangdeseuil</p> 
 				</div>
 			      

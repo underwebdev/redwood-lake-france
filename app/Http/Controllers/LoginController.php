@@ -27,7 +27,7 @@ class LoginController extends Controller
     public function register()
     {
     	$data = request()->validate([
-            'memberNo' => 'required|numeric',
+            'ref' => 'required|numeric',
             'firstName' => 'required|alpha',
             'lastName' => 'required',
             'dd' => 'required|numeric',
@@ -96,11 +96,7 @@ class LoginController extends Controller
                     'last_login' => Carbon::now()
                 ]);
 
-                Auth::user()->member->weblogs()->create([
-                    'mode' => 'in'
-                ]);
-
-                return redirect()->intended('/members-area');
+                return redirect()->intended('/profile');
                 
             } elseif(Auth::user()->permission == 1)
             {
@@ -144,42 +140,28 @@ class LoginController extends Controller
     public function reset()
     {
         $data = request()->validate([
-            'memberNo' => 'required|numeric',
             'email' => 'required|email'
         ]);
 
-        $memberNo = $data['memberNo'];
         $email = $data['email'];
 
-        $member = Member::where('memberNo', $memberNo)->count();
+        $angler = User::where('email', $email)->count();
         
-        if($member == Null)
+        if($angler == Null)
         {
            return redirect('/forgot-password')->with('failure', 'Details provided to not match our records, if this is incorrect please contact email');
-        } else {
-            $member = Member::where('memberNo', $memberNo)->first();
-        }
-
-        if($member->user()->exists())
+        } elseif(User::where('email', $email)->exists())
         {
-            if($member->user->email == $email)
-            {
-                $newPWD = Str::random(8);
-                $member->user()->update([
-                    'password' => bcrypt($newPWD)
-                ]);
+            $user = User::where('email', $email)->first();
 
-                $member->pwd = $newPWD;
+            $newPWD = Str::random(8);
+            $user->update([
+                'password' => bcrypt($newPWD)
+            ]);
 
-                Mail::to($member->user->email)->send(new ForgotPassword($member));
+            Mail::to($user->email)->send(new ForgotPassword($newPWD));
 
-                return redirect('/login')->with('success', 'Password successfully reset! Please check your email for your new password');
-            } else {
-                return redirect('/forgot-password')->with('failure', 'Email does not match that membership number. Please try again or contact email address');
-            }
-        } else {
-
-            return redirect('/forgot-password')->with('failure', 'Details provided to not match our records, if this is incorrect please contact email address');
+            return redirect('/login')->with('success', 'Password successfully reset! Please check your email for your new password');
         }
 
     }

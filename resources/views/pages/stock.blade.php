@@ -34,12 +34,17 @@
 				<table>
 					<thead>
 						<tr>
-							<td>Mirror</td>
-							<td>Common</td>
-							<td>Total</td>
+							<th>Mirror</th>
+							<th>Common</th>
+							<th>Total</th>
 						</tr>
 					</thead>
 					<tbody>
+						<tr>
+							<td>{{ $stock->where('specimen_id', 2)->count() }}</td>
+							<td>{{ $stock->where('specimen_id', 1)->count() }}</td>
+							<td>{{ $stock->count() }}</td>
+						</tr>
 					</tbody>
 				</table>
 			</div>
@@ -47,19 +52,29 @@
 				<table>
 					<thead>
 						<tr>
-							<td>55+</td>
-							<td>50+</td>
-							<td>45+</td>
-							<td>40+</td>
-							<td>35+</td>
-							<td>30+</td>
-							<td>25+</td>
-							<td>20+</td>
-							<td>20<</td>
-							<td>Total</td>
+							<th>55+</th>
+							<th>50+</th>
+							<th>45+</th>
+							<th>40+</th>
+							<th>35+</th>
+							<th>30+</th>
+							<th>25+</th>
+							<th>20+</th>
+							<th>20<</th>
 						</tr>
 					</thead>
 					<tbody>
+						<tr>
+							<td>{{ $stock->where('lbs', '>', 54)->count() }}</td>
+							<td>{{ $stock->where('lbs', '>', 49)->count() }}</td>
+							<td>{{ $stock->where('lbs', '>', 44)->count() }}</td>
+							<td>{{ $stock->where('lbs', '>', 39)->count() }}</td>
+							<td>{{ $stock->where('lbs', '>', 34)->count() }}</td>
+							<td>{{ $stock->where('lbs', '>', 29)->count() }}</td>
+							<td>{{ $stock->where('lbs', '>', 24)->count() }}</td>
+							<td>{{ $stock->where('lbs', '>', 19)->count() }}</td>
+							<td>{{ $stock->where('lbs', '<', 20)->count() }}</td>
+						</tr>
 					</tbody>
 				</table>
 			</div>
@@ -69,30 +84,24 @@
 
 <div class="grid-container full">
 	<div class="grid-x grid-padding-x">
+		@foreach($stock as $fish)
 		<div class="cell small-12 medium-4 large-3 text-center">
-			<div class="photo-border-block">
-		      Fish
+			<div class="fish-border-block">
+		    	<img src="{{ $fish->sideonethumb }}">
 		    </div>
-		    <a href="/stock/id" class="button success expanded">View Fish</a>
+		    <div class="stock-info text-left">
+			    <strong>Top Weight:</strong> {{ $fish->lbs }}lb {{ $fish->oz }}oz<br>
+			    <strong>Captures:</strong> {{ $fish->reports->count() }}<br>
+			    <strong>Last Capture:</strong> 
+			    @foreach($fish->reports as $report)
+					@if($loop->first)
+						{{ date('j/m/y', strtotime ($report->date)) }}<br>
+					@endif
+				@endforeach
+			</div>
+		    <a href="/stock/{{ $fish->id }}" class="button success expanded">View Fish</a>
 		</div><!-- End of cell-->
-		<div class="cell small-12 medium-4 large-3 text-center">
-			<div class="photo-border-block">
-		      Fish
-		    </div>
-		    <a href="/stock/id" class="button success expanded">View Fish</a>
-		</div><!-- End of cell-->
-		<div class="cell small-12 medium-4 large-3 text-center">
-			<div class="photo-border-block">
-		      Fish
-		    </div>
-		    <a href="/stock/id" class="button success expanded">View Fish</a>
-		</div><!-- End of cell-->
-		<div class="cell small-12 medium-4 large-3 text-center">
-			<div class="photo-border-block">
-		      Fish
-		    </div>
-		    <a href="/stock/id" class="button success expanded">View Fish</a>
-		</div><!-- End of cell-->
+		@endforeach
 	</div><!--end of grid-x -->
 </div><!--End of grid container-->
 </div>

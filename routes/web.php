@@ -21,7 +21,7 @@ Route::get('booking', [PageController::class, 'booking']);
 Route::get('deposit/{date}', [PageController::class, 'deposit']);
 Route::get('lake', [PageController::class, 'lake']);
 Route::get('stock', [PageController::class, 'stock']);
-Route::get('stock/id', [PageController::class, 'fish']);
+Route::get('stock/{stock}', [PageController::class, 'fish']);
 Route::get('catch-reports', [PageController::class, 'reports']);
 Route::get('rules', [PageController::class, 'rules']);
 Route::get('facilities', [PageController::class, 'facilities']);

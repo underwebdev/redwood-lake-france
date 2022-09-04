@@ -2,11 +2,12 @@
 
 @section('content')
 
-<div class="hero content">
+<div class="hero content fishbg">
 	@include('layout.nav')
 <div class="grid-container">
 	<div class="grid-x grid-padding-x">
 		<div class="cell small-12 text-center">
+			<h1>Capture History</h1>
 		</div><!-- End of cell-->
 	</div><!--end of grid-x -->
 </div><!--End of grid container-->
@@ -21,22 +22,34 @@
 				<table>
 					<thead>
 						<tr>
-							<td>Name</td>
-							<td>Species</td>
-							<td>Top Weight</td>
-							<td>Last Capture</td>
-							<td>Total Captures</td>
-							<td>Description</td>
+							<th>Name</th>
+							<th>Species</th>
+							<th>Top Weight</th>
+							<th>Last Capture</th>
+							<th class="text-center">Captures</th>
+							<th>Description</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
+							<td>
+								@isset($stock->name)
+									{{ $stock->name }}
+								@else 
+									N/A
+								@endisset
+							</td>
+							<td>{{ $stock->specimen->name }}</td>
+							<td>{{ $stock->lbs }}lb {{ $stock->oz }}oz</td>
+							<td>
+								@foreach($stock->reports as $report)
+									@if($loop->first)
+										{{ date('j/m/y', strtotime ($report->date)) }}<br>
+									@endif
+								@endforeach
+							</td>
+							<td class="text-center">{{ $stock->reports()->count() }}</td>
+							<td>{{ $stock->description }}</td>
 						</tr>
 					</tbody>
 				</table>
@@ -51,20 +64,21 @@
 		<div class="cell small-12 medium-4">
 			<div class="cell small-12 text-center" data-sticky-container>
 			<div class="sticky" data-sticky data-top-anchor="dark-container:bottom">
-				<div class="photo-border-block">
-					<a href="" data-lity>
-					<img src="">
+				<div class="fish-border-block">
+					<a href="{{ $stock->sideone }}" data-lity>
+					<img src="{{ $stock->sideonethumb }}">
 					</a>
 				</div>
 				
-				<div class="photo-border-block">
-					<a href="" data-lity>
-					<img src="">
+				@isset($stock->sidetwo)
+				<div class="fish-border-block">
+					<a href="{{ $stock->sideone }}" data-lity>
+					<img src="{{ $stock->sideonethumb }}">
 					</a>
 				</div>
+				@endisset
 				
 			</div>
-			<br>
 			<a href="/stock" class="button expanded">Back To Stock</a>
 			</div><!-- End of cell-->
 		      
@@ -74,34 +88,34 @@
 			<table>
 				<thead>
 					<tr>
-						<td>jan</td>
-						<td>feb</td>
-						<td>mar</td>
-						<td>apr</td>
-						<td>may</td>
-						<td>jun</td>
-						<td>jul</td>
-						<td>aug</td>
-						<td>sep</td>
-						<td>oct</td>
-						<td>nov</td>
-						<td>dec</td>
+						<th>jan</th>
+						<th>feb</th>
+						<th>mar</th>
+						<th>apr</th>
+						<th>may</th>
+						<th>jun</th>
+						<th>jul</th>
+						<th>aug</th>
+						<th>sep</th>
+						<th>oct</th>
+						<th>nov</th>
+						<th>dec</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
+						<td>{{ $stock->reports()->whereMonth('date', '=', date('01'))->count() }} </td>
+						<td>{{ $stock->reports()->whereMonth('date', '=', date('02'))->count() }}</td>
+						<td>{{ $stock->reports()->whereMonth('date', '=', date('03'))->count() }}</td>
+						<td>{{ $stock->reports()->whereMonth('date', '=', date('04'))->count() }}</td>
+						<td>{{ $stock->reports()->whereMonth('date', '=', date('05'))->count() }}</td>
+						<td>{{ $stock->reports()->whereMonth('date', '=', date('06'))->count() }}</td>
+						<td>{{ $stock->reports()->whereMonth('date', '=', date('07'))->count() }}</td>
+						<td>{{ $stock->reports()->whereMonth('date', '=', date('08'))->count() }}</td>
+						<td>{{ $stock->reports()->whereMonth('date', '=', date('09'))->count() }}</td>
+						<td>{{ $stock->reports()->whereMonth('date', '=', date('010'))->count() }}</td>
+						<td>{{ $stock->reports()->whereMonth('date', '=', date('11'))->count() }}</td>
+						<td>{{ $stock->reports()->whereMonth('date', '=', date('12'))->count() }}</td>
 					</tr>
 				</tbody>
 			</table>
@@ -111,26 +125,40 @@
 				<table>
 					<thead>
 						<tr>
-							<td>Date</td>
-							<td>Angler</td>
-							<td>Weight</td>
-							<td class="text-center">Photo</td>
-							<td>Weather</td>
-							<td>Bait</td>
+							<th>Date</th>
+							<th>Angler</th>
+							<th>Weight</th>
+							<th class="text-center"></th>
+							<th class="text-center">Swim</th>
 						</tr>
 					</thead>
 					<tbody>
+						@foreach($stock->reports as $report)
 						<tr>
-							<td></td>
-							<td></td>
-							<td class="">0lb 0oz</td>
-							
+							<td>{{ date('j/m/y', strtotime ($report->date)) }}</td>
+							<td>{{ $report->angler->firstName }} {{ $report->angler->lastName }}</td>
+							<td class="">{{ $report->lbs }}lb {{ $report->oz }}oz</td>
 							<td class="text-center">
-								<i class="fas fa-camera"></i>
+								@isset($report->sideone)
+								<a href="{{ $report->sideone }}" data-lity>
+									<i class="fas fa-camera"></i>
+								</a>
+								@endisset
+								@isset($report->sidetwo)
+								<a href="{{ $report->sidetwo }}" data-lity>
+									<i class="fas fa-camera"></i>
+								</a>
+								@endisset
 							</td>
-							<td></td>
-							<td></td>
+							<td class="text-center">
+								@isset($report->swim_id)
+									{{ $report->swim->shortname }}
+								@else
+									N/A
+								@endisset
+							</td>
 						</tr>
+						@endforeach
 					</tbody>
 				</table>
 		    </div>
@@ -140,33 +168,5 @@
 	</div><!--end of grid-x -->
 </div><!--End of grid container-->
 </div>
-</div>
-
-<section class="horizSlider">
-	  <div class="slide">
-	    <h2 class="slideText">Text title</h2>
-	    <img width="1000" height="500" class="slideImage" src="https://source.unsplash.com/random/1000x500" alt="Filler image">
-	  </div>
-	  
-	  <div class="slide">
-	    <h2 class="slideText">Text title</h2>
-	    <img width="1000" height="500" class="slideImage" src="https://source.unsplash.com/random/1000x500" alt="Filler image">
-	  </div>
-	  
-	  <div class="slide">
-	    <h2 class="slideText">Text title</h2>
-	    <img width="1000" height="500" class="slideImage" src="https://source.unsplash.com/random/1000x500">
-	  </div>
-	  
-	  <div class="slide">
-	    <h2 class="slideText">Text title</h2>
-	    <img width="1000" height="500" class="slideImage" src="https://source.unsplash.com/random/1000x500">
-	  </div>
-	  
-	  <div class="slide">
-	    <h2 class="slideText">Text title</h2>
-	    <img width="1000" height="500" class="slideImage" src="https://source.unsplash.com/random/1000x500">
-	  </div>
-	</section>
 </div>
 @endsection

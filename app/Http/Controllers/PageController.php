@@ -15,6 +15,7 @@ use App\Models\Lake;
 use App\Models\Placeholder;
 use App\Models\Priceguides;
 use App\Models\Booking;
+use App\Models\Stock;
 use Carbon\Carbon;
 use Carbon\CarbonPeriod;
 use Carbon\CarbonInterval;
@@ -98,12 +99,14 @@ class PageController extends Controller
     {
         $page = Page::find(6);
 
-        return view('pages.stock', compact('page'));
+        $stock = Stock::whereNotNull('alive')->get();
+
+        return view('pages.stock', compact('page', 'stock'));
     }
 
-    public function fish()
+    public function fish(Stock $stock)
     {
-        return view('pages.fish');
+        return view('pages.fish', compact('stock'));
     }
 
     public function location()

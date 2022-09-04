@@ -5353,7 +5353,7 @@ tbody td {
 
 tbody tr:nth-child(even) {
   border-bottom: 0;
-  background-color: #EEEFF1;
+  background-color: #f7f6fb;
 }
 
 table.unstriped tbody {
@@ -8559,6 +8559,14 @@ html.is-reveal-open body {
   background-attachment: fixed;
 }
 
+.fishbg {
+  background-image: url("/img/backgrounds/fish-background.jpeg");
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
 .locationbg {
   background-image: url("/img/backgrounds/location-background.jpg");
   background-repeat: no-repeat;
@@ -8627,6 +8635,29 @@ html.is-reveal-open body {
 h4 {
   font-family: "Mulish", sans-serif;
   font-weight: 600;
+}
+
+.nav-plain {
+  margin-bottom: 100px;
+  font-weight: 800;
+  background: rgb(35, 35, 35);
+  padding: 0px 10px 0px 20px;
+  font-size: 20px;
+  display: flex;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+}
+
+.nav-plain a {
+  color: #FFFFFF;
+  margin-right: 20px;
+  font-weight: 300;
+  letter-spacing: 2px;
+}
+
+.nav-plain a:hover {
+  color: #F7D78C;
 }
 
 .nav {
@@ -8945,10 +8976,6 @@ textarea {
   opacity: 0.1;
 }
 
-.pricing-block hr {
-  background-color: #A6D3F2;
-}
-
 .pricing-block h4 {
   font-size: 40px;
   -webkit-text-decoration-style: dashed;
@@ -8966,10 +8993,8 @@ textarea {
   font-family: "Mulish", sans-serif;
   font-weight: 800;
   font-size: 1.8rem;
-}
-
-.pricing-block small {
   color: #FFFFFF;
+  margin-bottom: 0;
 }
 
 .pricing-block .price-container {
@@ -9007,6 +9032,10 @@ textarea {
   padding: 20px 0 30px;
   border-top-right-radius: 8px;
   border-top-left-radius: 8px;
+}
+
+.center-border-header h1 {
+  margin: 0;
 }
 
 .center-border-header h3 {
@@ -9093,6 +9122,7 @@ textarea {
 .contact-info i {
   font-size: 30px;
   margin-right: 15px;
+  color: #1a2535;
 }
 
 .contact-info p {
@@ -9112,6 +9142,24 @@ textarea {
   background-color: #FFFFFF;
   border: 1px solid #FFFFFF;
   box-shadow: 0 0 10px rgba(24, 50, 115, 0.1);
+}
+
+.fish-border-block {
+  border-radius: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #FFFFFF;
+  box-shadow: 0 0 10px rgba(24, 50, 115, 0.1);
+}
+
+.fish-border-block img {
+  border-radius: 8px;
+  background-color: #FFFFFF;
+  border: 1px solid #FFFFFF;
+  box-shadow: 0 0 10px rgba(24, 50, 115, 0.1);
+}
+
+.stock-info {
+  padding: 0 0 16px 8px;
 }
 
 .fish-gallery {
@@ -9192,4 +9240,26 @@ textarea {
 .error {
   color: #cc4b37;
   font-weight: bold;
+}
+
+.table-scroll {
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(24, 50, 115, 0.3);
+  margin-bottom: 16px;
+}
+
+.table-scroll table {
+  border-radius: 8px;
+}
+
+table {
+  margin-bottom: 0;
+}
+
+table th:first-child {
+  border-radius: 8px 0 0 0;
+}
+
+table th:last-child {
+  border-radius: 0 8px 0 0;
 }

@@ -27,23 +27,23 @@
 	</div><!--End of grid container-->
 	<section class="horizSlider">
 	  <div class="slide">
-	    <h2 class="slideText">Text title</h2>
-	    <img width="1000" height="500" class="slideImage" src="https://source.unsplash.com/random/1000x500" alt="Filler image">
+	    <h2 class="slideText"></h2>
+	    <img width="1000" height="500" class="slideImage" src="/img/gallery/redwoodlake-house.jpeg" alt="Filler image">
 	  </div>
 	  
 	  <div class="slide">
-	    <h2 class="slideText">Text title</h2>
-	    <img width="1000" height="500" class="slideImage" src="https://source.unsplash.com/random/1000x500" alt="Filler image">
+	    <h2 class="slideText"></h2>
+	    <img width="1000" height="500" class="slideImage" src="/img/gallery/redwoodlake-platform.jpeg" alt="Filler image">
 	  </div>
 	  
 	  <div class="slide">
-	    <h2 class="slideText">Text title</h2>
-	    <img width="1000" height="500" class="slideImage" src="https://source.unsplash.com/random/1000x500">
+	    <h2 class="slideText"></h2>
+	    <img width="1000" height="500" class="slideImage" src="/img/gallery/aqua-park.jpeg">
 	  </div>
 	  
 	  <div class="slide">
-	    <h2 class="slideText">Text title</h2>
-	    <img width="1000" height="500" class="slideImage" src="https://source.unsplash.com/random/1000x500">
+	    <h2 class="slideText"></h2>
+	    <img width="1000" height="500" class="slideImage" src="/img/gallery/redwood-bbq-area.jpg">
 	  </div>
 	  
 	  <div class="slide">

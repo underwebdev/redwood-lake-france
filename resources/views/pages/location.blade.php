@@ -68,6 +68,7 @@
 		<div class="button-group">
 			<a href="https://www.google.com/maps/dir/Port+Calais,+Unnamed+Road,+62100+Calais,+France/%C3%89tang+de+Seuil,+87140+Saint-Pardoux-le-Lac,+France/@48.4339951,-2.9921142,6z/data=!3m1!4b1!4m13!4m12!1m5!1m1!1s0x47dc3f717b892b65:0xe80f7b854634e7e9!2m2!1d1.8732131!2d50.9708404!1m5!1m1!1s0x47fead8ed3dc3c65:0xf28884017ff4c0fd!2m2!1d1.205159!2d46.055083" class="button">Port of Calais to Etang de Seuil</a>
 			<a href="https://www.google.com/maps/dir/Eurotunnel+Calais+Terminal,+Coquelles,+France/%C3%89tang+de+Seuil,+87140+Saint-Pardoux-le-Lac,+France/@48.4190039,-2.99212,6z/data=!3m1!4b1!4m13!4m12!1m5!1m1!1s0x47dc3ee7fd5ba9cd:0xd28c7f4ccb700ec0!2m2!1d1.8125997!2d50.9354021!1m5!1m1!1s0x47fead8ed3dc3c65:0xf28884017ff4c0fd!2m2!1d1.205159!2d46.055083" class="button">Euro Tunnel Calais to Etang de Seuil</a>
+			<a href="https://www.google.com/maps/dir/Port+de+Plaisance,+Quai+Vendeuvre,+14000+Caen,+France/%C3%89tang+de+Seuil,+87140+Saint-Pardoux-le-Lac,+France/@47.6052492,-1.8108589,7z/data=!3m1!4b1!4m13!4m12!1m5!1m1!1s0x480a429f1b86e211:0x9bd21bfc2c5203aa!2m2!1d-0.3539953!2d49.1829324!1m5!1m1!1s0x47fead8ed3dc3c65:0xf28884017ff4c0fd!2m2!1d1.205159!2d46.055083">Port of Caen to Etang de Seuil</a>
 		</div>
 
 		<h3><span class="weighted">Flying</span> to Redwood Lake (Etang de Seuil)</h3>

@@ -2,19 +2,23 @@
 
 @section('content')
 
+@include('layout.nav-plain')
+<br>
+
+<div class="grid-container">
 <div class="grid-x grid-padding-x"> 
     <div class="cell small-12 medium-8 large-6 medium-offset-2 large-offset-3">
         <div class="center-border">
             <div class="center-border-header text-center">
-                <img src="" width="200px">
+                
             </div>
             <div class="center-border-content">
-            	<h1 class="text-center">Register Your Account</h1>
+                <h1 class="text-center">Register Account</h1>
             	@include('layout.alerts')
             	<form method="post" action="/create-account" accept-charset="UTF-8" enctype="multipart/form-data" >
             	@csrf
-                <label for="">Booking Ref or Customer No @error('memberNo')<span class="error">{{ $message }}</span> @enderror</label>
-                <input type="text" name="memberNo" value="{{ old('memberNo') }}">
+                <label for="">Booking Ref or Customer No @error('ref')<span class="error">{{ $message }}</span> @enderror</label>
+                <input type="text" name="ref" value="{{ old('ref') }}">
                 <label for="">First Name @error('firstName')<span class="error">{{ $message }} </span>@enderror</label>
                 <input type="text" name="firstName" value="{{ old('firstName') }}">
                 <label for="">Last Name @error('lastName')<span class="error">{{ $message }} </span>@enderror</label>
@@ -117,10 +121,15 @@
                     <option value="1">Notify Me</option>
                     <option value="2">I am not interested</option> 
                 </select>
-                <button class="button expanded success radius">Create Account</button>
+
+                <div class="button-group">
+                    <button class="button expanded success">Create Account</button>
+                    <a href="/login" class="button expanded success hollow">Back To Login</a>
+                </div>
             </form>
             </div>
         </div>
     </div>
 </div>
+</div><!--End of grid container-->
 @endsection

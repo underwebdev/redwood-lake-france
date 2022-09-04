@@ -16,6 +16,6 @@
 		</ul>
 	</li>
 	<li><a href="/contact">Contact</a></li>
-	<li><a href="/my-booking">My Booking</a></li>
+	<li><a href="/login">My Booking</a></li>
 </ul>
 </div>
