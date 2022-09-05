@@ -34,6 +34,7 @@ Route::get('booking-terms', [PageController::class, 'bookingterms']);
 Route::get('terms-conditions', [PageController::class, 'terms']);
 Route::get('privacy-policy', [PageController::class, 'privacy']);
 Route::get('payment-complete', [PageController::class, 'paymentcomplete']);
+Route::get('payment-webhook', [WebhookController::class, 'handle']);
 
 Route::get('admin/dashboard', [AdminController::class, 'index']);
 Route::get('admin/bookings', [AdminController::class, 'bookings']);

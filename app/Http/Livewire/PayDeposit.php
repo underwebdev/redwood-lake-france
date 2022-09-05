@@ -4,11 +4,12 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use Stripe\{Stripe, PaymentIntent};
-use Carbon\Carbon;
 use App\Models\Placeholder;
 use App\Models\Voucher;
 use App\Models\Priceguide;
 use App\Jobs\PlaceholderCleanup;
+use Carbon\Carbon;
+use Session;
 
 class PayDeposit extends Component
 {
@@ -48,6 +49,8 @@ class PayDeposit extends Component
             'expiry' => $this->expiry,
             'session_id' => 1
         ]);
+
+        session(['placeholder' => $this->placeholder->id]);
 
         $placeholder = $this->placeholder;
 
