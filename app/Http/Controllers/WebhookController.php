@@ -71,14 +71,6 @@ class WebhookController extends Controller
                 } else {
                     $newPWD = Str::random(8);
 
-                    $data = [
-                        'firstName' => $intent->metadata->firstName,
-                        'password' => $newPWD,
-                        'email' => $intent->metadata->email
-                    ];
-
-                    Mail::to($user->email)->send(new AccountCreated($user));
-
                     $user = User::create([
                         'email' => $intent->metadata->email,
                         'password' => bcrypt($newPWD),
@@ -95,6 +87,13 @@ class WebhookController extends Controller
                         'ref' => $ref + 1
                     ]);
 
+                    $data = [
+                        'firstName' => $user->angler->firstName,
+                        'password' => $plainPWD,
+                        'email' => $newPWD
+                    ];
+
+                    Mail::to($user->email)->send(new AccountCreated($user));
                 }
 
                 $booking = $user->angler->bookings()->create([
