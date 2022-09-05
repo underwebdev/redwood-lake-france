@@ -54,17 +54,19 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($bookings as $booking)
                             <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td>{{ date('j/m/y', strtotime ($booking->arrival)) }}</td>
+                                <td>{{ $booking->angler->firstName }} {{ $booking->angler->lastName }}</td>
+                                <td>{{ $booking->anglers }}</td>
+                                <td><a href="" class="button small">View</a></td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
                 <div class="text-center">
-                    <a href="admin/bookings" class="button">View All</a>
+                    <a href="/admin/bookings" class="button">View All</a>
                 </div>
             </div><!-- End of cell-->
             <div class="cell small-12">
@@ -93,7 +95,7 @@
                     </table>
                 </div>
                 <div class="text-center">
-                    <a href="admin/payments" class="button">View All</a>
+                    <a href="/admin/payments" class="button">View All</a>
                 </div>
             </div><!-- End of cell-->
         </div><!--end of grid-x -->

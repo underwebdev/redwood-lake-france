@@ -35,12 +35,14 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($bookings as $booking)
                             <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td>{{ date('j/m/y', strtotime ($booking->arrival)) }}</td>
+                                <td>{{ $booking->id }}</td>
+                                <td>{{ $booking->angler->firstName }} {{ $booking->angler->lastName }}</td>
+                                <td>{{ Carbon\Carbon::parse($booking->arrival)->subDays($booking->priceguide->due) }}</td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>   
             </div><!-- End of cell-->

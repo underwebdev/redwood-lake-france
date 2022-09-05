@@ -6,6 +6,7 @@
 Thank you for making a booking at Redwood Lake. Please find below details of your booking.</p>
 @component('mail::panel')
 <p class="text-center"><strong>Booking Information</strong><br>
+<strong>Booking Ref:</strong> {{ $booking->id }}<br>
 <strong>Lead Booking:</strong> {{ $booking->angler->firstName }} {{ $booking->angler->lastName }}<br>
 <strong>Arrival:</strong> {{ date('j/m/y H:i', strtotime ($booking->arrival)) }}<br>
 <strong>Departure:</strong> {{ date('j/m/y H:i', strtotime ($booking->departure)) }}<br>

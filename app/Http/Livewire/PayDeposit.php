@@ -38,7 +38,6 @@ class PayDeposit extends Component
     public $connect;
     public $pk;
     protected $intent = [];
-    public $paymentIntent;
 
 
     public function start()
@@ -188,9 +187,11 @@ class PayDeposit extends Component
                 redirect()->to('/booking')->with('failure', 'Time limit expired!');
             }
         }
-        
-        $paymentIntent = $this->paymentIntent;
 
-        return view('livewire.pay-deposit');
+        $paymentIntent = $this->intent;
+
+        return view('livewire.pay-deposit',[
+            'intent' => $paymentIntent
+        ]);
     }
 }
