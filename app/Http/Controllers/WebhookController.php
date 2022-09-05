@@ -106,7 +106,7 @@ class WebhookController extends Controller
                     'arrival' => $intent->metadata->arrival . ' 14:00:00',
                     'departure' => Carbon::parse($intent->metadata->arrival)->addDays(7) . ' 11:00:00',
                     'total' => $intent->metadata->total,
-                    'priceguide' => $intent->metadata->priceguide
+                    'priceguide_id' => $intent->metadata->priceguide
                 ]);
 
                 $booking->payments()->create([
