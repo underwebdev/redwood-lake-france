@@ -23,7 +23,7 @@ class NewsDashboard extends Component
     public $metadesc;
     public $metakeywords;
     public $url;
-    public $status;
+    public $status = 1;
 
     public $total;
     public $count = '1';
@@ -36,10 +36,10 @@ class NewsDashboard extends Component
             'body' => 'required',
             'attachment' => 'sometimes',
             'status' => 'nullable',
-            'metatitle' => 'exclude_unless:status,1|required',
-            'metadesc' => 'exclude_unless:status,1|required',
-            'metakeywords' => 'exclude_unless:status,1|required',
-            'url' => 'exclude_unless:status,1|required|unique:articles'
+            'metatitle' => 'required_if:status,2',
+            'metadesc' => 'required_if:status,2',
+            'metakeywords' => 'required_if:status,2',
+            'url' => 'required_if:status,2|unique:articles'
         ]);
 
         if($this->cover) 
@@ -89,7 +89,14 @@ class NewsDashboard extends Component
             $fileDirectory = Null;
         }
 
-        Auth::user()->admin->articles()->create([
+        if($this->status == 1)
+        {
+            $status = 1;
+        } else {
+            $status = Null;
+        }
+
+        $article = Auth::user()->admin->articles()->create([
             'title' => $data['title'],
             'cover' => $dbDirectory,
             'thumbnail' => $dbThumbDirectory,
@@ -98,10 +105,11 @@ class NewsDashboard extends Component
             'metatitle' => $data['metatitle'],
             'metadescription' => $data['metadesc'],
             'metakeywords' => $data['metakeywords'],
-            'url' => $data['url']
+            'url' => $data['url'],
+            'draft' => $status
         ]);
 
-        $this->reset(['title', 'cover', 'body', 'attachment', 'mode']);
+     redirect()->to('admin/article/'. $article->id);
     }
 
     public function render()

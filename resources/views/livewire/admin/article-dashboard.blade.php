@@ -34,7 +34,7 @@
     <div class="grid-container">
         <div class="grid-x grid-padding-x">
             @if($mode == 1)
-                <div class="cell small-12">
+                <div class="cell small-12 large-8">
                     
                     <img src="{{ $article->cover }}">
 
@@ -73,7 +73,7 @@
                       <button class="button alert" wire:click="delete">Delete Article</button>
                 </div><!-- End of cell-->
             @elseif($mode == 3)
-                <div class="cell small-12">
+                <div class="cell small-12 large-8">
                     <img src="{{ $article->cover }}">
                     <br><br>
                     <input type="file" wire:model="cover">

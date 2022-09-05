@@ -1,6 +1,5 @@
 @component('mail::message')
-<h1 class="text-center">Redwook Lake Admin</h1> 
-		
+<h1 class="text-center">Redwook Lake Admin</h1> 		
 @component('mail::panel')
 <p class="text-center"><strong>Your log in credentials</strong><br>
 <strong>Password:</strong> {{ $password }}<br></p>

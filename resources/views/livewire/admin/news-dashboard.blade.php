@@ -36,9 +36,6 @@
 						<label for="">Cover Image (1200px x 900px) @error('cover')<span class="error">{{ $message }}</span>@enderror</label>
 						<input type="file" placeholder="" wire:model="cover">
 
-						<label for="">Attachment @error('attachment')<span class="error">{{ $message }}</span>@enderror</label>
-						<input type="file" placeholder="" wire:model="attachment">
-
 						<hr>
 
 						<label for="">Url (https://etangdeseuil.co.uk/news/)
@@ -47,24 +44,24 @@
 		                <input type="text" placeholder="" wire:model="url">
 
 		                <label for="">Meta Title
-		                    @error('metatitle')<span class="error">{{ $message }} </span> @enderror
+		                    @error('metatitle')<span class="error">This field is required if the article is active.</span> @enderror
 		                </label>
 		                <input type="text" placeholder="" wire:model="metatitle">
 
 		                <label for="">Meta Description
-		                    @error('metadesc')<span class="error">{{ $message }} </span> @enderror
+		                    @error('metadesc')<span class="error">This field is required if the article is active.</span> @enderror
 		                </label>
 		                <input type="text" placeholder="" wire:model="metadesc">
 
 		                <label for="">Meta Keywords
-		                    @error('metakeywords')<span class="error">{{ $message }} </span> @enderror
+		                    @error('metakeywords')<span class="error">This field is required if the article is active.</span> @enderror
 		                </label>
 		                <input type="text" placeholder="" wire:model="metakeywords">
 
 		                <label for="">Status</label>
 		                <select id="" wire:model="status">
 		                	<option value="1">Draft</option>
-		                	<option value="">Active</option>
+		                	<option value="2">Active</option>
 		                </select>
 
 						<button class="button success">Save Article</button>
