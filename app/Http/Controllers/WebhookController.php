@@ -14,6 +14,7 @@ use App\Models\Payout;
 use App\Models\Booking;
 use App\Models\Payment;
 use App\Models\User;
+use App\Models\Angler;
 use Carbon\Carbon;
 use Stripe\{Stripe};
 
@@ -72,8 +73,8 @@ class WebhookController extends Controller
                     $user = User::create([
                         'email' => $intent->metadata->email,
                         'password' => bcrypt($newPWD),
-                        'permission' => 2,
-                        'reset' => 1
+                        'permission' => '2',
+                        'reset' => '1'
                     ]);
 
                     $ref = Angler::latest()->pluck('ref')->first();
