@@ -134,30 +134,39 @@
 
                             <div class="button-group">
                                 @isset($payment)
-                                <button class="button expanded success" wire:click="stepthree">Proceed To Payment</button>
+                                <button class="button expanded success" wire:click="calculate">Proceed To Payment</button>
                                 @endisset
                                 <button class="button expanded alert hollow" wire:click="$set('step', 2)">Go Back</button>
                             </div>
 
                         @elseif($step == 4)
                             <h4 class="text-center">Payment</h4>
-                            @if($payment == 1)
-                                <h5 class="text-center"><strong>£200</strong></h5>
-                                <p>The remaining balance is due on date</p>
-                            @elseif($payment == 2) 
-                                <h5 class="text-center"><strong>£1000</strong></h5>
-                            @endif
+                            
+                                <h5 class="text-center"><strong>£{{ $intent->amount / 100 }}</strong></h5>
+                                @if($payment == 1)
+                                    <p class="text-center">The remaining balance is due by {{ date('j/m/y', strtotime ($duedate)) }}</p>
+                                @endif
 
-                            <label for="">Name on Card</label>
-                            <input type="text" placeholder="" wire:model="">
+                            <form id="payment-form" class="text-left">
+                            <div class="card-body">  
+                            <label>Cardholder Name</label>
+                            <input id="card-holder-name" type="text" class="report-input" required>
 
-                            <label for="">Card Details</label>
-                            <input type="text" placeholder="" wire:model="">
+                            <!-- Stripe Elements Placeholder -->
+                            <div id="card-element" style="height: 50px; border-radius: 8px; line-height:27px; padding-top:13px;"></div>
 
-                            <div class="button-group">
-                                <button class="button success expanded">Pay {{ $payment }}</button>
-                                <button class="button alert hollow expanded" wire:click="$set('step', 3)">Go Back</button>
+                            <div id="card-errors" class="text-center" role="alert"></div>
+
+                            <button id="card-button" class="button expanded radius success" data-secret="{{ $intent->client_secret }}">
+                            <strong>Confirm Payment £{{ $intent->amount / 100 }}</strong>
+                            </button>
                             </div>
+                            </form>
+                            
+                            <button class="button alert hollow expanded" wire:click="$set('step', 3)">Go Back</button>
+
+                            @include('scripts.stripe')
+                            
                         @endif
                     </div>
                 </div>  

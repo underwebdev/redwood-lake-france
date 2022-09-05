@@ -15,4 +15,9 @@ class Priceguide extends Model
     {
         return $this->belongsTo(Package::class);
     }
+
+    public function bookings()
+    {
+        return $this->hasmany(Booking::class);
+    }
 }

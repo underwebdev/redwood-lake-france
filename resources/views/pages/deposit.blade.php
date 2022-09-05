@@ -1,4 +1,4 @@
-@extends('app')
+@extends('payment')
 
 @section('content')
 

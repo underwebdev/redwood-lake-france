@@ -33,6 +33,7 @@ Route::get('contact', [PageController::class, 'contact']);
 Route::get('booking-terms', [PageController::class, 'bookingterms']);
 Route::get('terms-conditions', [PageController::class, 'terms']);
 Route::get('privacy-policy', [PageController::class, 'privacy']);
+Route::get('payment-complete', [PageController::class, 'paymentcomplete']);
 
 Route::get('admin/dashboard', [AdminController::class, 'index']);
 Route::get('admin/bookings', [AdminController::class, 'bookings']);
@@ -44,7 +45,7 @@ Route::get('admin/stock/{id}', [AdminController::class, 'fish']);
 Route::get('admin/stocking-diary', [AdminController::class, 'stockdiary']);
 Route::get('admin/lake', [AdminController::class, 'lake']);
 Route::get('admin/news', [AdminController::class, 'news']);
-Route::get('admin/news/{id}', [AdminController::class, 'article']);
+Route::get('admin/article/{article}', [AdminController::class, 'article']);
 Route::get('admin/photo-diary', [AdminController::class, 'photodiary']);
 Route::get('admin/content', [AdminController::class, 'content']);
 Route::get('admin/rules', [AdminController::class, 'rules']);

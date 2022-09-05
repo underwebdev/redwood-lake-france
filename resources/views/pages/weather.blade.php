@@ -34,7 +34,7 @@
 				
 					<div class="grid-x grid-padding-x">
 						<div class="cell small-12">
-							<p class="header"><strong>{{ date('D j/m/y', strtotime ($day->value)) }}</strong></p>
+							<p class="weather-header"><strong>{{ date('D j/m/y', strtotime ($day->value)) }}</strong></p>
 						</div>
 					@foreach($day->Rep as $forecast)
 						@if($loop->odd)

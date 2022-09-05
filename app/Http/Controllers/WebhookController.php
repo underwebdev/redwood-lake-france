@@ -4,10 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use App\Mail\AccountCreated;
+use App\Mail\BookingReceipt;
+use App\Mail\BookingNotification;
+use App\Mail\BookingUpdated;
+use App\Mail\PaymentReceipt;
+use App\Mail\PaymentNotification;
 use App\Models\Payout;
 use App\Models\Booking;
 use App\Models\Payment;
 use App\Models\User;
+use Carbon\Carbon;
+use Stripe\{Stripe};
 
 class WebhookController extends Controller
 {
@@ -43,9 +51,8 @@ class WebhookController extends Controller
 
             $intent = $event->data->object;
 
-            if($intent->metadata->type == 'deposit')
+            if($intent->metadata->type == 'booking')
             {
-                $booking = Booking::find($intent->metadata->booking_id);
 
                 $paid = $intent->amount;
                 $percentage = 3;
@@ -61,25 +68,60 @@ class WebhookController extends Controller
 
                 } else {
                     $newPWD = Str::random(8);
+
+                    $user = User::create([
+                        'email' => $intent->metadata->email,
+                        'password' => bcrypt($newPWD),
+                        'permission' => 2,
+                        'reset' => 1
+                    ]);
+
+                    $ref = Angler::latest()->pluck('ref')->first();
+
+                    $user->angler()->create([
+                        'firstName' => $intent->metadata->firstName,
+                        'lastName' => $intent->metadata->lastName,
+                        'telephone' => $intent->metadata->telephone,
+                        'ref' => $ref + 1
+                    ]);
+
+                    $data = [
+                        'firstName' => $user->angler->firstName,
+                        'password' => $newPWD,
+                        'email' => $user->email
+                    ];
+
+                    Mail::to($user->email)->send(new AccountCreated($user));
                 }
 
-                $booking->update([
-                    'total' => $intent->amount,
-                    'transaction_id' => $intent->id,
-                    'paymethod_id' => 1,
-                    'status' => 1,
-                    'net' => $net
+                $booking = $user->angler->bookings()->create([
+                    'address1' => $intent->metadata->address1,
+                    'address2' => $intent->metadata->address2,
+                    'address3' => $intent->metadata->address3,
+                    'postcode' => $intent->metadata->postcode,
+                    'anglers' => $intent->metadata->anglers,
+                    'arrival' => $intent->metadata->arrival . ' 14:00:00'
+                    'departure' => Carbon::parse($intent->metadata->arrival)->addDays(7) . ' 11:00:00',
+                    'total' => $intent->metadata->total,
+                    'priceguide' => $intent->metadata->priceguide
                 ]);
 
-                Mail::to($booking->member->user->email)->send(new GuestReceipt($booking));
-                Mail::to('toby@croxleyhallfisheries.co.uk')->cc('scott@croxleyhallfisheries.co.uk')->send(new GuestNotification($booking));
+                $booking->payments()->create([
+                    'angler_id' => $user->angler->id,
+                    'total' => $paid,
+                    'net' => $net,
+                    'transaction_id' => $intent->id,
+                    'paymethod_id' => 1,
+                    'status' => 1
+                ]);
+
+                Mail::to($user->email)->send(new BookingReceipt($booking));
+                Mail::to('joe@underweb.co.uk')->send(new BookingNotification($booking));
             }
 
             if($intent->metadata->type == 'payment')
             {
-                $member = Member::find($intent->metadata->member);
-                $ticket = Option::find($intent->metadata->ticket);
-                $season = Season::where('status_id', 1)->first();
+                $booking = booking::find($intent->metadata->ref);
 
                 $paid = $intent->amount;
                 $percentage = 3;
@@ -88,34 +130,21 @@ class WebhookController extends Controller
                 $roundedFee = round($applicationFee); 
                 $net = $paid - $roundedFee;
 
-                $ticket = $member->tickets()->create([
-                    'season_id' => $season->id,
-                    'syndicate_id' => $ticket->syndicate->id,
-                    'option_id' => $ticket->id,
-                    'paymethod_id' => 1,
-                    'amount' => $intent->amount,
+                $payment = $booking->payments()->create([
+                    'angler_id' => $intent->metadata->angler,
+                    'total' => $paid,
                     'net' => $net,
-                    'payment_confirmed' => 1,
-                    'transaction_id' => $intent->id
+                    'transaction_id' => $intent->id,
+                    'paymethod_id' => 1,
+                    'status' => 1
                 ]);
 
-                if($ticket->syndicate_id == 1)
-                {
-                    if($ticket->member->croxleywaiting()->exists())
-                    {
-                        $ticket->member->croxleywaiting()->delete();
-                    }
-                }
+                $angler = Angler::findOrFail($intent->metadata->angler);
 
-                if($member->syndicate_id == $ticket->syndicate_id)
-                {
-                    Mail::to($ticket->member->user->email)->send(new MembershipReceipt($ticket));
-
-                } else {
-                    Mail::to($ticket->member->user->email)->send(new PaymentReceipt($ticket));
-                }
+                Mail::to($angler->user->email)->send(new PaymentReceipt($payment));
+                Mail::to($booking->angler->user->email)->send(new BookingUpdated($payment));
                 
-                Mail::to('toby@croxleyhallfisheries.co.uk')->cc('scott@croxleyhallfisheries.co.uk')->send(new MembershipNotification($ticket));
+                Mail::to('toby@croxleyhallfisheries.co.uk')->cc('scott@croxleyhallfisheries.co.uk')->send(new PaymentNotification($payment));
             }
 
         }
@@ -176,7 +205,7 @@ class WebhookController extends Controller
 
                         $newpayout->tickets()->attach($ticket->id);
 
-                    }elseif(Booking::where('transaction_id', $d['source'])->exists())
+                    } elseif(Booking::where('transaction_id', $d['source'])->exists())
                     {
                         $booking = Booking::where('transaction_id', $d['source'])->first();
 

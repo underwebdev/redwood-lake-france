@@ -69,23 +69,35 @@ class PageController extends Controller
     public function deposit($date)
     {
         $date = Carbon::parse($date)->format('Y-m-d');
-
-        $firstdate = Priceguide::where('end', '>', Carbon::today())->where('start', '<', Carbon::now())->pluck('start')->first();
+        $firstdate = Priceguide::where('end', '>', Carbon::today())->orderBy('start', 'desc')->pluck('start')->first();
         $latestdate = Priceguide::orderBy('end', 'desc')->pluck('end')->first();
+
+        if(Carbon::parse($date)->dayOfWeekIso != 6)
+        {
+            return redirect('/booking');
+        } elseif($date > $latestdate)
+        {
+            return redirect('/booking');
+        }
 
         $bookingdates = Collect(CarbonInterval::days(7)->toPeriod($firstdate, $latestdate));
 
         if(Booking::where('arrival', $date)->exists())
         {
-            return redirect('/booking');
+            return redirect('/booking')->with('failure', 'Selected date no longer available');
         }
 
         if(Placeholder::where('date', $date)->exists())
         {
-            return redirect('/booking');
+            return redirect('/booking')->with('failure', 'Selected date no longer available');
         }
 
         return view('pages.deposit', compact('date'));
+    }
+
+    public function paymentcomplete()
+    {
+        return view('pages.paymentcomplete');
     }
 
     public function reports()

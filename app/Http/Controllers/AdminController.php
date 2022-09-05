@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Article;
 
 class AdminController extends Controller
 {
@@ -56,9 +57,9 @@ class AdminController extends Controller
         return view('admin.news');
     }
 
-    public function article()
+    public function article(Article $article)
     {
-        return view('admin.article');
+        return view('admin.article', compact('article'));
     }
 
     public function photodiary()

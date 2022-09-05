@@ -3,9 +3,11 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use Stripe\{Stripe, PaymentIntent};
 use Carbon\Carbon;
 use App\Models\Placeholder;
 use App\Models\Voucher;
+use App\Models\Priceguide;
 use App\Jobs\PlaceholderCleanup;
 
 class PayDeposit extends Component
@@ -30,6 +32,11 @@ class PayDeposit extends Component
     public $validcode;
     public $invalidcode;
     public $voucher;
+    public $duedate;
+
+    public $connect;
+    public $pk;
+    protected $intent = [];
 
 
     public function start()
@@ -87,8 +94,76 @@ class PayDeposit extends Component
         $this->validcode = false;
     }
 
-    public function stepthree()
+    public function calculate()
     {
+        $data = $this->validate([
+            'firstName' => 'required',
+            'lastName' => 'required',
+            'email' => 'required',
+            'telephone' => 'required',
+            'address1' => 'required',
+            'address2' => 'required',
+            'address3' => 'nullable',
+            'postcode' => 'required',
+            'anglers' => 'required|numeric',
+            'payment' => 'required|numeric'
+        ]);
+
+        $bookingdate = Carbon::parse($this->date)->toDateString();
+
+        $priceguide = Priceguide::where('end', '>=', $bookingdate)->where('start', '<=', $bookingdate)->first();
+
+        $total = $priceguide->price;
+        $deposit = $priceguide->deposit;
+
+        if($this->validcode)
+        {
+            $total = $total - $this->voucher->amount;
+        }
+
+        if($data['payment'] == 1)
+        {
+            $toPay = $deposit;
+            $this->duedate = Carbon::parse($this->date)->subdays($priceguide->due);
+
+        } elseif($data['payment'] == 2)
+        {
+            $toPay = $total;
+        }
+
+        $percentage = 1.6;
+        $fee = 10;
+        $applicationFee = ($percentage / 100) * $toPay + $fee;
+
+        Stripe::setApiKey(config('services.stripe.secret'));
+
+        $this->pk = config('services.stripe.key');
+        $this->connect = config('services.stripe.connect');
+
+        $this->intent = PaymentIntent::create([
+            'amount' => $toPay,
+            'currency' => 'gbp',
+            'payment_method_types' => ['card'],
+            'setup_future_usage' => 'on_session',
+            'application_fee_amount' => round($applicationFee),
+            'metadata' => [
+                'type' => 'booking',
+                'firstName' => $data['firstName'],
+                'lastName' => $data['lastName'],
+                'email' => $data['email'],
+                'telephone' => $data['telephone'],
+                'address1' => $data['address1'],
+                'address2' => $data['address2'],
+                'address3' => $data['address3'],
+                'postcode' => $data['postcode'],
+                'arrival' => $bookingdate,
+                'anglers' => $data['anglers'],
+                'total' => $total,
+                'priceguide' => $priceguide->id
+            ],
+            'statement_descriptor_suffix' => 'Redwood Lake'
+        ], ['stripe_account' => $this->connect]);
+
         $this->step = 4;
     }
 
@@ -112,7 +187,10 @@ class PayDeposit extends Component
             }
         }
         
+        $paymentIntent = $this->intent;
 
-        return view('livewire.pay-deposit');
+        return view('livewire.pay-deposit', [
+            'intent' => $paymentIntent
+        ]);
     }
 }

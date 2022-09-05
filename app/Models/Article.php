@@ -10,4 +10,14 @@ class Article extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    public function admin()
+    {
+        return $this->belongsTo(Admin::class);
+    }
+
+    public function images()
+    {
+        return $this->hasMany(Articleimage::class);
+    }
 }

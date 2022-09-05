@@ -20,4 +20,9 @@ class Booking extends Model
     {
         return $this->hasMany(Payment::class);
     }
+
+    public function priceguide()
+    {
+        return $this->belongsTo(Priceguide::class);
+    }
 }

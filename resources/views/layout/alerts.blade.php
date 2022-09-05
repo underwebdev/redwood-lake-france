@@ -7,3 +7,12 @@
 </div>
 </div><!--end of grid-x -->
 @endif
+@if(session('failure'))
+<div class="grid-x grid-padding-x">
+<div class="cell small-12">
+    <div class="callout alert text-center">
+        <p><strong>{{ session('failure') }}</strong></p>
+    </div>
+</div>
+</div><!--end of grid-x -->
+@endif
