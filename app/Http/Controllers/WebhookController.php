@@ -100,7 +100,7 @@ class WebhookController extends Controller
                     'address3' => $intent->metadata->address3,
                     'postcode' => $intent->metadata->postcode,
                     'anglers' => $intent->metadata->anglers,
-                    'arrival' => $intent->metadata->arrival . ' 14:00:00'
+                    'arrival' => $intent->metadata->arrival . ' 14:00:00',
                     'departure' => Carbon::parse($intent->metadata->arrival)->addDays(7) . ' 11:00:00',
                     'total' => $intent->metadata->total,
                     'priceguide' => $intent->metadata->priceguide
