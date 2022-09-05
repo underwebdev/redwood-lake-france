@@ -49,8 +49,6 @@ class PayDeposit extends Component
             'session_id' => 1
         ]);
 
-        session(['placeholder' => $this->placeholder->id]);
-
         $placeholder = $this->placeholder;
 
         PlaceholderCleanup::dispatch($placeholder)->delay(Carbon::now()->addMinutes(15));
