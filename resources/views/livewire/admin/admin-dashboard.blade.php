@@ -59,7 +59,7 @@
                                 <td>{{ date('j/m/y', strtotime ($booking->arrival)) }}</td>
                                 <td>{{ $booking->angler->firstName }} {{ $booking->angler->lastName }}</td>
                                 <td>{{ $booking->anglers }}</td>
-                                <td><a href="" class="button small">View</a></td>
+                                <td class="text-right"><a href="" class="button small">View</a></td>
                             </tr>
                             @endforeach
                         </tbody>
@@ -83,14 +83,16 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($payments as $payment)
                             <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td>{{ date('j/m/y', strtotime ($payment->booking->arrival)) }}</td>
+                                <td>{{ $payment->angler->firstName }} {{ $payment->angler->lastName }}</td>
+                                <td>£{{ $payment->amount / 100 }}</td>
+                                <td>{{ $payment->paymethod->name }}</td>
+                                <td>{{ date('j/m/y H:i', strtotime ($payment->created_at)) }}</td>
+                                <td class="text-right"><a class="button small">View Booking</a></td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
