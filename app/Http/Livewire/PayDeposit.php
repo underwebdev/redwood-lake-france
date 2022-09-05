@@ -38,6 +38,7 @@ class PayDeposit extends Component
     public $connect;
     public $pk;
     protected $intent = [];
+    public $paymentIntent;
 
 
     public function start()
@@ -188,10 +189,8 @@ class PayDeposit extends Component
             }
         }
         
-        $paymentIntent = $this->intent;
+        $paymentIntent = $this->paymentIntent;
 
-        return view('livewire.pay-deposit', [
-            'intent' => $paymentIntent
-        ]);
+        return view('livewire.pay-deposit');
     }
 }

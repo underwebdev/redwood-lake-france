@@ -72,9 +72,9 @@ class WebhookController extends Controller
                     $newPWD = Str::random(8);
 
                     $data = [
-                        'firstName' => $user->angler->firstName,
+                        'firstName' => $intent->metadata->firstName,
                         'password' => $newPWD,
-                        'email' => $user->email
+                        'email' => $intent->metadata->email
                     ];
 
                     Mail::to($user->email)->send(new AccountCreated($user));
