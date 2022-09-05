@@ -70,6 +70,7 @@ class WebhookController extends Controller
 
                 } else {
                     $newPWD = Str::random(8);
+                    $plainPWD = $newPWD;
 
                     $user = User::create([
                         'email' => $intent->metadata->email,
@@ -89,7 +90,7 @@ class WebhookController extends Controller
 
                     $data = [
                         'firstName' => $user->angler->firstName,
-                        'password' => $newPWD,
+                        'password' => $plainPWD,
                         'email' => $user->email
                     ];
 
