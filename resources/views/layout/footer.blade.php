@@ -6,25 +6,25 @@
 <div class="footer">
 	<div class="grid-container show-for-medium">
 		<div class="grid-x grid-padding-x">
-			<div class="cell small-12 medium-3">
+			<div class="cell small-12 medium-4 large-3">
 				<h5>Quick Links</h5>
 				<a href="/">Home</a><br>
 				<a href="/lake">Lake</a><br>
 				<a href="/booking">Booking</a>
 			</div><!-- End of cell-->
-			<div class="cell small-12 medium-3">
+			<div class="cell small-12 medium-4 large-3">
 				<h5>Information</h5>
 				<a href="/location">Finding Us</a><br>
 				<a href="/contact">Contact</a><br>
 				<a href="/rules">Rules</a>
 			</div><!-- End of cell-->
-			<div class="cell small-12 medium-3">
-				<h5>Terms & conditions</h5>
+			<div class="cell small-12 medium-4 large-3">
+				<h5>T<span class="show-for-large">erms</span> & C<span class="show-for-large">onditions</span></h5>
 				<a href="/booking-terms">Booking T&C</a><br>
 				<a href="/terms-conditions">Website T&C</a><br>
 				<a href="/privacy-policy">Privacy Policy</a>      
 			</div><!-- End of cell-->
-			<div class="cell small-12 medium-3">
+			<div class="cell large-3 show-for-large">
 				<h5>Contact</h5>
 				<i class="fas fa-mobile-alt"></i> -----------<br>
 				<i class="far fa-envelope"></i> info@redwoodlake.co.uk<br>
@@ -32,7 +32,7 @@
 			</div><!-- End of cell-->
 		</div><!--end of grid-x -->
 	</div><!--End of grid container-->
-	<div class="grid-x grid-padding-x hide-for-medium">
+	<div class="grid-x grid-padding-x hide-for-large">
 		<div class="cell small-12 text-center">
 			<div class="mobile-footer-icons">
 					<a href=""><i class="fab fa-instagram"></i></a>
