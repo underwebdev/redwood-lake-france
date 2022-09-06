@@ -9425,6 +9425,7 @@ table th:last-child {
 .wobble {
   -webkit-animation: wobble 2s ease infinite;
           animation: wobble 2s ease infinite;
+  margin-left: 10px;
 }
 
 @-webkit-keyframes wobble {
@@ -9477,6 +9478,7 @@ table th:last-child {
 .bounce {
   -webkit-animation: bounce 2s ease infinite;
           animation: bounce 2s ease infinite;
+  margin-top: 10px;
 }
 
 @-webkit-keyframes bounce {

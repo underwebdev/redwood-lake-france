@@ -819,6 +819,7 @@ table th:last-child{
 
 .wobble {
   animation: wobble 2s ease infinite;
+  margin-left: 10px;
 }
 @keyframes wobble {
   0% { transform: translateX(0%); }
@@ -832,6 +833,7 @@ table th:last-child{
 
 .bounce {
   animation: bounce 2s ease infinite;
+  margin-top: 10px;
 }
 @keyframes bounce {
     70% { transform:translateY(0%); }
