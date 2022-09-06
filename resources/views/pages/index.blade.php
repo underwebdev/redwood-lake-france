@@ -9,7 +9,7 @@
 		<div class="cell small-12 medium-8 hero-text">
 			<h1>{{ $page->heading }}</h1>
 			<h2><strong>{!! nl2br(e($page->subheading)) !!}</strong></h2>
-			<div class="hero-review">
+			<div class="hero-review show-for-medium">
 				<p><i class="fas fa-quote-left"></i> {{ $review->body }} <i class="fas fa-quote-right"></i></p>
 			</div>
 			<a href="/booking" class="button secondary hollow large">Book Now</a>
@@ -42,7 +42,7 @@
 	<div class="lake-info">
 		<div class="grid-container full">
 			<div class="grid-x grid-padding-x">
-				<div class="cell small-12 medium-6">
+				<div class="cell small-12 large-6">
 					<div id="lake-desc">
 					<h4><span class="weighted">The</span> Lake</h4>
 					@foreach($page->modules->where('order', 2) as $module)
@@ -50,10 +50,10 @@
 					@endforeach
 				  </div>    
 				</div><!-- End of cell-->
-				<div class="cell small-12 medium-6 align-self-middle">
+				<div class="cell large-6 show-for-large align-self-middle">
 					<div id="lake-image">
 					<div class="photo-outline">
-						<img src="/img/lake-rods.jpeg"> 
+						<img src="/img/lake-rods.jpg"> 
 					</div>
 					</div> 
 				</div><!-- End of cell-->
@@ -61,17 +61,33 @@
 		</div>
 	</div>
 
+	<div class="mobile-gallery-home">
+	<div class="grid-x grid-padding-x hide-for-large">
+		<div class="cell small-6">
+			<div class="photo-outline">
+				<img src="/img/lake-rods.jpg"> 
+			</div>
+		      
+		</div><!-- End of cell-->
+		<div class="cell small-6">
+			<div class="photo-outline">
+			  <img src="/img/redwood-lake-common-carp.jpg"> 
+			</div>
+		</div><!-- End of cell-->
+	</div><!--end of grid-x -->
+	</div>
+
 	<div class="fish-info">
 	<div class="grid-container full">
 		<div class="grid-x grid-padding-x">
-			<div class="cell small-12 medium-6 align-self-middle">
+			<div class="cell large-6 show-for-large align-self-middle">
 				<div id="fish-image">
 				<div class="photo-outline">
 			    	<img src="/img/redwood-lake-common-carp.jpg"> 
 			  </div>
 			  </div>  
 			</div><!-- End of cell-->
-			<div class="cell small-12 medium-6">
+			<div class="cell small-12 large-6">
 				<div id="fish-desc">
 				<h4><span class="weighted">The</span> Fish</h4>
 				@foreach($page->modules->where('order', 3) as $module)

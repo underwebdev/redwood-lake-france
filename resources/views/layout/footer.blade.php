@@ -42,5 +42,5 @@
 	</div><!--end of grid-x -->
 </div>
 <div class="subfooter">
-	<div class="text-center">website created by <a href="httsp://underweb.co.uk">Underwood Web Services</a></div>
+	<div class="text-center">website created by <br class="hide-for-medium"> <a href="httsp://underweb.co.uk">Underwood Web Services</a></div>
 </div>

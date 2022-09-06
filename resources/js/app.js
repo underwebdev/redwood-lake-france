@@ -92,7 +92,7 @@ gsap.to(".date-container .button", {
 });
 
 gsap.to("#lake-desc", {
-	x: 15,
+	x: 10,
 	duration: 1,
 	scrollTrigger: {
 		trigger: ".lake-info",
@@ -101,7 +101,7 @@ gsap.to("#lake-desc", {
 });
 
 gsap.to("#lake-image", {
-	x: -15,
+	x: -10,
 	duration: 1,
 	scrollTrigger: {
 		trigger: ".lake-info",
@@ -110,7 +110,7 @@ gsap.to("#lake-image", {
 });
 
 gsap.to("#fish-desc", {
-	x: -15,
+	x: -10,
 	duration: 1,
 	scrollTrigger: {
 		trigger: ".fish-info",
@@ -119,7 +119,7 @@ gsap.to("#fish-desc", {
 });
 
 gsap.to("#fish-image", {
-	x: 15,
+	x: 10,
 	duration: 1,
 	scrollTrigger: {
 		trigger: ".fish-info",
@@ -183,6 +183,18 @@ gsap.to(".lake-info", {
 	scrollTrigger: {
 		trigger: ".lake-info",
 		start: "top center",
+		end: "bottom center",
+		scrub: true,
+		toggleActions: "restart pause reverse pause"
+	},
+	y: 100,
+	duration: 3
+});
+
+gsap.to(".mobile-gallery-home", {
+	scrollTrigger: {
+		trigger: ".lake-info",
+		start: "top 33%",
 		end: "bottom center",
 		scrub: true,
 		toggleActions: "restart pause reverse pause"
