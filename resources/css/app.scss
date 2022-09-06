@@ -407,6 +407,7 @@ h3, h4 {
 
 .weighted {
 	font-weight: 800;
+	color: #9ab495;
 }
 
 .black-curve {
@@ -505,9 +506,6 @@ textarea {
 
 .pricing-block {
 	border-radius: 8px;
-	background-color: #232323;
-	color: #FFFFFF;
-	padding: 30px 50px 30px 50px;
 	margin: 60px 0 30px 0;
 	opacity: 0.1;
 }
@@ -519,13 +517,12 @@ textarea {
 }
 
 .pricing-block h5 {
-	text-decoration: underline;
-	text-decoration-color: #A6D3F2;
+	color: #AFC3AB;
 }
 
 .pricing-block h6 {
 	font-family: 'Mulish', sans-serif;
-	font-weight: 800;
+	font-weight: 600;
 	font-size: 1.8rem;
 	color: #FFFFFF;
 	margin-bottom: 0;
@@ -533,7 +530,33 @@ textarea {
 
 .pricing-block .price-container
 {
-	border-top: 3px solid #A6D3F2;
+	background: repeating-conic-gradient(from 45deg, #232323 0% 25%, #2d2d2d 0% 50%);
+	background-size: 32px 32px;
+	background-color: #2d2d2d;
+	padding: 30px 50px 30px 50px;
+	border-radius: 0 0 8px 8px;
+}
+
+.price-individual {
+	color: #FFFFFF;
+}
+
+.price-block-header {
+	background: repeating-conic-gradient(from 45deg, #232323 0% 25%, #2d2d2d 0% 50%);
+	background-size: 32px 32px;
+	background-color: #2d2d2d;
+	color: #FFFFFF;
+	padding: 30px 50px 30px 50px;
+	border-radius: 8px 8px 0 0;
+}
+.price-block-content {
+	background-color: #FFFFFF;
+	padding: 30px 50px 30px 50px;
+}
+
+.price-block-content i {
+	margin-right: 20px;
+	color: #9ab495;
 }
 
 .pricing-button {
@@ -851,7 +874,7 @@ table .button {
 
 .polaroid-photo {
 	border: 1px solid #FFFFFF;
-	padding: 5px 5px 20px 5px;
+	padding: 5px 5px 30px 5px;
 	background-color: #FFFFFF;
 	box-shadow: 0 0 10px rgba(24, 50, 115, 0.1);
 	margin-bottom: 10px;
