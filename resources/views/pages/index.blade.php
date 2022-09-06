@@ -63,13 +63,7 @@
 
 	<div class="mobile-gallery-home">
 	<div class="grid-x grid-padding-x hide-for-large">
-		<div class="cell small-6">
-			<div class="photo-outline">
-				<img src="/img/lake-rods.jpg"> 
-			</div>
-		      
-		</div><!-- End of cell-->
-		<div class="cell small-6">
+		<div class="cell small-12">
 			<div class="photo-outline">
 			  <img src="/img/redwood-lake-common-carp.jpg"> 
 			</div>
