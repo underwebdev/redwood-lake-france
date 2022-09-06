@@ -4,7 +4,7 @@
 </svg>
 </div>
 <div class="footer">
-	<div class="grid-container">
+	<div class="grid-container show-for-medium">
 		<div class="grid-x grid-padding-x">
 			<div class="cell small-12 medium-3">
 				<h5>Quick Links</h5>
@@ -32,6 +32,14 @@
 			</div><!-- End of cell-->
 		</div><!--end of grid-x -->
 	</div><!--End of grid container-->
+	<div class="grid-x grid-padding-x hide-for-medium">
+		<div class="cell small-12 text-center">
+			<div class="mobile-footer-icons">
+					<a href=""><i class="fab fa-instagram"></i></a>
+					<a href=""><i class="fab fa-facebook-square"></i></a> 
+			</div>
+		</div><!-- End of cell-->
+	</div><!--end of grid-x -->
 </div>
 <div class="subfooter">
 	<div class="text-center">website created by <a href="httsp://underweb.co.uk">Underwood Web Services</a></div>

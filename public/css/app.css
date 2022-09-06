@@ -8702,11 +8702,6 @@ h4 {
   font-weight: bold;
 }
 
-.mobile-menu i {
-  color: #FFFFFF;
-  margin-right: 18px;
-}
-
 .close-menu {
   color: FFFFFF;
   letter-spacing: 2px;
@@ -8715,8 +8710,9 @@ h4 {
 
 .mobile-menu i {
   margin-left: 30px;
-  margin-right: 10px;
+  margin-right: 18px;
   margin-bottom: 15px;
+  color: #FFFFFF;
 }
 
 .mobile-menu button {
@@ -8858,6 +8854,10 @@ hr {
 
 .footer a:hover {
   color: #F7D78C;
+}
+
+.mobile-footer-icons {
+  font-size: 35px;
 }
 
 .subfooter {
