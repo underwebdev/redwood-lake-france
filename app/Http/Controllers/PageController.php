@@ -26,7 +26,7 @@ class PageController extends Controller
     {
         $page = Page::find(1);
         $review = Review::where('featured', 1)->first();
-        $priceguides = Priceguide::whereNotNull('featured')->get();
+        $priceguides = Priceguide::whereNotNull('featured')->orderBy('start', 'asc')->get();
         
         $firstdate = Priceguide::where('end', '>', Carbon::today())->pluck('start')->first();
         $latestdate = Priceguide::orderBy('end', 'desc')->pluck('end')->first();
