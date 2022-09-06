@@ -9,7 +9,14 @@
 		<div class="price-block-content">
 			
 				@foreach($priceguide->package->breakdowns as $breakdown)
-					<i class="fas fa-tree"></i>{{ $breakdown->body }}<br>
+					<div class="grid-x">
+						<div class="cell small-1">
+							<i class="fas fa-tree"></i>      
+						</div><!-- End of cell-->
+						<div class="cell small-11">
+						    <p>{{ $breakdown->body }}</p>  
+						</div><!-- End of cell-->
+					</div><!--end of grid-x -->
 				@endforeach
 			
 		</div>

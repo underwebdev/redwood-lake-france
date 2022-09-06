@@ -146,14 +146,19 @@ class PageController extends Controller
     public function news()
     {
         $page = Page::find(11);
-        $articles = Article::all();
+        $featured = Article::whereNull('draft')->latest()->first();
+        $articles = Article::whereNull('draft')->where('id', '!=', $featured->id)->get();
 
-        return view('pages.news', compact('page', 'articles'));
+        return view('pages.news', compact('page', 'featured', 'articles'));
     }
 
-    public function article()
+    public function article($url)
     {
-        return view('pages.article');
+        $article = Article::where('url', $url)->first();
+
+        $articles = Article::where('id', '!=', $article->id);
+
+        return view('pages.article', compact('article', 'articles'));
     }
 
     public function diary()
