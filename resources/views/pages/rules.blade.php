@@ -22,6 +22,7 @@
 				@foreach($page->modules->where('order', 1) as $module)
 					<p>{!! nl2br(e($module->content)) !!}</p>
 				@endforeach
+				<br>
 			</div><!-- End of cell-->
 		</div><!--end of grid-x -->
 		<div class="grid-x grid-padding-x">
