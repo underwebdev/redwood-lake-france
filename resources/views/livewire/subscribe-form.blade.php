@@ -6,7 +6,7 @@
                 <h4 class="text-center">Thank You For Subscribing!</h4>
             @else
                 <h4 class="text-center">Subscribe For Updates</h4>
-                <p>We occassionally have weeks become available at short notice, these will usually be offered at a discounted rate, to get email notifications when these places become available enter your name and email below.</p>
+                <p>We occasionally have weeks become available at short notice, these will usually be offered at a discounted rate, to get email notifications when these places become available enter your name and email below.</p>
                 <label for="">First Name
                     @error('firstName')<span class="error">{{ $message }}</span>@enderror
                 </label>
