@@ -15,21 +15,6 @@
         </div><!-- End of cell-->
         <div class="cell small-12 large-4">
             <div class="grid-x grid-padding-x">
-                <div class="cell small-12 medium-6">
-                    <h3 class="heading-font yellow">Info</h3>
-                      <p><strong>Size:</strong> {{ $lake->size }}<br>
-                      <strong>Swims: </strong> {{ $lake->swims->count() }}<br>
-                      <strong>Rod Limit: </strong> {{ $lake->rodlimit }}<br>
-                      <strong>Open:</strong> All Year</p>
-                </div><!-- End of cell-->
-                <div class="cell small-12 medium-6">
-                    <h3 class="heading-font yellow">Records</h3>
-                      <p><strong>Common: </strong>{{ $lake->lrcommon }}<br>
-                      <strong>Mirror: </strong>{{ $lake->lrmirror }}<br>
-                      <strong>Total fish: </strong>{{ $lake->stock }}<br>
-                      <strong>Average size: </strong>{{ $lake->avgsize }}</p>
-                     </p>    
-                </div><!-- End of cell-->
                 <div class="cell small-12">
                     <div class="swim-list">
                         <h3>Swims</h3>
@@ -61,6 +46,21 @@
                             @endif
                         </div><!--end of grid-x -->
                     </div>
+                </div><!-- End of cell-->
+                <div class="cell small-12 medium-6">
+                    <h3 class="heading-font yellow">Info</h3>
+                      <p><strong>Size:</strong> {{ $lake->size }}<br>
+                      <strong>Swims: </strong> {{ $lake->swims->count() }}<br>
+                      <strong>Rod Limit: </strong> {{ $lake->rodlimit }}<br>
+                      <strong>Open:</strong> All Year</p>
+                </div><!-- End of cell-->
+                <div class="cell small-12 medium-6">
+                    <h3 class="heading-font yellow">Records</h3>
+                      <p><strong>Common: </strong>{{ $lake->lrcommon }}<br>
+                      <strong>Mirror: </strong>{{ $lake->lrmirror }}<br>
+                      <strong>Total fish: </strong>{{ $lake->stock }}<br>
+                      <strong>Average size: </strong>{{ $lake->avgsize }}</p>
+                     </p>    
                 </div><!-- End of cell-->
                 <div class="cell small-12">
                     <div class="button-group">
