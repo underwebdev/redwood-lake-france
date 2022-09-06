@@ -107,13 +107,9 @@
 				@endforeach
 			</div><!-- End of cell-->
 			<div class="cell small-12 medium-6 align-self-middle">
-				<div class="photo-outline show-for-large">
-			  		<img src="/img/facility.jpeg">
-			  	</div>
-			  	<div class="photo-outline hide-for-large">
-			  		<img src="/img/facillity2.jpg">
-			  		<br>
-			  	</div>      
+				<div class="photo-outline">
+			  	<img src="/img/facility.jpeg">
+			  </div>   
 			</div><!-- End of cell-->
 		</div><!--end of grid-x -->
 	</div>
@@ -217,6 +213,12 @@
 	    <img width="1000" height="500" class="slideImage" src="/img/gallery/etangdeseuil-lakefacility.jpg">
 	  </div>
 	</section>
+	<div class="grid-x grid-padding-x">
+		<div class="cell small-12 text-center">
+			<p><span class="show-for-large">Scroll</span><span class="hide-for-large">Swipe</span> for more<i class="fas fa-arrow-alt-circle-right wobble"></i>
+		      
+		</div><!-- End of cell-->
+	</div><!--end of grid-x -->
 </div>
 
 @include('layout.wave')

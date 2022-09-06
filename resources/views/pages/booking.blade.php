@@ -46,7 +46,7 @@
 				<p>All bookings require a 30% deposit to confirm the requested dates. The remaining balance is due 8 weeks prior to arrival.</p>
 
 				<strong>Scroll Down For Availabillity</strong><br>
-				<i class="fas fa-arrow-alt-circle-down"></i>
+				<i class="fas fa-arrow-alt-circle-down bounce"></i>
 			</div><!-- End of cell-->
 		</div><!--end of grid-x -->
 	</div><!--End of grid container-->
