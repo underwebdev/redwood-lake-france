@@ -30,18 +30,80 @@
 					Saint-Pardoux-le-Lac<br>
 					87140<br>
 					France</p>
-					<a href="https://goo.gl/maps/urbLG7Vjmt9UnULs6" class="button">View in Google Maps</a>
 				</div><!-- End of cell-->
 				<div class="cell small-12 medium-6">
 					<h4><span class="weighted">Nearest</span> Ports</h4>
-					<p>Calais Eurotunnel 664km <strong>7hr 03min</strong><br>
-					Calais car ferry 661km <strong>6hr 35min</strong><br>
-					Dieppe 549km <strong>5hr 51min</strong><br>
-					Le Havre 542km <strong>5hr 35min</strong><br>
-					Caen 435km <strong>4hr 53min</strong><br>
-					St Malo 452km <strong>5hr 32min</strong><br>
-					Cherbourg 605km <strong>6hr 25min</strong></p>   
-				      
+
+					<div class="table-scroll">
+						<table>
+							<thead>
+								<tr>
+									<th>Port</th>
+									<th>Distance</th>
+									<th>Time</th>
+									<th></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Calais Eurotunnel</td>
+									<td>664km</td>
+									<td>7hr 03min</td>
+									<td class="text-right">
+										<a href="" class="button tiny">View Map</a>
+									</td>
+								</tr>
+								<tr>
+									<td>Calais car ferry</td>
+									<td>661km</td>
+									<td>6hr 35min</td>
+									<td class="text-right">
+										<a href="" class="button tiny">View Map</a>
+									</td>
+								</tr>
+								<tr>
+									<td>Dieppe</td>
+									<td>549km</td>
+									<td>5hr 51min</td>
+									<td class="text-right">
+										<a href="" class="button tiny">View Map</a>
+									</td>
+								</tr>
+								<tr>
+									<td>Le Havre</td>
+									<td>542km</td>
+									<td>5hr 35min</td>
+									<td class="text-right">
+										<a href="" class="button tiny">View Map</a>
+									</td>
+								</tr>
+								<tr>
+									<td>Caen</td>
+									<td>435km</td>
+									<td>4hr 53min</td>
+									<td class="text-right">
+										<a href="" class="button tiny">View Map</a>
+									</td>
+								</tr>
+								<tr>
+									<td>St Malo</td>
+									<td>452km</td>
+									<td>5hr 32min</td>
+									<td class="text-right">
+										<a href="" class="button tiny">View Map</a>
+									</td>
+								</tr>
+								<tr>
+									<td>Cherbourg</td>
+									<td>605km</td>
+									<td>6hr 25min</td>
+									<td class="text-right">
+										<a href="" class="button tiny">View Map</a>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div> 
 				</div><!-- End of cell-->
 			</div>      
 		</div><!-- End of cell-->  
@@ -65,17 +127,10 @@
 		@foreach($page->modules->where('order', 2) as $module)
 			<p>{!! nl2br(e($module->content)) !!}</p>
 		@endforeach
-	
-			<a href="https://www.google.com/maps/dir/Port+Calais,+Unnamed+Road,+62100+Calais,+France/%C3%89tang+de+Seuil,+87140+Saint-Pardoux-le-Lac,+France/@48.4339951,-2.9921142,6z/data=!3m1!4b1!4m13!4m12!1m5!1m1!1s0x47dc3f717b892b65:0xe80f7b854634e7e9!2m2!1d1.8732131!2d50.9708404!1m5!1m1!1s0x47fead8ed3dc3c65:0xf28884017ff4c0fd!2m2!1d1.205159!2d46.055083" class="button">Port of Calais to Etang de Seuil</a><br>
-			<a href="https://www.google.com/maps/dir/Eurotunnel+Calais+Terminal,+Coquelles,+France/%C3%89tang+de+Seuil,+87140+Saint-Pardoux-le-Lac,+France/@48.4190039,-2.99212,6z/data=!3m1!4b1!4m13!4m12!1m5!1m1!1s0x47dc3ee7fd5ba9cd:0xd28c7f4ccb700ec0!2m2!1d1.8125997!2d50.9354021!1m5!1m1!1s0x47fead8ed3dc3c65:0xf28884017ff4c0fd!2m2!1d1.205159!2d46.055083" class="button">Euro Tunnel Calais to Etang de Seuil</a><br>
-			<a href="https://www.google.com/maps/dir/Port+de+Plaisance,+Quai+Vendeuvre,+14000+Caen,+France/%C3%89tang+de+Seuil,+87140+Saint-Pardoux-le-Lac,+France/@47.6052492,-1.8108589,7z/data=!3m1!4b1!4m13!4m12!1m5!1m1!1s0x480a429f1b86e211:0x9bd21bfc2c5203aa!2m2!1d-0.3539953!2d49.1829324!1m5!1m1!1s0x47fead8ed3dc3c65:0xf28884017ff4c0fd!2m2!1d1.205159!2d46.055083" class="button">Port of Caen to Etang de Seuil</a>
-		
-
 		<h3><span class="weighted">Flying</span> to Redwood Lake (Etang de Seuil)</h3>
 		@foreach($page->modules->where('order', 3) as $module)
 			<p>{!! nl2br(e($module->content)) !!}</p>
 		@endforeach
-		<a href="" class="button">View Flights</a>
 	</div><!-- End of cell-->
 </div><!--End of grid container-->
 </div>

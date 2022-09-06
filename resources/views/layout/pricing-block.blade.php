@@ -1,4 +1,4 @@
-<div class="cell small-12 medium-8 large-6 medium-offset-2 large-offset-3"> 
+<div class="cell small-12 medium-6 large-4 @if($loop->first)large-offset-2 @endif"> 
 	<div class="pricing-block" data-equalizer-watch>
 		<h4 class=text-center><strong>{{ $priceguide->package->name }}</strong></h4>
 			@isset($priceguide->name)

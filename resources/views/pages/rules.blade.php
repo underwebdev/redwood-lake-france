@@ -23,13 +23,28 @@
 					<p>{!! nl2br(e($module->content)) !!}</p>
 				@endforeach
 			</div><!-- End of cell-->
-			<div class="cell small-12 medium-8 large-6 medium-offset-2 large-offset-3">
+		</div><!--end of grid-x -->
+		<div class="grid-x grid-padding-x">
+			<div class="cell small-12 medium-6">
 				<ol>
 					@foreach($rules as $rule)
 					<li>{{ $rule->body }}</li>
 					@endforeach
 				</ol>
 			</div><!-- End of cell-->
+			<div class="cell small-12 medium-6">
+				<div class="polaroid-photo">
+					<img src="/img/redwood-lake-common-carp.jpg">
+				</div>
+
+				<div class="polaroid-photo">
+				</div>
+
+				<div class="polaroid-photo">
+				</div>
+			      
+			</div><!-- End of cell-->
+		  
 		</div><!--end of grid-x -->
 	</div><!--End of grid container-->
 </div>

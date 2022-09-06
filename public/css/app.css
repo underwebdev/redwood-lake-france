@@ -8948,7 +8948,7 @@ hr {
 }
 
 .footer h5 {
-  font-weight: 800;
+  font-weight: 600;
   text-decoration: underline;
   -webkit-text-decoration-style: dashed;
           text-decoration-style: dashed;
@@ -9422,6 +9422,10 @@ table th:last-child {
   border-radius: 0 8px 0 0;
 }
 
+table .button {
+  margin: 0;
+}
+
 .wobble {
   -webkit-animation: wobble 2s ease infinite;
           animation: wobble 2s ease infinite;
@@ -9527,4 +9531,11 @@ table th:last-child {
   100% {
     transform: translateY(0);
   }
+}
+.polaroid-photo {
+  border: 1px solid #FFFFFF;
+  padding: 5px 5px 20px 5px;
+  background-color: #FFFFFF;
+  box-shadow: 0 0 10px rgba(24, 50, 115, 0.1);
+  margin-bottom: 10px;
 }
