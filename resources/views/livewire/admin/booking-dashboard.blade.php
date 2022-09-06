@@ -32,6 +32,7 @@
                                 <th>Ref</th>
                                 <th>Lead</th>
                                 <th>Balance Due</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -41,6 +42,7 @@
                                 <td>{{ $booking->id }}</td>
                                 <td>{{ $booking->angler->firstName }} {{ $booking->angler->lastName }}</td>
                                 <td>{{ Carbon\Carbon::parse($booking->arrival)->subDays($booking->priceguide->due)->format('d/m/Y') }}</td>
+                                <td class="text-right"><a href="" class="button">View Booking</a></td>
                             </tr>
                             @endforeach
                         </tbody>

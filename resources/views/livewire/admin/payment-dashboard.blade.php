@@ -43,7 +43,7 @@
                                 <td>{{ date('j/m/y', strtotime ($payment->booking->arrival)) }}</td>
                                 <td>{{ $payment->booking->id }}</td>
                                 <td>{{ $payment->paymethod->name }}</td>
-                                <td><a href="" class="button small">View Booking</a></td>
+                                <td class="text-right"><a href="" class="button small">View Booking</a></td>
                             </tr>
                             @endforeach
                         </tbody>

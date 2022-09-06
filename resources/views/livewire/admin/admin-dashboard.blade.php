@@ -87,7 +87,7 @@
                             <tr>
                                 <td>{{ date('j/m/y', strtotime ($payment->booking->arrival)) }}</td>
                                 <td>{{ $payment->angler->firstName }} {{ $payment->angler->lastName }}</td>
-                                <td>£{{ $payment->amount / 100 }}</td>
+                                <td>£{{ $payment->total / 100 }}</td>
                                 <td>{{ $payment->paymethod->name }}</td>
                                 <td>{{ date('j/m/y H:i', strtotime ($payment->created_at)) }}</td>
                                 <td class="text-right"><a class="button small">View Booking</a></td>

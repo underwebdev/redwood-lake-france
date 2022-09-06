@@ -42,7 +42,7 @@ class PayDeposit extends Component
 
     public function start()
     {
-        $this->expiry = Carbon::now()->addMinutes(15);
+        $this->expiry = Carbon::now()->addMinutes(1);
 
         $this->placeholder = Placeholder::create([
             'date' => $this->date,

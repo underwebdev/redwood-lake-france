@@ -502,7 +502,7 @@ $offcanvas-sizes: (
 $offcanvas-vertical-sizes: (
   small: 250px,
 );
-$offcanvas-background: #242834;
+$offcanvas-background: #232323;
 $offcanvas-shadow: 0 0 10px rgba($black, 0.7);
 $offcanvas-inner-shadow-size: 20px;
 $offcanvas-inner-shadow-color: rgba($black, 0.25);
@@ -821,12 +821,12 @@ $thumbnail-radius: $global-radius;
 // 53. Title Bar
 // -------------
 
-$titlebar-background: $black;
+$titlebar-background: #232323;
 $titlebar-color: $white;
 $titlebar-padding: 0.75rem;
 $titlebar-text-font-weight: bold;
 $titlebar-icon-color: $white;
-$titlebar-icon-color-hover: #ffe02c;
+$titlebar-icon-color-hover: #F7D78C;
 $titlebar-icon-spacing: 0.25rem;
 
 // 54. Tooltip

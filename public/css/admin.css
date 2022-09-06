@@ -6344,8 +6344,8 @@ a.thumbnail image {
   content: "";
 }
 .menu-icon:hover::after {
-  background: #ffe02c;
-  box-shadow: 0 7px 0 #ffe02c, 0 14px 0 #ffe02c;
+  background: #F7D78C;
+  box-shadow: 0 7px 0 #F7D78C, 0 14px 0 #F7D78C;
 }
 
 .menu-icon.dark {
@@ -6977,7 +6977,7 @@ a.thumbnail image {
   transition: transform 0.5s ease;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
-  background: #242834;
+  background: #232323;
 }
 [data-whatinput=mouse] .off-canvas {
   outline: 0;
@@ -7004,7 +7004,7 @@ a.thumbnail image {
   transition: transform 0.5s ease;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
-  background: #242834;
+  background: #232323;
 }
 [data-whatinput=mouse] .off-canvas-absolute {
   outline: 0;
@@ -7652,7 +7652,7 @@ html.is-reveal-open body {
 
 .title-bar {
   padding: 0.75rem;
-  background: #1a1819;
+  background: #232323;
   color: #FFFFFF;
   display: flex;
   justify-content: flex-start;
