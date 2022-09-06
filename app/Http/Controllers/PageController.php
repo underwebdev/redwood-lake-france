@@ -28,7 +28,7 @@ class PageController extends Controller
         $review = Review::where('featured', 1)->first();
         $priceguides = Priceguide::whereNotNull('featured')->orderBy('start', 'asc')->get();
         
-        $firstdate = Priceguide::where('end', '>', Carbon::today())->pluck('start')->first();
+        $firstdate = Priceguide::where('end', '>', Carbon::today())->orderBy('start', 'asc')->pluck('start')->first();
         $latestdate = Priceguide::orderBy('end', 'desc')->pluck('end')->first();
 
         $bookingdates = Collect(CarbonInterval::days(7)->toPeriod($firstdate, $latestdate));
