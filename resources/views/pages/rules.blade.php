@@ -33,14 +33,12 @@
 				</ol>
 			</div><!-- End of cell-->
 			<div class="cell small-12 medium-6">
-				<div class="polaroid-photo">
+				<div class="polaroid-photo rotate-left">
 					<img src="/img/redwood-lake-common-carp.jpg">
 				</div>
 
-				<div class="polaroid-photo">
-				</div>
-
-				<div class="polaroid-photo">
+				<div class="polaroid-photo rotate-right">
+					<img src="/img/redwood-lake-mirror-carp.jpeg">
 				</div>
 			      
 			</div><!-- End of cell-->

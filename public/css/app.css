@@ -9539,3 +9539,11 @@ table .button {
   box-shadow: 0 0 10px rgba(24, 50, 115, 0.1);
   margin-bottom: 10px;
 }
+
+.rotate-left {
+  transform: rotate(-10deg);
+}
+
+.rotate-right {
+  transform: rotate(10deg);
+}
