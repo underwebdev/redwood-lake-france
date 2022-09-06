@@ -36,7 +36,7 @@
    
 	</div><!-- End of cell-->
 	<div class="cell small-12 large-4">
-		<div class="profilewhitebx">
+		<div class="articlecontainer">
 			@if($articles->count() < 1)
 				<p class="text-center"><strong>No other articles have been posted</strong></p>
 			@else
