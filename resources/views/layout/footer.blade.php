@@ -26,9 +26,9 @@
 			</div><!-- End of cell-->
 			<div class="cell small-12 medium-3">
 				<h5>Contact</h5>
-				<i class="fas fa-mobile-alt"></i> 07801478473<br>
-				<i class="far fa-envelope"></i> info@etangdeseuil.co.uk<br>
-				<i class="fab fa-instagram"></i> etangdeseuil 
+				<i class="fas fa-mobile-alt"></i> -----------<br>
+				<i class="far fa-envelope"></i> info@redwoodlake.co.uk<br>
+				<i class="fab fa-instagram"></i> redwoodlakefrance 
 			</div><!-- End of cell-->
 		</div><!--end of grid-x -->
 	</div><!--End of grid container-->

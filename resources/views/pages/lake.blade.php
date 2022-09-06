@@ -41,7 +41,9 @@
 				@foreach($lake->images as $image)
 				<div class="cell small-6 medium-4 text-center">
 					<div class="photo-border-block">
-						<img src="{{ $image->photo }}">
+						<a href="{{ $image->photo }}" data-lity>
+							<img src="{{ $image->thumbnail }}">
+						</a>
 					</div>
 				</div><!-- End of cell-->
 				@endforeach

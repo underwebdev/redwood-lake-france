@@ -20,7 +20,7 @@ class CatchReport extends Component
         $swim = $this->selectedSwim;
 
         return view('livewire.catch-report',[
-            'reports' => Report::when($specimen, function ($query) use ($specimen) {
+            'reports' => Report::where('lbs', '>', '15')->when($specimen, function ($query) use ($specimen) {
                     return $query->where('specimen_id', $specimen);
                 })->when($weight, function ($query) use ($weight) {
                     return $query->where('lbs', '>', $weight);

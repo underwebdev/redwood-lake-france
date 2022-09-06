@@ -21,6 +21,7 @@
 				<h3><span class="weighted">On site</span> facilities</h3>
 				@foreach($page->modules->where('order', 1) as $module)
 					<p>{!! nl2br(e($module->content)) !!}</p>
+					<br>
 				@endforeach
 			</div><!-- End of cell-->
 		</div><!--end of grid-x -->
@@ -47,8 +48,8 @@
 	  </div>
 	  
 	  <div class="slide">
-	    <h2 class="slideText">Text title</h2>
-	    <img width="1000" height="500" class="slideImage" src="https://source.unsplash.com/random/1000x500">
+	    <h2 class="slideText"></h2>
+	    <img width="1000" height="500" class="slideImage" src="/img/gallery/pizza-van.jpg">
 	  </div>
 	</section>
 

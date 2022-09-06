@@ -33,16 +33,16 @@
 				</div><!-- End of cell-->
 				<div class="cell small-12 medium-6">
 					<h4><span class="weighted">Contact</span> Details</h4>
-					<p><i class="far fa-envelope"></i> info@etangdeseuil.co.uk<br>
-					<i class="fas fa-mobile-alt"></i> 01895 746167<br>
-					<i class="fab fa-instagram"></i> etangdeseuil</p> 
+					<p><i class="far fa-envelope"></i> info@redwoodlake.co.uk<br>
+					<i class="fas fa-mobile-alt"></i> -----------<br>
+					<i class="fab fa-instagram"></i> redwoodlakefrance</p> 
 				      
 				</div><!-- End of cell-->
 			</div><!--end of grid-x -->
 			<div class="text-center">
 				<br>
 				<strong>Scroll Down For Contact Form</strong><br>
-				<i class="fas fa-arrow-alt-circle-down"></i>
+				<i class="fas fa-arrow-alt-circle-down bounce"></i>
 			</div>
 		</div><!-- End of cell-->    
 	</div><!--end of grid-x -->

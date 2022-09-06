@@ -13,7 +13,7 @@
 	<li><a href="#">Information</a>
 		<ul class="menu">
 			<li><a href="/catch-reports">Catch Reports</a></li>
-			<li><a href="/stock">The Stock</a></li>
+		
 			<li><a href="/location">Finding Us</a></li>
 			<li><a href="/facilities">Facilities</a></li>
 			<li><a href="/rules">Rules</a></li>
@@ -34,7 +34,6 @@
         <i class="fas fa-tree"></i><a href="/lake">The Lake</a><br>
 		<i class="far fa-calendar"></i><a href="/booking">Booking</a><br>
 		<i class="fas fa-camera"></i><a href="/catch-reports">Reports</a><br>
-		<i class="fas fa-fish"></i><a href="/stock">The Stock</a><br>
 		<i class="fas fa-map-marker-alt"></i><a href="/location">Finding Us</a><br>
 		<i class="fas fa-restroom"></i><a href="/facilities">Facilities</a><br>
 		<i class="fas fa-list-ol"></i><a href="/rules">Rules</a><br>
