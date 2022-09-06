@@ -8945,6 +8945,7 @@ hr {
 .footer-curve svg {
   display: block;
   background-color: #FFFFFF;
+  margin-bottom: 0;
 }
 
 .footer h5 {
