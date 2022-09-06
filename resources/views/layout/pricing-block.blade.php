@@ -22,7 +22,7 @@
 		</div>
 		<div class="price-container text-center">
 			<div class="price-total">
-				<h6>£{{ $priceguide->price / 100 }} per week</h6>
+				<h6>£{{ $priceguide->price / 100 }} <small>per week</small></h6>
 			</div>
 			<div class="price-individual">
 				£{{ $priceguide->price / 5 / 100 }} p.p based on 5 anglers
