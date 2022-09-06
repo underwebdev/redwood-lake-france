@@ -216,8 +216,22 @@ h4 {
 	z-index: 0;
 }
 
+@media all and (max-width:430px) {
+    .hero-text h1{
+      margin-left: -40px;
+    }
+
+    .hero-text h2{
+      margin-left: -40px;
+    }
+
+    .hero-text a {
+    	margin-left: -40px;
+    }
+}
+
 .hero-text h1 {
-	padding-top: 25%;
+	padding-top: 20%;
 	margin-bottom: 0px;
 	font-weight: 800;
 	font-size: 45px;
@@ -235,19 +249,10 @@ h4 {
   	font-family: 'Poppins', cursive;
 }
 
-@media all and (min-width:420px) {
-    .hero-text h1 {
-      padding: -15px;
-    }
-
-    .hero-text h2 {
-      padding: -15px;
-    }
-}
-
 .hero-text .button {
 	margin: 0;
 }
+
 
 .hero-review {
 	margin-bottom: 25px;
@@ -615,6 +620,16 @@ textarea {
 	-webkit-filter: drop-shadow(5px 5px 5px #222);
   filter: drop-shadow(5px 5px 5px #222);
   font-family: 'Poppins', sans-serif;
+}
+
+@media all and (max-width:430px) {
+    .content h1 {
+			padding: 80px 0 70px 0;
+			font-weight: 800;
+			-webkit-filter: drop-shadow(5px 5px 5px #222);
+		  filter: drop-shadow(5px 5px 5px #222);
+		  font-family: 'Poppins', sans-serif;
+		}
 }
 
 .horizSlider {

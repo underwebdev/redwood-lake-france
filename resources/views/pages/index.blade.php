@@ -112,6 +112,7 @@
 			  	</div>
 			  	<div class="photo-outline hide-for-large">
 			  		<img src="/img/facillity2.jpg">
+			  		<br>
 			  	</div>      
 			</div><!-- End of cell-->
 		</div><!--end of grid-x -->

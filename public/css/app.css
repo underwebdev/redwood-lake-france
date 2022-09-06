@@ -4578,6 +4578,110 @@ h3 {
   margin-right: 0;
   margin-left: 0;
 }
+@media print, screen and (max-width: 39.99875em) {
+  .button.small-only-expanded {
+    display: block;
+    width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+@media print, screen and (min-width: 40em) and (max-width: 69.56125em) {
+  .button.medium-only-expanded {
+    display: block;
+    width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+@media print, screen and (max-width: 69.56125em) {
+  .button.medium-down-expanded {
+    display: block;
+    width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+@media print, screen and (min-width: 40em) {
+  .button.medium-expanded {
+    display: block;
+    width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+@media print, screen and (min-width: 69.5625em) and (max-width: 74.99875em) {
+  .button.ml-only-expanded {
+    display: block;
+    width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+@media print, screen and (max-width: 74.99875em) {
+  .button.ml-down-expanded {
+    display: block;
+    width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+@media print, screen and (min-width: 69.5625em) {
+  .button.ml-expanded {
+    display: block;
+    width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+@media print, screen and (min-width: 75em) and (max-width: 85.62375em) {
+  .button.large-only-expanded {
+    display: block;
+    width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+@media print, screen and (max-width: 85.62375em) {
+  .button.large-down-expanded {
+    display: block;
+    width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+@media print, screen and (min-width: 75em) {
+  .button.large-expanded {
+    display: block;
+    width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+@media screen and (min-width: 85.625em) and (max-width: 89.99875em) {
+  .button.xlarge-only-expanded {
+    display: block;
+    width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+@media print, screen and (max-width: 89.99875em) {
+  .button.xlarge-down-expanded {
+    display: block;
+    width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+@media screen and (min-width: 85.625em) {
+  .button.xlarge-expanded {
+    display: block;
+    width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
 .button, .button.disabled, .button[disabled], .button.disabled:hover, .button[disabled]:hover, .button.disabled:focus, .button[disabled]:focus {
   background-color: #A6D3F2;
   color: #FFFFFF;
@@ -8725,8 +8829,19 @@ h4 {
   z-index: 0;
 }
 
+@media all and (max-width: 430px) {
+  .hero-text h1 {
+    margin-left: -40px;
+  }
+  .hero-text h2 {
+    margin-left: -40px;
+  }
+  .hero-text a {
+    margin-left: -40px;
+  }
+}
 .hero-text h1 {
-  padding-top: 25%;
+  padding-top: 20%;
   margin-bottom: 0px;
   font-weight: 800;
   font-size: 45px;
@@ -8742,14 +8857,6 @@ h4 {
   font-family: "Poppins", cursive;
 }
 
-@media all and (min-width: 420px) {
-  .hero-text h1 {
-    padding: -15px;
-  }
-  .hero-text h2 {
-    padding: -15px;
-  }
-}
 .hero-text .button {
   margin: 0;
 }
@@ -9120,6 +9227,14 @@ textarea {
   font-family: "Poppins", sans-serif;
 }
 
+@media all and (max-width: 430px) {
+  .content h1 {
+    padding: 80px 0 70px 0;
+    font-weight: 800;
+    filter: drop-shadow(5px 5px 5px #222);
+    font-family: "Poppins", sans-serif;
+  }
+}
 .horizSlider {
   position: relative;
   white-space: nowrap;
