@@ -1,6 +1,6 @@
 <div>
     <div class="grid-x grid-padding-x">
-        <div class="cell small-12 medium-8">
+        <div class="cell small-12 large-8">
             @if($selectedSwim)
                 @isset($selectedSwim->photo)
                     <img src="{{ $selectedSwim->photo }}">
@@ -13,16 +13,16 @@
                 <img src="/img/lake-map.png" height="800px">
             @endif
         </div><!-- End of cell-->
-        <div class="cell small-12 medium-4">
+        <div class="cell small-12 large-4">
             <div class="grid-x grid-padding-x">
-                <div class="cell small-6 medium-6 ml-3 large-6">
+                <div class="cell small-12 medium-6">
                     <h3 class="heading-font yellow">Info</h3>
                       <p><strong>Size:</strong> {{ $lake->size }}<br>
                       <strong>Swims: </strong> {{ $lake->swims->count() }}<br>
                       <strong>Rod Limit: </strong> {{ $lake->rodlimit }}<br>
                       <strong>Open:</strong> All Year</p>
                 </div><!-- End of cell-->
-                <div class="cell small-6 medium-6 ml-3 large-6">
+                <div class="cell small-12 medium-6">
                     <h3 class="heading-font yellow">Records</h3>
                       <p><strong>Common: </strong>{{ $lake->lrcommon }}<br>
                       <strong>Mirror: </strong>{{ $lake->lrmirror }}<br>
