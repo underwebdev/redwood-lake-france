@@ -13,7 +13,7 @@
 		
 			<h2><strong>{{ $article->title }}</strong></h2>
 			<p><small><i class="far fa-calendar-alt"></i> {{ date('j M Y', strtotime ($article->created_at)) }}  <span class="seperator"> / </span> {{ date('H:i A', strtotime ($article->created_at)) }} </small><br>
-			{!! nl2br(e($article->body)) !!}</p> test
+			{!! nl2br(e($article->body)) !!}</p>
 
 		</div>
 		

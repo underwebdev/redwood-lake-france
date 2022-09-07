@@ -9593,8 +9593,13 @@ table .button {
   margin-bottom: 20px;
 }
 
+.feature-container a {
+  color: #232323;
+}
+
 .feature-container i {
   margin-right: 6px;
+  color: #9ab495;
 }
 
 .feature-gallery-container {
