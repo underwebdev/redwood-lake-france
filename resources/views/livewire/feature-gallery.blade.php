@@ -1,5 +1,5 @@
 <div>
-    <div wire:ignore>
+    <div class="hide-for-large" wire:ignore>
         <section class="horizSlider">
           <div class="slide">
             <h2 class="slideText"></h2>
@@ -36,7 +36,7 @@
         </div><!--end of grid-x -->
     </div>
 
-    <div class="grid-container full show-for-large">
+    <div class="grid-container show-for-large">
         <div class="grid-x grid-padding-x">
             <div class="cell small-12">
                 <div class="gallery-block">
