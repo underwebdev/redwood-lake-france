@@ -190,14 +190,9 @@ class ContentDashboard extends Component
         Storage::makeDirectory($thumbDirectory);
         Storage::makeDirectory($mobileDirectory);
 
-        $newPhoto = Image::make($photo)->orientate();
-        $newThumb = Image::make($photo)->orientate();
-        $newMobile = Image::make($photo)->orientate();
-
-        $main = $newPhoto->resize(1400, 750);
-        $thumb = $newPhoto->resize(750, 325);
-        $mobile = $newPhoto->resize(500, 250);
-
+        $main = Image::make($photo)->resize(1400, 750);
+        $thumb = Image::make($photo)->resize(750, 325);
+        $mobile = Image::make($photo)->resize(500, 250);
 
         $pathMain = $directory . '/' . $photoName;
         $pathThumb =  $thumbDirectory . '/' . $photoName;
@@ -205,7 +200,7 @@ class ContentDashboard extends Component
 
         Storage::put($pathMain, $main->stream());
         Storage::put($pathThumb, $thumb->stream());
-        Storage::put($pathMobile, $thumb->stream());
+        Storage::put($pathMobile, $mobile->stream());
 
         $dbDirectory = '/storage/gallery/'.$photoName;
         $dbThumbDirectory = '/storage/gallery/thumb/'.$photoName;
@@ -224,6 +219,23 @@ class ContentDashboard extends Component
         $this->selectedPage->refresh();
 
         session()->flash('success', 'Image Uploaded!');
+    }
+
+    public function deleteImage($id)
+    {
+        $image = $this->selectedPage->gallery()->findOrFail($id);
+
+        $imageToDelete = Str::after($image->image, '/storage');
+        $thumbToDelete = Str::after($image->thumbnail, '/storage');
+        $mobileToDelete = Str::after($image->mobile, '/storage');
+
+        Storage::delete(['public/'.$imageToDelete, 'public/'.$thumbToDelete, 'public/'.$mobileToDelete]);
+
+        $image->delete();
+
+        $this->selectedPage->refresh();
+
+        session()->flash('success', 'Photo Deleted!');
     }
 
     public function back()

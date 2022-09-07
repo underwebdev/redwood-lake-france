@@ -167,7 +167,8 @@
                     </div><!-- End of cell-->
                     @foreach($selectedPage->gallery as $image)
                     <div class="cell small-6 medium-4 large-3">
-                        <img src="{{ $image->mobile }}">  
+                        <img src="{{ $image->mobile }}">
+                        <button class="button expanded alert" wire:click="deleteImage('{{ $image->id }}')">Delete Image</button>  
                     </div><!-- End of cell-->
                     @endforeach
                 </div><!--end of grid-x -->
