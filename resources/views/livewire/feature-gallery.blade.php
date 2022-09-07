@@ -1,31 +1,12 @@
 <div>
     <div class="hide-for-large" wire:ignore>
         <section class="horizSlider">
+        @foreach($thumbnails as $image)
           <div class="slide">
             <h2 class="slideText"></h2>
-            <img width="1000" height="500" class="slideImage" src="/img/gallery/etangdeseuil-lakelong.jpg" alt="Filler image">
+            <img width="1000" height="500" class="slideImage" src="{{ $image->thumbnail }}" alt="{{ $image->alt }}">
           </div>
-          
-          <div class="slide">
-            <h2 class="slideText"></h2>
-            <img width="1000" height="500" class="slideImage" src="/img/gallery/etangdeseuil-sunrise.jpg" alt="Filler image">
-          </div>
-          
-          <div class="slide">
-            <h2 class="slideText"></h2>
-            <img width="1000" height="500" class="slideImage" src="/img/gallery/etangdeseuil-lake.jpg">
-          </div>
-          
-          <div class="slide">
-            <h2 class="slideText"></h2>
-            <img width="1000" height="500" class="slideImage" src="/img/gallery/etangdeseuil-grassbank.jpg">
-          </div>
-          
-          <div class="slide">
-            <h2 class="slideText"></h2>
-            <img width="1000" height="500" class="slideImage" src="/img/gallery/etangdeseuil-lakefacility.jpg">
-          </div>
-        </section>
+        @endforeach
 
         <div class="grid-x grid-padding-x">
             <div class="cell small-12 text-center">
@@ -40,7 +21,7 @@
         <div class="grid-x grid-padding-x">
             <div class="cell small-12">
                 <div class="gallery-block">
-                    <img src="{{ $featured->image }}">
+                    <img src="{{ $featured->image }}" alt="{{ $featured->alt }}">
                 </div>
             </div><!-- End of cell-->
         </div><!--end of grid-x -->
