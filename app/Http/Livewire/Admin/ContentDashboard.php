@@ -3,11 +3,17 @@
 namespace App\Http\Livewire\Admin;
 
 use Livewire\Component;
+use Livewire\WithFileUploads;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use App\Models\Page;
 use App\Models\Module;
+use Image;
 
 class ContentDashboard extends Component
 {
+    use withFileUploads;
+
     public $mode = 1;
     public $name;
     public $metatitle;
@@ -24,6 +30,9 @@ class ContentDashboard extends Component
     public $title;
     public $content;
     public $selectedModule;
+
+    public $photo;
+    public $alt;
 
     public function selectPage($id)
     {
@@ -160,6 +169,61 @@ class ContentDashboard extends Component
         $this->mode = 3;
 
         session()->flash('success', 'Module updated!');
+    }
+
+    public function saveImage()
+    {
+        $data = $this->validate([
+            'photo' => 'required',
+            'alt' => 'required'
+        ]);
+
+        $photo = $this->photo;
+
+        $photoName = uniqid() .'.' . $photo->getClientOriginalExtension();
+
+        $directory = 'public/gallery';
+        $thumbDirectory = 'public/gallery/thumb';
+        $mobileDirectory = 'public/gallery/mobile';
+
+        Storage::makeDirectory($directory);
+        Storage::makeDirectory($thumbDirectory);
+        Storage::makeDirectory($mobileDirectory);
+
+        $newPhoto = Image::make($photo)->orientate();
+        $newThumb = Image::make($photo)->orientate();
+        $newMobile = Image::make($photo)->orientate();
+
+        $main = $newPhoto->resize(1400, 750);
+        $thumb = $newPhoto->resize(750, 325);
+        $mobile = $newPhoto->resize(500, 250);
+
+
+        $pathMain = $directory . '/' . $photoName;
+        $pathThumb =  $thumbDirectory . '/' . $photoName;
+        $pathMobile =  $mobileDirectory . '/' . $photoName;
+
+        Storage::put($pathMain, $main->stream());
+        Storage::put($pathThumb, $thumb->stream());
+        Storage::put($pathMobile, $thumb->stream());
+
+        $dbDirectory = '/storage/gallery/'.$photoName;
+        $dbThumbDirectory = '/storage/gallery/thumb/'.$photoName;
+        $dbMobileDirectory = '/storage/gallery/mobile/'.$photoName;
+
+        $this->selectedPage->gallery()->create([
+            'image' => $dbDirectory,
+            'thumbnail' => $dbThumbDirectory,
+            'mobile' => $dbMobileDirectory,
+            'alt' => $data['alt'],
+            'order' => 1
+        ]);
+
+        $this->mode = 3;
+
+        $this->selectedPage->refresh();
+
+        session()->flash('success', 'Image Uploaded!');
     }
 
     public function back()

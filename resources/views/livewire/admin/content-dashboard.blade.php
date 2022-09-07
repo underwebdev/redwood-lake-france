@@ -50,7 +50,7 @@
                             @endforeach
                         </tbody>
                     </table>
-                  
+                </div>  
             </div><!-- End of cell-->
             @elseif($mode == 2)
             <div class="cell small-12 medium-8 large-6 medium-offset-2 large-offset-3">
@@ -139,6 +139,9 @@
                 @unless($module)
                 <button class="button" wire:click="$set('module', true)">Create Module</button>
                 @endunless
+                @if($mode != 6)
+                <button class="button success" wire:click="$set('mode', '6')">Add To Gallery</button>
+                @endif
 
                 @if($module)
                 <label for="">Title</label>
@@ -156,6 +159,19 @@
                 <p>{!! nl2br(e($module->content)) !!}</p>
                 <button class="button warning" wire:click="selectModule('{{ $module->id }}')">Update Module</button>
                 @endforeach
+
+                @if($selectedPage->gallery()->exists())
+                <div class="grid-x grid-padding-x">
+                    <div class="cell small-12">
+                        <h5>Page Gallery</h5>      
+                    </div><!-- End of cell-->
+                    @foreach($selectedPage->gallery as $image)
+                    <div class="cell small-6 medium-4 large-3">
+                        <img src="{{ $image->mobile }}">  
+                    </div><!-- End of cell-->
+                    @endforeach
+                </div><!--end of grid-x -->
+                @endif
 
             </div>
             @elseif($mode == 4)
@@ -212,6 +228,23 @@
 
                 <button class="button success" wire:click="saveModuleChanges">Save Changes</button>
                 <button class="button alert" wire:click="$set('mode', 3)">Cancel</button>
+            </div><!-- End of cell-->
+            @elseif($mode == 6)
+            <div class="cell small-12 medium-8 large-6 medium-offset-2 large-offset-3">
+                <p>Image aspect ratio must be 2:1, files will be automatically cropped to 1000px x 500px</p>
+                <label>@error('file')<span class="error">{{ $message }}</span>@enderror
+                </label> 
+                <input type="file" wire:model="photo">
+                <label for="">Alt Text
+                    @error('alt')
+                        <span class="error">{{ $message }}</span>
+                    @enderror
+                </label>
+                <input type="text" placeholder="" wire:model="alt">
+                <div class="button-group">
+                    <button class="button success" wire:click="saveImage">Upload Image</button>
+                    <button class="button alert" wire:click="$set('mode', 3)">Cancel</button>
+                </div>
             </div><!-- End of cell-->
             @endif 
         </div><!--end of grid-x -->

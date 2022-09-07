@@ -15,4 +15,9 @@ class Page extends Model
     {
         return $this->hasMany(Module::class);
     }
+
+    public function gallery()
+    {
+        return $this->hasMany(Gallery::class);
+    }
 }

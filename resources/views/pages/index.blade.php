@@ -187,39 +187,7 @@
 	</div><!--End of grid container-->
 	</div>
 
-	<section class="horizSlider">
-	  <div class="slide">
-	    <h2 class="slideText"></h2>
-	    <img width="1000" height="500" class="slideImage" src="/img/gallery/etangdeseuil-lakelong.jpg" alt="Filler image">
-	  </div>
-	  
-	  <div class="slide">
-	    <h2 class="slideText"></h2>
-	    <img width="1000" height="500" class="slideImage" src="/img/gallery/etangdeseuil-sunrise.jpg" alt="Filler image">
-	  </div>
-	  
-	  <div class="slide">
-	    <h2 class="slideText"></h2>
-	    <img width="1000" height="500" class="slideImage" src="/img/gallery/etangdeseuil-lake.jpg">
-	  </div>
-	  
-	  <div class="slide">
-	    <h2 class="slideText"></h2>
-	    <img width="1000" height="500" class="slideImage" src="/img/gallery/etangdeseuil-grassbank.jpg">
-	  </div>
-	  
-	  <div class="slide">
-	    <h2 class="slideText"></h2>
-	    <img width="1000" height="500" class="slideImage" src="/img/gallery/etangdeseuil-lakefacility.jpg">
-	  </div>
-	</section>
-	<div class="grid-x grid-padding-x">
-		<div class="cell small-12 text-center">
-			<br>
-			<p><span class="show-for-large">Scroll</span><span class="hide-for-large">Swipe</span> for more<i class="fas fa-arrow-alt-circle-right wobble"></i>
-		      
-		</div><!-- End of cell-->
-	</div><!--end of grid-x -->
+@livewire('feature-gallery', ['page' => $page])
 </div>
 
 @include('layout.wave')
@@ -228,20 +196,15 @@
 	<div class="contact">
 	<div class="grid-container">
 		<div class="grid-x grid-padding-x">
-			<div class="cell small-12">
+			<div class="cell small-12 medium-10 large-8 medium-offset-1 large-offset-2">
 				<h4><span class="weighted">Contact</span> Information</h4>
 			</div><!-- End of cell-->
-			<div class="cell small-12 medium-6">
+			<div class="cell small-12 medium-10 large-8 medium-offset-1 large-offset-2">
+				<p><i class="far fa-envelope"></i> info@etangdeseuil.co.uk<br>
+					<i class="fab fa-instagram"></i> etangdeseuil</p> 
 				@foreach($page->modules->where('order', 6) as $module)
 					<p>{!! nl2br(e($module->content)) !!}</p>
 				@endforeach
-			      
-			</div><!-- End of cell-->
-			<div class="cell small-12 medium-6 text-center align-self-middle">
-				<div class="contact-info text-center">
-					<p><i class="far fa-envelope"></i> info@etangdeseuil.co.uk<br>
-					<i class="fab fa-instagram"></i> etangdeseuil</p> 
-				</div>
 			      
 			</div><!-- End of cell-->
 			<div class="cell small-12 medium-10 large-8 medium-offset-1 large-offset-2">
