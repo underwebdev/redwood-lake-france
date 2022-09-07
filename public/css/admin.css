@@ -8423,6 +8423,10 @@ html.is-reveal-open body {
   display: none;
 }
 
+.title-bar-title a {
+  color: #FFFFFF;
+}
+
 .side-nav-title {
   padding-top: 10px;
   padding-bottom: 20px;
