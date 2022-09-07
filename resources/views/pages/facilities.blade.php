@@ -26,39 +26,8 @@
 			</div><!-- End of cell-->
 		</div><!--end of grid-x -->
 	</div><!--End of grid container-->
-	<section class="horizSlider">
-	  <div class="slide">
-	    <h2 class="slideText"></h2>
-	    <img width="1000" height="500" class="slideImage" src="/img/gallery/redwoodlake-house.jpeg" alt="Filler image">
-	  </div>
-	  
-	  <div class="slide">
-	    <h2 class="slideText"></h2>
-	    <img width="1000" height="500" class="slideImage" src="/img/gallery/redwoodlake-platform.jpeg" alt="Filler image">
-	  </div>
-	  
-	  <div class="slide">
-	    <h2 class="slideText"></h2>
-	    <img width="1000" height="500" class="slideImage" src="/img/gallery/aqua-park.jpeg">
-	  </div>
-	  
-	  <div class="slide">
-	    <h2 class="slideText"></h2>
-	    <img width="1000" height="500" class="slideImage" src="/img/gallery/redwood-bbq-area.jpg">
-	  </div>
-	  
-	  <div class="slide">
-	    <h2 class="slideText"></h2>
-	    <img width="1000" height="500" class="slideImage" src="/img/gallery/pizza-van.jpg">
-	  </div>
-	</section>
-
-	<div class="grid-x grid-padding-x">
-		<div class="cell small-12 text-center">
-			<p><span class="show-for-large">Scroll</span><span class="hide-for-large">Swipe</span>  for more<i class="fas fa-arrow-alt-circle-right wobble"></i>
-		      
-		</div><!-- End of cell-->
-	</div><!--end of grid-x -->
+	
+	@livewire('feature-gallery')
 
 	<div class="grid-container">
 		<div class="grid-x grid-padding-x">
