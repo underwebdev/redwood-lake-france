@@ -3,16 +3,16 @@
     <i class="fas fa-list-ol"></i> <a href="/admin/bookings">Bookings</a><br>
     <i class="fas fa-list-ol"></i> <a href="/admin/anglers">Anglers</a><br>
 
-    <i class="fas fa-list-ol"></i> <a href="/admin/catch-reports">Catch Reports</a><br>
+    <i class="fas fa-list-ol"></i> <a href="/admin/catch-reports">Reports</a><br>
     <i class="fas fa-list-ol"></i> <a href="/admin/stock">Fish List</a><br>
-    <i class="fas fa-list-ol"></i> <a href="/admin/stocking-diary">Stocking Diary</a><br>
+    <i class="fas fa-list-ol"></i> <a href="/admin/stocking-diary">Stock Diary</a><br>
     <i class="fas fa-list-ol"></i> <a href="/admin/lake">Lake Info</a><br>
 
     <i class="fas fa-paragraph"></i> <a href="/admin/news">News</a><br>
     <i class="fas fa-list-ol"></i> <a href="/admin/photo-diary">Photo Diary</a><br>
     <i class="fas fa-list-ol"></i> <a href="/admin/content">Content</a><br>
     <i class="fas fa-list-ol"></i> <a href="/admin/rules">Rules</a><br>
-    <i class="fas fa-list-ol"></i> <a href="/admin/booking-terms">Booking Terms</a><br>
+    <i class="fas fa-list-ol"></i> <a href="/admin/booking-terms">Booking t&c</a><br>
     <i class="fas fa-comment-alt"></i> <a href="/admin/reviews">Reviews</a><br>
 
     <i class="fas fa-pound-sign"></i> <a href="/admin/pricing">Pricing</a><br>
