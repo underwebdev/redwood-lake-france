@@ -57,8 +57,10 @@ class AdminController extends Controller
         return view('admin.news');
     }
 
-    public function article(Article $article)
+    public function article($id)
     {
+        $article = Article::findOrFail($id);
+
         return view('admin.article', compact('article'));
     }
 
