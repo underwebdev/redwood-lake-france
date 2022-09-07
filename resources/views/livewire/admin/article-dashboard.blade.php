@@ -51,21 +51,24 @@
                         <br>
                         <h4>Add photos to this articles gallery</h4>
                         <input type="file" wire:model="gallery">       
+                    
+
+                        @if($article->images()->count() > 0)
+                        <div class="grid-x grid-padding-x">
+                            @foreach($article->images as $image)
+                            <div class="cell small-12 medium-6 ml-4 large-4 xlarge-3 text-center">
+                                <div class="photo-border-block">
+                                    <a href="{{ $image->image }}" data-lity>
+                                    <img src="{{ $image->image }}">
+                                    </a>
+                                </div>
+
+                                <button class="button alert expanded" wire:click="deleteFromGallery('{{ $image->id }}')">Delete</button>
+                            </div>
+                            @endforeach
+                        </div><!--end of grid-x -->
+                        @endif
                     </div><!-- End of cell-->
-
-                    @if($article->images()->count() > 0)
-                    @foreach($article->images as $image)
-                    <div class="cell small-12 medium-6 ml-4 large-4 xlarge-3 text-center">
-                        <div class="photo-border-block">
-                            <a href="{{ $image->image }}" data-lity>
-                            <img src="{{ $image->image }}">
-                            </a>
-                        </div>
-
-                        <button class="button alert expanded" wire:click="deleteFromGallery('{{ $image->id }}')">Delete</button>
-                    </div>
-                    @endforeach
-                    @endif
             @elseif($mode == 2)
                 <div class="cell small-12 text-center">
                       <h3>Are you sure you want to delete this article?</h3>
