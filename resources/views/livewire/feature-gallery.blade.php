@@ -27,7 +27,7 @@
         </div><!--end of grid-x -->
         <div class="grid-x grid-padding-x">
             @foreach($thumbnails as $thumbnail)
-            <div class="cell small-12">
+            <div class="cell large-3">
                 <div class="gallery-block">
                     <button wire:click="selectImage('{{ $thumbnail->id }}')"><img src="{{ $thumbnail->mobile }}"></button>
                 </div>
