@@ -156,7 +156,7 @@ class PageController extends Controller
     {
         $article = Article::where('url', $url)->first();
 
-        $articles = Article::where('id', '!=', $article->id);
+        $articles = Article::whereNull('draft')->where('id', '!=', $article->id);
 
         return view('pages.article', compact('article', 'articles'));
     }
