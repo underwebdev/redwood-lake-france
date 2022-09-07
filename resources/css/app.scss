@@ -2,118 +2,73 @@
 @import "node_modules/foundation-sites/assets/foundation";
 @import "lity";
 
+.hero {
+	color: #FFFFFF;
+	background-repeat: no-repeat;
+	background-position: center top;
+	background-attachment: fixed;
+}
+
+@media all and (min-width:1400px) {
+	.hero {
+		background-size: cover;
+	}
+}
+
 .home {
 	background-image: url('/img/backgrounds/hero-plain.jpeg');
-	background-repeat: no-repeat;
-	background-position: center bottom;
-	background-size: cover;
-	background-attachment: fixed;
 }
 
 .lakebg {
 	background-image: url('/img/backgrounds/lake-background.jpg');
-	background-repeat: no-repeat;
-	background-position: center bottom;
-	background-size: cover;
-	background-attachment: fixed;	
 }
 
 .bookingbg {
 	background-image: url('/img/backgrounds/hero-background-alt2.jpg');
-	background-repeat: no-repeat;
-	background-position: center bottom;
-	background-size: cover;
-	background-attachment: fixed;
 }
 
 .reportbg {
 	background-image: url('/img/backgrounds/report-background.jpg');
-	background-repeat: no-repeat;
-	background-position: center bottom;
-	background-size: cover;
-	background-attachment: fixed;
 }
 
 .stockbg {
 	background-image: url('/img/backgrounds/stock-background.jpg');
-	background-repeat: no-repeat;
-	background-position: center bottom;
-	background-size: cover;
-	background-attachment: fixed;
-	
 }
 
 .fishbg {
 	background-image: url('/img/backgrounds/fish-background.jpeg');
-	background-repeat: no-repeat;
-	background-position: center bottom;
-	background-size: cover;
-	background-attachment: fixed;
-	
 }
 
 .locationbg {
 	background-image: url('/img/backgrounds/location-background.jpg');
-	background-repeat: no-repeat;
-	background-position: center bottom;
-	background-size: cover;
-	background-attachment: fixed;
-	
 }
 
 .facilitybg {
 	background-image: url('/img/backgrounds/facility-background.jpg');
-	background-repeat: no-repeat;
-	background-position: center bottom;
-	background-size: cover;
-	background-attachment: fixed;
-	
 }
 
 .rulebg {
 	background-image: url('/img/backgrounds/rule-background.jpg');
-	background-repeat: no-repeat;
-	background-position: center bottom;
-	background-size: cover;
-	background-attachment: fixed;
 }
 
 .newsbg {
 	background-image: url('/img/backgrounds/news-background.jpg');
-	background-repeat: no-repeat;
-	background-position: center bottom;
-	background-size: cover;
-	background-attachment: fixed;
-	
 }
 
 .diarybg {
 	background-image: url('/img/backgrounds/hero-plain.jpeg');
-	background-repeat: no-repeat;
-	background-position: center bottom;
-	background-size: cover;
-	background-attachment: fixed;	
 }
 
 .weatherbg {
 	background-image: url('/img/backgrounds/weather-background.jpg');
-	background-repeat: no-repeat;
-	background-position: center bottom;
-	background-size: cover;
-	background-attachment: fixed;
-	
 }
 
 .contactbg {
 	background-image: url('/img/backgrounds/hero-background-alt3.jpg');
-	background-repeat: no-repeat;
-	background-position: center bottom;
-	background-size: cover;
-	background-attachment: fixed;
 }
 
 .black {
-	background-color: #000000;
+	background-color: #232323;
 }
 
 .section-one {
@@ -213,11 +168,6 @@ h4 {
 .mobile-menu button {
   color: #FFFFFF;
   margin-left: 8px;
-}
-
-.hero {
-	color: #FFFFFF;
-	z-index: 0;
 }
 
 @media all and (max-width:430px) {
@@ -813,6 +763,7 @@ textarea {
 
 .swim-list i {
 	margin-right: 10px;
+	color: #9ab495;
 }
 
 .booking-pricing{

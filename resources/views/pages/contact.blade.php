@@ -29,7 +29,6 @@
 					Saint-Pardoux-le-Lac<br>
 					87140<br> 
 					France</p>
-					<a href="https://goo.gl/maps/urbLG7Vjmt9UnULs6" class="button">View in Google Maps</a>
 				</div><!-- End of cell-->
 				<div class="cell small-12 medium-6">
 					<h4><span class="weighted">Contact</span> Details</h4>

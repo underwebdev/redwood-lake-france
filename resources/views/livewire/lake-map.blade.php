@@ -18,7 +18,7 @@
                 <div class="cell small-12">
                     <div class="swim-list">
                         <h3>Swims</h3>
-                        <p><i class="fas fa-info-circle"></i> Click the swim names to see the lake from each swim.</p>
+                        <p><i class="fas fa-info-circle secondary"></i> Click the swim names to see the lake from each swim.</p>
                         <div class="grid-x grid-padding-x">
                             <div class="cell small-12 medium-6">
 
@@ -49,17 +49,17 @@
                 </div><!-- End of cell-->
                 <div class="cell small-12 medium-6">
                     <h3 class="heading-font yellow">Info</h3>
-                      <p><strong>Size:</strong> {{ $lake->size }}<br>
-                      <strong>Swims: </strong> {{ $lake->swims->count() }}<br>
-                      <strong>Rod Limit: </strong> {{ $lake->rodlimit }}<br>
-                      <strong>Open:</strong> All Year</p>
+                      <p><strong><span class="weighted">Size:</span></strong> {{ $lake->size }}<br>
+                      <strong><span class="weighted">Swims:</span> </strong> {{ $lake->swims->count() }}<br>
+                      <strong><span class="weighted">Rod Limit:</span> </strong> {{ $lake->rodlimit }}<br>
+                      <strong><span class="weighted">Open:</span></strong> All Year</p>
                 </div><!-- End of cell-->
                 <div class="cell small-12 medium-6">
                     <h3 class="heading-font yellow">Records</h3>
-                      <p><strong>Common: </strong>{{ $lake->lrcommon }}<br>
-                      <strong>Mirror: </strong>{{ $lake->lrmirror }}<br>
-                      <strong>Total fish: </strong>{{ $lake->stock }}<br>
-                      <strong>Average size: </strong>{{ $lake->avgsize }}</p>
+                      <p><strong><span class="weighted">Common:</span> </strong>{{ $lake->lrcommon }}<br>
+                      <strong><span class="weighted">Mirror:</span> </strong>{{ $lake->lrmirror }}<br>
+                      <strong><span class="weighted">Total fish:</span> </strong>{{ $lake->stock }}<br>
+                      <strong><span class="weighted">Average size:</span> </strong>{{ $lake->avgsize }}</p>
                      </p>    
                 </div><!-- End of cell-->
                 <div class="cell small-12">
