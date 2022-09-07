@@ -10,7 +10,7 @@
 			
 				@foreach($priceguide->package->breakdowns as $breakdown)
 					<div class="grid-x">
-						<div class="cell small-1">
+						<div class="cell small-1 text-center">
 							<i class="fas fa-tree"></i>      
 						</div><!-- End of cell-->
 						<div class="cell small-11">
