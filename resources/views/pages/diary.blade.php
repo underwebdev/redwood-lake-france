@@ -17,6 +17,12 @@
 <div class="section-one">
 	<div class="grid-container full">
 		<div class="grid-x grid-padding-x">
+			<div class="cell small-12">
+				<h3><span class="weighted">Fishery</span> Photo Diary</h3>
+				@foreach($page->modules->where('order', 1) as $module)
+					<p>{!! nl2br(e($module->content)) !!}</p>
+				@endforeach      
+			</div><!-- End of cell-->
 			<div class="cell small-12 medium-6 text-center">
 				<div class="photo-diary-hero">
 					<img src="{{ $featured->photo }}">
