@@ -35,7 +35,7 @@
 			</div><!-- End of cell-->
 			<div class="cell small-12 medium-6">
 				<div class="polaroid-photo rotate-left">
-					<img src="/img/redwood-lake-common-carp.jpg">
+					<img src="/img/redwood-lake-fishing-holidays.jpg">
 				</div>
 
 				<div class="polaroid-photo rotate-right">
