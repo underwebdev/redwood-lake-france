@@ -6,7 +6,7 @@
 		@include('layout.nav')
 <div class="grid-container full">
 	<div class="grid-x grid-padding-x">
-		<div class="cell small-12 medium-8 hero-text">
+		<div class="cell small-12 medium-10 large-9 hero-text">
 			<h1>{{ $page->heading }}</h1>
 			<h2><strong>{!! nl2br(e($page->subheading)) !!}</strong></h2>
 			<div class="hero-review show-for-medium">
