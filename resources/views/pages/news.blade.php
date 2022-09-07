@@ -18,7 +18,7 @@
 <div class="grid-container full">
 	<div class="grid-x grid-padding-x">
 		<div class="cell small-12">
-			<a href="/news/{{ $featured->url }}">
+			<a href="/article/{{ $featured->url }}">
 			<div class="feature-container">	        	
 			<div class="grid-x grid-padding-x" data-equalizer>
 				<div class="cell small-12 medium-12 ml-8">
@@ -27,7 +27,7 @@
 					@endisset
 				</div>
 				<div class="cell small-12 medium-12 ml-4">
-						<h2 class="heading-font"><strong>{{ $featured->heading }}</strong></h2>
+						<h2 class="heading-font"><strong>{{ $featured->title }}</strong></h2>
 						<h5><small>{{ substr($featured->body, 0,  250)}}...</small></h5>
 				    	<p><small><i class="far fa-calendar-alt"></i> {{ date('j M Y', strtotime ($featured->created_at)) }} <span class="seperator">/</span>Posted by: {{ $featured->admin->firstName }} {{ $featured->admin->lastName }} <span class="seperator">/</span> {{ date('H:i A', strtotime ($featured->created_at)) }}</small></p>
 				</div><!-- End of cell-->
