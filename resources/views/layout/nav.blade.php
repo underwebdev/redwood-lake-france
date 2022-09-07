@@ -1,11 +1,11 @@
 <div data-sticky-container>
-<div class="grid-x title-bar align-left hide-for-large sticky" data-hide-for="large" data-sticky data-options="marginTop:0;" data-sticky-on="small">
+<div class="grid-x title-bar align-left hide-for-ml sticky" data-hide-for="ml" data-sticky data-options="marginTop:0;" data-sticky-on="small">
     <button class="menu-icon" type="button" data-open="offCanvasLeft"></button>
     <div class="title-bar-title"><a data-open="offCanvasLeft">Menu</a></div>
   </div>
 </div>
 
-<div class="nav show-for-large">
+<div class="nav show-for-ml">
 <ul class="dropdown menu" data-dropdown-menu>
 	<a href="/">Redwood Lake</a>
 	<li><a href="/lake">The Lake</a></li>

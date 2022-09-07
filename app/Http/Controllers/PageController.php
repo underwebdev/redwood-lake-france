@@ -52,7 +52,7 @@ class PageController extends Controller
     {
         $page = Page::find(3);
 
-        $priceguides = Priceguide::whereNotNull('featured')->get();
+        $priceguides = Priceguide::whereNotNull('featured')->orderBy('start', 'asc')->get();
 
     	return view('pages.booking', compact('page', 'priceguides'));
     }

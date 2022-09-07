@@ -24,14 +24,14 @@
 			@endforeach
 
 			<div class="grid-x grid-padding-x">
-				<div class="cell small-12 medium-6">
+				<div class="cell small-12 large-6">
 					<h4><span class="weighted">Complex</span> Address</h4>
 					<p>Étang de Seuil<br>
 					Saint-Pardoux-le-Lac<br>
 					87140<br>
 					France</p>
 				</div><!-- End of cell-->
-				<div class="cell small-12 medium-6">
+				<div class="cell small-12 large-6">
 					<h4><span class="weighted">Nearest</span> Ports</h4>
 
 					<div class="table-scroll">
