@@ -232,7 +232,7 @@
             </div><!-- End of cell-->
             @elseif($mode == 6)
             <div class="cell small-12 medium-8 large-6 medium-offset-2 large-offset-3">
-                <p>Image aspect ratio must be 2:1, files will be automatically cropped to 1000px x 500px</p>
+                <p>Image aspect ratio must be 2:1, files will be automatically cropped to 1400px x 750px</p>
                 <label>@error('file')<span class="error">{{ $message }}</span>@enderror
                 </label> 
                 <input type="file" wire:model="photo">
