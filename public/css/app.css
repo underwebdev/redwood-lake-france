@@ -8632,61 +8632,91 @@ html.is-reveal-open body {
 
 @media all and (min-width: 1400px) {
   .hero {
-    background-size: cover;
+    background-size: 100%;
   }
 }
-.home {
-  background-image: url("/img/backgrounds/hero-plain.jpeg");
+@media all and (min-width: 1024px) {
+  .home {
+    background-image: url("/img/backgrounds/hero-plain.jpeg");
+  }
+  .lakebg {
+    background-image: url("/img/backgrounds/lake-background.jpg");
+  }
+  .bookingbg {
+    background-image: url("/img/backgrounds/hero-background-alt2.jpg");
+  }
+  .reportbg {
+    background-image: url("/img/backgrounds/report-background.jpg");
+  }
+  .stockbg {
+    background-image: url("/img/backgrounds/stock-background.jpg");
+  }
+  .fishbg {
+    background-image: url("/img/backgrounds/fish-background.jpeg");
+  }
+  .locationbg {
+    background-image: url("/img/backgrounds/location-background.jpg");
+  }
+  .facilitybg {
+    background-image: url("/img/backgrounds/facility-background.jpg");
+  }
+  .rulebg {
+    background-image: url("/img/backgrounds/rule-background.jpg");
+  }
+  .newsbg {
+    background-image: url("/img/backgrounds/news-background.jpg");
+  }
+  .diarybg {
+    background-image: url("/img/backgrounds/hero-plain.jpeg");
+  }
+  .weatherbg {
+    background-image: url("/img/backgrounds/weather-background.jpg");
+  }
+  .contactbg {
+    background-image: url("/img/backgrounds/hero-background-alt3.jpg");
+  }
 }
-
-.lakebg {
-  background-image: url("/img/backgrounds/lake-background.jpg");
+@media all and (max-width: 1024px) {
+  .home {
+    background-image: url("/img/backgrounds/tablet/hero-plain.jpeg");
+  }
+  .lakebg {
+    background-image: url("/img/backgrounds/tablet/lake-background.jpg");
+  }
+  .bookingbg {
+    background-image: url("/img/backgrounds/tablet/hero-background-alt2.jpg");
+  }
+  .reportbg {
+    background-image: url("/img/backgrounds/tablet/report-background.jpg");
+  }
+  .stockbg {
+    background-image: url("/img/backgrounds/tablet/stock-background.jpg");
+  }
+  .fishbg {
+    background-image: url("/img/backgrounds/tablet/fish-background.jpeg");
+  }
+  .locationbg {
+    background-image: url("/img/backgrounds/tablet/location-background.jpg");
+  }
+  .facilitybg {
+    background-image: url("/img/backgrounds/tablet/facility-background.jpg");
+  }
+  .rulebg {
+    background-image: url("/img/backgrounds/tablet/rule-background.jpg");
+  }
+  .newsbg {
+    background-image: url("/img/backgrounds/tablet/news-background.jpg");
+  }
+  .diarybg {
+    background-image: url("/img/backgrounds/tablet/hero-plain.jpeg");
+  }
+  .weatherbg {
+    background-image: url("/img/backgrounds/tablet/weather-background.jpg");
+  }
+  .contactbg {
+    background-image: url("/img/backgrounds/tablet/hero-background-alt3.jpg");
+  }
 }
-
-.bookingbg {
-  background-image: url("/img/backgrounds/hero-background-alt2.jpg");
-}
-
-.reportbg {
-  background-image: url("/img/backgrounds/report-background.jpg");
-}
-
-.stockbg {
-  background-image: url("/img/backgrounds/stock-background.jpg");
-}
-
-.fishbg {
-  background-image: url("/img/backgrounds/fish-background.jpeg");
-}
-
-.locationbg {
-  background-image: url("/img/backgrounds/location-background.jpg");
-}
-
-.facilitybg {
-  background-image: url("/img/backgrounds/facility-background.jpg");
-}
-
-.rulebg {
-  background-image: url("/img/backgrounds/rule-background.jpg");
-}
-
-.newsbg {
-  background-image: url("/img/backgrounds/news-background.jpg");
-}
-
-.diarybg {
-  background-image: url("/img/backgrounds/hero-plain.jpeg");
-}
-
-.weatherbg {
-  background-image: url("/img/backgrounds/weather-background.jpg");
-}
-
-.contactbg {
-  background-image: url("/img/backgrounds/hero-background-alt3.jpg");
-}
-
 .black {
   background-color: #232323;
 }
@@ -8800,14 +8830,19 @@ h4 {
   }
 }
 .hero-text h1 {
-  padding-top: 20%;
   margin-bottom: 0px;
   font-weight: 800;
-  font-size: 45px;
   filter: drop-shadow(5px 5px 5px #222);
   font-family: "Poppins", sans-serif;
+  padding-top: 10%;
 }
 
+@media all and (min-width: 1113px) {
+  .hero-text h1 {
+    padding-top: 20%;
+    font-size: 45px;
+  }
+}
 .hero-text h2 {
   filter: drop-shadow(5px 5px 5px #222);
   margin-bottom: 25px;
@@ -9209,15 +9244,15 @@ textarea {
 }
 
 .content h1 {
-  padding: 150px 0 0 0;
+  padding: 80px 0 70px 0;
   font-weight: 800;
   filter: drop-shadow(5px 5px 5px #222);
   font-family: "Poppins", sans-serif;
 }
 
-@media all and (max-width: 430px) {
+@media all and (min-width: 1113px) {
   .content h1 {
-    padding: 80px 0 70px 0;
+    padding: 10% 0 0 0;
     font-weight: 800;
     filter: drop-shadow(5px 5px 5px #222);
     font-family: "Poppins", sans-serif;
@@ -9413,6 +9448,10 @@ table th:last-child {
 
 table .button {
   margin: 0;
+}
+
+.table a {
+  color: #9ab495;
 }
 
 .wobble {
@@ -9669,4 +9708,8 @@ table .button {
   background-color: #FFFFFF;
   border: 1px solid #FFFFFF;
   box-shadow: 0 0 10px rgba(24, 50, 115, 0.1);
+}
+
+.map-container {
+  margin-top: 50px;
 }
