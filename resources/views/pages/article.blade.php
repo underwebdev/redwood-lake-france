@@ -2,6 +2,8 @@
 
 @section('content')
 
+@include('layout.nav-plain')
+
 <div class="grid-x grid-padding-x">
 	<div class="cell small-12 large-8">
 		<div class="feature-container">	 
@@ -9,14 +11,10 @@
 				<img src="{{ $article->cover }}" class="news-feature">
 			@endisset
 		
-			<h2><strong>{{ $article->heading }}</strong></h2>
+			<h2><strong>{{ $article->title }}</strong></h2>
 			<p><small><i class="far fa-calendar-alt"></i> {{ date('j M Y', strtotime ($article->created_at)) }}  <span class="seperator"> / </span> {{ date('H:i A', strtotime ($article->created_at)) }} </small><br>
-			{!! nl2br(e($article->body)) !!}</p>
+			{!! nl2br(e($article->body)) !!}</p> test
 
-			@isset($article->page_id)
-				<br>
-				<a href="{{ $article->page->url }}" class="button success">Go To {{ $article->page->name }}</a>
-			@endisset
 		</div>
 		
 		<div class="feature-gallery-container">
