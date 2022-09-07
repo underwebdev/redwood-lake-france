@@ -22,7 +22,7 @@ class FeatureGallery extends Component
     public function render()
     {
         return view('livewire.feature-gallery',[
-            'thumbnails' => $this->page->gallery()->where('id', '!=', $this->featured)->get()
+            'thumbnails' => $this->page->gallery()->where('id', '!=', $this->featured->id)->get()
         ]);
     }
 }
