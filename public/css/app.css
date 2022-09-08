@@ -8635,47 +8635,58 @@ html.is-reveal-open body {
     background-size: 100%;
   }
 }
-@media all and (max-width: 1400px) {
-  .home {
-    background-image: url("/img/backgrounds/hero-plain.jpeg");
-  }
-  .lakebg {
-    background-image: url("/img/backgrounds/lake-background.jpg");
-  }
-  .bookingbg {
-    background-image: url("/img/backgrounds/hero-background-alt2.jpg");
-  }
-  .reportbg {
-    background-image: url("/img/backgrounds/report-background.jpg");
-  }
-  .stockbg {
-    background-image: url("/img/backgrounds/stock-background.jpg");
-  }
-  .fishbg {
-    background-image: url("/img/backgrounds/fish-background.jpeg");
-  }
-  .locationbg {
-    background-image: url("/img/backgrounds/location-background.jpg");
-  }
-  .facilitybg {
-    background-image: url("/img/backgrounds/facility-background.jpg");
-  }
-  .rulebg {
-    background-image: url("/img/backgrounds/rule-background.jpg");
-  }
-  .newsbg {
-    background-image: url("/img/backgrounds/news-background.jpg");
-  }
-  .diarybg {
-    background-image: url("/img/backgrounds/diary-background.jpg");
-  }
-  .weatherbg {
-    background-image: url("/img/backgrounds/weather-background.jpg");
-  }
-  .contactbg {
-    background-image: url("/img/backgrounds/hero-background-alt3.jpg");
-  }
+.home {
+  background-image: url("/img/backgrounds/hero-plain.jpeg");
 }
+
+.lakebg {
+  background-image: url("/img/backgrounds/lake-background.jpg");
+}
+
+.bookingbg {
+  background-image: url("/img/backgrounds/hero-background-alt2.jpg");
+}
+
+.reportbg {
+  background-image: url("/img/backgrounds/report-background.jpg");
+}
+
+.stockbg {
+  background-image: url("/img/backgrounds/stock-background.jpg");
+}
+
+.fishbg {
+  background-image: url("/img/backgrounds/fish-background.jpeg");
+}
+
+.locationbg {
+  background-image: url("/img/backgrounds/location-background.jpg");
+}
+
+.facilitybg {
+  background-image: url("/img/backgrounds/facility-background.jpg");
+}
+
+.rulebg {
+  background-image: url("/img/backgrounds/rule-background.jpg");
+}
+
+.newsbg {
+  background-image: url("/img/backgrounds/news-background.jpg");
+}
+
+.diarybg {
+  background-image: url("/img/backgrounds/diary-background.jpg");
+}
+
+.weatherbg {
+  background-image: url("/img/backgrounds/weather-background.jpg");
+}
+
+.contactbg {
+  background-image: url("/img/backgrounds/hero-background-alt3.jpg");
+}
+
 @media all and (max-width: 1024px) {
   .home {
     background-image: url("/img/backgrounds/tablet/hero-plain.jpeg");
