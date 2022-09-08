@@ -38,11 +38,9 @@
 			<div class="grid-x grid-padding-x">
 				@foreach($lake->images as $image)
 				<div class="cell small-6 medium-4 text-center">
-					
-						<a href="{{ $image->photo }}" data-lity>
-							<img src="{{ $image->thumbnail }}" class="photo-border-block">
-						</a>
-					
+					<a href="{{ $image->photo }}" data-lity>
+						<img src="{{ $image->thumbnail }}" class="photo-border-block">
+					</a>
 				</div><!-- End of cell-->
 				@endforeach
 			</div><!--end of grid-x -->

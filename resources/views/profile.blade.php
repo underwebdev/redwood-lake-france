@@ -33,8 +33,8 @@
 	    { "@context" : "http://schema.org",
 	      "@type" : "Organization",
 	      "name" : "Underwood Web Services",
-	      "logo": "https://underweb.co.uk.co.uk/img/logos/uws-logo-rgb.png",
-	      "url" : "https://underweb.co.uk.co.uk",
+	      "logo": "https://redwoodlake.co.uk/img/logo/RedwoodLake.png",
+	      "url" : "https://redwoodlake.co.uk",
 	      "sameAs" : [ "https://www.facebook.com/underwebdevelopment/",
                    "https://www.linkedin.com/in/joe-underwood-010765b7/",
                    "https://www.twitter.com/underwebdev"]
@@ -48,14 +48,13 @@
 		</script>
 	</head>
 	<body>
+		@include('layout.nav-profile')
 
 			@yield('content')
 
 		@include('layout.footer')
 		
 		@livewireScripts
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script> 
 		<script src="/js/app.js"></script>
 		<script>
 		    $(document).foundation(); 

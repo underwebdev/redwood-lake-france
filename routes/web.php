@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\WebhookController;
@@ -37,6 +38,9 @@ Route::get('terms-conditions', [PageController::class, 'terms']);
 Route::get('privacy-policy', [PageController::class, 'privacy']);
 Route::get('payment-complete', [PageController::class, 'paymentcomplete']);
 Route::post('payment-webhook', [WebhookController::class, 'handle']);
+
+Route::get('my-account', [ProfileController::class, 'index']);
+Route::get('my-account/booking/{booking}', [ProfileController::class, 'booking']);
 
 Route::get('admin/dashboard', [AdminController::class, 'index']);
 Route::get('admin/bookings', [AdminController::class, 'bookings']);
