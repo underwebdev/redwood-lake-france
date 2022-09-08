@@ -7,12 +7,12 @@
             <img width="1000" height="500" class="slideImage" src="{{ $image->thumbnail }}" alt="{{ $image->alt }}">
           </div>
         @endforeach
+        </section>
 
         <div class="grid-x grid-padding-x">
             <div class="cell small-12 text-center">
                 <br>
                 <p><span class="show-for-large">Scroll</span><span class="hide-for-large">Swipe</span> for more<i class="fas fa-arrow-alt-circle-right wobble"></i></p>
-                  
             </div><!-- End of cell-->
         </div><!--end of grid-x -->
     </div>
