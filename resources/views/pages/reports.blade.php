@@ -18,10 +18,12 @@
 	<div class="grid-container">
 		<div class="grid-x grid-padding-x">
 			<div class="cell small-12">
+				<div class="feature-container">
 				<h3><span class="weighted">Latest</span> Catch Reports</h3>
 				@foreach($page->modules->where('order', 1) as $module)
 					<p>{!! nl2br(e($module->content)) !!}</p>
 				@endforeach
+				</div>
 				<br>   
 			</div><!-- End of cell-->
 		</div><!--end of grid-x -->
