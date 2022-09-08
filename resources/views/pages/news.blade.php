@@ -20,10 +20,10 @@
 		<div class="cell small-12">
 			<div class="feature-container">	        	
 			<div class="grid-x grid-padding-x" data-equalizer>
-				<div class="cell small-12 medium-12 ml-8">
+				<div class="cell small-12 medium-12 ml-8" data-equalizer-watch>
 					@isset($featured->cover)
 					<a href="/article/{{ $featured->url }}">
-					    <img src="{{ $featured->cover }}" class="news-feature" data-equalizer-watch>
+					    <img src="{{ $featured->cover }}" class="news-feature" >
 					</a>
 					@endisset
 				</div>
