@@ -124,6 +124,7 @@
 							</tbody>
 						</table>
 					</div> 
+					<br>
 				</div><!-- End of cell-->
 			</div>      
 		</div><!-- End of cell-->  

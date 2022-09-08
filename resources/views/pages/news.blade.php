@@ -28,10 +28,12 @@
 					@endisset
 				</div>
 				<div class="cell small-12 medium-12 ml-4">
-					<h2><a href="/article/{{ $featured->url }}">{{ $featured->title }}</a></h2>
-					<h5><small>{{ substr($featured->body, 0,  250)}}...</small></h5>
-			    	<p><small><i class="far fa-calendar-alt"></i> {{ date('j M Y', strtotime ($featured->created_at)) }} <span class="seperator">/</span>Posted by: {{ $featured->admin->firstName }} {{ $featured->admin->lastName }} <span class="seperator">/</span> {{ date('H:i A', strtotime ($featured->created_at)) }}</small></p>
-			    	<a href="/article/{{ $featured->url }}" class="button success hollow expanded">Read Article</a>
+					<div class="outline" data-equalizer-watch>
+						<h2><a href="/article/{{ $featured->url }}">{{ $featured->title }}</a></h2>
+						<h5><small>{{ substr($featured->body, 0,  250)}}...</small></h5>
+				    	<p><small><i class="far fa-calendar-alt"></i> {{ date('j M Y', strtotime ($featured->created_at)) }} <span class="seperator">/</span>Posted by: {{ $featured->admin->firstName }} {{ $featured->admin->lastName }} <span class="seperator">/</span> {{ date('H:i A', strtotime ($featured->created_at)) }}</small></p>
+				    	<a href="/article/{{ $featured->url }}" class="button success hollow expanded">Read Article</a>
+				    </div>
 				</div><!-- End of cell-->
 			</div>
 			</div>
