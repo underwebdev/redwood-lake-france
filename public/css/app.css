@@ -8635,7 +8635,7 @@ html.is-reveal-open body {
     background-size: 100%;
   }
 }
-@media all and (min-width: 1024px) {
+@media all and (max-width: 1400px) {
   .home {
     background-image: url("/img/backgrounds/hero-plain.jpeg");
   }
@@ -8715,6 +8715,47 @@ html.is-reveal-open body {
   }
   .contactbg {
     background-image: url("/img/backgrounds/tablet/hero-background-alt3.jpg");
+  }
+}
+@media all and (max-width: 429px) {
+  .home {
+    background-image: url("/img/backgrounds/mobile/hero-plain.jpeg");
+  }
+  .lakebg {
+    background-image: url("/img/backgrounds/mobile/lake-background.jpg");
+  }
+  .bookingbg {
+    background-image: url("/img/backgrounds/mobile/hero-background-alt2.jpg");
+  }
+  .reportbg {
+    background-image: url("/img/backgrounds/mobile/report-background.jpg");
+  }
+  .stockbg {
+    background-image: url("/img/backgrounds/mobile/stock-background.jpg");
+  }
+  .fishbg {
+    background-image: url("/img/backgrounds/mobile/fish-background.jpeg");
+  }
+  .locationbg {
+    background-image: url("/img/backgrounds/mobile/location-background.jpg");
+  }
+  .facilitybg {
+    background-image: url("/img/backgrounds/mobile/facility-background.jpg");
+  }
+  .rulebg {
+    background-image: url("/img/backgrounds/mobile/rule-background.jpg");
+  }
+  .newsbg {
+    background-image: url("/img/backgrounds/mobile/news-background.jpg");
+  }
+  .diarybg {
+    background-image: url("/img/backgrounds/mobile/diary-background.jpg");
+  }
+  .weatherbg {
+    background-image: url("/img/backgrounds/mobile/weather-background.jpg");
+  }
+  .contactbg {
+    background-image: url("/img/backgrounds/mobile/hero-background-alt3.jpg");
   }
 }
 .black {
@@ -9454,8 +9495,8 @@ table .button {
   margin: 0;
 }
 
-.table a {
-  color: #9ab495;
+table i {
+  color: #9ab495 !important;
 }
 
 .wobble {

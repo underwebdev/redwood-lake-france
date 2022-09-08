@@ -10,7 +10,7 @@
     <div class="cell small-12 medium-8 large-6 medium-offset-2 large-offset-3">
         <div class="center-border">
             <div class="center-border-header text-center">
-                
+                <img src="/img/logo/RedwoodLogo.png" width="200px">   
             </div>
             <div class="center-border-content">
                 <h1 class="text-center">Register Account</h1>
