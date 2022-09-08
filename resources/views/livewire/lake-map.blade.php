@@ -4,13 +4,9 @@
             @if($selectedSwim)
                 @isset($selectedSwim->photo)
                     <img src="{{ $selectedSwim->photo }}">
-                @else
-                    <div class="cell small-12 align-self-middle text-center">
-                        <strong>Coming Soon</strong>
-                    </div>
                 @endisset
             @else
-                <img src="/img/lake-map.png" height="800px">
+                <img src="/img/lake-map.png" class="lake-map">
             @endif
         </div><!-- End of cell-->
         <div class="cell small-12 large-4">
@@ -19,9 +15,9 @@
                     <div class="swim-list">
                         <h5 class="info-bar">Swims</h5>
                         <p><i class="fas fa-info-circle secondary"></i> Click the swim names to see the lake from each swim.</p>
+
                         <div class="grid-x grid-padding-x">
                             <div class="cell small-12 medium-6">
-
                                 @foreach($lake->swims as $swim)
                                     @if($loop->index < 5)
                                     <button wire:click="selectSwim('{{ $swim->id }}')">

@@ -29,9 +29,7 @@
 
 	<div class="lake-info-container">
 		<div class="grid-container full">
-			<div class="grid-x grid-padding-x">
-				@livewire('lake-map')
-			</div><!--end of grid-x -->
+			@livewire('lake-map')
 		</div><!--End of grid container-->
 	</div>
 
