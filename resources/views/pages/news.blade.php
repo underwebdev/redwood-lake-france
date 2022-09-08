@@ -22,7 +22,7 @@
 			<div class="grid-x grid-padding-x" data-equalizer>
 				<div class="cell small-12 medium-12 ml-8">
 					@isset($featured->cover)
-						<div data-equalizer-watch>
+					<div data-equalizer-watch>
 						<a href="/article/{{ $featured->url }}">
 						    <img src="{{ $featured->cover }}" class="news-feature" >
 						</a>
