@@ -19,8 +19,8 @@
 	<div class="grid-x grid-padding-x">
 		<div class="cell small-12">
 			<div class="feature-container">	        	
-			<div class="grid-x grid-padding-x">
-				<div class="cell small-12 medium-12 ml-8">
+			<div class="grid-x grid-padding-x" data-equalizer>
+				<div class="cell small-12 medium-12 ml-8" data-equalizer-watch>
 					@isset($featured->cover)
 					
 					<a href="/article/{{ $featured->url }}">
@@ -29,7 +29,7 @@
 				
 					@endisset
 				</div>
-				<div class="cell small-12 medium-12 ml-4">
+				<div class="cell small-12 medium-12 ml-4" data-equalizer-watch>
 					<div class="outline">
 						<h2><a href="/article/{{ $featured->url }}">{{ $featured->title }}</a></h2>
 						<h5><small>{{ substr($featured->body, 0,  250)}}...</small></h5>
