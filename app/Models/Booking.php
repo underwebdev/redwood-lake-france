@@ -25,4 +25,9 @@ class Booking extends Model
     {
         return $this->belongsTo(Priceguide::class);
     }
+
+    public function contact()
+    {
+        return $this->hasMany(Contact::class);
+    }
 }
