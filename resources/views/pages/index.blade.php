@@ -121,10 +121,12 @@
 	<div class="grid-container">
 			<div class="grid-x grid-padding-x">
 				<div class="cell small-12">
+					<div id="price-desc">
 					<h4 class="text-center"><span class="weighted">Price</span> Packages</h4>
 					@foreach($page->modules->where('order', 5) as $module)
 						<p>{!! nl2br(e($module->content)) !!}</p>
 						@endforeach
+					</div>
 				</div>
 			</div>
 		</div>

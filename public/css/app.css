@@ -9158,12 +9158,22 @@ textarea {
   padding-bottom: 0;
 }
 
+@media all and (max-width: 640px) {
+  .pricing a {
+    margin-bottom: 100px;
+  }
+}
 .pricing-block {
   border-radius: 8px;
-  margin: 60px 0 30px 0;
+  margin: 10px 0 30px 0;
   opacity: 0.1;
 }
 
+@media all and (min-width: 429px) {
+  .pricing-block {
+    margin: 60px 0 30px 0;
+  }
+}
 .pricing-block h4 {
   font-size: 40px;
   -webkit-text-decoration-style: dashed;
@@ -9280,17 +9290,20 @@ textarea {
 }
 
 #lake-desc {
-  margin-right: 15px;
   width: 99%;
 }
 
+@media all and (max-width: 429px) {
+  #lake-desc p {
+    margin-bottom: 0;
+  }
+}
 #lake-image {
   margin-left: 15px;
   width: 99%;
 }
 
 #fish-desc {
-  margin-left: 15px;
   width: 99%;
 }
 
@@ -9303,6 +9316,11 @@ textarea {
   margin-left: 15px;
 }
 
+@media all and (max-width: 429px) {
+  #price-desc {
+    margin-top: 20px;
+  }
+}
 .content h1 {
   padding: 80px 0 70px 0;
   font-weight: 800;
