@@ -6,10 +6,9 @@
 		@include('layout.nav')
 <div class="grid-container full">
 	<div class="grid-x grid-padding-x">
-		<div class="cell small-11 medium-10 large-7">
+		<div class="cell small-11 medium-10 large-8">
 			<div class="hero-text">
 					<h1>{{ $page->heading }}</h1>
-					<h2><strong>{!! nl2br(e($page->subheading)) !!}</strong></h2>
 					<div class="hero-review show-for-medium">
 						<p><i class="fas fa-quote-left"></i> {{ $review->body }} <i class="fas fa-quote-right"></i></p>
 					</div>

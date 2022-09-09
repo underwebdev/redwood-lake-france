@@ -125,6 +125,12 @@
                             <input type="text" wire:model.lazy="discountcode">
                             @endif
 
+                            <label for="">Would you like to add 25kg pellet?</label>
+                            <select id="" wire:model="extra">
+                                <option value="">Yes</option>
+                                <option value="">No</option> 
+                            </select>
+
                             <label for="">Payment</label>
                             <select id=""wire:model="payment">
                                 <option value="">Please select</option>
