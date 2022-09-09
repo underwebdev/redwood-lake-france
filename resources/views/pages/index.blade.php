@@ -13,9 +13,9 @@
 					<div class="hero-review show-for-medium">
 						<p><i class="fas fa-quote-left"></i> {{ $review->body }} <i class="fas fa-quote-right"></i></p>
 					</div>
-					<a href="/booking" class="button success large show-for-medium">Book Now</a>
+					<a href="/booking" class="button success hollow large show-for-medium">Book Now</a>
 			</div>
-			<a href="/booking" class="button success hollow large hide-for-medium">Book Now</a>
+			<a href="/booking" class="button success large hide-for-medium">Book Now</a>
 		</div><!-- End of cell-->
 	</div><!--end of grid-x -->
 </div><!--End of grid container-->
