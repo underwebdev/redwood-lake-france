@@ -7,18 +7,6 @@
         </div>
     </div>
     <div class="grid-x grid-padding-x">
-        <div class="cell small-12 medium-6">
-            <select id=""name="">
-                <option value="">Select Month</option> 
-            </select>
-        </div><!-- End of cell-->
-        <div class="cell small-12 medium-6">
-            <select id=""name="">
-              <option value="">Select Year</option> 
-            </select>      
-        </div><!-- End of cell-->
-    </div><!--end of grid-x -->
-    <div class="grid-x grid-padding-x">
         @foreach($bookingmonths as $month)
         @if(Carbon\Carbon::parse($month)->format('Y-m') >= Carbon\Carbon::now()->format('Y-m'))
             <div class="cell small-12 ml-6 text-center">
