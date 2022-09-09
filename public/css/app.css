@@ -8899,10 +8899,14 @@ h4 {
   filter: drop-shadow(5px 5px 5px #222);
   margin-bottom: 25px;
   line-height: 45px;
-  font-size: 40px;
   font-family: "Poppins", cursive;
 }
 
+@media all and (min-width: 1113px) {
+  .hero-text h2 {
+    font-size: 40px;
+  }
+}
 .hero-text .button {
   margin: 0;
 }
@@ -8935,17 +8939,17 @@ h4 {
   margin-bottom: 70px;
 }
 
-hr {
-  border: 2px solid #FFFFFF;
-}
-
 .lake-intro img {
   border-radius: 12px;
 }
 
+@media all and (max-width: 1024px) {
+  .lake-info {
+    padding: 0;
+  }
+}
 .lake-info {
-  padding: 50px 0 50px 0;
-  vh: 100;
+  padding: 25px 0 50px 0;
 }
 
 .lake-info .photo-outline {
@@ -9293,11 +9297,6 @@ textarea {
   width: 99%;
 }
 
-@media all and (max-width: 429px) {
-  #lake-desc p {
-    margin-bottom: 0;
-  }
-}
 #lake-image {
   margin-left: 15px;
   width: 99%;
