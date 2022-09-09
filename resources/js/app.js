@@ -34,7 +34,7 @@ gsap.to(".dropdown .menu", {
 	}
 });
 
-gsap.to(".lake-info .photo-outline img", {
+gsap.to(".lake-info img", {
 	opacity: 1,
 	duration: 4,
 	scrollTrigger: {
@@ -42,7 +42,7 @@ gsap.to(".lake-info .photo-outline img", {
 	}
 });
 
-gsap.to(".fish-info .photo-outline img", {
+gsap.to(".fish-info img", {
 	opacity: 1,
 	duration: 4,
 	scrollTrigger: {
@@ -50,7 +50,7 @@ gsap.to(".fish-info .photo-outline img", {
 	}
 });
 
-gsap.to(".facility .photo-outline img", {
+gsap.to(".facilities img", {
 	opacity: 1,
 	duration: 4,
 	scrollTrigger: {
@@ -92,8 +92,8 @@ gsap.to(".date-container .button", {
 });
 
 gsap.to("#lake-desc", {
-	x: 10,
-	duration: 1,
+	opacity: 1,
+	duration: 4,
 	scrollTrigger: {
 		trigger: ".lake-info",
 		start: "top center"
@@ -110,8 +110,8 @@ gsap.to("#lake-image", {
 });
 
 gsap.to("#fish-desc", {
-	x: -10,
-	duration: 1,
+	opacity: 1,
+	duration: 4,
 	scrollTrigger: {
 		trigger: ".fish-info",
 		start: "top center"
@@ -123,6 +123,15 @@ gsap.to("#fish-image", {
 	duration: 1,
 	scrollTrigger: {
 		trigger: ".fish-info",
+		start: "top center"
+	}
+});
+
+gsap.to("#facility-image", {
+	x: -10,
+	duration: 1,
+	scrollTrigger: {
+		trigger: ".facilities",
 		start: "top center"
 	}
 });

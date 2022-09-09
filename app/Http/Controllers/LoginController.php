@@ -96,7 +96,7 @@ class LoginController extends Controller
                     'last_login' => Carbon::now()
                 ]);
 
-                return redirect()->intended('/profile');
+                return redirect()->intended('/my-account');
                 
             } elseif(Auth::user()->permission == 1)
             {

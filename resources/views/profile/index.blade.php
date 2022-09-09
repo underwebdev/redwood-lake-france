@@ -5,13 +5,15 @@
 <br>
 <div class="grid-container">
 	<div class="grid-x grid-padding-x">
-		<div class="cell small-12 medium-3">
-			<p>Full Name<br>
-			Angler Ref: 1001<br>
+		<div class="cell small-12 m-l-3">
+			<p>{{ $user->angler->firstName }} {{ Auth:user()->angler->lastName }}<br>
+			Angler Ref: {{ $user->angler->ref }}<br>
+			Email: {{ $user->email }}<br>
+			Tel: {{ $user->angler->telephone }}</p>
 			</p>
 		      
 		</div><!-- End of cell-->
-		<div class="cell small-12 medium-9">
+		<div class="cell small-12 m-l-9">
 			<h5 class="info-bar">Bookings</h5>
 			<div class="table-scroll">
 				<table>

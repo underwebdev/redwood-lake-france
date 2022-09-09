@@ -52,9 +52,7 @@
 				</div><!-- End of cell-->
 				<div class="cell large-6 show-for-large align-self-middle">
 					<div id="lake-image">
-					<div class="photo-outline">
-						<img src="/img/lake-rods.jpg"> 
-					</div>
+						<img src="/img/lake-rods.jpg" class="photo-border-block"> 
 					</div> 
 				</div><!-- End of cell-->
 			</div><!--end of grid-x -->
@@ -64,9 +62,9 @@
 	<div class="mobile-gallery-home">
 	<div class="grid-x grid-padding-x hide-for-large">
 		<div class="cell small-12">
-			<div class="photo-outline">
-			  <img src="/img/redwood-lake-common-carp.jpg"> 
-			</div>
+	
+			  <img src="/img/redwood-lake-common-carp.jpg" class="photo-border-block"> 
+	
 		</div><!-- End of cell-->
 	</div><!--end of grid-x -->
 	</div>
@@ -76,9 +74,9 @@
 		<div class="grid-x grid-padding-x">
 			<div class="cell large-6 show-for-large align-self-middle">
 				<div id="fish-image">
-				<div class="photo-outline">
-			    	<img src="/img/redwood-lake-common-carp.jpg"> 
-			  </div>
+
+			    	<img src="/img/redwood-lake-common-carp.jpg" class="photo-border-block"> 
+
 			  </div>  
 			</div><!-- End of cell-->
 			<div class="cell small-12 large-6">
@@ -107,8 +105,8 @@
 				@endforeach
 			</div><!-- End of cell-->
 			<div class="cell small-12 large-6 align-self-middle">
-				<div class="photo-outline">
-			  	<img src="/img/facility.jpeg">
+				<div id="facility-image">
+			  	<img src="/img/facility.jpeg" class="photo-border-block">
 			  </div>   
 			</div><!-- End of cell-->
 		</div><!--end of grid-x -->
