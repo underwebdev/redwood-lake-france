@@ -281,15 +281,16 @@ h4 {
 
 @media all and (max-width:430px) {
     .hero-text h1{
-      margin-left: -40px;
+      margin-left: -50px;
+      font-weight: 800;
     }
 
     .hero-text h2{
-      margin-left: -40px;
+      margin-left: -50px;
     }
 
-    .hero-text a {
-    	margin-left: -40px;
+    .hero-text .button {
+    	margin-left: -50px;
     }
 }
 

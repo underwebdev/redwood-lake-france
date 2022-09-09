@@ -6,13 +6,16 @@
 		@include('layout.nav')
 <div class="grid-container full">
 	<div class="grid-x grid-padding-x">
-		<div class="cell small-12 medium-10 large-9 hero-text">
-			<h1>{{ $page->heading }}</h1>
-			<h2><strong>{!! nl2br(e($page->subheading)) !!}</strong></h2>
-			<div class="hero-review show-for-medium">
-				<p><i class="fas fa-quote-left"></i> {{ $review->body }} <i class="fas fa-quote-right"></i></p>
+		<div class="cell small-11 medium-10 large-9">
+			<div class="hero-text">
+					<h1>{{ $page->heading }}</h1>
+					<h2><strong>{!! nl2br(e($page->subheading)) !!}</strong></h2>
+					<div class="hero-review show-for-medium">
+						<p><i class="fas fa-quote-left"></i> {{ $review->body }} <i class="fas fa-quote-right"></i></p>
+					</div>
+					<a href="/booking" class="button secondary hollow large show-for-medium">Book Now</a>
 			</div>
-			<a href="/booking" class="button secondary hollow large">Book Now</a>
+			<a href="/booking" class="button success large">Book Now</a>
 		</div><!-- End of cell-->
 	</div><!--end of grid-x -->
 </div><!--End of grid container-->
