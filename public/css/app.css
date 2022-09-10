@@ -8873,7 +8873,7 @@ h4 {
 @media all and (max-width: 430px) {
   .hero-text h1 {
     margin-left: -50px;
-    font-weight: 800;
+    font-weight: 300;
   }
   .hero-text h2 {
     margin-left: -50px;
