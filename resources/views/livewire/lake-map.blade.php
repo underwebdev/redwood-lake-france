@@ -34,12 +34,10 @@
                                     </button><br>
                                     @endif
                                 @endforeach
+                                @if($selectedSwim)
+                                    <button wire:click="back"><i class="fas fa-map"></i>Back To Map</button> 
+                                @endif
                             </div><!-- End of cell-->
-                            @if($selectedSwim)
-                            <div class="cell small-12 text-center">
-                                <button wire:click="back"><i class="fas fa-map"></i>Back To Map</button> 
-                            </div><!-- End of cell-->
-                            @endif
                         </div><!--end of grid-x -->
                     </div>
                 </div><!-- End of cell-->

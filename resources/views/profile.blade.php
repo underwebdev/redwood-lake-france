@@ -56,6 +56,35 @@
 		
 		@livewireScripts
 		<script src="/js/app.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
+		<script>
+    		var picker = new Pikaday({ 
+    			field: document.getElementById('datepicker'),
+    			format: 'D MMM YYYY',
+		        onSelect: function() {
+		            console.log(this.getMoment().format('Do MMMM YYYY'));
+		        }
+    		});
+		</script>
+		<script>
+		  window.addEventListener('activate-datepicker', event => {
+		      var picker = new Pikaday({ 
+		        field: document.getElementById('datepicker'),
+		        format: 'D-M-YYYY',
+		          onSelect: function() {
+		              console.log(this.getMoment().format('Do MMMM YYYY'));
+		          }
+		      });
+
+		      var picker2 = new Pikaday({ 
+		        field: document.getElementById('datepicker2'),
+		        format: 'D-M-YYYY',
+		          onSelect: function() {
+		              console.log(this.getMoment().format('Do MMMM YYYY'));
+		          }
+		      });
+		  })
+		</script>
 		<script>
 		    $(document).foundation(); 
 		</script>
