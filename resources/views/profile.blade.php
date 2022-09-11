@@ -18,7 +18,7 @@
 		<title>@yield('title')</title>
 		<link href="/css/app.css" rel="stylesheet" type="text/css">
 		@livewireStyles
-
+		<script src="https://js.stripe.com/v3/"></script>
 		<link rel="canonical" href="@yield('url')">
 		<script src="https://kit.fontawesome.com/0a03567b35.js" crossorigin="anonymous"></script>
 

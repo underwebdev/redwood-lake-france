@@ -37,15 +37,45 @@
 							<thead>
 								<tr>
 									<th>Crossing</th>
-									<th>Distance</th>
 									<th>Time</th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr>
-									<td>Example</td>
-									<td>500km</td>
-									<td>2 Hours</td>
+									<td>Folkestone to Calais</td>
+									<td>35 mins (Eurotunnel)</td>
+								</tr>
+								<tr>
+									<td>Dover to Calais</td>
+									<td>1hr 20min</td>
+								</tr>
+								<tr>
+									<td>Newhaven to Dieppe</td>
+									<td>4hrs</td>
+								</tr>
+								<tr>
+									<td>Portsmouth to Le Harve</td>
+									<td>Not Operating</td>
+								</tr>
+								<tr>
+									<td>Portsmouth to Caen</td>
+									<td>5hrs 45mins (7 hrs overnight)</td>
+								</tr>
+								<tr>
+									<td>Portsmouth to St Malo</td>
+									<td>11hrs (overnight)</td>
+								</tr>
+								<tr>
+									<td>Portsmouth to Cherbourg</td>
+									<td>8hrs (overnight)</td>
+								</tr>
+								<tr>
+									<td>Poole to Cherbourg</td>
+									<td>4hrs 30mins</td>
+								</tr>
+								<tr>
+									<td>Plymouth to Roscoff</td>
+									<td>5hrs 30mins (9hrs overnight)</td>
 								</tr>
 							</tbody>
 						</table>
@@ -117,6 +147,14 @@
 									<td>Cherbourg</td>
 									<td>605km</td>
 									<td>6hr 25min</td>
+									<td class="text-right">
+										<a href="" class="button tiny">View Map</a>
+									</td>
+								</tr>
+								<tr>
+									<td>Roscoff</td>
+									<td>581km</td>
+									<td>6hr 36min</td>
 									<td class="text-right">
 										<a href="" class="button tiny">View Map</a>
 									</td>

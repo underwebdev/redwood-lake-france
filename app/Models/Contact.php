@@ -11,7 +11,7 @@ class Contact extends Model
 
     protected $guarded = [];
 
-    public function booking()
+    public function bookings()
     {
         return $this->belongsTo(Booking::class);
     }

@@ -14,7 +14,7 @@
 					</div>
 					<a href="/booking" class="button secondary hollow large show-for-medium">Book Now</a>
 			</div>
-			<a href="/booking" class="button secondary large hide-for-medium">Book Now</a>
+			<a href="/booking" class="button secondary hollow large hide-for-medium">Book Now</a>
 		</div><!-- End of cell-->
 	</div><!--end of grid-x -->
 </div><!--End of grid container-->

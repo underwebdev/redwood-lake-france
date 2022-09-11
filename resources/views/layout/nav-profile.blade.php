@@ -7,13 +7,12 @@
 
 <div class="nav-plain show-for-large">
 <ul class="dropdown menu" data-dropdown-menu>
-	<a href="/">Redwood Lake</a>
-	<li><a href="/m">Bookings</a></li>
-	<li><a href="/booking">Payments</a></li>
-	<li><a href="#">Contact</a>
-	<li><a href="#">Catch Report</a>
-	<li><a href="#">Settings</a>
-	<li><a href="#">Logout</a>
+	<li><a href="/my-account">My Account</a></li>
+	<li><a href="/my-account/bookings">Bookings</a></li>
+	<li><a href="/my-account/catch-reports">Catch Report</a>
+	<li><a href="/my-account/contact">Contact</a>
+	<li><a href="/my-account/settings">Settings</a>
+	<li><a href="/logout">Logout</a>
 </ul>
 </div>
 
@@ -35,3 +34,5 @@
   </div>
 </div>
 </div>
+<br>
+<br>

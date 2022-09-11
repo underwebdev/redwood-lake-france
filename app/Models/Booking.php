@@ -30,4 +30,9 @@ class Booking extends Model
     {
         return $this->hasMany(Contact::class);
     }
+
+    public function guests()
+    {
+        return $this->belongsToMany(Angler::class);
+    }
 }

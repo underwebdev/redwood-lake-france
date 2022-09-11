@@ -23,12 +23,17 @@ class Angler extends Model
 
     public function payments()
     {
-        return $this->hasMany(Payment::class);
+        return $this->hasMany(Payment::class)->latest();
     }
 
     public function bookings()
     {
         return $this->hasMany(Booking::class);
+    }
+
+    public function parties()
+    {
+        return $this->belongsToMany(Booking::class);
     }
     
 }

@@ -15,7 +15,6 @@
 	}
 }
 
-
 	.home {
 		background-image: url('/img/backgrounds/original-background.jpg');
 	}
@@ -299,7 +298,7 @@ h4 {
 	font-weight: 800;
 	-webkit-filter: drop-shadow(5px 5px 5px #222);
 	filter: drop-shadow(5px 5px 5px #222);
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Work Sans', sans-serif;
 	padding-top: 10%;
 	
 }
@@ -316,7 +315,7 @@ h4 {
   	filter: drop-shadow(5px 5px 5px #222);
   	margin-bottom: 25px;
   	line-height: 45px;
-  	font-family: 'Poppins', cursive;
+  	font-family: 'Work Sans', sans-serif;
 }
 
 @media all and (min-width:1113px) {
@@ -342,6 +341,7 @@ h4 {
 .hero-review p {
 	-webkit-filter: drop-shadow(5px 5px 5px #222);
   filter: drop-shadow(5px 5px 5px #222);
+  font-family: 'Work Sans', sans-serif;
 }
 
 .hero-review i {
@@ -629,7 +629,7 @@ textarea {
 	background: repeating-conic-gradient(from 45deg, #232323 0% 25%, #2d2d2d 0% 50%);
 	background-size: 32px 32px;
 	background-color: #2d2d2d;
-	padding: 30px 50px 30px 50px;
+	padding: 2px 50px 2px 50px;
 	border-radius: 0 0 8px 8px;
 }
 
@@ -646,7 +646,7 @@ textarea {
 	background-size: 32px 32px;
 	background-color: #2d2d2d;
 	color: #FFFFFF;
-	padding: 30px 50px 30px 50px;
+	padding: 2px 50px 2px 50px;
 	border-radius: 8px 8px 0 0;
 }
 .price-block-content {
@@ -755,16 +755,12 @@ textarea {
 			font-weight: 800;
 			-webkit-filter: drop-shadow(5px 5px 5px #222);
 		  filter: drop-shadow(5px 5px 5px #222);
-		  font-family: 'Poppins', sans-serif;
+		  font-family: 'Work Sans', sans-serif;
 		}
 
 @media all and (min-width:1113px) {
 	.content h1 {
 		padding: 10% 0 0 0;
-		font-weight: 800;
-		-webkit-filter: drop-shadow(5px 5px 5px #222);
-	  filter: drop-shadow(5px 5px 5px #222);
-	  font-family: 'Poppins', sans-serif;
 	}
     
 }
@@ -1170,4 +1166,26 @@ table i {
 	margin-bottom: 16px;
 	border-radius: 8px;
 	box-shadow: 0 0 10px rgba(24, 50, 115, 0.1);
+}
+
+.user-container {
+	background: repeating-conic-gradient(from 45deg, #232323 0% 25%, #2d2d2d 0% 50%);
+	background-size: 16px 16px;
+	background-color: #2d2d2d;
+	border-radius: 8px;
+	margin: 0 0 10px 0;
+	padding: 20px 10px 20px 10px;
+}
+
+.user-container img {
+	width: 60%;
+}
+
+.user-container p {
+	margin: 20px 0 0 0;
+}
+
+.user-container .info {
+	background-color: #FFFFFF;
+	border-radius: 8px
 }

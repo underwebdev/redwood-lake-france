@@ -40,7 +40,12 @@ Route::get('payment-complete', [PageController::class, 'paymentcomplete']);
 Route::post('payment-webhook', [WebhookController::class, 'handle']);
 
 Route::get('my-account', [ProfileController::class, 'index']);
+Route::get('my-account/bookings', [ProfileController::class, 'bookings']);
 Route::get('my-account/booking/{booking}', [ProfileController::class, 'booking']);
+Route::get('my-account/payment', [ProfileController::class, 'payment']);
+Route::get('my-account/catch-reports', [ProfileController::class, 'reports']);
+Route::get('my-account/contact', [ProfileController::class, 'contact']);
+Route::geT('my-account/settings', [ProfileController::class, 'settings']);
 
 Route::get('admin/dashboard', [AdminController::class, 'index']);
 Route::get('admin/bookings', [AdminController::class, 'bookings']);
