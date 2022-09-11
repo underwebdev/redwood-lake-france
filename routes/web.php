@@ -69,6 +69,7 @@ Route::get('admin/payouts', [AdminController::class, 'payouts']);
 Route::get('admin/discounts', [AdminController::class, 'discounts']);
 Route::get('admin/financial', [AdminController::class, 'financial']);
 Route::get('admin/mailing-list', [AdminController::class, 'mailshot']);
+Route::get('admin/mailshot/{mailshot}/preview', [AdminController::class, 'previewmail']);
 Route::get('admin/inbox', [AdminController::class, 'inbox']);
 Route::get('admin/settings', [AdminController::class, 'settings']);
 Route::get('admin/storage', [AdminController::class, 'storage']);

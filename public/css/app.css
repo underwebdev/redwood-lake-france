@@ -8689,7 +8689,7 @@ html.is-reveal-open body {
 
 @media all and (max-width: 1024px) {
   .home {
-    background-image: url("/img/backgrounds/tablet/hero-plain.jpeg");
+    background-image: url("/img/backgrounds/tablet/original-background.jpeg");
   }
   .lakebg {
     background-image: url("/img/backgrounds/tablet/lake-background.jpg");
@@ -8730,7 +8730,7 @@ html.is-reveal-open body {
 }
 @media all and (max-width: 429px) {
   .home {
-    background-image: url("/img/backgrounds/mobile/hero-plain.jpeg");
+    background-image: url("/img/backgrounds/mobile/original-background.jpeg");
   }
   .lakebg {
     background-image: url("/img/backgrounds/mobile/lake-background.jpg");

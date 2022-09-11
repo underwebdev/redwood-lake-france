@@ -6,7 +6,7 @@ use Livewire\Component;
 use App\Models\Maillist;
 use App\Models\Mailshot;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\MembersEmail;
+use App\Mail\PromoEmail;
 use App\Jobs\ProcessMailshot;
 use Carbon\Carbon;
 

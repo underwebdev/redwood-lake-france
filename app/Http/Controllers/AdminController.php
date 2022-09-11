@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Article;
+use App\Models\Mailshot;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\PromoEmail;
 
 class AdminController extends Controller
 {
@@ -117,6 +120,11 @@ class AdminController extends Controller
     public function mailshot()
     {
         return view('admin.mailshot');
+    }
+
+    public function previewmail(Mailshot $mailshot)
+    {
+        return new PromoEmail($mailshot);
     }
 
     public function inbox()
