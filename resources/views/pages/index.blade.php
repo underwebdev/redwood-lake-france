@@ -6,11 +6,11 @@
 		@include('layout.nav')
 <div class="grid-container full">
 	<div class="grid-x grid-padding-x">
-		<div class="cell small-11 medium-12 text-center large-9 xl-8">
+		<div class="cell small-11 medium-10 medium-offset-2 text-center">
 			<div class="hero-text">
 					<h1>{{ $page->heading }}</h1>
-					<div class="hero-review show-for-medium">
-						<p>{{ $review->body }}</p>
+					<div class="hero-review show-for-medium text-center">
+						<p>"{{ $review->body }}"</p>
 					</div>
 					<a href="/booking" class="button secondary hollow large show-for-medium">Book Now</a>
 			</div>
@@ -29,7 +29,7 @@
 		<div class="grid-container">
 			<div class="grid-x grid-padding-x">
 				<div class="cell small-12">
-					<h3><span class="weighted">Welcome to</span> Etang de Seuil</h3>
+					<h3 class="text-center"><span class="weighted">Welcome to</span> Redwood Lake</h3>
 					@foreach($page->modules->where('order', 1) as $module)
 					<p>{!! nl2br(e($module->content)) !!}</p>
 					@endforeach

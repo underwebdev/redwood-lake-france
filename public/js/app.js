@@ -19,7 +19,7 @@ gsap.to(".hero", {
   }
 });
 gsap.to(".hero-text", {
-  x: 50,
+  y: 20,
   duration: 2,
   scrollTrigger: ".hero"
 });

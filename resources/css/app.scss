@@ -278,25 +278,10 @@ h4 {
   margin-left: 8px;
 }
 
-@media all and (max-width:430px) {
-    .hero-text h1{
-      margin-left: -50px;
-      font-weight: 300;
-    }
-
-    .hero-text h2{
-      margin-left: -50px;
-    }
-
-    .hero-text .button {
-    	margin-left: -50px;
-    }
-}
-
 .hero-text h1 {
 	margin-bottom: 0px;
 	font-weight: 800;
-	-webkit-filter: drop-shadow(5px 5px 5px #222);
+	
 	filter: drop-shadow(5px 5px 5px #222);
 	font-family: 'Work Sans', sans-serif;
 	padding-top: 10%;
@@ -337,6 +322,7 @@ h4 {
 	font-size: 25px;
 	font-weight: bold;
 	border: 1px solid #FFFFFF;
+	border-radius: 8px;
 	padding: 10px 5px 10px 5px;
 }
 
