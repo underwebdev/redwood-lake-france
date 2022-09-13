@@ -10,7 +10,7 @@
 			<div class="hero-text">
 					<h1>{{ $page->heading }}</h1>
 					<div class="hero-review show-for-medium">
-						<p><i class="fas fa-quote-left"></i> {{ $review->body }} <i class="fas fa-quote-right"></i></p>
+						<p>{{ $review->body }} <i class="fas fa-quote-right"></p>
 					</div>
 					<a href="/booking" class="button secondary hollow large show-for-medium">Book Now</a>
 			</div>
