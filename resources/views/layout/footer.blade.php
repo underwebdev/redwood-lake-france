@@ -10,7 +10,7 @@
 				<h5>Quick Links</h5>
 				<a href="/">Home</a><br>
 				<a href="/lake">Lake</a><br>
-				<a href="/booking">Booking</a>
+				<a href="/booking">Availability</a>
 			</div><!-- End of cell-->
 			<div class="cell small-12 medium-4 large-3">
 				<h5>Information</h5>

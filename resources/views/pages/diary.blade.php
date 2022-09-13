@@ -18,9 +18,9 @@
 	<div class="grid-container full">
 		<div class="grid-x grid-padding-x">
 			<div class="cell small-12">
-				<h3><span class="weighted">Fishery</span> Photo Diary</h3>
+				<h3 class="text-center"><span class="weighted">Lake</span> Gallery</h3>
 				@foreach($page->modules->where('order', 1) as $module)
-					<p>{!! nl2br(e($module->content)) !!}</p>
+					<p class="text-center">{!! nl2br(e($module->content)) !!}</p>
 				@endforeach      
 			</div><!-- End of cell-->
 			<div class="cell small-12 medium-6 text-center">
