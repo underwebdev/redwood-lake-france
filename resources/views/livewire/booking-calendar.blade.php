@@ -63,6 +63,7 @@
                     @endforeach
                 @else
                     <div class="cell small-12 text-center">
+                        <br>
                         <p><strong>No dates available</strong></p>      
                     </div><!-- End of cell-->
                 @endif

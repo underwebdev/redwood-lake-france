@@ -18,7 +18,7 @@
 			<li><a href="/facilities">Facilities</a></li>
 			<li><a href="/rules">Rules</a></li>
 			<li><a href="/news">News</a></li>
-			<li><a href="/photo-diary">Photo Diary</a></li>
+			<li><a href="/photo-diary">Gallery</a></li>
 			<li><a href="/weather">Weather</a></li>
 		</ul>
 	</li>
@@ -38,7 +38,7 @@
 		<i class="fas fa-restroom"></i><a href="/facilities">Facilities</a><br>
 		<i class="fas fa-list-ol"></i><a href="/rules">Rules</a><br>
 		<i class="far fa-newspaper"></i><a href="/news">News</a><br>
-		<i class="fas fa-image"></i><a href="/photo-diary">Photo Diary</a><br>
+		<i class="fas fa-image"></i><a href="/photo-diary">Gallery</a><br>
 		<i class="fas fa-temperature-high"></i><a href="/weather">Weather</a><br>
 		<i class="far fa-envelope"></i><a href="/contact">Contact</a><br>
 		<i class="fas fa-user-circle"></i><a href="/login">My Booking</a><br>

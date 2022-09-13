@@ -138,8 +138,7 @@
 				@include('layout.pricing-block')
 			@endforeach
 			<div class="cell small-12 text-center">
-				<a href="/booking" class="button large">View Availabillity</a>
-			      
+				<a href="/booking#bookingcalender" class="button large">View Booking Calender</a>     
 			</div><!-- End of cell-->
 		</div><!--end of grid-x -->
 	</div>
@@ -158,7 +157,7 @@
 </svg>
 </div>
 
-<div class="section-one">
+<div class="section-one show-for-medium-up">
 	<div class="availabillity">
 	<div class="grid-container">
 		<div class="grid-x grid-padding-x">

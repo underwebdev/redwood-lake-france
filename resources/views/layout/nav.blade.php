@@ -32,14 +32,14 @@
         <i class="fas fa-times-circle"></i><button data-close="offCanvasLeft"><strong>Close Menu</strong></button><br>
         <i class="fas fa-home"></i><a href="/"> Home</a><br>
         <i class="fas fa-tree"></i><a href="/lake">The Lake</a><br>
-		<i class="far fa-calendar"></i><a href="/booking">Booking</a><br>
+		<i class="far fa-calendar"></i><a href="/booking">Availability</a><br>
 		<i class="fas fa-camera"></i><a href="/catch-reports">Reports</a><br>
 		
 		<i class="fas fa-map-marker-alt"></i><a href="/location">Finding Us</a><br>
 		<i class="fas fa-restroom"></i><a href="/facilities">Facilities</a><br>
 		<i class="fas fa-list-ol"></i><a href="/rules">Rules</a><br>
 		<i class="far fa-newspaper"></i><a href="/news">News</a><br>
-		<i class="fas fa-image"></i><a href="/photo-diary">Photo Diary</a><br>
+		<i class="fas fa-image"></i><a href="/photo-diary">Gallery</a><br>
 		<i class="fas fa-temperature-high"></i><a href="/weather">Weather</a><br>
 		<i class="far fa-envelope"></i><a href="/contact">Contact</a><br>
 		<i class="fas fa-user-circle"></i><a href="/login">My Booking</a><br>
