@@ -68,6 +68,7 @@
             
                 @if($filteredRange)
                 <div class="cell small-12 text-center">
+                    <br>
                     <button class="button" wire:click="clearFilter">View All Dates</button>       
                 </div><!-- End of cell-->
                 @endif    
