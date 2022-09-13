@@ -8905,7 +8905,7 @@ h4 {
 }
 
 .hero-review {
-  margin-bottom: 25px;
+  margin: 15px 0 25px 0;
   font-size: 25px;
   font-weight: bold;
   border: 1px solid #FFFFFF;
@@ -8916,6 +8916,7 @@ h4 {
 .hero-review p {
   filter: drop-shadow(5px 5px 5px #222);
   font-family: "Work Sans", sans-serif;
+  font-style: italic;
 }
 
 .hero-review i {
