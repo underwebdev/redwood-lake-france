@@ -21,6 +21,7 @@
 				<h3 class="text-center"><span class="weighted">Lake</span> Gallery</h3>
 				@foreach($page->modules->where('order', 1) as $module)
 					<p class="text-center">{!! nl2br(e($module->content)) !!}</p>
+					<br>
 				@endforeach      
 			</div><!-- End of cell-->
 			<div class="cell small-12 medium-6 text-center">
