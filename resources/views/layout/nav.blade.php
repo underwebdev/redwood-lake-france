@@ -9,7 +9,7 @@
 <ul class="dropdown menu" data-dropdown-menu>
 	<a href="/">Redwood Lake</a>
 	<li><a href="/lake">The Lake</a></li>
-	<li><a href="/booking">Booking</a></li>
+	<li><a href="/booking">Availability</a></li>
 	<li><a href="#">Information</a>
 		<ul class="menu">
 			<li><a href="/catch-reports">Catch Reports</a></li>

@@ -71,6 +71,9 @@
                         </tbody>
                     </table>
                 </div>
+                <div class="text-center">
+                    {{ $reports->links() }}
+                </div>
             </div><!-- End of cell-->
         </div><!--end of grid-x -->
     </div><!--End of grid container-->

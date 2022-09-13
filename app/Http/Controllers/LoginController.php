@@ -116,13 +116,6 @@ class LoginController extends Controller
 
     public function logout(Request $request)
 	{
-        if(Auth::user()->permission == 2)
-        {
-            Auth::user()->member->weblogs()->create([
-                'mode' => 'out'
-            ]);
-        }
-
 	    Auth::logout();
 
 	    $request->session()->invalidate();

@@ -94,6 +94,9 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        </div>
+                        <div class="text-center">
+                            {{ $reports->links() }}
                         </div>  
                     </div><!-- End of cell-->
                 </div><!--end of grid-x -->
@@ -182,7 +185,7 @@
                 <br>
                 <div class="button-group">
                     <button class="button success" wire:click="saveReport">Upload Report</button>
-                    <button class="button alert" wire:click="cancel">Cancel</button>
+                    <button class="button alert" wire:click="back">Cancel</button>
                 </div>
                   
             </div><!-- End of cell-->

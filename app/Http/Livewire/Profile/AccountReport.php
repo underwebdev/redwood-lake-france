@@ -3,14 +3,24 @@
 namespace App\Http\Livewire\Profile;
 
 use Livewire\Component;
+use Livewire\WithFileUploads;
+use Livewire\withPagination;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 use App\Models\Report;
 use App\Models\Specimen;
 use App\Models\Swim;
+use Carbon\Carbon;
+use Image;
 use Auth;
 
 
 class AccountReport extends Component
 {
+    use WithFileUploads;
+    use WithPagination;
+    protected $paginationTheme = 'bootstrap';
+
     public $mode = 1;
     public $selectedSpecies;
     public $selectedWeight;
@@ -67,6 +77,12 @@ class AccountReport extends Component
 
             $onePath = Storage::put($directory.$sideOneName, $sideOne->stream());
             $oneThumbPath = Storage::put($thumbDirectory.$sideOneThumbName, $sideOneThumb->stream());
+
+            $sideTwoPath = '/storage/reports/'.$sideOneName;
+            $sideTwoThumbPath = '/storage/reports/thumbnails/'.$sideOneThumbName;
+        } else {
+            $sideOnePath = Null;
+            $sideOneThumbPath = Null;
         }
 
         if($this->sidetwo)
@@ -100,6 +116,12 @@ class AccountReport extends Component
             
             $twoPath = Storage::put($directory.$sideTwoName, $sideTwo->stream());
             $twoThumbPath = Storage::put($thumbDirectory.$sideTwoThumbName, $sideTwoThumb->stream());
+
+            $sideTwoPath = '/storage/reports/'.$sideTwoName;
+            $sideTwoThumbPath = '/storage/reports/thumbnails/'.$sideTwoThumbName;
+        } else {
+            $sideTwoPath = Null;
+            $sideTwoThumbPath = Null;
         }
 
 
@@ -111,10 +133,10 @@ class AccountReport extends Component
             'swim_id' => $data['swim'],
             'bait' => $data['bait'],
             'notes' => $data['notes'],
-            'sideone' => '/storage/reports/'.$sideOneName,
-            'sideonethumb' => '/storage/reports/thumbnails/'.$sideOneThumbName,
-            'sidetwo' => '/storage/reports/'.$sideTwoName,
-            'sidetwothumb' => '/storage/reports/thumbnails/'.$sideTwoThumbName,
+            'sideone' => $sideOnePath,
+            'sideonethumb' => $sideOneThumbPath,
+            'sidetwo' => $sideTwoPath,
+            'sidetwothumb' => $sideTwoThumbPath,
         ]);
 
         $this->reset();
@@ -145,7 +167,7 @@ class AccountReport extends Component
                     return $query->where('lbs', '>', $weight);
                 })->when($swim, function ($query) use ($swim) {
                     return $query->where('swim_id', $swim);
-                })->paginate(50),
+                })->orderby('date', 'desc')->paginate(50),
             'species' => Specimen::all(),
             'swims' => Swim::all()
         ]);

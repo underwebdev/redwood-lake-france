@@ -101,10 +101,14 @@
                                     <td class="text-center">{{ $report->specimen->name }}</td>
                                     <td class="text-center">
                                         @isset($report->sideone)
-                                        <a href="{{ $report->sideone }}" data-lity><i class="fas fa-camera"></i></a>
+                                        <a href="{{ $report->sideone }}" data-lity>
+                                            <i class="fas fa-camera"></i>
+                                        </a>
                                         @endisset
                                         @isset($report->sidetwo)
-                                        <a href="{{ $report->sidetwo }}" data-lity><i class="fas fa-camera"></i></a>
+                                        <a href="{{ $report->sidetwo }}" data-lity>
+                                            <i class="fas fa-camera"></i>
+                                        </a>
                                         @endisset
                                     </td>
                                     <td class="text-center">{{ $report->swim_id }}</td>
@@ -130,6 +134,9 @@
                                 </tr>
                             </tfoot>
                         </table>
+                    </div>
+                    <div class="text-center">
+                        {{ $reports->links() }}
                     </div>
                     <div class="table-scroll">
                         <table>

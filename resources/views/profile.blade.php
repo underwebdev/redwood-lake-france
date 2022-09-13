@@ -21,7 +21,7 @@
 		<script src="https://js.stripe.com/v3/"></script>
 		<link rel="canonical" href="@yield('url')">
 		<script src="https://kit.fontawesome.com/0a03567b35.js" crossorigin="anonymous"></script>
-
+		<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;600;800&display=swap" rel="stylesheet">

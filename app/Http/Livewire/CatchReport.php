@@ -3,12 +3,16 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use Livewire\withPagination;
 use App\Models\Report;
 use App\Models\Specimen;
 use App\Models\Swim;
 
 class CatchReport extends Component
 {
+    use withPagination;
+    protected $paginationTheme = 'bootstrap';
+    
     public $selectedSpecies;
     public $selectedWeight;
     public $selectedSwim;

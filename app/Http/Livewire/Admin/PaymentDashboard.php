@@ -10,6 +10,11 @@ class PaymentDashboard extends Component
     public $mode = 1;
     public $lookup;
 
+    public function confirmTransfer()
+    {
+        
+    }
+
     public function render()
     {
         return view('livewire.admin.payment-dashboard',[

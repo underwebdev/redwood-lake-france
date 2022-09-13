@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Article;
 use App\Models\Mailshot;
+use App\Models\Payment;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\PromoEmail;
 
@@ -100,6 +101,13 @@ class AdminController extends Controller
     public function payments()
     {
         return view('admin.payments');
+    }
+
+    public function payment($payment)
+    {
+        $payment = Payment::findOrFail($id);
+
+        return view('admin.payment', compact($payment));
     }
 
     public function payouts()

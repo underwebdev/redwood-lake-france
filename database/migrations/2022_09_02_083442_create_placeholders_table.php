@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->date('date');
             $table->integer('session_id');
-            $table->datetime('expiry');
+            $table->datetime('expiry')->nullable();
             $table->timestamps();
         });
     }

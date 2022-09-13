@@ -49,7 +49,7 @@ Route::geT('my-account/settings', [ProfileController::class, 'settings']);
 
 Route::get('admin/dashboard', [AdminController::class, 'index']);
 Route::get('admin/bookings', [AdminController::class, 'bookings']);
-Route::get('admin/bookings/{id}', [AdminController::class, 'booking']);
+Route::get('admin/booking/{id}', [AdminController::class, 'booking']);
 Route::get('admin/anglers', [AdminController::class, 'anglers']);
 Route::get('admin/catch-reports', [AdminController::class, 'catchreport']);
 Route::get('admin/stock', [AdminController::class, 'stock']);
@@ -65,6 +65,7 @@ Route::get('admin/booking-terms', [AdminController::class, 'terms']);
 Route::get('admin/reviews', [AdminController::class, 'reviews']);
 Route::get('admin/pricing', [AdminController::class, 'pricing']);
 Route::get('admin/payments', [AdminController::class, 'payments']);
+Route::get('admin/payment/{payment}', [AdminController::class, 'payment']);
 Route::get('admin/payouts', [AdminController::class, 'payouts']);
 Route::get('admin/discounts', [AdminController::class, 'discounts']);
 Route::get('admin/financial', [AdminController::class, 'financial']);

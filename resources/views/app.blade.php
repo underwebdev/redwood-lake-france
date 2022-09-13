@@ -59,6 +59,29 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script> 
 		<script src="/js/app.js"></script>
 		<script>
+		  window.addEventListener('activate-gsap', event => {
+		      gsap.to(".date-container", {
+						y: 16,
+						duration: 0.75,
+						scrollTrigger: {
+							trigger: ".availabillity",
+							start: "top center",
+							toggleActions: "restart"
+						} 
+					});
+
+					gsap.to(".date-container .button", {
+						opacity: 1,
+						duration: 2,
+						delay: 1,
+						scrollTrigger: {
+							trigger: ".date-container",
+							toggleActions: "restart"
+						}
+					});
+		  })
+		</script>
+		<script>
 		    $(document).foundation(); 
 		</script>
 	

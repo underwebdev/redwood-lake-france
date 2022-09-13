@@ -162,7 +162,7 @@
 	<div class="grid-container">
 		<div class="grid-x grid-padding-x">
 			<div class="cell small-12 text-center">
-				<h4><span class="weighted">Booking</span> Availabillity</h4>
+				<h4><span class="weighted">Booking</span> Availability</h4>
 				<p>We are currently taking bookings up until {{ Carbon\Carbon::parse($latestdate)->format('F Y') }}. Please check for availability below.</p>
 			</div>
 		</div>
@@ -170,7 +170,7 @@
 				@include('layout.calendar')  
 		</div><!--end of grid-x -->
 		<div class="cell small-12 text-center view-more-container">
-		  <a href="/booking" class="button large">View Full Calendar</a>  
+		  <a href="/booking#bookingcalender" class="button large">View Full Calendar</a>  
 		</div><!-- End of cell-->
 	</div>
 	</div>

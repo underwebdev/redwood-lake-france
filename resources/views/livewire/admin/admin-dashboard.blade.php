@@ -19,6 +19,7 @@
     <div class="grid-container full">
         <div class="grid-x grid-padding-x">
             <div class="cell small-12">
+                @if($current)
                 <div class="table-scroll">
                     <table>
                         <thead>
@@ -26,21 +27,52 @@
                                 <th>Current Booking</th>
                                 <th>Lead</th>
                                 <th>Anglers</th>
-                                <th>Reports</th>
+                                <th>Departure</th>
                                 <th></th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td>#{{ $current->id }}</td>
+                                <td>{{ $current->angler->firsName }} {{ $current->angler->lastName }}</td>
+                                <td>{{ $current->anglers }}</td>
+                                <td>{{ date('j/m/y', strtotime ($current->departure)) }}</td>
                                 <td></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
+                @else
+                    <p class="text-center"><strong>No Current Booking</strong></p>
+                @endif
+
+                @if($next)
+                 <div class="table-scroll">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Next Booking</th>
+                                <th>Lead</th>
+                                <th>Anglers</th>
+                                <th>Arrival</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#{{ $next->id }}</td>
+                                <td>{{ $next->angler->firstName }} {{ $next->angler->lastName }}</td>
+                                <td>{{ $next->anglers }}</td>
+                                <td>{{ date('j/m/y', strtotime ($next->arrival)) }}</td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                @else
+                    <p class="text-center"><strong>No Bookings Scheduled</strong></p>
+                @endif
+
             </div><!-- End of cell-->
             <div class="cell small-12">
                 <div class="table-scroll">
@@ -59,7 +91,7 @@
                                 <td>{{ date('j/m/y', strtotime ($booking->arrival)) }}</td>
                                 <td>{{ $booking->angler->firstName }} {{ $booking->angler->lastName }}</td>
                                 <td>{{ $booking->anglers }}</td>
-                                <td class="text-right"><a href="" class="button small">View</a></td>
+                                <td class="text-right"><a href="/admin/booking/{{ $booking->id }}" class="button small">View</a></td>
                             </tr>
                             @endforeach
                         </tbody>
@@ -90,7 +122,7 @@
                                 <td>£{{ $payment->total / 100 }}</td>
                                 <td>{{ $payment->paymethod->name }}</td>
                                 <td>{{ date('j/m/y H:i', strtotime ($payment->created_at)) }}</td>
-                                <td class="text-right"><a class="button small">View Booking</a></td>
+                                <td class="text-right"><a class="button small">View Payment</a></td>
                             </tr>
                             @endforeach
                         </tbody>

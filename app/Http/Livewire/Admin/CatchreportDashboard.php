@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Admin;
 
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Livewire\withPagination;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Report;
@@ -17,6 +18,8 @@ use Image;
 class CatchreportDashboard extends Component
 {
     use WithFileUploads;
+    use withPagination;
+    protected $paginationTheme = 'bootstrap';
 
     public $mode = 1;
     public $view;
@@ -380,7 +383,7 @@ class CatchreportDashboard extends Component
                 })->orderBy('lastName', 'asc')->get(),
             'species' => Specimen::all(),
             'swims' => Swim::all(),
-            'reports' => Report::orderBy('date', 'desc')->get(),
+            'reports' => Report::orderBy('date', 'desc')->paginate(50),
             'janstats' => Report::whereYear('date', $year)->whereMonth('date', '01')->get(),
             'febstats' => Report::whereYear('date', $year)->whereMonth('date', '02')->get(),
             'marstats' => Report::whereYear('date', $year)->whereMonth('date', '03')->get(),
