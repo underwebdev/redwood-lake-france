@@ -6,7 +6,7 @@
 		@include('layout.nav')
 <div class="grid-container full">
 	<div class="grid-x grid-padding-x">
-		<div class="cell small-11 medium-10 medium-offset-2 text-center">
+		<div class="cell small-11 medium-10 medium-offset-1 text-center">
 			<div class="hero-text">
 					<h1>{{ $page->heading }}</h1>
 					<div class="hero-review show-for-medium text-center">
