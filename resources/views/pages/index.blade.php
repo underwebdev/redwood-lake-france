@@ -65,21 +65,25 @@
 	<div class="mobile-gallery-home">
 	<div class="grid-x grid-padding-x hide-for-large">
 		<div class="cell small-12">
-	
 			  <img src="/img/redwood-lake-common-carp.jpg" class="photo-border-block"> 
-	
 		</div><!-- End of cell-->
 	</div><!--end of grid-x -->
 	</div>
 
+<div class="grid-container full">
+	<div class="grid-x grid-padding-x">
+		<div class="cell small-12">
+			<br><br><br><br>
+			<hr> 
+		</div><!-- End of cell-->
+	</div><!--end of grid-x -->
+</div><!--End of grid container-->
 	<div class="fish-info">
 	<div class="grid-container full">
 		<div class="grid-x grid-padding-x">
 			<div class="cell large-6 show-for-large align-self-middle">
 				<div id="fish-image">
-
 			    	<img src="/img/redwood-lake-common-carp.jpg" class="photo-border-block"> 
-
 			  </div>  
 			</div><!-- End of cell-->
 			<div class="cell small-12 large-6">
@@ -138,7 +142,7 @@
 				@include('layout.pricing-block')
 			@endforeach
 			<div class="cell small-12 text-center">
-				<a href="/booking#bookingcalender" class="button large">View Booking Calender</a>     
+				<a href="/booking#bookingcalender" class="button large">View Availablility</a>     
 			</div><!-- End of cell-->
 		</div><!--end of grid-x -->
 	</div>
@@ -157,39 +161,8 @@
 </svg>
 </div>
 
-<div class="section-one show-for-medium-up">
-	<div class="availabillity">
-	<div class="grid-container">
-		<div class="grid-x grid-padding-x">
-			<div class="cell small-12 text-center">
-				<h4><span class="weighted">Booking</span> Availability</h4>
-				<p>We are currently taking bookings up until {{ Carbon\Carbon::parse($latestdate)->format('F Y') }}. Please check for availability below.</p>
-			</div>
-		</div>
-		<div class="grid-x grid-padding-x">
-				@include('layout.calendar')  
-		</div><!--end of grid-x -->
-		<div class="cell small-12 text-center view-more-container">
-		  <a href="/booking#bookingcalender" class="button large">View Full Calendar</a>  
-		</div><!-- End of cell-->
-	</div>
-	</div>
-</div>
-
-@include('layout.wave')
-
 <div class="section-one">
-	<div class="info">
-	<div class="grid-container">
-		<div class="grid-x grid-padding-x">
-			<div class="cell small-12">
-				<h4><span class="weighted">Complex</span> Gallery</h4>
-			</div><!-- End of cell-->
-		</div><!--end of grid-x -->
-	</div><!--End of grid container-->
-	</div>
-
-@livewire('feature-gallery', ['page' => $page])
+	@livewire('feature-gallery', ['page' => $page])
 </div>
 
 @include('layout.wave')
