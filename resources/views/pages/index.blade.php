@@ -47,7 +47,7 @@
 			<div class="grid-x grid-padding-x">
 				<div class="cell small-12 large-6">
 					<div id="lake-desc">
-					<h4><span class="weighted">The</span> Lake</h4>
+					<h4 class="text-center"><span class="weighted">The</span> Lake</h4>
 					@foreach($page->modules->where('order', 2) as $module)
 					<p>{!! nl2br(e($module->content)) !!}</p>
 					@endforeach
@@ -88,7 +88,7 @@
 			</div><!-- End of cell-->
 			<div class="cell small-12 large-6">
 				<div id="fish-desc">
-				<h4><span class="weighted">The</span> Fish</h4>
+				<h4 class="text-center"><span class="weighted">The</span> Fish</h4>
 				@foreach($page->modules->where('order', 3) as $module)
 					<p>{!! nl2br(e($module->content)) !!}</p>
 				@endforeach
@@ -106,7 +106,7 @@
 	<div class="grid-container full">
 		<div class="grid-x grid-padding-x">
 			<div class="cell small-12 large-6">
-				<h4><span class="weighted">Complex</span> Facilities</h4>
+				<h4 class="text-center"><span class="weighted">Complex</span> Facilities</h4>
 			  @foreach($page->modules->where('order', 4) as $module)
 					<p>{!! nl2br(e($module->content)) !!}</p>
 				@endforeach
