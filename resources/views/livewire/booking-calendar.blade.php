@@ -62,7 +62,9 @@
                         @endif
                     @endforeach
                 @else
-                    No dates available
+                    <div class="cell small-12 text-center">
+                        <p><strong>No dates available</strong></p>      
+                    </div><!-- End of cell-->
                 @endif
                
             
