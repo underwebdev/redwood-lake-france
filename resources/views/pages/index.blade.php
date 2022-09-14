@@ -117,7 +117,7 @@
 			<div class="grid-x grid-padding-x">
 				<div class="cell small-12">
 					<div id="price-desc">
-					<h4 class="text-center"><span class="weighted">Price</span> Packages</h4>
+					<h4 class="text-center"><span class="weighted">Price</span> Guide</h4>
 					@foreach($page->modules->where('order', 5) as $module)
 						<p>{!! nl2br(e($module->content)) !!}</p>
 						@endforeach
@@ -128,6 +128,9 @@
 		<div class="grid-x grid-padding-x" data-equalizer data-equalize-on="medium">
 			@foreach($priceguides as $priceguide)
 				@include('layout.pricing-block')
+			@endforeach
+			@foreach($priceguides as $priceguide)
+				@include('layout.pricing-block-alt')
 			@endforeach
 			<div class="cell small-12 text-center">
 				<a href="/booking#bookingcalender" class="button large">View Availablility</a>     

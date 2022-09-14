@@ -659,7 +659,7 @@ textarea {
 	background: repeating-conic-gradient(from 45deg, #232323 0% 25%, #2d2d2d 0% 50%);
 	background-size: 32px 32px;
 	background-color: #2d2d2d;
-	padding: 2px 50px 2px 50px;
+	padding: 15px 50px 15px 50px;
 	border-radius: 0 0 8px 8px;
 }
 
@@ -676,7 +676,7 @@ textarea {
 	background-size: 32px 32px;
 	background-color: #2d2d2d;
 	color: #FFFFFF;
-	padding: 2px 50px 2px 50px;
+	padding: 20px 50px 10px 50px;
 	border-radius: 8px 8px 0 0;
 }
 .price-block-content {
@@ -1239,3 +1239,68 @@ table i {
 	border-radius: 8px
 }
 
+
+
+.pricing-block-alt {
+	border-radius: 8px;
+	margin: 10px 0 30px 0;
+}
+
+@media all and (min-width: 429px) {
+	.pricing-block-alt {
+  	margin: 60px 0 30px 0;
+	}
+}
+
+.pricing-block-alt h4 {
+	font-size: 40px;
+	text-decoration-style: dashed;
+	margin: 0;
+}
+
+.pricing-block-alt h5 {
+	color: #AFC3AB;
+}
+
+.pricing-block-alt h6 {
+	font-family: 'Mulish', sans-serif;
+	font-weight: 600;
+	font-size: 1.8rem;
+	color: #303133;
+	margin-bottom: 0;
+}
+
+.pricing-block-alt .price-container-alt
+{
+	
+	background-color: #FFFFFF;
+	padding: 2px 50px 2px 50px;
+	border-radius: 0 0 8px 8px;
+	border: 1px solid #303133;
+}
+
+.price-total-alt small {
+	color: #303133;
+}
+
+.price-individual-alt {
+	color: #AFC3AB;
+}
+
+.price-block-header-alt {
+	color: #303133;
+	padding: 2px 50px 2px 50px;
+	border-radius: 8px 8px 0 0;
+	border: 1px solid #303133;
+}
+.price-block-content-alt {
+	background-color: #FFFFFF;
+	padding: 30px 50px 30px 50px;
+	border-left: 1px solid #303133;
+	border-right: 1px solid #303133;
+}
+
+.price-block-content-alt i {
+	margin: 8px 20px 0 0;
+	color: #9ab495;
+}
