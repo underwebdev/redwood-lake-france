@@ -9,7 +9,7 @@
                         </div>
                         <div class="cell small-12 medium-6 text-right align-self-middle">
                             @if($mode == 1)
-                                <button class="button success">Manual Payment</button>
+                                <button class="button success" wire:click="$set('mode', 2)">Manual Payment</button>
                             @else
                             <button class="button alert" wire:click="back">Go Back</button>
                             @endif
@@ -29,21 +29,33 @@
                     <table>
                         <thead>
                             <tr>
+                                <th>Date</th>
+                                <th>Total</th>
                                 <th>Name</th>
-                                <th>Arrival</th>
-                                <th>Ref</th>
+                             
+                                <th class="text-center">Booking</th>
                                 <th>Method</th>
+                                <th class="text-center">Status</th>
                                 <th></th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($payments as $payment)
                             <tr>
+                                <td>{{ date('j/m/y', strtotime ($payment->created_at)) }}</td>
+                                <td>£{{ number_format($payment->total / 100, 2) }} </td>
                                 <td>{{ $payment->angler->firstName }} {{ $payment->angler->lastName }}</td>
-                                <td>{{ date('j/m/y', strtotime ($payment->booking->arrival)) }}</td>
-                                <td>{{ $payment->booking->id }}</td>
+                           
+                                <td class="text-center"><a href="/admin/booking/{{ $payment->booking->id }}">{{ date('j/m/y', strtotime ($payment->booking->arrival )) }}</a></td>
                                 <td>{{ $payment->paymethod->name }}</td>
-                                <td class="text-right"><a href="" class="button small">View Booking</a></td>
+                                <td class="text-center">
+                                    @if($payment->status == 1)
+                                        <i class="fas fa-check-circle"></i> 
+                                    @else 
+                                        <span class="error"><i class="fas fa-exclamation"></i></span> 
+                                    @endif
+                                </td>
+                                <td class="text-right"><a href="/admin/payment/{{ $payment->id }}" class="button small">View</a></td>
                             </tr>
                             @endforeach
                         </tbody>
@@ -52,21 +64,44 @@
             </div><!-- End of cell-->
             @elseif($mode == 2)
             <div class="cell small-12 medium-8 large-6 medium-offset-2 large-offset-3">
-                <label for="">Arrival Date</label>
-                <select id=""name="">
-                    <option value=""> </option> 
+                <label for="">Arrival Date
+                    @error('booking')
+                        <span class="error">{{ $message }}</span>
+                    @enderror
+                    </label>
+                <select id="" wire:model="booking">
+                    <option value="">Please Select</option>
+                    @foreach($bookings as $booking)
+                    <option value="{{ $booking->id }}">{{ date('j/m/y', strtotime ($booking->arrival)) }} - {{ $booking->angler->lastName }}</option>
+                    @endforeach
+
                 </select>
 
-                <label for="">Angler</label>
-                <select id=""name="">
-                    <option value=""> </option> 
+                <label for="">Angler
+                    @error('angler')
+                        <span class="error">{{ $message }}</span>
+                    @enderror
+                    </label>
+                <select id="" wire:model="angler">
+                    <option value="">Please Select</option>
+                    @isset($selectedBooking)
+                    <option value="{{ $booking->angler->id }}">{{ $booking->angler->firstName }} {{ $booking->angler->lastName }}</option>
+                    @foreach($selectedBooking->guests as $guest)
+                    <option value="{{ $guest->id }}">{{ $guest->firstName }} {{ $guest->lastName }}</option>
+                    @endforeach
+                    @endisset 
                 </select>
 
-                <label for="">Amount</label>
-                <input type="text" placeholder="" name="">
+                <label for="">Amount £
+                    @error('amount')
+                        <span class="error">{{ $message }}</span>
+                    @enderror
+                    </label>
+                <input type="text" wire:model="amount">
 
-                <button class="button success">Save Payment</button>
+                <button class="button success" wire:click="confirmTransfer">Save Payment</button>
             </div>
+            @elseif($mode == 3)
             @endif
         </div><!--end of grid-x -->
     </div><!--End of grid container-->

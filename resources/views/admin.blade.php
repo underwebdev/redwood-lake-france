@@ -35,7 +35,7 @@
 			<div class="grid-x">
 				<div class="cell small-12 large-2 cptitle">
 					<div class="side-nav-title text-center show-for-large">
-						<img src="/img/logos/uws-logo-white.png" width="220px">
+						<img src="/img/logo/RedwoodLogo.png" width="220px">
 					</div>
 					<div class="off-canvas position-left cpmenu" id="adminMenu" data-off-canvas data-options="inCanvasOn:large;">
 						<div class="side-nav">

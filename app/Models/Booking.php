@@ -18,7 +18,7 @@ class Booking extends Model
 
     public function payments()
     {
-        return $this->hasMany(Payment::class);
+        return $this->hasMany(Payment::class)->latest();
     }
 
     public function priceguide()
@@ -34,5 +34,10 @@ class Booking extends Model
     public function guests()
     {
         return $this->belongsToMany(Angler::class);
+    }
+
+    public function cancellation()
+    {
+        return $this->hasOne(Cancellation::class);
     }
 }

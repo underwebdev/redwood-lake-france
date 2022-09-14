@@ -53,7 +53,7 @@
 					@endforeach
 				  </div>    
 				</div><!-- End of cell-->
-				<div class="cell large-6 show-for-large align-self-middle">
+				<div class="cell large-6 show-for-large align-self-middle text-right">
 					<div id="lake-image">
 						<img src="/img/lake-rods.jpg" class="photo-border-block"> 
 					</div> 
@@ -70,14 +70,8 @@
 	</div><!--end of grid-x -->
 	</div>
 
-<div class="grid-container full">
-	<div class="grid-x grid-padding-x">
-		<div class="cell small-12">
-			<br><br><br><br>
-			<hr> 
-		</div><!-- End of cell-->
-	</div><!--end of grid-x -->
-</div><!--End of grid container-->
+	<div class="section-divider">
+	</div>
 	<div class="fish-info">
 	<div class="grid-container full">
 		<div class="grid-x grid-padding-x">
@@ -111,7 +105,7 @@
 					<p>{!! nl2br(e($module->content)) !!}</p>
 				@endforeach
 			</div><!-- End of cell-->
-			<div class="cell small-12 large-6 align-self-middle">
+			<div class="cell small-12 large-6 align-self-middle text-right">
 				<div id="facility-image">
 			  	<img src="/img/facility.jpeg" class="photo-border-block">
 			  </div>   

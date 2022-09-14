@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Article;
 use App\Models\Mailshot;
 use App\Models\Payment;
+use App\Models\Booking;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\PromoEmail;
 
@@ -21,9 +22,11 @@ class AdminController extends Controller
         return view('admin.bookings');
     }
 
-    public function booking()
+    public function booking($booking)
     {
-        return view('admin.booking');
+        $booking = Booking::findOrFail($booking);
+
+        return view('admin.booking', compact('booking'));
     }
 
     public function anglers()
@@ -105,9 +108,9 @@ class AdminController extends Controller
 
     public function payment($payment)
     {
-        $payment = Payment::findOrFail($id);
+        $payment = Payment::findOrFail($payment);
 
-        return view('admin.payment', compact($payment));
+        return view('admin.payment', compact('payment'));
     }
 
     public function payouts()

@@ -44,7 +44,7 @@
                                 <td>{{ $booking->id }}</td>
                                 <td>{{ $booking->angler->firstName }} {{ $booking->angler->lastName }}</td>
                                 <td>{{ Carbon\Carbon::parse($booking->arrival)->subDays($booking->priceguide->due)->format('d/m/Y') }}</td>
-                                <td class="text-right"><a href="/admin/booking/{{ $booking->id }}" class="button">View Booking</a></td>
+                                <td class="text-right"><a href="/admin/booking/{{ $booking->id }}" class="button small">View Booking</a></td>
                             </tr>
                             @endforeach
                         </tbody>
@@ -189,7 +189,6 @@
                         <span class="error">Selected date is not a saturday</span>
                     @endif
                 <input type="text" id="datepicker" wire:model.lazy="date">
-                {{ $day }}
                 <label for="">Notes</label>
                 <textarea wire:model="notes" cols="50" rows="10"></textarea>
                 <button class="button success" wire:click="savePlaceholder">Save Placeholder</button>

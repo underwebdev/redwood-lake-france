@@ -26,7 +26,7 @@
                             <tr>
                                 <th>Current Booking</th>
                                 <th>Lead</th>
-                                <th>Anglers</th>
+                                <th class="text-center">Anglers</th>
                                 <th>Departure</th>
                                 <th></th>
                             </tr>
@@ -35,7 +35,7 @@
                             <tr>
                                 <td>#{{ $current->id }}</td>
                                 <td>{{ $current->angler->firsName }} {{ $current->angler->lastName }}</td>
-                                <td>{{ $current->anglers }}</td>
+                                <td class="text-center">{{ $current->anglers }}</td>
                                 <td>{{ date('j/m/y', strtotime ($current->departure)) }}</td>
                                 <td></td>
                             </tr>
@@ -53,7 +53,7 @@
                             <tr>
                                 <th>Next Booking</th>
                                 <th>Lead</th>
-                                <th>Anglers</th>
+                                <th class="text-center">Anglers</th>
                                 <th>Arrival</th>
                                 <th></th>
                             </tr>
@@ -62,7 +62,7 @@
                             <tr>
                                 <td>#{{ $next->id }}</td>
                                 <td>{{ $next->angler->firstName }} {{ $next->angler->lastName }}</td>
-                                <td>{{ $next->anglers }}</td>
+                                <td class="text-center">{{ $next->anglers }}</td>
                                 <td>{{ date('j/m/y', strtotime ($next->arrival)) }}</td>
                                 <td></td>
                             </tr>
@@ -81,7 +81,7 @@
                             <tr>
                                 <th>Latest Bookings</th>
                                 <th>Lead</th>
-                                <th>Anglers</th>
+                                <th class="text-center">Anglers</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -90,7 +90,7 @@
                             <tr>
                                 <td>{{ date('j/m/y', strtotime ($booking->arrival)) }}</td>
                                 <td>{{ $booking->angler->firstName }} {{ $booking->angler->lastName }}</td>
-                                <td>{{ $booking->anglers }}</td>
+                                <td class="text-center">{{ $booking->anglers }}</td>
                                 <td class="text-right"><a href="/admin/booking/{{ $booking->id }}" class="button small">View</a></td>
                             </tr>
                             @endforeach
