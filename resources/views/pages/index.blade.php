@@ -141,7 +141,7 @@
 </div>
 
 <div class="subscribe-curve">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 316">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1441 316">
   <path fill="#232323" fill-opacity="1" d="M0,160L120,170.7C240,181,480,203,720,202.7C960,203,1200,181,1320,170.7L1440,160L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"></path>
 </svg>
 </div>
