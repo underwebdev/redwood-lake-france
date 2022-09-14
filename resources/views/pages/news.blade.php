@@ -20,17 +20,17 @@
 		<div class="cell small-12">
 			<div class="feature-container">	        	
 			<div class="grid-x grid-padding-x" data-equalizer>
-				<div class="cell small-12 medium-12 ml-8" data-equalizer-watch>
+				<div class="cell small-12 medium-12 ml-8" >
 					@isset($featured->cover)
-					
+					<div data-equalizer-watch>
 					<a href="/article/{{ $featured->url }}">
 					    <img src="{{ $featured->cover }}" class="news-feature" >
 					</a>
-				
+					</div>
 					@endisset
 				</div>
-				<div class="cell small-12 medium-12 ml-4" data-equalizer-watch>
-					<div class="outline">
+				<div class="cell small-12 medium-12 ml-4" >
+					<div class="outline" data-equalizer-watch>
 						<h2><a href="/article/{{ $featured->url }}">{{ $featured->title }}</a></h2>
 						<h5><small>{{ substr($featured->body, 0,  250)}}...</small></h5>
 				    	<p><small><i class="far fa-calendar-alt"></i> {{ date('j M Y', strtotime ($featured->created_at)) }} <span class="seperator">|</span> {{ date('H:i A', strtotime ($featured->created_at)) }}</small></p>
