@@ -8993,7 +8993,7 @@ h4 {
 
 @media all and (max-width: 429px) {
   .subscribe {
-    padding: 40px 0 10px 0;
+    padding: 40px 0 0 0;
   }
 }
 .subscribe svg {
@@ -9876,10 +9876,4 @@ table i {
 .user-container .info {
   background-color: #FFFFFF;
   border-radius: 8px;
-}
-
-@media all and (max-width: 429px) {
-  .slider-gallery {
-    margin-top: 30px;
-  }
 }
