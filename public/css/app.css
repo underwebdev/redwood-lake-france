@@ -9743,6 +9743,10 @@ table i {
   box-shadow: 0 0 10px rgba(24, 50, 115, 0.2);
 }
 
+.news-feature-image {
+  margin-top: 8px;
+}
+
 .feature-headline {
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(24, 50, 115, 0.2);
