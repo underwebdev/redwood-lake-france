@@ -71,7 +71,7 @@
 				<div class="show-for-medium" id="fish-image">
 			    	<img src="/img/redwood-lake-common-carp.jpg" class="photo-border-block"> 
 			  </div>
-			  <img src="/img/redwood-lake-common-carp.jpg" class="photo-border-block hide-for-medium">   
+			  <img src="/img/redwood-lake-common-carp.jpg" class="mobile-border-block hide-for-medium">   
 			</div><!-- End of cell-->
 			<div class="cell small-12 ml-6">
 				<div id="fish-desc">
@@ -99,9 +99,10 @@
 				@endforeach
 			</div><!-- End of cell-->
 			<div class="cell small-12 large-6 align-self-middle text-right">
-				<div id="facility-image">
+				<div class="show-for-medium" id="facility-image">
 			  	<img src="/img/facility.jpeg" class="photo-border-block">
-			  </div>   
+			  </div>
+			  <img src="/img/facility.jpeg" class="mobile-border-block hide-for-medium">   
 			</div><!-- End of cell-->
 		</div><!--end of grid-x -->
 	</div>

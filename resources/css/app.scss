@@ -13,6 +13,10 @@
 	font-weight: normal;
 }
 
+hero-wave svg {
+	width: 100%;
+}
+
 @media all and (min-width:1400px) {
 	.hero {
 		background-size: 100%;
@@ -775,13 +779,6 @@ textarea {
 	margin-left: 15px;
 }
 
-@media all and (max-width: 430px) {
-	#facility-image {
-		margin: 0 -15px 40px 0;
-	}
-}
-
-
 @media all and (max-width: 429px) {
 	#price-desc {
 		margin-top: 20px;
@@ -852,6 +849,20 @@ textarea {
 }
 
 .photo-border-block img {
+	border-radius: 8px;
+	background-color: #FFFFFF;
+	border: 1px solid #FFFFFF;
+	box-shadow: 0 0 10px rgba(24, 50, 115, 0.1);
+}
+
+.mobile-border-block {
+	border-radius: 8px;
+	margin-bottom: 45px;
+	border: 1px solid #FFFFFF;
+	box-shadow: 0 0 10px rgba(24, 50, 115, 0.1);
+}
+
+.mobile-border-block img {
 	border-radius: 8px;
 	background-color: #FFFFFF;
 	border: 1px solid #FFFFFF;
