@@ -8956,7 +8956,7 @@ h4 {
   }
 }
 .lake-info {
-  padding: 25px 0 50px 0;
+  padding: 25px 0 25px 0;
 }
 
 .lake-info .photo-outline {
@@ -8991,6 +8991,11 @@ h4 {
   color: #FFFFFF;
 }
 
+@media all and (max-width: 429px) {
+  .subscribe {
+    padding: 40px 0 10px 0;
+  }
+}
 .subscribe svg {
   display: block;
 }
@@ -8998,6 +9003,7 @@ h4 {
 .subscribe-curve svg {
   display: block;
   background-color: #FFFFFF;
+  width: 100%;
 }
 
 .divider-curve svg {
@@ -9076,11 +9082,6 @@ h3, h4 {
 .weighted {
   font-weight: 800;
   color: #9ab495;
-}
-
-.black-curve {
-  background-image: url("/img/black-curves.png");
-  height: 63px;
 }
 
 .month-bar {
@@ -9342,10 +9343,20 @@ textarea {
   width: 99%;
 }
 
+@media all and (max-width: 430px) {
+  #fish-image {
+    margin: 0 -15px 40px 0;
+  }
+}
 #facility-image {
   margin-left: 15px;
 }
 
+@media all and (max-width: 430px) {
+  #facility-image {
+    margin: 0 -15px 40px 0;
+  }
+}
 @media all and (max-width: 429px) {
   #price-desc {
     margin-top: 20px;
@@ -9865,4 +9876,10 @@ table i {
 .user-container .info {
   background-color: #FFFFFF;
   border-radius: 8px;
+}
+
+@media all and (max-width: 429px) {
+  .slider-gallery {
+    margin-top: 30px;
+  }
 }

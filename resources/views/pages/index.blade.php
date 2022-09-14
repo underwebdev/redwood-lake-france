@@ -45,7 +45,7 @@
 	<div class="lake-info">
 		<div class="grid-container full">
 			<div class="grid-x grid-padding-x">
-				<div class="cell small-12 large-6">
+				<div class="cell small-12 ml-6">
 					<div id="lake-desc">
 					<h4 class="text-center"><span class="weighted">The</span> Lake</h4>
 					@foreach($page->modules->where('order', 2) as $module)
@@ -53,7 +53,7 @@
 					@endforeach
 				  </div>    
 				</div><!-- End of cell-->
-				<div class="cell large-6 show-for-large align-self-middle text-right">
+				<div class="cell show-for-ml ml-6 align-self-middle text-right">
 					<div id="lake-image">
 						<img src="/img/lake-rods.jpg" class="photo-border-block"> 
 					</div> 
@@ -62,25 +62,17 @@
 		</div>
 	</div>
 
-	<div class="mobile-gallery-home">
-	<div class="grid-x grid-padding-x hide-for-large">
-		<div class="cell small-12">
-			  <img src="/img/redwood-lake-common-carp.jpg" class="photo-border-block"> 
-		</div><!-- End of cell-->
-	</div><!--end of grid-x -->
-	</div>
-
-	<div class="section-divider">
+	<div class="section-divider show-for-ml">
 	</div>
 	<div class="fish-info">
 	<div class="grid-container full">
 		<div class="grid-x grid-padding-x">
-			<div class="cell large-6 show-for-large align-self-middle">
+			<div class="cell small-12 ml-6 align-self-middle">
 				<div id="fish-image">
 			    	<img src="/img/redwood-lake-common-carp.jpg" class="photo-border-block"> 
 			  </div>  
 			</div><!-- End of cell-->
-			<div class="cell small-12 large-6">
+			<div class="cell small-12 ml-6">
 				<div id="fish-desc">
 				<h4 class="text-center"><span class="weighted">The</span> Fish</h4>
 				@foreach($page->modules->where('order', 3) as $module)
