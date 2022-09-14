@@ -19,9 +19,9 @@
 		</div><!-- End of cell-->
 	</div><!--end of grid-x -->
 </div><!--End of grid container-->
-<div class="hero-wave">
+
 @include('layout.hero-wave')
-</div>
+
 </div>
 
 <div class="section-one">
