@@ -1085,7 +1085,6 @@ table i {
 
 .news-feature {
 	margin-top: 8px;
-	margin-bottom: 12px;
 	border-radius: 8px;
 	box-shadow: 0 0 10px rgba(24, 50, 115, 0.2);
 }
@@ -1212,7 +1211,8 @@ table i {
 	border-radius: 8px;
 	padding: 10px 15px 0 15px;
 	margin: 8px 0 0 0;	
-	height: 100%
+	max-height: 563px;
+
 }
 
 .lake-map {
