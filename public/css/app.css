@@ -9466,6 +9466,11 @@ textarea {
   padding-top: 200px;
 }
 
+@media all and (max-width: 430px) {
+  .fish-gallery {
+    padding-top: 100px;
+  }
+}
 .lake-info-container {
   padding: 80px 0 10px 0;
 }
