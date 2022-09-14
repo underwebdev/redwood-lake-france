@@ -68,9 +68,10 @@
 	<div class="grid-container full">
 		<div class="grid-x grid-padding-x">
 			<div class="cell small-12 ml-6 align-self-middle">
-				<div id="fish-image">
+				<div class="show-for-medium" id="fish-image">
 			    	<img src="/img/redwood-lake-common-carp.jpg" class="photo-border-block"> 
-			  </div>  
+			  </div>
+			  <img src="/img/redwood-lake-common-carp.jpg" class="photo-border-block hide-for-medium">   
 			</div><!-- End of cell-->
 			<div class="cell small-12 ml-6">
 				<div id="fish-desc">
