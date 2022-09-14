@@ -1,5 +1,5 @@
 <div>
-    <div class="hide-for-large" wire:ignore>
+    <div class=" slider-container hide-for-large" wire:ignore>
         <section class="horizSlider">
         @foreach($thumbnails as $image)
           <div class="slide">
