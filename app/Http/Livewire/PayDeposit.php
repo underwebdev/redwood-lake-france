@@ -34,7 +34,7 @@ class PayDeposit extends Component
     public $invalidcode;
     public $voucher;
     public $duedate;
-
+    public $balance;
     public $connect;
     public $pk;
     protected $intent = [];
@@ -42,7 +42,7 @@ class PayDeposit extends Component
 
     public function start()
     {
-        $this->expiry = Carbon::now()->addMinutes(1);
+        $this->expiry = Carbon::now()->addMinutes(3);
 
         $this->placeholder = Placeholder::create([
             'date' => $this->date,
@@ -126,6 +126,7 @@ class PayDeposit extends Component
         {
             $toPay = $deposit;
             $this->duedate = Carbon::parse($this->date)->subdays($priceguide->due);
+            $this->balance = $total - $deposit;
 
         } elseif($data['payment'] == 2)
         {
@@ -178,7 +179,7 @@ class PayDeposit extends Component
         redirect()->to('booking');
     }
 
-    public function render()
+    public function expired()
     {
         if($this->expiry)
         {
@@ -187,7 +188,10 @@ class PayDeposit extends Component
                 redirect()->to('/booking')->with('failure', 'Time limit expired!');
             }
         }
+    }
 
+    public function render()
+    {
         $paymentIntent = $this->intent;
 
         return view('livewire.pay-deposit',[

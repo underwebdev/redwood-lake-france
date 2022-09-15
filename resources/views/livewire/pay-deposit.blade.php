@@ -28,13 +28,11 @@
 
                         @elseif($step == 2)
                             <h4 class="text-center">Lead Booking Details</h4>
-                            
-                            <div wire:poll.100ms>
+                            <div wire:poll.visisble.100ms="expired">
                             <h5 class="text-center">
                                 {{ gmdate("i:s", Carbon\Carbon::parse($expiry)->diffInSeconds()) }}
                             </h5>
                             </div>
-                   
                             
                             <label for="">First Name
                                 @error('firstName')<span class="error">This field is required</span>@enderror
@@ -98,8 +96,7 @@
                             </div>
                         @elseif($step == 3)
                             <h4 class="text-center">Booking Details</h4>
-                                
-                            <div wire:poll.100ms>
+                            <div wire:poll.visible.100ms="expired">
                                 <h5 class="text-center">
                                     {{ gmdate("i:s", Carbon\Carbon::parse($expiry)->diffInSeconds()) }}
                                 </h5>
@@ -151,21 +148,19 @@
 
                         @elseif($step == 4)
                             <h4 class="text-center">Payment</h4>
-
                             
-                                <h5 class="text-center"><strong>£{{ $intent->amount / 100 }}</strong></h5>
-                                @if($payment == 1)
-                                    <p class="text-center">The remaining balance of £.... is due by {{ date('j/m/y', strtotime ($duedate)) }}</p>
-                                @endif
+                            <h5 class="text-center"><strong>£{{ $intent->amount / 100 }}</strong></h5>
+                            @if($payment == 1)
+                                <p class="text-center">The remaining balance of £{{ $balance / 100 }} is due by {{ date('j/m/y', strtotime ($duedate)) }}</p>
+                            @endif
 
-                            <div wire:ignore>
                             <form id="payment-form" class="text-left">
                                 <div class="card-body">  
                                 <label>Cardholder Name</label>
                                 <input id="card-holder-name" type="text" class="report-input" required>
 
                                 <!-- Stripe Elements Placeholder -->
-                                <div id="card-element" style="height: 50px; border-radius: 8px; line-height:27px; padding-top:13px;"></div>
+                                <div id="card-element" style="height: 50px; border-radius: 8px; line-height:27px; padding-top:13px; border: 2px solid #1a1819;"></div>
 
                                 <div id="card-errors" class="text-center" role="alert"></div>
 
@@ -174,12 +169,9 @@
                                 </button>
                                 </div>
                             </form>
-                            
-                            
 
                             @include('scripts.stripe')
-                            </div>
-                            
+                          
                         @endif
                     </div>
                 </div>  
