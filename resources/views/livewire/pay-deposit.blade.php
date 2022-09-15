@@ -28,10 +28,12 @@
 
                         @elseif($step == 2)
                             <h4 class="text-center">Lead Booking Details</h4>
-                
+                            
+                            <div wire:poll.100ms>
                             <h5 class="text-center">
                                 {{ gmdate("i:s", Carbon\Carbon::parse($expiry)->diffInSeconds()) }}
                             </h5>
+                            </div>
                    
                             
                             <label for="">First Name
@@ -96,10 +98,12 @@
                             </div>
                         @elseif($step == 3)
                             <h4 class="text-center">Booking Details</h4>
-                            
+                                
+                            <div wire:poll.100ms>
                                 <h5 class="text-center">
                                     {{ gmdate("i:s", Carbon\Carbon::parse($expiry)->diffInSeconds()) }}
                                 </h5>
+                            </div>
                           
                             <p class="text-center">Please review the details you have entered</p>
                             <p><strong>Arriving:</strong>  {{ Carbon\Carbon::parse($date)->format('D jS M Y') }} - 14:00<br>
@@ -154,7 +158,7 @@
                                     <p class="text-center">The remaining balance of £.... is due by {{ date('j/m/y', strtotime ($duedate)) }}</p>
                                 @endif
 
-                            
+                            <div wire:ignore>
                             <form id="payment-form" class="text-left">
                                 <div class="card-body">  
                                 <label>Cardholder Name</label>
@@ -171,9 +175,10 @@
                                 </div>
                             </form>
                             
-                            <button class="button alert hollow expanded" wire:click="$set('step', 3)">Go Back</button>
+                            
 
                             @include('scripts.stripe')
+                            </div>
                             
                         @endif
                     </div>
