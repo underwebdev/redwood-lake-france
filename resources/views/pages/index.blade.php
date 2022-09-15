@@ -160,11 +160,11 @@
 	<div class="grid-container">
 		<div class="grid-x grid-padding-x">
 			<div class="cell small-12 medium-10 large-8 medium-offset-1 large-offset-2">
-				<h4><span class="weighted">Contact</span> Information</h4>
+				<h4 class="text-center"><span class="weighted">Contact</span> Information</h4>
 			</div><!-- End of cell-->
 			<div class="cell small-12 medium-10 large-8 medium-offset-1 large-offset-2">
-				<p><i class="far fa-envelope"></i> info@etangdeseuil.co.uk<br>
-					<i class="fab fa-instagram"></i> etangdeseuil</p> 
+				<p class="text-center"><i class="far fa-envelope"></i> info@redwoodlake.co.uk<br>
+					<i class="fab fa-instagram"></i> @redwoodlakefrance</p> 
 				@foreach($page->modules->where('order', 6) as $module)
 					<p>{!! nl2br(e($module->content)) !!}</p>
 				@endforeach

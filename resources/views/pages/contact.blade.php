@@ -33,7 +33,6 @@
 				<div class="cell small-12 medium-6">
 					<h4><span class="weighted">Contact</span> Details</h4>
 					<p><i class="far fa-envelope"></i> info@redwoodlake.co.uk<br>
-					<i class="fas fa-mobile-alt"></i> -----------<br>
 					<i class="fab fa-instagram"></i> redwoodlakefrance</p> 
 				      
 				</div><!-- End of cell-->
