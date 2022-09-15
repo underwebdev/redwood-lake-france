@@ -40,7 +40,7 @@
 		</div>
 		<div class="grid-x grid-padding-x" data-equalizer data-equalize-on="medium">
 			@foreach($priceguides as $priceguide)
-				@include('layout.pricing-block')
+				@include('layout.pricing-block-alt')
 			@endforeach
 			<div class="cell small-12 text-center">
 				<p>All bookings require a 30% deposit to confirm the requested dates. The remaining balance is due 8 weeks prior to arrival.</p>

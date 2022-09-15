@@ -127,9 +127,6 @@
 		</div>
 		<div class="grid-x grid-padding-x" data-equalizer data-equalize-on="medium">
 			@foreach($priceguides as $priceguide)
-				@include('layout.pricing-block')
-			@endforeach
-			@foreach($priceguides as $priceguide)
 				@include('layout.pricing-block-alt')
 			@endforeach
 			<div class="cell small-12 text-center">
