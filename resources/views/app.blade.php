@@ -6,8 +6,8 @@
 	    <meta name="description" content="@yield('metadescription')">
 	    <meta name="google-site-verification" content=""/>
 	    <meta name="robots" content="index, follow">
-	    <meta property="og:site_name" content="Underwood Web Services"/>
-	    <meta property="og:title" content="Underwood Web Services"/>
+	    <meta property="og:site_name" content="Redwood Lake"/>
+	    <meta property="og:title" content="Redwood Lake"/>
 	    <meta property="og:type" content="website"/>
 	    <meta property="og:image" content=""/>
 	    <meta property="og:locale" content="en_UK"/>
@@ -34,12 +34,11 @@
 		<script type="application/ld+json">
 	    { "@context" : "http://schema.org",
 	      "@type" : "Organization",
-	      "name" : "Underwood Web Services",
-	      "logo": "https://underweb.co.uk.co.uk/img/logos/uws-logo-rgb.png",
-	      "url" : "https://underweb.co.uk.co.uk",
-	      "sameAs" : [ "https://www.facebook.com/underwebdevelopment/",
-                   "https://www.linkedin.com/in/joe-underwood-010765b7/",
-                   "https://www.twitter.com/underwebdev"]
+	      "name" : "Redwood Lake",
+	      "logo": "https://redwoodlake.co.uk/img/logo/RedwoodLogo.png",
+	      "url" : "https://redwoodlake.co.uk",
+	      "sameAs" : [ "https://www.facebook.com/",
+                   "https://www.instagram.com/"]
 	    } 
 	    </script>
 
@@ -57,7 +56,6 @@
 		
 		@livewireScripts
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script> 
 		<script src="/js/app.js"></script>
 		<script>
 		  window.addEventListener('activate-gsap', event => {

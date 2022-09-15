@@ -1,5 +1,9 @@
 @extends('app')
 
+@section('url') {{ $page->url }} @endsection
+@section('metadescription') {{ $page->metadescription }} @endsection
+@section('title') {{ $page->metatitle }} @endsection
+
 @section('content')
 
 <div class="hero content">

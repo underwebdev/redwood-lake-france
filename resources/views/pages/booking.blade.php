@@ -1,7 +1,10 @@
 @extends('app')
 
-@section('content')
+@section('url') {{ $page->url }} @endsection
+@section('metadescription') {{ $page->metadescription }} @endsection
+@section('title') {{ $page->metatitle }} @endsection
 
+@section('content')
 <div class="hero content {{ $page->css }}">
 	@include('layout.nav')
 	<div class="grid-container full">
