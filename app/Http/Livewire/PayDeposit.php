@@ -20,6 +20,7 @@ class PayDeposit extends Component
     public $firstName;
     public $lastName;
     public $email;
+    public $email_confirmation;
     public $telephone;
     public $address1;
     public $address2;
@@ -42,7 +43,7 @@ class PayDeposit extends Component
 
     public function start()
     {
-        $this->expiry = Carbon::now()->addMinutes(3);
+        $this->expiry = Carbon::now()->addMinutes(15);
 
         $this->placeholder = Placeholder::create([
             'date' => $this->date,
@@ -64,7 +65,7 @@ class PayDeposit extends Component
         $data = $this->validate([
             'firstName' => 'required',
             'lastName' => 'required',
-            'email' => 'required',
+            'email' => 'required|confirmed',
             'telephone' => 'required',
             'address1' => 'required',
             'address2' => 'required',

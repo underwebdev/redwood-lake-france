@@ -45,14 +45,14 @@
                             <input type="text" placeholder="" wire:model="lastName">
 
                             <label for="">Email
-                                @error('email')<span class="error">This field is required</span>@enderror
+                                @error('email')<span class="error">{{ $message }}</span>@enderror
                             </label>
                             <input type="text" placeholder="" wire:model="email">
 
                             <label for="">Confirm Email
-                                @error('')<span class="error">This field is required</span>@enderror
+                                @error('email_confirmation')<span class="error">{{ $message }}</span>@enderror
                             </label>
-                            <input type="text" placeholder="" wire:model="">
+                            <input type="text" placeholder="" wire:model="email_confirmation">
 
                             <label for="">Telephone
                                 @error('telephone')<span class="error">This field is required</span>@enderror
@@ -125,12 +125,6 @@
                             </label>
                             <input type="text" wire:model.lazy="discountcode">
                             @endif
-
-                            <label for="">Would you like to add 25kg pellet?</label>
-                            <select id="" wire:model="extra">
-                                <option value="">Yes</option>
-                                <option value="">No</option> 
-                            </select>
 
                             <label for="">Payment</label>
                             <select id=""wire:model="payment">

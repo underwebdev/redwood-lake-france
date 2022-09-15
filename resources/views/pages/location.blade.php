@@ -100,7 +100,7 @@
 									<td>664km</td>
 									<td>7hr 03min</td>
 									<td class="text-right">
-										<a href="" class="button tiny">View Map</a>
+										<a href="https://www.google.com/maps/dir/Calais+Eurotunnel,+Kanaaltunnel,+Coquelles,+France/%C3%89tang+de+Seuil,+87140+Saint-Pardoux-le-Lac,+France/@48.480896,0.3558901,7z/data=!3m1!4b1!4m13!4m12!1m5!1m1!1s0x47dc3ee7e1f67c7f:0x9914651fa24caa06!2m2!1d1.8148836!2d50.9359118!1m5!1m1!1s0x47fead8ed3dc3c65:0xf28884017ff4c0fd!2m2!1d1.205159!2d46.055083" class="button tiny">View Map</a>
 									</td>
 								</tr>
 								<tr>
@@ -108,7 +108,7 @@
 									<td>661km</td>
 									<td>6hr 35min</td>
 									<td class="text-right">
-										<a href="" class="button tiny">View Map</a>
+										<a href="https://www.google.com/maps/dir/Calais,+France/%C3%89tang+de+Seuil,+87140+Saint-Pardoux-le-Lac,+France/@48.4849913,-0.2598117,7z/data=!3m1!4b1!4m13!4m12!1m5!1m1!1s0x47dc3f75d7f1e363:0xacbed9e08cd279f4!2m2!1d1.858686!2d50.95129!1m5!1m1!1s0x47fead8ed3dc3c65:0xf28884017ff4c0fd!2m2!1d1.205159!2d46.055083" class="button tiny">View Map</a>
 									</td>
 								</tr>
 								<tr>
@@ -116,7 +116,7 @@
 									<td>549km</td>
 									<td>5hr 51min</td>
 									<td class="text-right">
-										<a href="" class="button tiny">View Map</a>
+										<a href="https://www.google.com/maps/dir/Dieppe,+France/%C3%89tang+de+Seuil,+87140+Saint-Pardoux-le-Lac,+France/@47.9708321,-1.1480004,7z/data=!3m1!4b1!4m13!4m12!1m5!1m1!1s0x47e0a207670619f9:0xaea20a3d78418545!2m2!1d1.077483!2d49.922992!1m5!1m1!1s0x47fead8ed3dc3c65:0xf28884017ff4c0fd!2m2!1d1.205159!2d46.055083" class="button tiny">View Map</a>
 									</td>
 								</tr>
 								<tr>
@@ -124,7 +124,7 @@
 									<td>542km</td>
 									<td>5hr 35min</td>
 									<td class="text-right">
-										<a href="" class="button tiny">View Map</a>
+										<a href="https://www.google.com/maps/dir/Le+Havre,+France/%C3%89tang+de+Seuil,+87140+Saint-Pardoux-le-Lac,+France/@47.7602947,-1.1480127,7z/data=!3m1!4b1!4m13!4m12!1m5!1m1!1s0x47e02f2395218b7d:0x5bc1867aaf33af12!2m2!1d0.107929!2d49.49437!1m5!1m1!1s0x47fead8ed3dc3c65:0xf28884017ff4c0fd!2m2!1d1.205159!2d46.055083" class="button tiny">View Map</a>
 									</td>
 								</tr>
 								<tr>
@@ -132,7 +132,7 @@
 									<td>435km</td>
 									<td>4hr 53min</td>
 									<td class="text-right">
-										<a href="" class="button tiny">View Map</a>
+										<a href="https://www.google.com/maps/dir/Port+De+Caen,+D514,+Ouistreham,+France/%C3%89tang+de+Seuil,+87140+Saint-Pardoux-le-Lac,+France/@47.641849,-1.803908,7z/data=!3m1!4b1!4m13!4m12!1m5!1m1!1s0x480a669f09b61813:0xe9e76e22bb37d06c!2m2!1d-0.2626316!2d49.2616412!1m5!1m1!1s0x47fead8ed3dc3c65:0xf28884017ff4c0fd!2m2!1d1.205159!2d46.055083" class="button tiny">View Map</a>
 									</td>
 								</tr>
 								<tr>
@@ -140,7 +140,7 @@
 									<td>452km</td>
 									<td>5hr 32min</td>
 									<td class="text-right">
-										<a href="" class="button tiny">View Map</a>
+										<a href="https://www.google.com/maps/dir/St+Malo,+France/%C3%89tang+de+Seuil,+87140+Saint-Pardoux-le-Lac,+France/@47.3485521,-1.530164,8z/data=!3m1!4b1!4m13!4m12!1m5!1m1!1s0x480e81102126bf5d:0xf8e97dadb22be12d!2m2!1d-2.025674!2d48.649337!1m5!1m1!1s0x47fead8ed3dc3c65:0xf28884017ff4c0fd!2m2!1d1.205159!2d46.055083" class="button tiny">View Map</a>
 									</td>
 								</tr>
 								<tr>
@@ -148,7 +148,7 @@
 									<td>605km</td>
 									<td>6hr 25min</td>
 									<td class="text-right">
-										<a href="" class="button tiny">View Map</a>
+										<a href="https://www.google.com/maps/dir/Cherbourg,+France/%C3%89tang+de+Seuil,+87140+Saint-Pardoux-le-Lac,+France/@47.826284,-2.0199577,7z/data=!3m1!4b1!4m13!4m12!1m5!1m1!1s0x480c97121faa62e1:0x7ec61fc418bcf800!2m2!1d-1.622224!2d49.6338979!1m5!1m1!1s0x47fead8ed3dc3c65:0xf28884017ff4c0fd!2m2!1d1.205159!2d46.055083" class="button tiny">View Map</a>
 									</td>
 								</tr>
 								<tr>
@@ -156,7 +156,7 @@
 									<td>581km</td>
 									<td>6hr 36min</td>
 									<td class="text-right">
-										<a href="" class="button tiny">View Map</a>
+										<a href="https://www.google.com/maps/dir/Roscoff,+France/%C3%89tang+de+Seuil,+87140+Saint-Pardoux-le-Lac,+France/@47.3869824,-2.5213589,8z/data=!3m1!4b1!4m13!4m12!1m5!1m1!1s0x4813e1457ead5c67:0x7edaeff9d05b4845!2m2!1d-3.985325!2d48.726199!1m5!1m1!1s0x47fead8ed3dc3c65:0xf28884017ff4c0fd!2m2!1d1.205159!2d46.055083" class="button tiny">View Map</a>
 									</td>
 								</tr>
 							</tbody>
