@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin;
 
 use Livewire\Component;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\AccountCreated;
 use App\Mail\BookingReceipt;
@@ -21,7 +22,7 @@ class BookingDashboard extends Component
     public $notes;
     public $invalidDate;
     public $unavailableDate;
-    public $angler;
+    public $angler = 'new';
     public $firstName;
     public $lastName;
     public $email;
@@ -46,7 +47,13 @@ class BookingDashboard extends Component
             'date' => 'required',
             'angler' => 'required',
             'anglers' => 'required',
-            
+            'firstName' => 'required_if:angler,new',
+            'lastName' => 'required_if:angler,new',
+            'telephone' => 'required_if:angler,new',
+            'email' => 'required_if:angler,new',
+            'address1' => 'required_if:angler,new',
+            'address2' => 'nullable',
+            'address3' => 'nullable',
             'postcode' => 'required_if:angler,new',
             'payment' => 'required',
             'amount' => 'required_if:payment,1',
@@ -112,8 +119,6 @@ class BookingDashboard extends Component
             {
                 Mail::to($user->email)->send(new BookingReceipt($booking));
             }
-
-            
         }
 
         $this->reset();
