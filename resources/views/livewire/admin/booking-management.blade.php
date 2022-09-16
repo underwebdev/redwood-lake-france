@@ -62,7 +62,7 @@
                             <td class="text-center">{{ $booking->anglers }}</td>
                             <td>£{{ $booking->total / 100 }}</td>
                             @if($booking->voucher()->exists())
-                            <td>@foreach($booking->voucher as $voucher)<span class="error">£{{ $voucher->amount / 100 }}</span><small>({{ $voucher->code }})</small> @endforeach</td>
+                            <td>@foreach($booking->voucher as $voucher)<span class="error">£{{ $voucher->amount / 100 }}</span> <small>({{ $voucher->code }})</small> @endforeach</td>
                             @endif
                             <td>£{{ $booking->payments->sum('total') / 100 }}</td>
                             <td>£{{ ($booking->total - $booking->payments()->sum('total')) / 100 }}</td>
