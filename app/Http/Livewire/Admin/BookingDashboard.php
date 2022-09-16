@@ -46,13 +46,7 @@ class BookingDashboard extends Component
             'date' => 'required',
             'angler' => 'required',
             'anglers' => 'required',
-            'firstName' => 'required_if:angler,new',
-            'lastName' => 'required_if:angler,new',
-            'telephone' => 'required_if:angler,new',
-            'email' => 'required_if:angler,new',
-            'address1' => 'required_if:angler,new',
-            'address2' => 'nullable',
-            'address3' => 'nullable',
+            
             'postcode' => 'required_if:angler,new',
             'payment' => 'required',
             'amount' => 'required_if:payment,1',
@@ -114,7 +108,12 @@ class BookingDashboard extends Component
                 'status' => 1
             ]);
 
-            Mail::to($user->email)->send(new BookingReceipt($booking));
+            if($selectedAngler->user()->exists())
+            {
+                Mail::to($user->email)->send(new BookingReceipt($booking));
+            }
+
+            
         }
 
         $this->reset();

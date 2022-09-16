@@ -73,15 +73,15 @@
                     </table>   
             </div><!-- End of cell-->
             @elseif($mode == 2)
-            @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
             <div class="cell small-12 medium-8 large-6 medium-offset-2 large-offset-3">
                 <label for="">Date
                     @error('date')
@@ -108,28 +108,26 @@
 
                 @if($angler == 'new')
                     <label for="">First Name
-                        @error('')<span class="error">This field is required</span>@enderror
+                        @error('firstName')<span class="error">This field is required</span>@enderror
                     </label>
                     <input type="text" wire:model="firstName">
 
                     <label for="">Last Name 
-                        @error('')<span class="error">This field is required</span>@enderror
+                        @error('lastName')<span class="error">This field is required</span>@enderror
                     </label>
                     <input type="text" wire:model="lastName">
 
                     <label for="">Telephone
-                        @error('')<span class="error">This field is required</span>@enderror    
+                        @error('telephone')<span class="error">This field is required</span>@enderror    
                     </label>
                     <input type="text" wire:model="telephone">
 
                     <label for="">Email
-                        @error('')<span class="error">This field is required</span>@enderror
+                        @error('email')<span class="error">This field is required</span>@enderror
                     </label>
                     <input type="text" wire:model="email"> 
 
-                    <label for="">Confirm Email
-                        @error('')<span class="error">This field is required</span>@enderror
-                    </label>
+                    <label for="">Confirm Email</label>
                     <input type="text" wire:model="email_confirmation">
 
                     <label for="">Address
@@ -137,14 +135,10 @@
                     </label>
                     <input type="text" wire:model="address1">
 
-                    <label for="">Address 2
-                        @error('address2')<span class="error">This field is required</span>@enderror
-                    </label>
+                    <label for="">Address 2</label>
                     <input type="text" wire:model="address2">
 
-                    <label for="">Address 3
-                        @error('address3')<span class="error">This field is required</span>@enderror
-                    </label>
+                    <label for="">Address 3</label>
                     <input type="text" wire:model="address3">
 
                     <label for="">Post Code
