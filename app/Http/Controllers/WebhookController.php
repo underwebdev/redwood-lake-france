@@ -104,7 +104,7 @@ class WebhookController extends Controller
                     'priceguide_id' => $intent->metadata->priceguide
                 ]);
 
-                $user->angler->address->updateOrCreate([
+                $user->angler->address()->updateOrCreate([
                     'angler_id' => $user->angler->id ],[
                     'address1' => $intent->metadata->address1,
                     'address2' => $intent->metadata->address2,
