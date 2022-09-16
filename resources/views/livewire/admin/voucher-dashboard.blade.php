@@ -31,7 +31,7 @@
                             <tr>
                                 <th>Code</th>
                                 <th>Amount</th>
-                                <td>Limit</td>
+                                <td class="text-center">Limit</td>
                                 <td>Used</td>
                                 <td>Valid</td>
                                 <td>Status</td>
@@ -43,7 +43,7 @@
                             <tr>
                                 <td>{{ $voucher->code }}</td>
                                 <td>£{{ $voucher->amount / 100 }}</td>
-                                <td>{{ $voucher->limit }}</td>
+                                <td class="text-center">{{ $voucher->limit }}</td>
                                 <td>{{ $voucher->used }}</td>
                                 <td>
                                     {{ date('j/m/y', strtotime ($voucher->start)) }}

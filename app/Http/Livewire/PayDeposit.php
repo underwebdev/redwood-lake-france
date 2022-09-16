@@ -121,7 +121,7 @@ class PayDeposit extends Component
         if($this->validcode)
         {
             $total = $total - $this->voucher->amount;
-            $voucher = $this->voucher->idl
+            $voucher = $this->voucher->id;
         } else {
             $voucher = 0;
         }
