@@ -8,6 +8,6 @@
 <strong>Anglers:</strong> {{ $payment->booking->anglers }}<br>
 <strong>Total:</strong> £{{ $payment->booking->total / 100 }}<br>
 <strong>Payment:</strong> £{{ $payment->total / 100 }}</p>
-<strong>Total Payments:</strong> £{{ $payment->booking->payments->total / 100 }}</p>
+<strong>Total Payments:</strong> £{{ $payment->booking->payments->sum('total') / 100 }}</p>
 @endcomponent
 @endcomponent
