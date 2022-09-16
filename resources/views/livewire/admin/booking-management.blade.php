@@ -201,7 +201,9 @@
                 <input type="text" placeholder="" wire:model="telephone">
                 <div class="button-group">
                     <button class="button success" wire:click="saveAnglerChanges">Save Angler</button>
+                    @unless($booking->angler_id == $selectedAngler->id) 
                     <button class="button alert" wire:click="deleteAngler">Delete Angler</button>
+                    @endunless
                 </div>
                   
             </div><!-- End of cell-->
