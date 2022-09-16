@@ -121,6 +121,9 @@ class PayDeposit extends Component
         if($this->validcode)
         {
             $total = $total - $this->voucher->amount;
+            $voucher = $this->voucher->idl
+        } else {
+            $voucher = 0;
         }
 
         if($data['payment'] == 1)
@@ -162,7 +165,8 @@ class PayDeposit extends Component
                 'arrival' => $bookingdate,
                 'anglers' => $data['anglers'],
                 'total' => $total,
-                'priceguide' => $priceguide->id
+                'priceguide' => $priceguide->id,
+                'voucher' => $voucher
             ],
             'statement_descriptor_suffix' => 'Redwood Lake'
         ], ['stripe_account' => $this->connect]);

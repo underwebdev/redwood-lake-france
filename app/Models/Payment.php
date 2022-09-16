@@ -25,6 +25,11 @@ class Payment extends Model
     {
         return $this->belongsTo(Paymethod::class);
     }
+
+    public function payout()
+    {
+        return $this->belongsToMany(Payout::class);
+    }
 }
 
 

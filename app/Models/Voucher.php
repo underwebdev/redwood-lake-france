@@ -10,4 +10,9 @@ class Voucher extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    public function bookings()
+    {
+        return $this->belongsToMany(Booking::class);
+    }
 }

@@ -40,4 +40,9 @@ class Booking extends Model
     {
         return $this->hasOne(Cancellation::class);
     }
+
+    public function voucher()
+    {
+        return $this->belongsToMany(Voucher::class);
+    }
 }

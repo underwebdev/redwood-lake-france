@@ -16,6 +16,7 @@ use App\Models\Booking;
 use App\Models\Payment;
 use App\Models\User;
 use App\Models\Angler;
+use App\Models\Voucher;
 use Carbon\Carbon;
 use Stripe\{Stripe};
 
@@ -122,6 +123,24 @@ class WebhookController extends Controller
                     'status' => 1
                 ]);
 
+                if($intent->metadata->voucher > 0)
+                {
+                    $voucher = Voucher::find($intent->metadata->voucher);
+
+                    $voucher->update([
+                        'used' => $voucher->used + 1
+                    ]);
+
+                    if($voucher->used >= $voucher->limit)
+                    {
+                        $voucher->update([
+                            'is_active' => 0
+                        ]);
+                    }
+
+                    $booking->vouchers()->attach($voucher->id);  
+                }
+
                 Mail::to($user->email)->send(new BookingReceipt($booking));
                 Mail::to('joe@underweb.co.uk')->send(new BookingNotification($booking));
             }
@@ -206,17 +225,17 @@ class WebhookController extends Controller
             {
                 if($d['type'] == 'charge')
                 {
-                    if(Ticket::where('transaction_id', $d['source'])->exists())
+                    if(Payment::where('transaction_id', $d['source'])->exists())
                     {
-                        $ticket = Ticket::where('transaction_id', $d['source'])->first();
+                        $payment = Payment::where('transaction_id', $d['source'])->first();
 
-                        $newpayout->tickets()->attach($ticket->id);
+                        $newpayout->payments()->attach($payment->id);
 
-                    } elseif(Booking::where('transaction_id', $d['source'])->exists())
+                    } elseif(Payment::where('transaction_id', $d['source'])->exists())
                     {
-                        $booking = Booking::where('transaction_id', $d['source'])->first();
+                        $payment = Payment::where('transaction_id', $d['source'])->first();
 
-                        $newpayout->bookings()->attach($booking->id);
+                        $newpayout->payments()->attach($payment->id);
                     }
                 }   
             }
