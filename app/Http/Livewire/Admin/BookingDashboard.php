@@ -88,9 +88,9 @@ class BookingDashboard extends Component
 
             Mail::to($user->email)->send(new AccountCreated($user));
         } else {
-            $selectedAngler = Angler::find($data['angler']);
+            $angler = Angler::find($data['angler']);
 
-            $user = User::where('email', $selectedAngler->user->email)->first();
+            $user = User::where('email', $angler->user->email)->first();
         }
 
         $bookingdate = Carbon::parse($data['date'])->toDateString();
@@ -115,7 +115,7 @@ class BookingDashboard extends Component
                 'status' => 1
             ]);
 
-            if($selectedAngler->user()->exists())
+            if($angler->user()->exists())
             {
                 Mail::to($user->email)->send(new BookingReceipt($booking));
             }
