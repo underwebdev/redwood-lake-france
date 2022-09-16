@@ -15,7 +15,7 @@ Thank you for making a booking at Redwood Lake. Please find below details of you
 <strong>Payments:</strong> £{{ $booking->payments()->sum('total') / 100 }}</p>
 @endcomponent
 @if($booking->payments()->sum('total') < $booking->total)
-<strong>Your final balance of £{{ $booking->total - $booking->payments()->sum('total') / 100 }} is due by 
+<strong>Your final balance of £{{ ($booking->total - $booking->payments()->sum('total')) / 100 }} is due by 
 	{{ Carbon\Carbon::parse($booking->arrival)->subDays($booking->priceguide->due)->format('d/m/Y') }}.</strong> Payments can be made through our website via credit/debit or bank transfer.
 @endif
 @endcomponent

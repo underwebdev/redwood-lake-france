@@ -31,6 +31,6 @@ class BookingNotification extends Mailable
      */
     public function build()
     {
-        return $this->from('bookings@redwoodlake.co.uk')->subject('Booking Notification')->markdown('emails.booking-notification');
+        return $this->from('bookings@redwoodlake.co.uk', 'Redwood Lake')->subject('Booking Notification')->markdown('emails.booking-notification');
     }
 }
