@@ -2,8 +2,7 @@
 <h1 class="text-center"><center>Redwood Lake</center></h1>
 <h2><center>Booking Notification</center></h2>
 @component('mail::panel')
-<p class="text-center"><strong>Booking Information</strong><br>
-<strong>Lead Booking:</strong> {{ $booking->angler->firstName }} {{ $booking->angler->lastName }}<br>
+<p><strong>Lead Booking:</strong> {{ $booking->angler->firstName }} {{ $booking->angler->lastName }}<br>
 <strong>Arrival:</strong> {{ date('j/m/y H:i', strtotime ($booking->arrival)) }}<br>
 <strong>Departure:</strong> {{ date('j/m/y H:i', strtotime ($booking->departure)) }}<br>
 <strong>Anglers:</strong> {{ $booking->anglers }}<br>
