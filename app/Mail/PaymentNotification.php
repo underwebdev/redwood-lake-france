@@ -6,19 +6,22 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use App\Models\Payment;
 
 class PaymentNotification extends Mailable
 {
     use Queueable, SerializesModels;
+
+    public $payment;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Payment $payment)
     {
-        //
+        $this->payment = $payment;
     }
 
     /**
@@ -28,6 +31,6 @@ class PaymentNotification extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.payment-notification');
+        return $this->from('payments@redwoodlake.co.uk', 'Redwood Lake')->subject('New Bank Transfer')->markdown('emails.payment-notification');
     }
 }

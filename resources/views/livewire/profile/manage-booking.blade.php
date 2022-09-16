@@ -208,13 +208,18 @@
                 </div>
             </div>
             @elseif($mode == 7)
-
-
-
-
-
-
-
+            <div class="cell small-12 medium-8 large-6 medium-offset-2 large-offset-3">
+                <div class="center-border text-center">
+                    <div class="center-border-header text-center">
+                        <img src="/img/logo/RedwoodLogo.png" width="200px">
+                    </div>
+                    <div class="center-border-content">
+                        <h3><strong>Payment Complete</strong></h3>
+                        <p class="text-left">Thank you for your payment. You will receive an email receipt of your payment once we have confirmed your bank transfer.</p>
+                        <a href="/my-account" class="button success large radius">Back To Your Account</a>
+                    </div>
+                </div>
+            </div><!-- End of cell-->
             @endif
             
         </div><!--end of grid-x -->
