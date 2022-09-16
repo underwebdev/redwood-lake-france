@@ -72,7 +72,7 @@ class BookingDashboard extends Component
 
             $ref = Angler::latest()->pluck('ref')->first();
 
-            $angler = $user->angler->create([
+            $angler = $user->angler()->create([
                 'firstName' => $data['firstName'],
                 'lastName' => $data['lastName'],
                 'telephone' => $data['telephone'],
