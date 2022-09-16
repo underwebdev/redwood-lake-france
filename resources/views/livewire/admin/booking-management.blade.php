@@ -46,6 +46,9 @@
                             <th>Departure</th>
                             <th class="text-center">Anglers</th>
                             <th>Total</th>
+                            @if($booking->voucher->exists())
+                            <th>Discount</th>
+                            @endif
                             <th>Payments</th>
                             <th>Balance</th>
                             <th>Due</th>
@@ -58,6 +61,9 @@
                             <td>{{ date('j/m/y H:i', strtotime ($booking->departure)) }}</td>
                             <td class="text-center">{{ $booking->anglers }}</td>
                             <td>£{{ $booking->total / 100 }}</td>
+                            @if($booking->voucher->exists())
+                            <th>@foreach($booking->voucher as $voucher) {{ $voucher->code }} <span class="error">£{{ $voucher->amount / 100 }}</span> @endforeach</th>
+                            @endif
                             <td>£{{ $booking->payments->sum('total') / 100 }}</td>
                             <td>£{{ ($booking->total - $booking->payments()->sum('total')) / 100 }}</td>
                             <td>{{ Carbon\Carbon::parse($booking->arrival)->subDays($booking->priceguide->due)->format('j/m/Y') }}</td>
