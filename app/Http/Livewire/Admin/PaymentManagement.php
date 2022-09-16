@@ -3,6 +3,8 @@
 namespace App\Http\Livewire\Admin;
 
 use Livewire\Component;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\PaymentReceipt;
 
 class PaymentManagement extends Component
 {
@@ -13,6 +15,8 @@ class PaymentManagement extends Component
         $this->payment->update([
             'status' => 1
         ]);
+
+        Mail::to($this->payment->angler->user->email)->send(new PaymentReceipt($this->payment));
 
         session()->flash('success', 'Payment Confirmed');
     }

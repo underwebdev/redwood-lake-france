@@ -1,12 +1,16 @@
 @component('mail::message')
-# Introduction
+<h1><center>Bank Transfer Confirmation</center></h1>
+<p>Hello {{ $payment->angler->firstName }},<br>
+Your bank transfer payment has been confirmed.</p>
 
-The body of your message.
-
-@component('mail::button', ['url' => ''])
-Button Text
+@component('mail::panel')
+<h2>Booking</h2> 
+<strong>Arrival:</strong> {{ date('j/m/y H:i', strtotime ($payment->booking->arrival)) }}<br>
+<strong>Departure:</strong> {{ date('j/m/y H:i', strtotime ($payment->booking->departure)) }}<br>
+<strong>Payment:</strong> £{{ payment->total / 100 }}</p>
 @endcomponent
+<p>Please ensure you and your guest have read the rules prior to fishing, members are responsible for their guests behavior whilst fishing.</p>
 
-Thanks,<br>
-{{ config('app.name') }}
+<p>Thanks,<br>
+Redwood Lake</p>
 @endcomponent
