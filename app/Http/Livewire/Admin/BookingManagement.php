@@ -56,7 +56,11 @@ class BookingManagement extends Component
             'status' => 1
         ]);
 
-        Mail::to($payment->angler->user->email)->send(new PaymentReceipt($payment));
+        if($payment->angler->user()->exists())
+        {
+            Mail::to($payment->angler->user->email)->send(new PaymentReceipt($payment));
+        }
+       
 
         $this->resetExcept('booking');
 

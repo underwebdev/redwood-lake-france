@@ -175,6 +175,11 @@ class BookingDashboard extends Component
             $this->unavailableDate = false;
         }
 
+        if(Priceguide::where('end', '>=', $date)->where('start', '<=', $date)->doesntExist())
+        {
+            $this->unavailableDate = true;
+        }
+
     }
 
     public function updatedMode()
