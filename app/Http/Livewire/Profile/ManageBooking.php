@@ -4,6 +4,8 @@ namespace App\Http\Livewire\Profile;
 
 use Livewire\Component;
 use Stripe\{Stripe, PaymentIntent};
+use Illuminate\Support\Facades\Mail;
+use App\Mail\PaymentNotification;
 use App\Models\Payment;
 use App\Models\Angler;
 use Auth;
