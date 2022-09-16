@@ -89,8 +89,8 @@ class WebhookController extends Controller
 
                     $data = [
                         'firstName' => $user->angler->firstName,
-                        'password' => $plainPWD,
-                        'email' => $newPWD
+                        'password' => $newPWD,
+                        'email' => $user->email
                     ];
 
                     Mail::to($user->email)->send(new AccountCreated($user));
