@@ -137,7 +137,7 @@ class WebhookController extends Controller
                         ]);
                     }
 
-                    $booking->vouchers()->attach($voucher->id);  
+                    $booking->voucher()->attach($voucher->id);  
                 }
 
                 Mail::to($user->email)->send(new BookingReceipt($booking));
