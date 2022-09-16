@@ -28,7 +28,7 @@
 
                         @elseif($step == 2)
                             <h4 class="text-center">Lead Booking Details</h4>
-                            <div wire:poll.visisble.100ms="expired">
+                            <div wire:poll.visisble.100ms>
                             <h5 class="text-center">
                                 {{ gmdate("i:s", Carbon\Carbon::parse($expiry)->diffInSeconds()) }}
                             </h5>
@@ -96,7 +96,7 @@
                             </div>
                         @elseif($step == 3)
                             <h4 class="text-center">Booking Details</h4>
-                            <div wire:poll.visible.100ms="expired">
+                            <div wire:poll.visible.100ms=
                                 <h5 class="text-center">
                                     {{ gmdate("i:s", Carbon\Carbon::parse($expiry)->diffInSeconds()) }}
                                 </h5>

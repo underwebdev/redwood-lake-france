@@ -193,6 +193,14 @@ class PayDeposit extends Component
 
     public function render()
     {
+        if($this->expiry)
+        {
+            if(Carbon::now() > $this->expiry)
+            {
+                redirect()->to('/booking')->with('failure', 'Time limit expired!');
+            }
+        }
+        
         $paymentIntent = $this->intent;
 
         return view('livewire.pay-deposit',[
