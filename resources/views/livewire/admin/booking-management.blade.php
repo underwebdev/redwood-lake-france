@@ -46,7 +46,7 @@
                             <th>Departure</th>
                             <th class="text-center">Anglers</th>
                             <th>Total</th>
-                            @if($booking->voucher->exists())
+                            @if($booking->voucher()->exists())
                             <th>Discount</th>
                             @endif
                             <th>Payments</th>
@@ -61,7 +61,7 @@
                             <td>{{ date('j/m/y H:i', strtotime ($booking->departure)) }}</td>
                             <td class="text-center">{{ $booking->anglers }}</td>
                             <td>£{{ $booking->total / 100 }}</td>
-                            @if($booking->voucher->exists())
+                            @if($booking->voucher()->exists())
                             <th>@foreach($booking->voucher as $voucher) {{ $voucher->code }} <span class="error">£{{ $voucher->amount / 100 }}</span> @endforeach</th>
                             @endif
                             <td>£{{ $booking->payments->sum('total') / 100 }}</td>
