@@ -122,7 +122,7 @@
                                 <td>£{{ $payment->total / 100 }}</td>
                                 <td>{{ $payment->paymethod->name }}</td>
                                 <td>{{ date('j/m/y H:i', strtotime ($payment->created_at)) }}</td>
-                                <td class="text-right"><a class="button small">View Payment</a></td>
+                                <td class="text-right"><a href="/admin/payment/{{ $payment->id }}" class="button small">View Payment</a></td>
                             </tr>
                             @endforeach
                         </tbody>
