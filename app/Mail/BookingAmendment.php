@@ -6,19 +6,22 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use App\Models\Booking;
 
 class BookingAmendment extends Mailable
 {
     use Queueable, SerializesModels;
+
+    public $booking;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Booking $booking)
     {
-        //
+        $this->booking = $booking;
     }
 
     /**
@@ -28,6 +31,6 @@ class BookingAmendment extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.booking-amendment');
+        return $this->from('bookings@redwoodlake.co.uk', 'Redwood Lake')->subject('Booking Receipt')->replyto('info@redwoodlake.co.uk')->markdown('emails.booking-amendment');
     }
 }

@@ -32,6 +32,6 @@ class BookingReceipt extends Mailable
      */
     public function build()
     {
-        return $this->from('bookings@redwoodlake.co.uk', 'Redwood Lake')->subject('Booking Receipt')->replyto('toby@redwoodlake.co.uk')->markdown('emails.booking-receipt');
+        return $this->from('bookings@redwoodlake.co.uk', 'Redwood Lake')->subject('Booking Receipt')->replyto('info@redwoodlake.co.uk')->markdown('emails.booking-receipt');
     }
 }

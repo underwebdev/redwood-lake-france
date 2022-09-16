@@ -9,8 +9,6 @@ Your bank transfer payment has been confirmed.</p>
 <strong>Departure:</strong> {{ date('j/m/y H:i', strtotime ($payment->booking->departure)) }}<br>
 <strong>Payment:</strong> £{{ $payment->total / 100 }}</p>
 @endcomponent
-<p>Please ensure you and your guest have read the rules prior to fishing, members are responsible for their guests behavior whilst fishing.</p>
-
 <p>Thanks,<br>
 Redwood Lake</p>
 @endcomponent

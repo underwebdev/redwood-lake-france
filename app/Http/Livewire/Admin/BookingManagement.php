@@ -3,6 +3,9 @@
 namespace App\Http\Livewire\Admin;
 
 use Livewire\Component;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\BookingAmendment;
+use App\Mail\PaymentReceipt;
 use App\Models\Booking;
 use App\Models\Placeholder;
 use App\Models\Angler;
@@ -45,13 +48,15 @@ class BookingManagement extends Component
             'amount' => 'required|numeric'
         ]);
 
-        $this->booking->payments()->create([
+        $payment = $this->booking->payments()->create([
             'angler_id' => $data['angler'],
             'total' => $data['amount'] * 100,
             'net' => $data['amount'] * 100,
             'paymethod_id' => 2,
             'status' => 1
         ]);
+
+        Mail::to($payment->angler->user->email)->send(new PaymentReceipt($payment));
 
         $this->resetExcept('booking');
 
@@ -163,6 +168,8 @@ class BookingManagement extends Component
             'total' => $data['total'] * 100,
             'angler_id' => $data['lead'] 
         ]);
+
+        Mail::to($this->booking->angler->user->email)->send(new BookingAmendment($this->booking));
 
         $this->resetExcept('booking');
 
