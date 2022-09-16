@@ -169,8 +169,6 @@ class BookingManagement extends Component
             'angler_id' => $data['lead'] 
         ]);
 
-        Mail::to($this->booking->angler->user->email)->send(new BookingAmendment($this->booking));
-
         $this->resetExcept('booking');
 
         $this->booking->refresh();
@@ -252,6 +250,8 @@ class BookingManagement extends Component
             'arrival' => Carbon::parse($this->newdate)->format('Y-m-d') . ' 14:00:00',
             'departure' => Carbon::parse($this->newdate)->addDays(7)->format('Y-m-d') . ' 11:00:00'
         ]);
+
+        Mail::to($this->booking->angler->user->email)->send(new BookingAmendment($this->booking));
 
         $this->resetExcept('booking');
 
