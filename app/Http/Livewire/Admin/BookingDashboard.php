@@ -159,7 +159,9 @@ class BookingDashboard extends Component
 
     public function updatedDate()
     {
-        $date = Carbon::parse($this->date)->toDateString();
+        $date = Carbon::parse($this->date);
+
+        $booking = Carbon::parse($this->date)->toDateString()
 
         if($date->dayOfWeek != 6)
         {
@@ -168,14 +170,14 @@ class BookingDashboard extends Component
             $this->invalidDate = false;
         }
 
-        if(Booking::where('arrival', $date . ' 14:00:00')->exists() OR Placeholder::where('date', $date)->exists())
+        if(Booking::where('arrival', $booking . ' 14:00:00')->exists() OR Placeholder::where('date', $booking)->exists())
         {
             $this->unavailableDate = true;
         } else {
             $this->unavailableDate = false;
         }
 
-        if(Priceguide::where('end', '>=', $date)->where('start', '<=', $date)->doesntExist())
+        if(Priceguide::where('end', '>=', $booking)->where('start', '<=', $booking)->doesntExist())
         {
             $this->unavailableDate = true;
         }
