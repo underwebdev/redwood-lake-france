@@ -143,7 +143,7 @@ class ManageBooking extends Component
     {
         $data = $this->validate(['confirm' => 'required']);
 
-        $this->booking->payments()->create([
+        $payment = $this->booking->payments()->create([
             'angler_id' => Auth::user()->angler->id,
             'total' => $this->amountToPay,
             'net' => $this->amountToPay,
