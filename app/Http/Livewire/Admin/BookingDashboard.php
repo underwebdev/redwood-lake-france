@@ -161,7 +161,7 @@ class BookingDashboard extends Component
     {
         $date = Carbon::parse($this->date);
 
-        $booking = Carbon::parse($this->date)->toDateString()
+        $booking = Carbon::parse($this->date)->toDateString();
 
         if($date->dayOfWeek != 6)
         {
