@@ -97,15 +97,19 @@ class WebhookController extends Controller
                 }
 
                 $booking = $user->angler->bookings()->create([
-                    'address1' => $intent->metadata->address1,
-                    'address2' => $intent->metadata->address2,
-                    'address3' => $intent->metadata->address3,
-                    'postcode' => $intent->metadata->postcode,
                     'anglers' => $intent->metadata->anglers,
                     'arrival' => $intent->metadata->arrival . ' 14:00:00',
                     'departure' => Carbon::parse($intent->metadata->arrival)->addDays(7)->format('Y-m-d') . ' 11:00:00',
                     'total' => $intent->metadata->total,
                     'priceguide_id' => $intent->metadata->priceguide
+                ]);
+
+                $user->angler->address->updateOrCreate([
+                    'angler_id' => $user->angler->id ],[
+                    'address1' => $intent->metadata->address1,
+                    'address2' => $intent->metadata->address2,
+                    'address3' => $intent->metadata->address3,
+                    'postcode' => $intent->metadata->postcode
                 ]);
 
                 $booking->payments()->create([

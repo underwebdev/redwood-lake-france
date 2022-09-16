@@ -16,10 +16,6 @@ return new class extends Migration
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
             $table->integer('angler_id');
-            $table->text('address1');
-            $table->text('address2')->nullable();
-            $table->text('address3')->nullable();
-            $table->string('postcode')->nullable();
             $table->integer('anglers');
             $table->datetime('arrival');
             $table->datetime('departure');

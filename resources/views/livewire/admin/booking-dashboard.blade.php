@@ -73,6 +73,15 @@
                     </table>   
             </div><!-- End of cell-->
             @elseif($mode == 2)
+            @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
             <div class="cell small-12 medium-8 large-6 medium-offset-2 large-offset-3">
                 <label for="">Date
                     @error('date')
@@ -81,56 +90,68 @@
                     @if($invalidDate)
                         <span class="error">Selected date is not a saturday</span>
                     @endif
+                    @if($unavailableDate)
+                        <span class="error">Selected date not available</span>
+                    @endif
+
                 </label>
-                <input type="text" placeholder="" wire:model="date">
+                <input type="text" id="datepicker" wire:model.lazy="date">
 
                 <label for="">Angler</label>
                 <select id="" wire:model="angler">
                     <option value="">Please Select</option>
-                    <option value="new">New Angler</option> 
+                    <option value="new">New Angler</option>
+                    @foreach($guests as $guest)
+                    <option value="{{ $guest->id }}">{{ $guest->firstName }} {{ $guest->lastName }}</option>
+                    @endforeach 
                 </select>
 
                 @if($angler == 'new')
-                    <label for="">First Name</label>
-                    <input type="text" placeholder="" wire:model="firstName">
-                    <label for="">Last Name</label>
-                    <input type="text" placeholder="" wire:model="lastName">
-                    <label for="">Telephone</label>
-                    <input type="text" placeholder="" wire:model="telephone">
-                    <label for="">Email</label>
-                    <input type="text" placeholder="" wire:model="email"> 
+                    <label for="">First Name
+                        @error('')<span class="error">This field is required</span>@enderror
+                    </label>
+                    <input type="text" wire:model="firstName">
+
+                    <label for="">Last Name 
+                        @error('')<span class="error">This field is required</span>@enderror
+                    </label>
+                    <input type="text" wire:model="lastName">
+
+                    <label for="">Telephone
+                        @error('')<span class="error">This field is required</span>@enderror    
+                    </label>
+                    <input type="text" wire:model="telephone">
+
+                    <label for="">Email
+                        @error('')<span class="error">This field is required</span>@enderror
+                    </label>
+                    <input type="text" wire:model="email"> 
+
                     <label for="">Confirm Email
                         @error('')<span class="error">This field is required</span>@enderror
                     </label>
-                    <input type="text" placeholder="" wire:model="email_confirmation">
+                    <input type="text" wire:model="email_confirmation">
+
+                    <label for="">Address
+                        @error('address')<span class="error">This field is required</span>@enderror
+                    </label>
+                    <input type="text" wire:model="address1">
+
+                    <label for="">Address 2
+                        @error('address2')<span class="error">This field is required</span>@enderror
+                    </label>
+                    <input type="text" wire:model="address2">
+
+                    <label for="">Address 3
+                        @error('address3')<span class="error">This field is required</span>@enderror
+                    </label>
+                    <input type="text" wire:model="address3">
+
+                    <label for="">Post Code
+                        @error('postcode')<span class="error">This field is required</span>@enderror
+                    </label>
+                    <input type="text" wire:model="postcode">
                 @endif
-
-               
-
-                <label for="">Telephone
-                    @error('telephone')<span class="error">This field is required</span>@enderror
-                </label>
-                <input type="text" placeholder="" wire:model="telephone">
-
-                <label for="">Address
-                    @error('address')<span class="error">This field is required</span>@enderror
-                </label>
-                <input type="text" placeholder="" wire:model="address1">
-
-                <label for="">Address 2
-                    @error('address2')<span class="error">This field is required</span>@enderror
-                </label>
-                <input type="text" placeholder="" wire:model="address2">
-
-                <label for="">Address 3
-                    @error('address3')<span class="error">This field is required</span>@enderror
-                </label>
-                <input type="text" placeholder="" wire:model="address3">
-
-                <label for="">Post Code
-                    @error('postcode')<span class="error">This field is required</span>@enderror
-                </label>
-                <input type="text" placeholder="" wire:model="postcode">
 
                 <label for="">Number Of Anglers (Including lead)
                     @error('anglers')<span class="error">This field is required</span>@enderror
@@ -158,12 +179,6 @@
                 <input type="text" wire:model.lazy="discountcode">
                 @endif
 
-                <label for="">Would you like to add 25kg pellet?</label>
-                <select id="" wire:model="extra">
-                    <option value="">Yes</option>
-                    <option value="">No</option> 
-                </select>
-
                 <label for="">Add a Payment</label>
                 <select id="" wire:model="payment">
                     <option value="">Please select</option>
@@ -173,7 +188,7 @@
 
                 @if($payment == 1)
                 <label for="">Payment Amount (if entered, the customer will receive an email receipt for the amount stated.)</label>
-                <input type="text" placeholder="" wire:model="amount">
+                <input type="text" wire:model="amount">
                 @endif
 
                 <button class="button success" wire:click="saveBooking">Create Booking</button>
