@@ -7,7 +7,7 @@
 		<div class="cell small-12 medium-6 large-4 large-offset-4 medium-offset-3">
 			<div class="center-border text-center">
 				<div class="center-border-header text-center">
-					<img src="/img/logo/RedwoodLogo.png">
+					<img src="/img/logo/RedwoodLogo.png" width="200px">
 				</div>
 				<div class="center-border-content">
 					<h3><strong>Payment Complete</strong></h3>
