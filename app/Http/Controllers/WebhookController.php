@@ -133,7 +133,7 @@ class WebhookController extends Controller
                     if($voucher->used >= $voucher->limit)
                     {
                         $voucher->update([
-                            'is_active' => 0
+                            'active' => 0
                         ]);
                     }
 
