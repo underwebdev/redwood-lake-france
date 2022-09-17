@@ -84,7 +84,7 @@
                 <div class="cell small-6 medium-4 ml-3">
                     <div class="report-polaroid">
                         <img src="{{ $report->sideonethumb }}">
-                        <p>{{ $report->lbs }}lb {{ $report->oz }}oz</p>
+                        <p class="text-center">{{ $report->lbs }}lb {{ $report->oz }}oz</p>
                     </div>
                 </div><!-- End of cell-->
                 @endforeach
