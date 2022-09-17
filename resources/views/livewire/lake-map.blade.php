@@ -14,7 +14,16 @@
                 <div class="cell small-12">
                     <div class="swim-list">
                         <h5 class="info-bar">Swims</h5>
-                        <p><i class="fas fa-info-circle secondary"></i> Click the swim names to see the lake from each swim.</p>
+                        <div class="grid-x grid-padding-x">
+                            <div class="cell small-1">
+                                <p><i class="fas fa-info-circle secondary"></i> </p>      
+                            </div><!-- End of cell-->
+                            <div class="cell small-11">
+                                <p>Click the swim names to see the lake from each swim.      
+                            </div><!-- End of cell-->
+                          
+                        </div><!--end of grid-x -->
+                        
 
                         <div class="grid-x grid-padding-x">
                             <div class="cell small-12 medium-6">
@@ -55,7 +64,7 @@
                       <p><strong><span class="weighted">Common:</span> </strong>{{ $lake->lrcommon }}<br>
                       <strong><span class="weighted">Mirror:</span> </strong>{{ $lake->lrmirror }}<br>
                       <strong><span class="weighted">Total fish:</span> </strong>{{ $lake->stock }}<br>
-                      <strong><span class="weighted">Average size:</span> </strong>{{ $lake->avgsize }}</p>
+                      <strong><span class="weighted">Average:</span> </strong>{{ $lake->avgsize }}</p>
                      </p>    
                 </div><!-- End of cell-->
             </div>

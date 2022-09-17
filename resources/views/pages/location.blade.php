@@ -22,20 +22,20 @@
 <div class="grid-container">
 	<div class="grid-x grid-padding-x">
 		<div class="cell small-12">
-			<h3><span class="weighted">Finding</span> Us</h3>
+			<h3 class="text-center"><span class="weighted">Finding</span> Us</h3>
 			@foreach($page->modules->where('order', 1) as $module)
 				<p>{!! nl2br(e($module->content)) !!}</p>
 			@endforeach
 
 			<div class="grid-x grid-padding-x">
 				<div class="cell small-12">
-					<h4><span class="weighted">Complex</span> Address</h4>
-					<p>Étang de Seuil, Saint-Pardoux-le-Lac, 87140, France</p>
+					<h4 class="text-center"><span class="weighted">Complex</span> Address</h4>
+					<p class="text-center">Étang de Seuil, Saint-Pardoux-le-Lac, 87140, France</p>
 				</div><!-- End of cell-->
 			</div>
 			<div class="grid-x grid-padding-x">
 				<div class="cell small-12 large-6">
-					<h4><span class="weighted">Ferry</span> Crossing</h4>
+					<h4 class="text-center"><span class="weighted">Ferry</span> Crossing</h4>
 					<div class="table-scroll">
 						<table>
 							<thead>
@@ -86,7 +86,7 @@
 				    </div>
 				</div><!-- End of cell-->
 				<div class="cell small-12 large-6">
-					<h4><span class="weighted">Nearest</span> Ports</h4>
+					<h4 class="text-center"><span class="weighted">Nearest</span> Ports</h4>
 
 					<div class="table-scroll">
 						<table>
@@ -175,11 +175,11 @@
 
 <div class="grid-container">
 	<div class="cell small-12">
-		<h3><span class="weighted">Driving</span> to Redwood Lake (Etang de Seuil)</h3>
+		<h3 class="text-center"><span class="weighted">Driving</span> to Redwood Lake (Etang de Seuil)</h3>
 		@foreach($page->modules->where('order', 2) as $module)
 			<p>{!! nl2br(e($module->content)) !!}</p>
 		@endforeach
-		<h3><span class="weighted">Flying</span> to Redwood Lake (Etang de Seuil)</h3>
+		<h3 class="text-center"><span class="weighted">Flying</span> to Redwood Lake (Etang de Seuil)</h3>
 		@foreach($page->modules->where('order', 3) as $module)
 			<p>{!! nl2br(e($module->content)) !!}</p>
 		@endforeach

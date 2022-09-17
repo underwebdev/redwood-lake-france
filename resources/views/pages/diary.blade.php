@@ -47,7 +47,9 @@
 			@foreach($photos as $photo)
 			<div class="cell small-6 medium-4 large-3">
 				<div class="photo-diary-thumb">
-					<img src="{{ $photo->photo }}">
+					<a href="{{ $photo->photo }}" data-lity>
+						<img src="{{ $photo->thumbnail }}">
+					</a>
 				</div>
 				<div class="photo-diary-caption">
 					<p class="text-center"><strong>{{ $photo->caption }}</strong></p>

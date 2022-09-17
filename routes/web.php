@@ -31,7 +31,7 @@ Route::get('location', [PageController::class, 'location']);
 Route::get('news', [PageController::class, 'news']);
 Route::get('article/{article}', [PageController::class, 'article']);
 Route::get('photo-diary', [PageController::class, 'diary']);
-Route::get('weather', [PageController::class, 'weather']);
+Route::get('weather', [PageController::class, 'openweather']);
 Route::get('contact', [PageController::class, 'contact']);
 Route::get('booking-terms', [PageController::class, 'bookingterms']);
 Route::get('terms-conditions', [PageController::class, 'terms']);

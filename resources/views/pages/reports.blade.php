@@ -22,7 +22,7 @@
 	<div class="grid-container">
 		<div class="grid-x grid-padding-x">
 			<div class="cell small-12">
-				<h3><span class="weighted">Latest</span> Catch Reports</h3>
+				<h3 class="text-center"><span class="weighted">Latest</span> Catch Reports</h3>
 				@foreach($page->modules->where('order', 1) as $module)
 					<p>{!! nl2br(e($module->content)) !!}</p>
 				@endforeach

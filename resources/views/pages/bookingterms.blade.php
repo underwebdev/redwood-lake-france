@@ -6,7 +6,7 @@
 
 @section('content')
 
-<div class="hero content">
+<div class="hero content black">
 	@include('layout.nav')
 <div class="grid-container full">
 	<div class="grid-x grid-padding-x">
@@ -22,9 +22,9 @@
 	<div class="grid-container">
 		<div class="grid-x grid-padding-x">
 			<div class="cell small-12">
-				<h3><span class="weighted">Booking</span> Terms & Conditions</h3>
+				<h3 class="text-center"><span class="weighted">Booking</span> Terms & Conditions</h3>
 				@foreach($page->modules->where('order', 1) as $module)
-					<p>{!! nl2br(e($module->content)) !!}</p>
+					<p class="text-center">{!! nl2br(e($module->content)) !!}</p>
 				@endforeach
 			</div><!-- End of cell-->
 			<div class="cell small-12 medium-8 large-6 medium-offset-2 large-offset-3">

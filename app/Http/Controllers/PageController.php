@@ -194,6 +194,27 @@ class PageController extends Controller
         }
 
         return view('pages.weather', ['forecast' => $forecast, 'page' => $page]);
+    }
+
+    public function openweather()
+    {
+        $page = Page::find(13);
+
+        $key = '2c53f13eb3a7010971263c18f6441dd1';
+        $lat = '45.8315';
+        $lon = '1.2578';
+
+        $endpoint = 'https://api.openweathermap.org/data/3.0/onecall?lat='. $lat . '&lon='. $lon . '&exclude=hourly,daily&appid='. $key;
+
+        
+
+        $alt = 'api.openweathermap.org/data/2.5/forecast?lat='. $lat . '&lon=' . $lon . '&appid=' . $key;
+
+        
+
+        $data = Http::get($alt);
+
+        return view('pages.openweather', compact('page', 'data'));
     } 
 
     public function contact()
