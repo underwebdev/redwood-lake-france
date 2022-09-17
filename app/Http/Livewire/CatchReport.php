@@ -15,6 +15,8 @@ class CatchReport extends Component
     public $selectedSpecies;
     public $selectedWeight;
     public $selectedSwim;
+
+    public $mode = 1;
     
     public function render()
     {

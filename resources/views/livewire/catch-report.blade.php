@@ -31,6 +31,7 @@
 
     <div class="grid-container">
         <div class="grid-x grid-padding-x">
+            @if($mode == 1)
             <div class="cell small-12">
                 <div class="table-scroll">
                     <table>
@@ -74,7 +75,33 @@
                 <div class="text-center">
                     {{ $reports->links() }}
                 </div>
+                <div class="text-center">
+                    <button class="button success" wire:click="$set('mode', 2)">Gallery View</button>
+                </div>
             </div><!-- End of cell-->
+            @else
+                @foreach($reports as $report)
+                <div class="cell small-6 medium-4 ml-3">
+                    <div class="report-polaroid">
+                        <img src="{{ $report->sideonethumb }}">
+                        <p>{{ $report->lbs }}lb {{ $report->oz }}oz</p>
+                    </div>
+                </div><!-- End of cell-->
+                @endforeach
+                <div class="grid-x grid-padding-x">
+                    <div class="cell small-12">
+                        <div class="text-center">
+                            {{ $reports->links() }}
+                        </div> 
+                    </div><!-- End of cell-->
+                    <div class="cell small-12">
+                        <div class="text-center">
+                            <button class="button success" wire:click="$set('mode', 1)">Table View</button>
+                        </div>
+                    </div><!-- End of cell-->      
+                   
+                </div><!--end of grid-x -->
+            @endif
         </div><!--end of grid-x -->
     </div><!--End of grid container-->
 </div>
