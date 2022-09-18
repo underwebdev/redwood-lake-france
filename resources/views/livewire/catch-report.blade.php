@@ -83,7 +83,9 @@
                 @foreach($reports as $report)
                 <div class="cell small-6 medium-4 ml-3">
                     <div class="report-polaroid">
-                        <img src="{{ $report->sideonethumb }}">
+                        <a href="{{ $report->sideone }}" data-lity>
+                            <img src="{{ $report->sideonethumb }}">
+                        </a>
                         <p class="text-center">{{ $report->lbs }}lb {{ $report->oz }}oz</p>
                     </div>
                 </div><!-- End of cell-->
