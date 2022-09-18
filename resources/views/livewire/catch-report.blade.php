@@ -88,7 +88,7 @@
                         <a href="{{ $report->sideone }}" data-lity>
                             <img src="{{ $report->sideonethumb }}">
                         </a>
-                        <p class="text-center weighted">{{ $report->lbs }}lb {{ $report->oz }}oz</p>
+                        <p class="text-center">{{ $report->lbs }}lb {{ $report->oz }}oz</p>
                     </div>
                 </div><!-- End of cell-->
                 @endforeach         
