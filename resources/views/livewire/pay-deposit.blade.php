@@ -63,12 +63,10 @@
                             </label>
                             <input type="text" placeholder="" wire:model="address1">
 
-                            <label for="">Address 2 (optional) 
-                            </label>
+                            <label for="">Address Line 2 (optional)</label>
                             <input type="text" placeholder="" wire:model="address2">
 
-                            <label for="">County (optional)  
-                            </label>
+                            <label for="">County (optional)</label>
                             <input type="text" placeholder="" wire:model="address3">
 
                             <label for="">Post Code
