@@ -104,7 +104,7 @@ class PayDeposit extends Component
             'email' => 'required',
             'telephone' => 'required',
             'address1' => 'required',
-            'address2' => 'required',
+            'address2' => 'nullable',
             'address3' => 'nullable',
             'postcode' => 'required',
             'anglers' => 'required|numeric',

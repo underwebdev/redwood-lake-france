@@ -3,7 +3,7 @@
 <h2><center>Booking Receipt</center></h2>
 
 <p class="text-center">Hello {{ $booking->angler->firstName }},<br>
-Thank you for making a booking at Redwood Lake. Please find below details of your booking.</p>
+Thank you for booking your french carp fishing holiday at Redwood Lake. Please find below details of your booking.</p>
 @component('mail::panel')
 <p class="text-center"><strong>Booking Information</strong><br>
 <strong>Booking Ref:</strong> {{ $booking->id }}<br>

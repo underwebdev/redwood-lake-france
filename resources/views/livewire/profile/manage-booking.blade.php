@@ -69,13 +69,30 @@
             <div class="cell small-12 medium-8 large-6 medium-offset-2 large-offset-3">
                 <h5 class="info-bar">Create Angler</h5>
                 <p>Please add the names and contact details for all members of your party</p>
-                <label for="">First Name</label>
+                <label for="">First Name
+                    @error('firstName')<span class="error">{{ $message }}</span>@enderror
+                </label>
                 <input type="text" placeholder="" wire:model="firstName">
-                <label for="">Last Name</label>
+                <label for="">Last Name
+                    @error('lastName')<span class="error">{{ $message }}</span>@enderror
+                </label>
                 <input type="text" placeholder="" wire:model="lastName">
 
-                <label for="">Telephone</label>
+                <label for="">Telephone
+                    @error('telephone')<span class="error">{{ $message }}</span>@enderror
+                </label>
                 <input type="text" placeholder="" wire:model="telephone">
+
+                <label for="">Email
+                    @error('email')<span class="error">{{ $message }}</span>@enderror
+                </label>
+                <input type="text" placeholder="" wire:model="email">
+
+                <label for="">Confirm Email
+                    @error('email_confirmation')<span class="error">{{ $message }}</span>@enderror
+                </label>
+                <input type="text" placeholder="" wire:model="email_confirmation">
+
                 <button class="button success" wire:click="saveAngler">Add Angler</button>
 
             </div>
@@ -147,19 +164,13 @@
                         <strong>Account Number:</strong> 00000000<br>
                         <strong>Sort Code:</strong> 00-00-00</p>
 
-                        <div class="grid-x">
-                            @error('confirm')
-                            <div class="cell small-12">
-                                <span class="error">Please confirm you have transfered funds to the account listed above</span>      
-                            </div><!-- End of cell-->
-                            @enderror
-                            <div class="cell small-1">
-                                <input wire:model="confirm" id="checkbox1" type="checkbox" value="1" required> 
-                            </div>
-                            <div class="cell small-11">
-                                <label for="confirm"><span class="error">I confirm I have ALREADY transfered £{{ $amountToPay / 100 }} to the above bank account.</span></label>
-                            </div>
-                        </div>
+                        @error('confirm')
+                            <span class="error">Please confirm you have transfered funds to the account listed above</span>      
+                        @enderror
+                        <select id="" wire:model="confirm">
+                            <option value="">Please Confirm</option>
+                            <option value="1">I confirm I have ALREADY transfered £{{ $amountToPay / 100 }} to the above bank account.</option> 
+                        </select>
                         <br>
                         <p><strong>You must transfer funds <u>BEFORE</u> you click confirm below, we cannot automatically take funds from your bank account. You will receive a payment receipt once we confirm we have received the funds.</strong></p>
 

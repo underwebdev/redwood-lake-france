@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Profile;
 
 use Livewire\Component;
+use Illuminate\Support\Str;
 use Stripe\{Stripe, PaymentIntent};
 use Illuminate\Support\Facades\Mail;
 use App\Mail\PaymentNotification;
@@ -22,6 +23,8 @@ class ManageBooking extends Component
     public $firstName;
     public $lastName;
     public $telephone;
+    public $email;
+    public $email_confirmation;
     public $selectedAngler;
 
     public $connect;
@@ -33,15 +36,17 @@ class ManageBooking extends Component
         $data = $this->validate([
             'firstName' => 'required',
             'lastName' => 'required',
-            'telephone' => 'required|numeric'
+            'telephone' => 'required|numeric',
+            'email' => 'required|email|confirmed'
         ]);
 
         $ref = Angler::latest()->pluck('ref')->first();
 
         $angler = Angler::create([
-            'firstName' => $data['firstName'],
-            'lastName' => $data['lastName'],
+            'firstName' => Str::of($data['firstName'])->ucfirst(),
+            'lastName' => Str::of($data['lastName'])->ucfirst(),
             'telephone' => $data['telephone'],
+            'email' => $data['email'],
             'ref' => $ref + 1
         ]);
 
@@ -61,6 +66,7 @@ class ManageBooking extends Component
         $this->firstName = $this->selectedAngler->firstName;
         $this->lastName = $this->selectedAngler->lastName;
         $this->telephone = $this->selectedAngler->telephone;
+        $this->email = $this->selectedAngler->email;
 
         $this->mode = 3;
     }
@@ -70,18 +76,20 @@ class ManageBooking extends Component
         $data = $this->validate([
             'firstName' => 'required',
             'lastName' => 'required',
-            'telephone' => 'required|numeric'
+            'telephone' => 'required|numeric',
+            'email' => 'required|email|confirmed',
         ]);
 
         $this->selectedAngler->update([
-            'firstName' => $data['firstName'],
-            'lastName' => $data['lastName'],
-            'telephone' => $data['telephone']
+            'firstName' => Str::of($data['firstName'])->ucfirst(),
+            'lastName' => Str::of($data['lastName'])->ucfirst(),
+            'telephone' => $data['telephone'],
+            'email' => $data['email']
         ]);
 
         $this->booking->refresh();
 
-        $this->reset(['mode', 'firstName', 'lastName', 'telephone']);
+        $this->reset(['mode', 'firstName', 'lastName', 'telephone', 'email']);
 
         session()->flash('success', 'Angler Updated');
     }

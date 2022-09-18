@@ -10,14 +10,18 @@
                         @if($step == 1)
                             <h4 class="text-center">Booking Date<br> {{ Carbon\Carbon::parse($date)->format('j/m/y') }}</h4>
 
-                            <p>Please read and confirm you have read the booking terms & conditions before proceeding with your booking.</p>
+                            <p>Please read and confirm you have read the <a data-open="terms">booking terms & conditions</a> before proceeding with your booking.</p>
 
                             <p>Once clicking "start booking" your chosen date will be held for 15 mins, whilst you enter your details and make payment.</p> 
 
                             <p>Please Note: If the payment process is not completed in the 15 minuite time frame, then the date will become available again for other anglers to book.</p>
 
-                            <input type="checkbox" wire:model="terms"> <strong>Please confirm you have read all the <a href="/booking-terms">booking terms and conditions</a> by checking the box to the left before proceeding.</strong>
-                            <br><br>
+                            <p><strong>Please confirm you have read all the <a data-open="terms">booking terms and conditions</a> by checking the box to the left before proceeding.</strong></p>
+                            
+                            <select id="" wire:model="terms">
+                                <option value="">Please Confirm</option>
+                                <option value="1">I have read and accept the booking terms & conditions</option> 
+                            </select>
 
                             <div class="button-group">
                                 @if($terms)
@@ -59,13 +63,11 @@
                             </label>
                             <input type="text" placeholder="" wire:model="address1">
 
-                            <label for="">Address 2
-                                @error('address2')<span class="error">This field is required</span>@enderror
+                            <label for="">Address 2 (optional) 
                             </label>
                             <input type="text" placeholder="" wire:model="address2">
 
-                            <label for="">Address 3
-                                @error('address3')<span class="error">This field is required</span>@enderror
+                            <label for="">County (optional)  
                             </label>
                             <input type="text" placeholder="" wire:model="address3">
 
@@ -162,4 +164,13 @@
             </div><!-- End of cell-->
         </div><!--end of grid-x -->
     </div><!--End of grid container-->
+
+    <div class="reveal" id="terms" data-reveal>
+      <h1>Booking Terms & Conditions</h1>
+      <p class="lead">Your couch. It is mine.</p>
+      <p>I'm a cool paragraph that lives inside of an even cooler modal. Wins!</p>
+      <button class="close-button" data-close aria-label="Close modal" type="button">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
 </div>

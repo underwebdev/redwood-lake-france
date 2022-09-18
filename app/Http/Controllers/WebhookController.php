@@ -82,8 +82,8 @@ class WebhookController extends Controller
                     $ref = Angler::latest()->pluck('ref')->first();
 
                     $user->angler()->create([
-                        'firstName' => $intent->metadata->firstName,
-                        'lastName' => $intent->metadata->lastName,
+                        'firstName' => Str::of($intent->metadata->firstName)->ucfirst(),
+                        'lastName' => Str::of($intent->metadata->lastName)->ucfirst(),
                         'telephone' => $intent->metadata->telephone,
                         'ref' => $ref + 1
                     ]);

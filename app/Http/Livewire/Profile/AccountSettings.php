@@ -48,9 +48,7 @@ class AccountSettings extends Component
 
         $this->reset(['password', 'password_confirmation']);
 
-        $this->mode = 1;
-
-        session()->flash('success', 'Password Updated');
+        redirect()->to('my-account');
     }
 
     public function saveContact()

@@ -8,6 +8,9 @@
 <strong>Username:</strong> {{ $data['email'] }}<br>
 <strong>Password:</strong> {{ $data['password'] }}</p>
 @endcomponent
+@component('mail::button', ['url' => 'https://www.redwoodlake.co.uk/login', 'color' => 'blue'])
+Log In
+@endcomponent
 <p>Thanks,<br>
 Redwood Lake</p>
 @endcomponent
