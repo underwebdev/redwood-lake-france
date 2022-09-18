@@ -150,7 +150,7 @@ class ManageBooking extends Component
             'paymethod_id' => 2
         ]);
 
-        Mail::to('joe@underweb.co.uk')->send(new PaymentNotification($payment));
+        Mail::to('tobylc33@gmail.com')->send(new PaymentNotification($payment));
 
         $this->mode = 7;
     }
