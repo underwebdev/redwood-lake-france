@@ -8652,7 +8652,7 @@ hero-wave svg {
 }
 
 .weatherbg {
-  background-image: url("/img/backgrounds/hero-background-alt2.jpg");
+  background-image: url("/img/backgrounds/forecast-background.jpg");
 }
 
 .reportbg {
@@ -8703,7 +8703,7 @@ hero-wave svg {
     background-image: url("/img/backgrounds/tablet/lake-background.jpg");
   }
   .weatherbg {
-    background-image: url("/img/backgrounds/tablet/hero-background-alt2.jpg");
+    background-image: url("/img/backgrounds/tablet/forecast-background.jpg");
   }
   .reportbg {
     background-image: url("/img/backgrounds/tablet/report-background.jpg");
@@ -8744,7 +8744,7 @@ hero-wave svg {
     background-image: url("/img/backgrounds/mobile/lake-background.jpg");
   }
   .weatherbg {
-    background-image: url("/img/backgrounds/mobile/hero-background-alt2.jpg");
+    background-image: url("/img/backgrounds/mobile/forecast-background.jpg");
   }
   .reportbg {
     background-image: url("/img/backgrounds/mobile/report-background.jpg");

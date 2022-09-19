@@ -7,6 +7,7 @@ use Stripe\{Stripe, PaymentIntent};
 use App\Models\Placeholder;
 use App\Models\Voucher;
 use App\Models\Priceguide;
+use App\Models\Term;
 use App\Jobs\PlaceholderCleanup;
 use Carbon\Carbon;
 use Session;
@@ -28,6 +29,8 @@ class PayDeposit extends Component
     public $postcode;
     public $anglers;
     public $payment;
+
+    public $priceguide;
 
     public $placeholder;
     public $discountcode;
@@ -68,11 +71,13 @@ class PayDeposit extends Component
             'email' => 'required|confirmed',
             'telephone' => 'required',
             'address1' => 'required',
-            'address2' => 'required',
+            'address2' => 'nullable',
             'address3' => 'nullable',
             'postcode' => 'required',
             'anglers' => 'required|numeric'
         ]);
+
+        $this->priceguide = Priceguide::where('end', '>=', $this->date)->where('start', '<=', $this->date)->first();
 
         $this->step = 3;
     }
@@ -126,15 +131,21 @@ class PayDeposit extends Component
             $voucher = 0;
         }
 
-        if($data['payment'] == 1)
-        {
-            $toPay = $deposit;
-            $this->duedate = Carbon::parse($this->date)->subdays($priceguide->due);
-            $this->balance = $total - $deposit;
-
-        } elseif($data['payment'] == 2)
+        if(Carbon::today()->toDateString() >= Carbon::parse($bookingdate)->subDays($priceguide->due)->toDateString())
         {
             $toPay = $total;
+        } else {
+            if($data['payment'] == 1)
+            {
+                $toPay = $deposit;
+                $this->duedate = Carbon::parse($this->date)->subdays($priceguide->due);
+                $this->balance = $total - $deposit;
+
+            } elseif($data['payment'] == 2)
+            {
+                $toPay = $total;
+            }
+
         }
 
         $percentage = 1.6;
@@ -208,7 +219,8 @@ class PayDeposit extends Component
         $paymentIntent = $this->intent;
 
         return view('livewire.pay-deposit',[
-            'intent' => $paymentIntent
+            'intent' => $paymentIntent,
+            'bookingterms' => Term::orderBy('order', 'asc')->get()
         ]);
     }
 }

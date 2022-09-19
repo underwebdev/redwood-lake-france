@@ -59,7 +59,7 @@
                             <input type="text" placeholder="" wire:model="telephone">
 
                             <label for="">Address
-                                @error('address')<span class="error">This field is required</span>@enderror
+                                @error('address1')<span class="error">This field is required</span>@enderror
                             </label>
                             <input type="text" placeholder="" wire:model="address1">
 
@@ -119,7 +119,9 @@
                             <label for="">Payment</label>
                             <select id=""wire:model="payment">
                                 <option value="">Please select</option>
+                                @unless(Carbon\Carbon::parse($date)->subDays($priceguide->due)->toDateString() <= Carbon\Carbon::today()->toDateString())
                                 <option value="1">Pay Deposit</option>
+                                @endunless
                                 <option value="2">Pay Full Balance</option> 
                             </select>
 
@@ -165,8 +167,12 @@
 
     <div class="reveal" id="terms" data-reveal>
       <h1>Booking Terms & Conditions</h1>
-      <p class="lead">Your couch. It is mine.</p>
-      <p>I'm a cool paragraph that lives inside of an even cooler modal. Wins!</p>
+      <p class="lead">Please see below for our booking terms and conditions.</p>
+      <ol>
+        @foreach($bookingterms as $term)
+            <li>{{ $term->body }}</li>
+        @endforeach 
+      </ol>
       <button class="close-button" data-close aria-label="Close modal" type="button">
         <span aria-hidden="true">&times;</span>
       </button>
