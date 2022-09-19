@@ -10,13 +10,11 @@
                         @if($step == 1)
                             <h4 class="text-center">Booking Date<br> {{ Carbon\Carbon::parse($date)->format('j/m/y') }}</h4>
 
-                            <p>Please read and confirm you have read the <a data-open="terms">booking terms & conditions</a> before proceeding with your booking.</p>
-
                             <p>Once clicking "start booking" your chosen date will be held for 15 mins, whilst you enter your details and make payment.</p> 
 
                             <p>Please Note: If the payment process is not completed in the 15 minuite time frame, then the date will become available again for other anglers to book.</p>
 
-                            <p><strong>Please confirm you have read all the <a data-open="terms">booking terms and conditions</a> by checking the box to the left before proceeding.</strong></p>
+                            <p><strong>Please confirm you have read all the <a data-open="terms">booking terms and conditions</a> by selected the dropdown box below to continue.</strong></p>
                             
                             <select id="" wire:model="terms">
                                 <option value="">Please Confirm</option>
