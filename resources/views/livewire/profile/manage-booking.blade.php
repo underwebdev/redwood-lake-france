@@ -107,6 +107,14 @@
 
                 <label for="">Telephone</label>
                 <input type="text" placeholder="" wire:model="telephone">
+                <label for="">Email
+                    @error('email')<span class="error">{{ $message }}</span>@enderror
+                </label>
+                <input type="text" placeholder="" wire:model="email">
+
+                <label for="">Confirm Email
+                    @error('email_confirmation')<span class="error">{{ $message }}</span>@enderror
+                </label>
                 <button class="button success" wire:click="saveAnglerChanges">Save Angler</button>
                   
             </div><!-- End of cell-->

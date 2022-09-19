@@ -141,7 +141,28 @@ class WebhookController extends Controller
                 }
 
                 Mail::to($user->email)->send(new BookingReceipt($booking));
-                Mail::to('tobylc33@gmail.com')->send(new BookingNotification($booking));
+                Mail::to('info@redwoodlake.co.uk')->send(new BookingNotification($booking));
+            } elseif($intent->metadata->type == 'payment')
+            {
+                $angler = Angler::find($intent->metadata->angler_id);
+                $booking = Booking::find($intent->metadata->booking_id);
+
+                $paid = $intent->amount;
+                $percentage = 3;
+                $fee = 30;
+                $applicationFee = ($percentage / 100) * $paid + $fee;
+                $roundedFee = round($applicationFee); 
+                $net = $paid - $roundedFee;
+
+                $booking->payments()->create([
+                    'angler_id' => $user->angler->id,
+                    'total' => $paid,
+                    'net' => $net,
+                    'transaction_id' => $intent->id,
+                    'paymethod_id' => 1,
+                    'status' => 1
+                ]);
+
             }
 
         }
