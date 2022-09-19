@@ -12,8 +12,8 @@
 				<div class="center-border-content">
 					<h3><strong>Payment Complete</strong></h3>
 					<p>Thank you for booking your trip to Redwood Lake. You will shortly receive an email containing your booking confirmation and a seperate email containing your password to log in to this website.</p>
-					<p>Once logged in to the website you will be able to manage your booking, add additional anglers to your party and make payments if required.</p> 
-					<p>If you do not receive this email please check your junk/spam folder.</p>
+					<p>Once logged in to our website you will be able to manage your booking, add additional anglers to your party and make payments if required.</p> 
+					<p>If you do not receive the confirmation email, please check your junk/spam folder.</p>
 					<a href="/login" class="button success large radius">Login To Your Account</a>
 				</div>
 			</div>
