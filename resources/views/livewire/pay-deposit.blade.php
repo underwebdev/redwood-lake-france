@@ -14,7 +14,7 @@
 
                             <p>Please Note: If the payment process is not completed in the 15 minuite time frame, then the date will become available again for other anglers to book.</p>
 
-                            <p><strong>Please confirm you have read all the <a data-open="terms">booking terms and conditions</a> by selected the dropdown box below to continue.</strong></p>
+                            <p><strong>Please confirm you have read all the <a data-open="terms">booking terms and conditions</a> by selecting the dropdown box below to continue.</strong></p>
                             
                             <select id="" wire:model="terms">
                                 <option value="">Please Confirm</option>
