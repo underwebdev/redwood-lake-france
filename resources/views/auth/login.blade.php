@@ -14,8 +14,15 @@
             </div>
             <div class="center-border-content">
             	<h1 class="text-center">Customer Login</h1>
-			    @include('layout.alerts')
-                <p><span class="error">If you have not yet created an account you will need to create one to manage your booking by <a href="/create-account">clicking here</a></span></p>
+			    @if ($errors->any())
+                    
+                        <div class="callout alert text-center">
+                            @foreach ($errors->all() as $error)
+                                <p><strong>{{ $error }}</strong></p>
+                            @endforeach
+                        </ul>
+                  
+                @endif
                 <form method="POST" action="/login">
                 @csrf
                     <label for="email">Email</label>
