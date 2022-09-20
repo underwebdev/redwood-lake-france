@@ -56,7 +56,7 @@ class AnglerDashboard extends Component
 
             $angler->user()->create([
                 'email' => $data['email'],
-                'password' => bcrpyt($password),
+                'password' => bcrypt($password),
                 'permission' => 2
             ]);
 
