@@ -87,6 +87,8 @@
                     @error('email')<span class="error">{{ $message }}</span>@enderror
                 </label>
                 <input type="text" placeholder="" wire:model="email">
+                <label for="">Confirm email</label>
+                <input type="text" placeholder="" wire:model="email_confirmation">
                 @endif
                 <button class="button success" wire:click="saveAngler">Create Angler</button>
             </div><!-- End of cell-->

@@ -17,6 +17,7 @@ class AnglerDashboard extends Component
     public $ref;
     public $account;
     public $email;
+    public $email_confirmation;
     public $lookup;
     public $selectedAngler;
 
@@ -37,7 +38,7 @@ class AnglerDashboard extends Component
             'lastName' => 'required',
             'telephone' => 'nullable|numeric',
             'account' => 'required',
-            'email' => 'exclude_unless:account,1|required|unique:users',
+            'email' => 'exclude_unless:account,1|required|unique:users|confirmed',
         ]);
 
         $ref = Angler::latest()->pluck('ref')->first();
