@@ -30,6 +30,6 @@ class AccountCreated extends Mailable
      */
     public function build()
     {
-        return $this->from('accounts@redwoodlake.co.uk', 'Redwood Lake')->subject('Account Created')->replyto('toby@redwoodlake.co.uk')->markdown('emails.account-created')->with('data', $this->data);
+        return $this->from('accounts@redwoodlake.co.uk', 'Redwood Lake')->subject('Account Created')->replyto('info@redwoodlake.co.uk')->markdown('emails.account-created')->with('data', $this->data);
     }
 }

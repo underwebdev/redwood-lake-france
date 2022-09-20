@@ -6,6 +6,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\WebhookController;
+use App\Http\Controllers\EndpointController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +39,8 @@ Route::get('terms-conditions', [PageController::class, 'terms']);
 Route::get('privacy-policy', [PageController::class, 'privacy']);
 Route::get('payment-complete', [PageController::class, 'paymentcomplete']);
 Route::post('payment-webhook', [WebhookController::class, 'handle']);
+
+Route::get('report-api', [EndpointController::class, 'handle']);
 
 Route::get('my-account', [ProfileController::class, 'index']);
 Route::get('my-account/bookings', [ProfileController::class, 'bookings']);
@@ -80,8 +83,6 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::middleware(['guest'])->group(function () {
-	Route::get('create-account', [LoginController::class, 'claim']);
-	Route::post('create-account', [LoginController::class, 'register']);
 	Route::get('login', [LoginController::class, 'login'])->name('login');
 	Route::post('login', [LoginController::class, 'authenticate']);
 	Route::get('forgot-password', [LoginController::class, 'forgot']);

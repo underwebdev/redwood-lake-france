@@ -17,72 +17,6 @@ class LoginController extends Controller
 		return view('auth.login');
 	}
 
-    public function claim()
-    {
-        $years = range(Carbon::now()->subYears(12)->year, 1920);
-
-    	return view('auth.create', compact('years'));
-    }
-
-    public function register()
-    {
-    	$data = request()->validate([
-            'ref' => 'required|numeric',
-            'firstName' => 'required|alpha',
-            'lastName' => 'required',
-            'dd' => 'required|numeric',
-            'mm' => 'required|numeric',
-            'yy' => 'required|numeric',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|confirmed',
-            'consent' => 'required',
-            'post' => 'nullable',
-            'gdpremail' => 'nullable'
-        ]);
-
-        $dob = $data['yy'] . '-' . $data['mm'] . '-' . $data['dd'];
-
-        $memberNo = $data['memberNo'];
-        $firstName = Str::ucfirst($data['firstName']);
-        $lastName = Str::ucfirst($data['lastName']);  
-
-        $checkMember = Member::where('memberNo', $memberNo)->where('is_active', 1)->first();
-
-        if($checkMember == Null)
-        {
-           return redirect('/claim-account')->with('failure', 'Details do not match our records'); 
-        }
-
-        if($checkMember->user()->exists())
-        {
-            return redirect('/claim-account')->with('failure', 'Account for this member has already been created');
-        }
-
-        if($checkMember->lastName == $lastName)
-        {
-            $user = User::create([
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-            'permission' => 2
-            ]);
-
-            $checkMember->update([
-                'user_id' => $user->id,
-                'firstName' => $firstName,
-                'dob' => $dob,
-                'post' => request('post'),
-                'email' => request('gdpremail')
-
-            ]);
-
-            return redirect('/login')->with('success', 'You have successfully activated your account, you can now log in below.');
-
-
-        } else {
-            return redirect('/claim-account')->with('failure', 'Details do not match our records');
-        }
-    }
-
     public function authenticate(Request $request)
     {
         $credentials = $request->only('email', 'password');
@@ -152,7 +86,13 @@ class LoginController extends Controller
                 'password' => bcrypt($newPWD)
             ]);
 
-            Mail::to($user->email)->send(new ForgotPassword($newPWD));
+            $data = [
+                'firstName' => $user->angler->firstName,
+                'password' => $newPWD,
+                'email' => $user->email
+            ];
+
+            Mail::to($user->email)->send(new ForgotPassword($data));
 
             return redirect('/login')->with('success', 'Password successfully reset! Please check your email for your new password');
         }

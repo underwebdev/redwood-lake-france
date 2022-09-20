@@ -35,9 +35,8 @@
                     @enderror
 
                     <div class="button-group">
-                        <button class="button success expanded radius">Login</button>
-                        <a href="/forgot-password" class="button expanded hollow radius">Forgot Password</a>
-                        <a href="/create-account" class="button expanded hollow radius">Create Account</a>
+                        <button class="button success expanded">Login</button>
+                        <a href="/forgot-password" class="button expanded alert hollow">Forgot Password</a>
                     </div>
                 </form>
 		  		
