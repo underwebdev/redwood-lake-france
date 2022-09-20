@@ -99,7 +99,7 @@
 			@endif
 
 			<div class="text-center">
-				<a href="/my-account/catch-reports">Add Catch Report</a>
+				<a href="/my-account/catch-reports" class="button success large">Add Catch Report</a>
 			</div>
 		</div><!-- End of cell-->
 	</div><!--end of grid-x -->
