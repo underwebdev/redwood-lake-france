@@ -4,7 +4,7 @@ namespace App\Http\Livewire\Profile;
 
 use Livewire\Component;
 use Livewire\WithFileUploads;
-use Livewire\withPagination;
+use Livewire\WithPagination;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Report;
