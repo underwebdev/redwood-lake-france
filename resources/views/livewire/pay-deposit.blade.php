@@ -91,14 +91,20 @@
                             <h4 class="text-center">Booking Details</h4>
                           
                             <p class="text-center">Please review the details you have entered</p>
-                            <p><strong>Arriving:</strong>  {{ Carbon\Carbon::parse($date)->format('D jS M Y') }} - 14:00<br>
-                            <strong>Leaving:</strong>  {{ Carbon\Carbon::parse($date)->addDays(7)->format('D jS M Y') }} - 11:00<br>
+                            <p><strong>Arriving:</strong> {{ Carbon\Carbon::parse($date)->format('D jS M Y') }} - 14:00<br>
+                            <strong>Leaving:</strong> {{ Carbon\Carbon::parse($date)->addDays(7)->format('D jS M Y') }} - 11:00<br>
                             <strong>Anglers:</strong> {{ $anglers }} <br>
-                            <strong>Name:</strong>  {{ $firstName }} {{ $lastName }}<br>
-                            <strong>Email:</strong>  {{ $email }}<br>
-                            <strong>Telephone:</strong>  {{ $telephone }}<br>
-                            <strong>Address:</strong>  {{ $address1 }}, {{ $address2 }} @if($address3) {{ $address3 }} @endif {{ $postcode }}</p>
-
+                            <strong>Name:</strong> {{ $firstName }} {{ $lastName }}<br>
+                            <strong>Email:</strong> {{ $email }}<br>
+                            <strong>Telephone:</strong> {{ $telephone }}<br>
+                            <strong>Address:</strong> {{ $address1 }}, {{ $address2 }} @if($address3) {{ $address3 }} @endif {{ $postcode }}<br>
+                            <strong>Total:</strong> 
+                                @if($validcode) 
+                                    <span class="error"><del>£{{ $this->priceguide->price / 100 }}</del></span> £{{ ($this->priceguide->price - $voucher->amount) / 100 }}
+                                @else 
+                                    £{{ $this->priceguide->price / 100 }}
+                                @endif
+                            </p>
 
                             @if($validcode)
                                 <p><strong>Code:</strong> {{ $voucher->code }}<br>
