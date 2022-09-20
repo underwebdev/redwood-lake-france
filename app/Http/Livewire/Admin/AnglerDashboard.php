@@ -66,7 +66,7 @@ class AnglerDashboard extends Component
                 'email' => $data['email']
             ];
 
-            Mail::to($angler->user->email)->send(new AccountCreated($data));
+            Mail::to($data['email'])->send(new AccountCreated($data));
         }
 
         $this->reset();
