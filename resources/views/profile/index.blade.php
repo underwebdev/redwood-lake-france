@@ -71,7 +71,7 @@
 			</div>
 			@endif
 
-			@if($angler->parties()->exists())
+			@if($user->angler->parties()->exists())
 			<h5 class="info-bar">Bookings</h5>
 			<div class="table-scroll">
 				<table>
