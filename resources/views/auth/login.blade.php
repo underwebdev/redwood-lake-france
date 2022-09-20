@@ -15,13 +15,11 @@
             <div class="center-border-content">
             	<h1 class="text-center">Customer Login</h1>
 			    @if ($errors->any())
-                    
-                        <div class="callout alert text-center">
-                            @foreach ($errors->all() as $error)
-                                <p><strong>{{ $error }}</strong></p>
-                            @endforeach
-                        </ul>
-                  
+                    <div class="callout alert text-center">
+                        @foreach ($errors->all() as $error)
+                            <p><strong>{{ $error }}</strong></p>
+                        @endforeach
+                    </div>
                 @endif
                 <form method="POST" action="/login">
                 @csrf
