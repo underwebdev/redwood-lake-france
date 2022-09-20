@@ -5,6 +5,7 @@
 <div class="grid-container">
 	<div class="grid-x grid-padding-x">
 		<div class="cell small-12">
+			@if($user->angler->bookings()->exists())
 			<h5 class="info-bar">Bookings</h5>
 			<div class="table-scroll">
 				<table>
@@ -36,6 +37,8 @@
 					</tbody>
 				</table>
 		    </div>
+		    @endif
+		    @if($user->angler->payments()->exists())
 		    <h5 class="info-bar">Payments</h5>
 		    <div class="table-scroll">
 		    	<table>
@@ -61,6 +64,33 @@
 		    		</tbody>
 		    	</table>
 		    </div>
+		    @endif
+		    @if($user->angler->parties()->exists())
+			<h5 class="info-bar">Bookings</h5>
+			<div class="table-scroll">
+				<table>
+					<thead>
+						<tr>
+							<th>Ref</th>
+							<th>Arrival</th>
+							<th>Departure</th>
+							<th class="text-center">Anglers</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach($user->angler->bookings as $booking)
+						<tr>
+							<td>{{ $booking->id }}</td>
+							<td>{{ date('j/m/y H:i', strtotime ($booking->arrival)) }}</td>
+							<td>{{ date('j/m/y H:i', strtotime ($booking->departure)) }}</td>
+							<td class="text-center">{{ $booking->anglers }}</td>
+						</tr>
+						@endforeach
+					</tbody>
+				</table>
+			</div>
+
+			@endif
 		</div><!-- End of cell-->  
 	</div><!--end of grid-x -->
 </div><!--End of grid container-->
