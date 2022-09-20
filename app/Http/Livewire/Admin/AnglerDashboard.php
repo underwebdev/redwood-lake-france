@@ -52,7 +52,7 @@ class AnglerDashboard extends Component
 
         if($this->account == 1)
         {
-            $password = Str::random(6);
+            $password = Str::random(8);
 
             $angler->user()->create([
                 'email' => $data['email'],
