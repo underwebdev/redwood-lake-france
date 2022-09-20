@@ -1,5 +1,5 @@
 @component('mail::message')
-<h1 class="text-center"><center>Redwood Lake</center></h1>
+<h1><center>Redwood Lake</center></h1>
 <h2><center>Booking Receipt</center></h2>
 
 <p class="text-center">Hello {{ $booking->angler->firstName }},<br>

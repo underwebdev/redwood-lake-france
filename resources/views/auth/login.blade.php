@@ -21,6 +21,7 @@
                         @endforeach
                     </div>
                 @endif
+                @include('layout.alerts')
                 <form method="POST" action="/login">
                 @csrf
                     <label for="email">Email</label>

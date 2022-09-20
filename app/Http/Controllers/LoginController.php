@@ -83,7 +83,8 @@ class LoginController extends Controller
 
             $newPWD = Str::random(8);
             $user->update([
-                'password' => bcrypt($newPWD)
+                'password' => bcrypt($newPWD),
+                'reset' => 1
             ]);
 
             $data = [
