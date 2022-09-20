@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Admin;
 use Livewire\Component;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Mail;
+use App\Mail\AccountCreated;
 use App\Models\Angler;
 
 class AnglerDashboard extends Component
@@ -56,6 +57,14 @@ class AnglerDashboard extends Component
                 'email' => $data['email'],
                 'password' => bcrpyt($password)
             ]);
+
+            $data = [
+                'firstName' => $user->angler->firstName,
+                'password' => $password,
+                'email' => $user->email
+            ];
+
+            Mail::to($angler->user->email)->send(new AccountCreated($data));
         }
 
         $this->reset();
