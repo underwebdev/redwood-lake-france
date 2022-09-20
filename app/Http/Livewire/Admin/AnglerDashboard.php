@@ -54,7 +54,7 @@ class AnglerDashboard extends Component
         {
             $password = Str::random(8);
 
-            $angler->user()->create([
+            $user = $angler->user()->create([
                 'email' => $data['email'],
                 'password' => bcrypt($password),
                 'permission' => 2,
@@ -66,6 +66,8 @@ class AnglerDashboard extends Component
                 'password' => $password,
                 'email' => $data['email']
             ];
+
+            $angler->update(['user_id' => $user->id]);
 
             Mail::to($data['email'])->send(new AccountCreated($data));
         }
