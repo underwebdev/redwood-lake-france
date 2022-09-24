@@ -5,7 +5,7 @@ namespace App\Http\Livewire\Admin;
 use Livewire\Component;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\AccountCreated;
+use App\Mail\AccountAccount;
 use App\Models\Angler;
 
 class AnglerDashboard extends Component
@@ -69,7 +69,7 @@ class AnglerDashboard extends Component
 
             $angler->update(['user_id' => $user->id]);
 
-            Mail::to($data['email'])->send(new AccountCreated($data));
+            Mail::to($data['email'])->send(new AnglerAccount($data));
         }
 
         $this->reset();
@@ -90,6 +90,38 @@ class AnglerDashboard extends Component
             'lastName' => $data['lastName'],
             'telephone' => $data['telephone']
         ]);
+
+        $this->mode = 3;
+
+        session()->flash('success', 'Details Updated');
+    }
+
+    public function saveAnglerEmail()
+    {
+        $data = $this->validate([
+            'email' => 'required|email|confirmed|unique:users'
+        ]);
+
+        $password = Str::random(8);
+
+        $user = $this->selectedAngler->user()->create([
+            'email' => $data['email'],
+            'password' => bcrypt($password),
+            'permission' => 2,
+            'reset' => 1
+        ]);
+
+        $data = [
+            'firstName' => $angler->firstName,
+            'password' => $password,
+            'email' => $data['email']
+        ];
+
+        $this->selectedAngler->update(['user_id' => $user->id]);
+
+        $this->selectedAngler->refresh();
+
+        Mail::to($data['email'])->send(new AnglerAccount($data));
 
         $this->mode = 3;
 

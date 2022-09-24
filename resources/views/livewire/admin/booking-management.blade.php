@@ -9,10 +9,12 @@
                         </div>
                         <div class="cell small-12 medium-6 text-right align-self-middle">
                             @if($mode == 1)
-                            <button class="button success" wire:click="$set('mode', 2)">Manual Payment</button>
-                            <button class="button warning" wire:click="$set('mode', 5)">Update</button>
+                                @unless($booking->payments()->sum('total') >= $booking->total)
+                                    <button class="button success" wire:click="$set('mode', 2)">Manual Payment</button>
+                                @endunless
+                                <button class="button warning" wire:click="$set('mode', 5)">Update</button>
                             @else
-                            <button class="button alert" wire:click="back">Go Back</button>
+                                <button class="button alert" wire:click="back">Go Back</button>
                             @endif
                         </div><!-- End of cell-->
                     </div>
@@ -32,6 +34,28 @@
             </div><!-- End of cell-->
         </div><!--end of grid-x -->
     </div><!--End of grid container-->
+
+    @elseif($booking->payments->where('status', 1)->sum('total') < $booking->total && Carbon\Carbon::parse($booking->arrival)->subDays($booking->priceguide->due)->diffInDays(Carbon\Carbon::now()) < 21)
+    <div class="grid-container">
+        <div class="grid-x grid-padding-x">
+            <div class="cell small-12">
+                <div class="callout alert text-center">
+                    <p><strong>Payment due in {{ Carbon\Carbon::parse($booking->arrival)->subDays($booking->priceguide->due)->diffInDays(Carbon\Carbon::now()) }} days</strong></p>
+                </div>      
+            </div><!-- End of cell-->
+        </div><!--end of grid-x -->
+    </div><!--End of grid container-->
+    @elseif($booking->payments->where('status', 1)->sum('total') < $booking->total && Carbon\Carbon::today() > Carbon\Carbon::parse($booking->arrival)->subDays($booking->priceguide->due))
+    <div class="grid-container">
+        <div class="grid-x grid-padding-x">
+            <div class="cell small-12">
+                <div class="callout alert text-center">
+                    <p><strong>Payment overdue</strong></p>
+                </div>      
+            </div><!-- End of cell-->
+        </div><!--end of grid-x -->
+    </div><!--End of grid container-->
+    
     @endif
 
     <div class="grid-container">
@@ -152,6 +176,59 @@
                             </tbody>
                         </table>
                     </div>
+
+                    <div class="table-scroll">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Payment Reminder</th>
+                                    <th class="text-center">Overdue Notification</th>
+                                    <th class="text-center">Welcome Email</th>
+                                    <th class="text-center">Review</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        @isset($booking->notifications->reminder)
+                                            {{ date('j/m/y H:i', strtotime ($booking->notifications->reminder)) }}
+                                        @elseif($booking->payments()->sum('total') >= $booking->total)
+                                            N/A
+                                        @else
+                                            <button class="button" wire:click="sendPaymentReminder">Send Reminder</button>
+                                        @endisset
+                                    </td>
+                                    <td class="text-center">
+                                        @isset($booking->notifications->overdue)
+                                            {{ date('j/m/y H:i', strtotime ($booking->notifications->overdue)) }}
+                                        @elseif($booking->payments->where('status', 1)->sum('total') < $booking->total && Carbon\Carbon::today() > Carbon\Carbon::parse($booking->arrival)->subDays($booking->priceguide->due))
+                                            <button class="button" wire:click="sendOverdueReminder">Send Email</button>
+                                        @else
+                                            N/A
+                                        @endif
+                                    </td>
+                                    <td class="text-center">
+                                        @isset($booking->notifications->welcome)
+                                            {{ date('j/m/y H:i', strtotime ($booking->notifications->welcome)) }}
+                                        @elseif($booking->payments()->sum('total') >= $booking->total && Carbon\Carbon::parse($booking->arrival)->subDays(14) < Carbon\Carbon::now())
+                                            <button class="button" wire:click="sendWelcomeEmail">Send Welcome Email</button>
+                                        @else 
+                                            N/A
+                                        @endif
+                                    </td>
+                                    <td class="text-center">
+                                        @isset($booking->notifications->review)
+                                            {{ date('j/m/y', strtotime ($booking->notification->review)) }}
+                                        @elseif($booking->departure < Carbon\Carbon::now())
+                                            <button class="button" wire:click="sendReviewRequest">Send Review Request</button>
+                                        @else
+                                            N/A
+                                        @endif
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div><!-- End of cell-->
             @elseif($mode == 2)
@@ -183,13 +260,27 @@
             <div class="cell small-12 medium-8 large-6 medium-offset-2 large-offset-3">
                 <h5 class="info-bar">Create Angler</h5>
                 <p>Please add the names and contact details for all members of your party</p>
-                <label for="">First Name</label>
+                <label for="">First Name
+                    @error('firstName')<span class="error">{{ $message }}</span>@enderror
+                </label>
                 <input type="text" placeholder="" wire:model="firstName">
-                <label for="">Last Name</label>
+                <label for="">Last Name
+                    @error('lastName')<span class="error">{{ $message }}</span>@enderror
+                </label>
                 <input type="text" placeholder="" wire:model="lastName">
 
-                <label for="">Telephone</label>
+                <label for="">Telephone
+                    @error('telephone')<span class="error">{{ $message }}</span>@enderror
+                </label>
                 <input type="text" placeholder="" wire:model="telephone">
+
+                <label for="">Email
+                    @error('email')<span class="error">{{ $message }}</span>@enderror
+                </label>
+                <input type="text" placeholder="" wire:model="email">
+                <label for="">Confirm Email</label>
+                <input type="text" placeholder="" wire:model="email_confirmation">
+
                 <button class="button success" wire:click="saveAngler">Add Angler</button>
 
             </div>

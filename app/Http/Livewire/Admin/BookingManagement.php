@@ -3,14 +3,20 @@
 namespace App\Http\Livewire\Admin;
 
 use Livewire\Component;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\BookingAmendment;
 use App\Mail\PaymentReceipt;
+use App\Mail\PaymentReminder;
+use App\Mail\PaymentOverdue;
 use App\Models\Booking;
 use App\Models\Placeholder;
 use App\Models\Angler;
 use App\Models\Payment;
 use App\Models\Priceguide;
+use App\Models\User;
+use App\Jobs\ProcessParty;
+use App\Jobs\ReviewRequest;
 use Carbon\Carbon;
 use Carbon\CarbonInterval;
 
@@ -24,6 +30,8 @@ class BookingManagement extends Component
     public $firstName;
     public $lastName;
     public $telephone;
+    public $email;
+    public $email_confirmation;
 
     public $bookingdates;
     public $bookingyears;
@@ -38,8 +46,6 @@ class BookingManagement extends Component
 
     public $lead;
     public $total;
-    public $email;
-
 
     public function confirmTransfer()
     {
@@ -74,17 +80,25 @@ class BookingManagement extends Component
         $data = $this->validate([
             'firstName' => 'required',
             'lastName' => 'required',
-            'telephone' => 'required|numeric'
+            'telephone' => 'required|numeric', 
+            'email' => 'email|required|confirmed'
         ]);
 
-        $ref = Angler::latest()->pluck('ref')->first();
+        if(User::where('email', $data['email'])->exists())
+        {
+            $user = User::where('email', $data['email'])->first();
+            $angler = $user->angler;
+        } else {
+            $ref = Angler::latest()->pluck('ref')->first();
 
-        $angler = Angler::create([
-            'firstName' => $data['firstName'],
-            'lastName' => $data['lastName'],
-            'telephone' => $data['telephone'],
-            'ref' => $ref + 1
-        ]);
+            $angler = Angler::create([
+                'firstName' => Str::of($data['firstName'])->ucfirst(),
+                'lastName' => Str::of($data['lastName'])->ucfirst(),
+                'telephone' => $data['telephone'],
+                'email' => $data['email'],
+                'ref' => $ref + 1
+            ]);
+        }
 
         $this->booking->guests()->attach($angler->id);
 
@@ -111,7 +125,8 @@ class BookingManagement extends Component
         $data = $this->validate([
             'firstName' => 'required',
             'lastName' => 'required',
-            'telephone' => 'required|numeric'
+            'telephone' => 'required|numeric',
+           
         ]);
 
         $this->selectedAngler->update([
@@ -262,7 +277,54 @@ class BookingManagement extends Component
         $this->booking->refresh();
 
         session()->flash('success', 'Booking Date Changed!');
+    }
 
+    public function sendPaymentReminder()
+    {
+        Mail::to($this->booking->angler->user->email)->send(new PaymentReminder($this->booking));
+
+        $this->booking->notifications()->updateOrCreate([
+            'booking_id' => $this->booking->id],[
+                'reminder' => Carbon::now()
+            ]);
+
+        $this->booking->refresh();
+
+        session()->flash('success', 'Payment Reminder Sent');
+
+    }
+
+    public function sendOverdueReminder()
+    {
+        Mail::to($this->booking->angler->user->email)->send(new PaymentOverdue($this->booking));
+
+        $this->booking->notifications()->updateOrCreate([
+            'booking_id' => $this->booking->id],[
+                'overdue' => Carbon::now()
+            ]);
+
+        $this->booking->refresh();
+
+        session()->flash('success', 'Payment Reminder Sent');
+    }
+
+    public function sendWelcomeEmail()
+    {
+        ProcessParty::dispatch($this->booking);
+
+        $this->booking->notifications->updateOrCreate([
+            'booking_id' => $this->booking->id ],[
+                'welcome' => Carbon::now()
+            ]);
+
+        session()->flash('success', 'Welcome Emails Sent');
+    }
+
+    public function sendReviewRequest()
+    {
+        ReviewRequest::dispatch($this->booking);
+
+        session()->flash('success', 'Review Request Sent');
     }
 
     public function back()

@@ -34,6 +34,7 @@
                                 <th>Ref</th>
                                 <th>Lead</th>
                                 <th>Balance Due</th>
+                                <th class="text-center">Payment</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -44,6 +45,17 @@
                                 <td>{{ $booking->id }}</td>
                                 <td>{{ $booking->angler->firstName }} {{ $booking->angler->lastName }}</td>
                                 <td>{{ Carbon\Carbon::parse($booking->arrival)->subDays($booking->priceguide->due)->format('d/m/Y') }}</td>
+                                <td class="text-center">
+                                    @if($booking->payments->where('status', 1)->sum('total') >= $booking->total)
+                                        <i class="fas fa-check-circle"></i>
+                                    @elseif(Carbon\Carbon::parse($booking->arrival)->subDays($booking->priceguide->due)->diffInDays(Carbon\Carbon::now()) < 21)
+                                        <span class="error">Due in {{ Carbon\Carbon::parse($booking->arrival)->subDays($booking->priceguide->due)->diffInDays(Carbon\Carbon::now()) }} days</span>
+                                    @elseif(Carbon\Carbon::parse($booking->arrival)->subDays($booking->priceguide->due) < Carbon\Carbon::now())
+                                        <span class="error">Overdue</span>
+                                    @else
+                                        Due in {{ Carbon\Carbon::parse($booking->arrival)->subDays($booking->priceguide->due)->diffInDays(Carbon\Carbon::now()) }} days
+                                    @endif
+                                </td>
                                 <td class="text-right"><a href="/admin/booking/{{ $booking->id }}" class="button small">View Booking</a></td>
                             </tr>
                             @endforeach

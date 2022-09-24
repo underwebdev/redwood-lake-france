@@ -370,6 +370,9 @@
                             <img src="{{ $sideone->temporaryUrl() }}">
                         </div>
                         @endif
+                        <div wire:loading wire:target="sideone">
+                            Uploading photo...
+                        </div>
                           
                     </div><!-- End of cell-->
                     <div class="cell small-12 medium-6">
@@ -384,11 +387,14 @@
                             <img src="{{ $sidetwo->temporaryUrl() }}">
                         </div>
                         @endif
+                        <div wire:loading wire:target="sidetwo">
+                            Uploading photo...
+                        </div>
                     </div><!-- End of cell-->
                 </div><!--end of grid-x -->
                 <br>
                 <div class="button-group">
-                    <button class="button success" wire:click="saveReport">Upload Report</button>
+                    <button class="button success" wire:click="saveReport" wire:loading.attr="disabled">Upload Report</button>
                     <button class="button alert" wire:click="cancel">Cancel</button>
                 </div>
                   

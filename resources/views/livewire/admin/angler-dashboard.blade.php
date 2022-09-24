@@ -33,7 +33,6 @@
                                 <th>Name</th>
                                 <th>Telephone</th>
                                 <th>Email</th>
-                                <th>Booking</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -50,7 +49,6 @@
                                         N/A
                                     @endif
                                 </td>
-                                <td></td>
                                 <td class="text-right">
                                     <button class="button small" wire:click="selectAngler('{{ $angler->id }}')">View</button>
                                 </td>
@@ -101,7 +99,6 @@
                                 <th>Name</th>
                                 <th>Telephone</th>
                                 <th>Email</th>
-                                <th>Booking</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -113,10 +110,9 @@
                                     @if($selectedAngler->user()->exists())
                                         {{ $selectedAngler->user->email }}
                                     @else 
-                                        N/A
+                                        <button wire:click="$set('mode', 5)">Add Email</button>
                                     @endif
                                 </td>
-                                <td></td>
                                 <td class="text-right">
                                     <button class="button small warning" wire:click="$set('mode', 4)">Update</button>
                                 </td>
@@ -142,6 +138,16 @@
                 <input type="text" placeholder="" wire:model="telephone">
                 <button class="button success" wire:click="saveAnglerChanges">Save Changes</button>
             </div><!-- End of cell-->
+            @elseif($mode == 5)
+            <div class="cell small-12 medium-8 large-6 medium-offset-2 large-offset-3">
+                <label for="">Email
+                    @error('email')<span class="error">{{ $message }}</span>@enderror
+                </label>
+                <input type="text" placeholder="" wire:model="email">
+                <label for="">Confirm Email</label>
+                <input type="text" placeholder="" wire:model="email_confirmation">
+                <button class="button success" wire:click="saveAnglerEmail">Save Email</button>
+            </div>
             @endif
         </div><!--end of grid-x -->
     </div><!--End of grid container-->

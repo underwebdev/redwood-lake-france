@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\PaymentNotification;
 use App\Models\Payment;
 use App\Models\Angler;
+use App\Models\User;
 use Auth;
 
 class ManageBooking extends Component
@@ -40,15 +41,22 @@ class ManageBooking extends Component
             'email' => 'required|email|confirmed'
         ]);
 
-        $ref = Angler::latest()->pluck('ref')->first();
+        if(User::where('email', $data['email'])->exists())
+        {
+            $user = User::where('email', $data['email'])->first();
+            $angler = $user->angler;
+        } else {
+            $ref = Angler::latest()->pluck('ref')->first();
 
-        $angler = Angler::create([
-            'firstName' => Str::of($data['firstName'])->ucfirst(),
-            'lastName' => Str::of($data['lastName'])->ucfirst(),
-            'telephone' => $data['telephone'],
-            'email' => $data['email'],
-            'ref' => $ref + 1
-        ]);
+            $angler = Angler::create([
+                'firstName' => Str::of($data['firstName'])->ucfirst(),
+                'lastName' => Str::of($data['lastName'])->ucfirst(),
+                'telephone' => $data['telephone'],
+                'email' => $data['email'],
+                'ref' => $ref + 1
+            ]);
+
+        }
 
         $this->booking->guests()->attach($angler->id);
 

@@ -45,4 +45,9 @@ class Booking extends Model
     {
         return $this->belongsToMany(Voucher::class);
     }
+
+    public function notifications()
+    {
+        return $this->hasOne(Notification::class);
+    }
 }
