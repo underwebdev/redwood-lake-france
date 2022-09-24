@@ -394,7 +394,7 @@
                 </div><!--end of grid-x -->
                 <br>
                 <div class="button-group">
-                    <button class="button success" wire:click="saveReport" wire:loading.class="disabled">Upload Report</button>
+                    <button class="button success" wire:loading.class="alert" wire:click="saveReport">Upload Report</button>
                     <button class="button alert" wire:click="cancel">Cancel</button>
                 </div>
                   
