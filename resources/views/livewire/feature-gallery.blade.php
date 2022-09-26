@@ -4,7 +4,7 @@
         @foreach($thumbnails as $image)
           <div class="slide">
             <h2 class="slideText"></h2>
-            <img width="1000" height="500" class="slideImage" src="{{ $image->thumbnail }}" alt="{{ $image->alt }}">
+            <img width="1000" height="700" class="slideImage" src="{{ $image->thumbnail }}" alt="{{ $image->alt }}">
           </div>
         @endforeach
         </section>
