@@ -113,35 +113,38 @@ class WebhookController extends Controller
                     'postcode' => $intent->metadata->postcode
                 ]);
 
-                $booking->payments()->create([
-                    'angler_id' => $user->angler->id,
-                    'total' => $paid,
-                    'net' => $net,
-                    'transaction_id' => $intent->id,
-                    'paymethod_id' => 1,
-                    'status' => 1
-                ]);
-
-                if($intent->metadata->voucher > 0)
+                if(Payment::where('transaction_id', $intent->id)->doesntExist())
                 {
-                    $voucher = Voucher::find($intent->metadata->voucher);
-
-                    $voucher->update([
-                        'used' => $voucher->used + 1
+                    $booking->payments()->create([
+                        'angler_id' => $user->angler->id,
+                        'total' => $paid,
+                        'net' => $net,
+                        'transaction_id' => $intent->id,
+                        'paymethod_id' => 1,
+                        'status' => 1
                     ]);
 
-                    if($voucher->used >= $voucher->limit)
+                    if($intent->metadata->voucher > 0)
                     {
+                        $voucher = Voucher::find($intent->metadata->voucher);
+
                         $voucher->update([
-                            'active' => 0
+                            'used' => $voucher->used + 1
                         ]);
+
+                        if($voucher->used >= $voucher->limit)
+                        {
+                            $voucher->update([
+                                'active' => 0
+                            ]);
+                        }
+
+                        $booking->voucher()->attach($voucher->id);  
                     }
 
-                    $booking->voucher()->attach($voucher->id);  
+                    Mail::to($user->email)->send(new BookingReceipt($booking));
+                    Mail::to('info@redwoodlake.co.uk')->send(new BookingNotification($booking));
                 }
-
-                Mail::to($user->email)->send(new BookingReceipt($booking));
-                Mail::to('info@redwoodlake.co.uk')->send(new BookingNotification($booking));
             } elseif($intent->metadata->type == 'payment')
             {
                 $angler = Angler::find($intent->metadata->angler_id);
@@ -154,17 +157,20 @@ class WebhookController extends Controller
                 $roundedFee = round($applicationFee); 
                 $net = $paid - $roundedFee;
 
-                $payment = $booking->payments()->create([
-                    'angler_id' => $angler->id,
-                    'total' => $paid,
-                    'net' => $net,
-                    'transaction_id' => $intent->id,
-                    'paymethod_id' => 1,
-                    'status' => 1
-                ]);
+                if(Payment::where('transaction_id', $intent->id)->doesntExist())
+                {
+                    $payment = $booking->payments()->create([
+                        'angler_id' => $angler->id,
+                        'total' => $paid,
+                        'net' => $net,
+                        'transaction_id' => $intent->id,
+                        'paymethod_id' => 1,
+                        'status' => 1
+                    ]);
 
-                Mail::to($angler->user->email)->send(new PaymentReceipt($payment));
-                Mail::to('info@redwoodlake.co.uk')->send(new BookingNotification($booking));
+                    Mail::to($angler->user->email)->send(new PaymentReceipt($payment));
+                    Mail::to('info@redwoodlake.co.uk')->send(new BookingNotification($booking));
+                }
 
             }
 
