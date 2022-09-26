@@ -102,6 +102,12 @@ class CatchreportDashboard extends Component
 
             $onePath = Storage::put($directory.$sideOneName, $sideOne->stream());
             $oneThumbPath = Storage::put($thumbDirectory.$sideOneThumbName, $sideOneThumb->stream());
+
+            $sideonepath = '/storage/reports/'.$sideOneName;
+            $sideonethumbpath = '/storage/reports/thumbnails/'.$sideOneThumbName;
+        } else {
+            $sideonepath = Null;
+            $sideonethumbpath = Null;
         }
 
         if($this->sidetwo)
@@ -135,6 +141,12 @@ class CatchreportDashboard extends Component
             
             $twoPath = Storage::put($directory.$sideTwoName, $sideTwo->stream());
             $twoThumbPath = Storage::put($thumbDirectory.$sideTwoThumbName, $sideTwoThumb->stream());
+
+            $sidetwopath = '/storage/reports/'.$sideTwoName;
+            $sidetwothumbpath = '/storage/reports/thumbnails/'.$sideTwoThumbName;
+        } else {
+            $sidetwopath = Null;
+            $sidetwothumbpath = Null;
         }
 
 
@@ -146,10 +158,10 @@ class CatchreportDashboard extends Component
             'swim_id' => $data['swim'],
             'bait' => $data['bait'],
             'notes' => $data['notes'],
-            'sideone' => '/storage/reports/'.$sideOneName,
-            'sideonethumb' => '/storage/reports/thumbnails/'.$sideOneThumbName,
-            'sidetwo' => '/storage/reports/'.$sideTwoName,
-            'sidetwothumb' => '/storage/reports/thumbnails/'.$sideTwoThumbName,
+            'sideone' => $sideonepath,
+            'sideonethumb' => $sideonethumbpath,
+            'sidetwo' => $sidetwopath,
+            'sidetwothumb' => $sidetwothumbpath,
             'angler_id' => $data['angler']
         ]);
 
