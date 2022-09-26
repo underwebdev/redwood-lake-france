@@ -154,8 +154,8 @@ class WebhookController extends Controller
                 $roundedFee = round($applicationFee); 
                 $net = $paid - $roundedFee;
 
-                $booking->payments()->create([
-                    'angler_id' => $user->angler->id,
+                $payment = $booking->payments()->create([
+                    'angler_id' => $angler->id,
                     'total' => $paid,
                     'net' => $net,
                     'transaction_id' => $intent->id,
@@ -163,9 +163,8 @@ class WebhookController extends Controller
                     'status' => 1
                 ]);
 
-                // payment receipt
-
-                //payment notification
+                Mail::to($angler->user->email)->send(new PaymentReceipt($payment));
+                Mail::to('info@redwoodlake.co.uk')->send(new BookingNotification($booking));
 
             }
 

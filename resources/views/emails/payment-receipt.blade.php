@@ -1,7 +1,11 @@
 @component('mail::message')
-<h1><center>Bank Transfer Confirmation</center></h1>
+<h1><center>@if($payment->paymethod_id == 1) Payment @else Bank Transfer @endif Confirmation</center></h1>
 <p>Hello {{ $payment->angler->firstName }},<br>
+@if($payment->paymethod_id == 1)
+Your payment has been received 
+@elseif($payment->paymethod_id == 2)
 Your bank transfer payment has been confirmed.</p>
+@endif
 
 @component('mail::panel')
 <h2>Booking</h2> 
