@@ -388,9 +388,9 @@
                         
                     </div><!-- End of cell-->
                
-                        <div class="cell small-12 text-center" wire:loading>
-                            Please Wait ....
-                        </div>
+                    <div class="cell small-12 text-center" wire:loading>
+                        <strong>Please Wait ....</strong>
+                    </div>
                  
                 </div><!--end of grid-x -->
                 <br>

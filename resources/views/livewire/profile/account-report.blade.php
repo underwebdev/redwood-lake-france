@@ -181,9 +181,12 @@
                         </div>
                         @endif
                     </div><!-- End of cell-->
+                    <div class="cell small-12 text-center" wire:loading>
+                        <strong>Please Wait ....</strong>
+                    </div>
                 </div><!--end of grid-x -->
                 <br>
-                <div class="button-group">
+                <div class="button-group" wire:loading.remove>
                     <button class="button success" wire:click="saveReport">Upload Report</button>
                     <button class="button alert" wire:click="back">Cancel</button>
                 </div>
