@@ -396,7 +396,7 @@
                 <br>
                 <div class="button-group" wire:loading.remove>
                     <button class="button success"  wire:click="saveReport">Upload Report</button>
-                    <button class="button alert" wire:click="cancel">Cancel</button>
+                    <button class="button alert" wire:click="back">Cancel</button>
                 </div>
                   
             </div><!-- End of cell-->

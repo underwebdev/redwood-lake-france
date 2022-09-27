@@ -31,7 +31,7 @@ class CatchReport extends Component
                     return $query->where('lbs', '>', $weight);
                 })->when($swim, function ($query) use ($swim) {
                     return $query->where('swim_id', $swim);
-                })->paginate(50),
+                })->orderBy('date', 'desc')->paginate(50),
             'specimens' => Specimen::all(),
             'swims' => Swim::all()
         ]);
