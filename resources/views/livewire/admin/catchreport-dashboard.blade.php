@@ -59,15 +59,15 @@
                             <thead>
                                 <tr>
                                     <td>This Week</td>
-                                    <td>This Month</td>
                                     <td>Last Week</td>
+                                    <td>This Month</td>
                                     <td>Last Month</td>
                                     <td>Year Total</td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td></td>
+                                    <td>{{ $reports->where('date', '>=', $thisWeek)->count() }}</td>
                                     <td></td>
                                     <td></td>
                                     <td></td>
@@ -370,9 +370,7 @@
                             <img src="{{ $sideone->temporaryUrl() }}">
                         </div>
                         @endif
-                        <div wire:loading wire:target="sideone">
-                            Uploading photo...
-                        </div>
+                        
                           
                     </div><!-- End of cell-->
                     <div class="cell small-12 medium-6">
@@ -387,10 +385,13 @@
                             <img src="{{ $sidetwo->temporaryUrl() }}">
                         </div>
                         @endif
-                        <div wire:loading wire:target="sidetwo">
-                            Uploading photo...
-                        </div>
+                        
                     </div><!-- End of cell-->
+               
+                        <div class="cell small-12 text-center" wire:loading>
+                            Please Wait ....
+                        </div>
+                 
                 </div><!--end of grid-x -->
                 <br>
                 <div class="button-group" wire:loading.remove>

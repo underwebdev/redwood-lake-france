@@ -404,10 +404,15 @@ class CatchreportDashboard extends Component
             'junstats' => Report::whereYear('date', $year)->whereMonth('date', '06')->get(),
             'julstats' => Report::whereYear('date', $year)->whereMonth('date', '07')->get(),
             'augstats' => Report::whereYear('date', $year)->whereMonth('date', '08')->get(),
-            'sepstats' => Report::whereYear('date', $year)->whereMonth('date', '08')->get(),
+            'sepstats' => Report::whereYear('date', $year)->whereMonth('date', '09')->get(),
             'octstats' => Report::whereYear('date', $year)->whereMonth('date', '10')->get(),
             'novstats' => Report::whereYear('date', $year)->whereMonth('date', '11')->get(),
-            'decstats' => Report::whereYear('date', $year)->whereMonth('date', '12')->get()
+            'decstats' => Report::whereYear('date', $year)->whereMonth('date', '12')->get(),
+            'thisMonth' => Carbon::now()->startOfMonth(),
+            'lastMonth' => Carbon::now()->startOfMonth()->subMonth(),
+            'thisWeek' => Carbon::now()->startOfWeek(),
+            'lastWeek' => Carbon::now()->subdays(7)->startOfWeek()
+
         ]);
     }
 }
