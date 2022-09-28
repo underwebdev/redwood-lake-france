@@ -9,7 +9,7 @@
 @endcomponent
 
 @component('mail::button', ['url' => 'https://www.redwoodlake.co.uk/login', 'color' => 'blue'])
-Log In
+Leave Review
 @endcomponent
 <p>Thanks,<br>
 Redwood Lake</p>

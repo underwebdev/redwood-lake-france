@@ -105,39 +105,39 @@
 			    Feels like {{ round($date['main']['feels_like'] - 273.15) }}°<br>
 			    {{ $date['main']['pressure'] }}<small>hPa</small><br>
 				@if($date['wind']['deg'] >= 348.75 AND $date['wind']['deg'] < 11.25)
-					N
+					<strong>N</strong>
 				@elseif($date['wind']['deg'] >= 11.25 AND $date['wind']['deg'] < 33.75)
-					NNE
+					<strong>NNE</strong>
 				@elseif($date['wind']['deg'] >= 33.75 AND $date['wind']['deg'] < 56.25)
-					NE
+					<strong>NE</strong>
 				@elseif($date['wind']['deg'] >= 56.25 AND $date['wind']['deg'] < 78.75)
-					ENE
+					<strong>ENE</strong>
 				@elseif($date['wind']['deg'] >= 78.75 AND $date['wind']['deg'] < 101.25)
-					E
+					<strong>E</strong>
 				@elseif($date['wind']['deg'] >= 101.25 AND $date['wind']['deg'] < 123.75)
-					ESE
+					<strong>ESE</strong>
 				@elseif($date['wind']['deg'] >= 123.75 AND $date['wind']['deg'] < 146.25)
-					SE
+					<strong>SE</strong>
 				@elseif($date['wind']['deg'] >= 146.25 AND $date['wind']['deg'] < 168.75)
-					SSE
+					<strong>SSE</strong>
 				@elseif($date['wind']['deg'] >= 168.75 AND $date['wind']['deg'] < 191.25)
-					S
+					<strong>S</strong>
 				@elseif($date['wind']['deg'] >= 191.25 AND $date['wind']['deg'] < 213.75)
-					SSW
+					<strong>SSW</strong>
 				@elseif($date['wind']['deg'] >= 213.75 AND $date['wind']['deg'] < 236.25)
-					SW
+					<strong>SW</strong>
 				@elseif($date['wind']['deg'] >= 236.25 AND $date['wind']['deg'] < 258.75)
-					WSW
+					<strong>WSW</strong>
 				@elseif($date['wind']['deg'] >= 258.75 AND $date['wind']['deg'] < 281.25)
-					W
+					<strong>W</strong>
 				@elseif($date['wind']['deg'] >= 281.25 AND $date['wind']['deg'] < 303.75)
-					WNW
+					<strong>WNW</strong>
 				@elseif($date['wind']['deg'] >= 303.75 AND $date['wind']['deg'] < 326.25)
-					NW
+					<strong>NW</strong>
 				@elseif($date['wind']['deg'] >= 326.25 AND $date['wind']['deg'] < 348.75)
-					NNW
+					<strong>NNW</strong>
 				@else
-					N/A
+					<strong>N/A</strong>
 				@endif</p>
 					
 			</div>
@@ -164,39 +164,39 @@
 			    Feels like {{ round($date['main']['feels_like'] - 273.15) }}°<br>
 			    {{ $date['main']['pressure'] }}<small>hPa</small><br>
 				@if($date['wind']['deg'] >= 348.75 AND $date['wind']['deg'] < 11.25)
-					N
+					<strong>N</strong>
 				@elseif($date['wind']['deg'] >= 11.25 AND $date['wind']['deg'] < 33.75)
-					NNE
+					<strong>NNE</strong>
 				@elseif($date['wind']['deg'] >= 33.75 AND $date['wind']['deg'] < 56.25)
-					NE
+					<strong>NE</strong>
 				@elseif($date['wind']['deg'] >= 56.25 AND $date['wind']['deg'] < 78.75)
-					ENE
+					<strong>ENE</strong>
 				@elseif($date['wind']['deg'] >= 78.75 AND $date['wind']['deg'] < 101.25)
-					E
+					<strong>E</strong>
 				@elseif($date['wind']['deg'] >= 101.25 AND $date['wind']['deg'] < 123.75)
-					ESE
+					<strong>ESE</strong>
 				@elseif($date['wind']['deg'] >= 123.75 AND $date['wind']['deg'] < 146.25)
-					SE
+					<strong>SE</strong>
 				@elseif($date['wind']['deg'] >= 146.25 AND $date['wind']['deg'] < 168.75)
-					SSE
+					<strong>SSE</strong>
 				@elseif($date['wind']['deg'] >= 168.75 AND $date['wind']['deg'] < 191.25)
-					S
+					<strong>S</strong>
 				@elseif($date['wind']['deg'] >= 191.25 AND $date['wind']['deg'] < 213.75)
-					SSW
+					<strong>SSW</strong>
 				@elseif($date['wind']['deg'] >= 213.75 AND $date['wind']['deg'] < 236.25)
-					SW
+					<strong>SW</strong>
 				@elseif($date['wind']['deg'] >= 236.25 AND $date['wind']['deg'] < 258.75)
-					WSW
+					<strong>WSW</strong>
 				@elseif($date['wind']['deg'] >= 258.75 AND $date['wind']['deg'] < 281.25)
-					W
+					<strong>W</strong>
 				@elseif($date['wind']['deg'] >= 281.25 AND $date['wind']['deg'] < 303.75)
-					WNW
+					<strong>WNW</strong>
 				@elseif($date['wind']['deg'] >= 303.75 AND $date['wind']['deg'] < 326.25)
-					NW
+					<strong>NW</strong>
 				@elseif($date['wind']['deg'] >= 326.25 AND $date['wind']['deg'] < 348.75)
-					NNW
+					<strong>NNW</strong>
 				@else
-					N/A
+					<strong>N/A</strong>
 				@endif</p>
 					
 			</div>
@@ -223,39 +223,39 @@
 			    Feels like {{ round($date['main']['feels_like'] - 273.15) }}°<br>
 			    {{ $date['main']['pressure'] }}<small>hPa</small><br>
 				@if($date['wind']['deg'] >= 348.75 AND $date['wind']['deg'] < 11.25)
-					N
+					<strong>N</strong>
 				@elseif($date['wind']['deg'] >= 11.25 AND $date['wind']['deg'] < 33.75)
-					NNE
+					<strong>NNE</strong>
 				@elseif($date['wind']['deg'] >= 33.75 AND $date['wind']['deg'] < 56.25)
-					NE
+					<strong>NE</strong>
 				@elseif($date['wind']['deg'] >= 56.25 AND $date['wind']['deg'] < 78.75)
-					ENE
+					<strong>ENE</strong>
 				@elseif($date['wind']['deg'] >= 78.75 AND $date['wind']['deg'] < 101.25)
-					E
+					<strong>E</strong>
 				@elseif($date['wind']['deg'] >= 101.25 AND $date['wind']['deg'] < 123.75)
-					ESE
+					<strong>ESE</strong>
 				@elseif($date['wind']['deg'] >= 123.75 AND $date['wind']['deg'] < 146.25)
-					SE
+					<strong>SE</strong>
 				@elseif($date['wind']['deg'] >= 146.25 AND $date['wind']['deg'] < 168.75)
-					SSE
+					<strong>SSE</strong>
 				@elseif($date['wind']['deg'] >= 168.75 AND $date['wind']['deg'] < 191.25)
-					S
+					<strong>S</strong>
 				@elseif($date['wind']['deg'] >= 191.25 AND $date['wind']['deg'] < 213.75)
-					SSW
+					<strong>SSW</strong>
 				@elseif($date['wind']['deg'] >= 213.75 AND $date['wind']['deg'] < 236.25)
-					SW
+					<strong>SW</strong>
 				@elseif($date['wind']['deg'] >= 236.25 AND $date['wind']['deg'] < 258.75)
-					WSW
+					<strong>WSW</strong>
 				@elseif($date['wind']['deg'] >= 258.75 AND $date['wind']['deg'] < 281.25)
-					W
+					<strong>W</strong>
 				@elseif($date['wind']['deg'] >= 281.25 AND $date['wind']['deg'] < 303.75)
-					WNW
+					<strong>WNW</strong>
 				@elseif($date['wind']['deg'] >= 303.75 AND $date['wind']['deg'] < 326.25)
-					NW
+					<strong>NW</strong>
 				@elseif($date['wind']['deg'] >= 326.25 AND $date['wind']['deg'] < 348.75)
-					NNW
+					<strong>NNW</strong>
 				@else
-					N/A
+					<strong>N/A</strong>
 				@endif</p>
 					
 			</div>
