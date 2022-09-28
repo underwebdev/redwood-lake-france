@@ -204,17 +204,15 @@ class PageController extends Controller
         $lat = '45.8315';
         $lon = '1.2578';
 
-        $endpoint = 'https://api.openweathermap.org/data/3.0/onecall?lat='. $lat . '&lon='. $lon . '&exclude=hourly,daily&appid='. $key;
+        $endpoint = 'api.openweathermap.org/data/2.5/forecast?lat='. $lat . '&lon=' . $lon . '&appid=' . $key;
+        $data = Http::get($endpoint);
 
-        
+        $dayone = Carbon::today();
+        $daytwo = Carbon::tomorrow();
+        $daythree = Carbon::today()->addDays('2');
+        $dayfour = Carbon::today()->addDays('4');
 
-        $alt = 'api.openweathermap.org/data/2.5/forecast?lat='. $lat . '&lon=' . $lon . '&appid=' . $key;
-
-        
-
-        $data = Http::get($alt);
-
-        return view('pages.openweather', compact('page', 'data'));
+        return view('pages.openweather', compact('page', 'data', 'dayone', 'daytwo', 'daythree', 'dayfour'));
     } 
 
     public function contact()

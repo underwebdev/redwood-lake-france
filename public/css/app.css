@@ -9491,6 +9491,7 @@ textarea {
   border-radius: 8px;
   padding: 10px 0 10px 0;
   box-shadow: 0 0 10px rgba(24, 50, 115, 0.1);
+  margin-top: 8px;
 }
 
 .scrollable-weather {

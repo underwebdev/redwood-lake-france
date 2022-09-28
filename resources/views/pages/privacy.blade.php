@@ -60,7 +60,7 @@
 			whenever you are asked to fill in a form on the website, look for the box that you can click to indicate that you do not want the information to be used by anybody for direct marketing purposes
 			if you have previously agreed to us using your personal information for direct marketing purposes, you may change your mind at any time by writing to or emailing us at info@redwoodlake.co.uk I will not sell, distribute or lease your personal information to third parties unless I have your permission or are required by law to do so. I may use your personal information to send you promotional information about third parties which I think you may find interesting if you tell us that you wish this to happen.<br>
 <br>
-			You may request details of personal information which I hold about you under the Data Protection Act 1998. A small fee will be payable. If you would like a copy of the information held on you please emailing us at info@redwood.co.uk <br>
+			You may request details of personal information which I hold about you under the Data Protection Act 1998. A small fee will be payable. If you would like a copy of the information held on you please emailing us at info@redwoodlake.co.uk <br>
 <br>
 			If you believe that any information I are holding on you is incorrect or incomplete, please email us as soon as possible, at the above email address. I will promptly correct any information found to be incorrect.</p>        
 		</div><!-- End of cell-->  

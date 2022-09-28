@@ -26,7 +26,6 @@
 			</div><!-- End of cell-->
 			<div class="cell large-3 show-for-large">
 				<h5>Contact</h5>
-				<i class="fas fa-mobile-alt"></i> -----------<br>
 				<i class="far fa-envelope"></i> info@redwoodlake.co.uk<br>
 				<i class="fab fa-instagram"></i> redwoodlakefrance 
 			</div><!-- End of cell-->

@@ -17,7 +17,7 @@ class AdminDashboard extends Component
             'bookings' => Booking::latest()->limit(5)->get(),
             'payments' => Payment::latest()->limit(10)->get(),
             'current' => Booking::where('departure', '>', Carbon::now())->where('arrival', '<', Carbon::now())->first(),
-            'next' => Booking::where('arrival', '>', Carbon::now())->orderBy('arrival', 'desc')->first()
+            'next' => Booking::where('arrival', '>', Carbon::now())->orderBy('arrival', 'asc')->first()
         ]);
     }
 }
