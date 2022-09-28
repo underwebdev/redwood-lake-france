@@ -13,9 +13,8 @@ use App\Mail\ReviewRequest;
 use App\Models\Booking;
 use Carbon\Carbon;
 
-class ReviewRequest implements ShouldQueue
+class RequestReview implements ShouldQueue
 {
-
     public $booking;
 
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
@@ -25,7 +24,7 @@ class ReviewRequest implements ShouldQueue
      *
      * @return void
      */
-    public function __construct(Booking $booking)
+     public function __construct(Booking $booking)
     {
         $this->booking = $booking;
     }
@@ -53,10 +52,5 @@ class ReviewRequest implements ShouldQueue
 
             Mail::to($data['email'])->send(new ReviewRequest($data));
         }
-
-        $this->booking->notifications()->updateOrCreate([
-            'booking_id' => $this->booking->id],[
-                'review' => Carbon::now()
-            ]);
     }
 }

@@ -165,7 +165,7 @@ class CatchreportDashboard extends Component
             'angler_id' => $data['angler']
         ]);
 
-        $this->reset(['mode', 'lbs', 'oz', 'specimen','date', 'notes', 'sideone', 'sidetwo']);
+        $this->reset();
 
         session()->flash('success', 'Report Uploaded');
     }

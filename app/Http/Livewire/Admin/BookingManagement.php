@@ -322,7 +322,12 @@ class BookingManagement extends Component
 
     public function sendReviewRequest()
     {
-        ReviewRequest::dispatch($this->booking);
+        RequestReview::dispatch($this->booking);
+
+        $this->booking->notifications->updateOrCreate([
+            'booking_id' => $this->booking->id],[
+                'review' => Carbon::now()
+            ]);
 
         session()->flash('success', 'Review Request Sent');
     }
