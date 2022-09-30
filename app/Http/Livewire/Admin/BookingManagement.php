@@ -312,7 +312,7 @@ class BookingManagement extends Component
     {
         ProcessParty::dispatch($this->booking);
 
-        $this->booking->notifications->updateOrCreate([
+        $this->booking->notifications()->updateOrCreate([
             'booking_id' => $this->booking->id ],[
                 'welcome' => Carbon::now()
             ]);
@@ -324,7 +324,7 @@ class BookingManagement extends Component
     {
         RequestReview::dispatch($this->booking);
 
-        $this->booking->notifications->updateOrCreate([
+        $this->booking->notifications()->updateOrCreate([
             'booking_id' => $this->booking->id],[
                 'review' => Carbon::now()
             ]);
