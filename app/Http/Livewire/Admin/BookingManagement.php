@@ -317,6 +317,8 @@ class BookingManagement extends Component
                 'welcome' => Carbon::now()
             ]);
 
+        $this->booking->refresh();
+
         session()->flash('success', 'Welcome Emails Sent');
     }
 
@@ -328,6 +330,8 @@ class BookingManagement extends Component
             'booking_id' => $this->booking->id],[
                 'review' => Carbon::now()
             ]);
+
+        $this->booking->refresh();
 
         session()->flash('success', 'Review Request Sent');
     }
