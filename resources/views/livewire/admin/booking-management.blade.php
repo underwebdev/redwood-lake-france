@@ -93,7 +93,7 @@
                             <td>{{ Carbon\Carbon::parse($booking->arrival)->subDays($booking->priceguide->due)->format('j/m/Y') }}</td>
                             <td class="text-right">
                                 @if($booking->payments->sum('total') < $booking->total)
-                                    <button class="button alert small" wire:click="sendReminder">Reminder</button>
+                                    <button class="button alert small" wire:click="sendPaymentReminder">Reminder</button>
                                 @endif
                             </td>
                         </tr>
@@ -135,7 +135,7 @@
                         </tbody>
                     </table>
                     </div>
-                    @if($booking->guests()->count() < 5)
+                    @if($booking->guests()->count() < 4)
                     <div class="cell small-12 text-center">
                         <button class="button success" wire:click="$set('mode', 3)">Add Angler</button>  
                     </div><!-- End of cell-->
