@@ -11,6 +11,6 @@ class ReportController extends Controller
 {
     public function index()
     {
-        return ReportResource::collection(Report::with('specimen')->orderBy('date', 'asc')->get());
+        return ReportResource::collection(Report::with('specimen')->orderBy('date', 'desc')->get());
     }
 }
