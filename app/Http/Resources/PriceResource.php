@@ -19,7 +19,7 @@ class PriceResource extends JsonResource
             'start' => $this->start,
             'end' => $this->end,
             'price' => $this->price,
-            'deposit' => $this->deposit
+            'deposit' => $this->deposit,
             'package' => $this->package->name
         ];
     }
