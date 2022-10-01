@@ -20,3 +20,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('reports', [ReportController::class, 'index']);
+Route::get('prices', [ReportController::class, 'priceguide']);
