@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Http\Resources\BreakdownResource;
 
 class PriceResource extends JsonResource
 {
@@ -20,7 +21,8 @@ class PriceResource extends JsonResource
             'end' => $this->end,
             'price' => $this->price,
             'deposit' => $this->deposit,
-            'package' => $this->package->name
+            'package' => $this->package->name,
+            'breakdowns' => BreakdownResource::collection($this->package->breakdowns)
         ];
     }
 }
