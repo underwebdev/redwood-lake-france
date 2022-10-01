@@ -18,6 +18,6 @@ class ReportController extends Controller
 
     public function priceguide()
     {
-        return PriceResource::collection(Priceguide::with('breakdowns')->where('featured', 1)->get());
+        return PriceResource::collection(Priceguide::where('featured', 1)->get());
     }
 }
