@@ -15,7 +15,12 @@ class PriceResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'name' => $this->name
+            'name' => $this->name,
+            'start' => $this->start,
+            'end' => $this->end,
+            'price' => $this->price,
+            'deposit' => $this->deposit
+            'package' => $this->package->name
         ];
     }
 }
