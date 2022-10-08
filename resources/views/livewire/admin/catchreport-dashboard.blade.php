@@ -58,20 +58,20 @@
                         <table>
                             <thead>
                                 <tr>
-                                    <td>This Week</td>
-                                    <td>Last Week</td>
-                                    <td>This Month</td>
-                                    <td>Last Month</td>
-                                    <td>Year Total</td>
+                                    <td class="text-center">This Week</td>
+                                    <td class="text-center">Last Week</td>
+                                    <td class="text-center">This Month</td>
+                                    <td class="text-center">Last Month</td>
+                                    <td class="text-center">Year Total</td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>{{ $reports->where('date', '>=', $thisWeek)->count() }}</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td class="text-center">{{ $reports->where('date', '>=', $thisWeek)->count() }}</td>
+                                    <td class="text-center">{{ $reports->where('date', '>=', $lastWeek)->where('date', '<', $thisWeek)->count() }}</td>
+                                    <td class="text-center">{{ $reports->where('date', '>=', $thisMonth)->count() }}</td>
+                                    <td class="text-center">{{ $reports->where('date', '>=', $lastMonth)->where('date', '<', $thisMonth)->count() }}</td>
+                                    <td class="text-center">{{ $reports->where('date', '>=', $thisYear)->count() }}</td>
                                 </tr>
                             </tbody>
                         </table>

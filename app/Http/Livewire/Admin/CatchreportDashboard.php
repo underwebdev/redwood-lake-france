@@ -411,7 +411,8 @@ class CatchreportDashboard extends Component
             'thisMonth' => Carbon::now()->startOfMonth(),
             'lastMonth' => Carbon::now()->startOfMonth()->subMonth(),
             'thisWeek' => Carbon::now()->startOfWeek(),
-            'lastWeek' => Carbon::now()->subdays(7)->startOfWeek()
+            'lastWeek' => Carbon::now()->subdays(7)->startOfWeek(),
+            'thisYear' => Carbon::now()->startOfYear()
 
         ]);
     }
