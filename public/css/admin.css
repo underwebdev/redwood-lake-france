@@ -8829,3 +8829,9 @@ thead {
   font-size: 60px;
   color: #303133;
 }
+
+img {
+  border: 1px solid #FFFFFF;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}

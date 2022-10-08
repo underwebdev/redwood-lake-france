@@ -27,7 +27,8 @@
         @if($mode == 1)
         <div class="grid-x grid-padding-x">
             <div class="cell small-12 medium-8">
-                <img src="/img/lake-map.png" class="lake-map">      
+                <img src="/img/lake-map.png" class="lake-map">
+                <br>      
             </div><!-- End of cell-->
             <div class="cell small-12 medium-4">
                 <p><strong>Size:</strong> {{ $lake->size}}<br>
