@@ -25,7 +25,7 @@
         <div class="grid-x grid-padding-x">
             @if($mode == 1)
             <div class="cell small-12">
-                <input type="text" placeholder="Search by booking ref or lead party name" wire:model="lookup">
+                <input type="text" placeholder="Search by booking lead party name" wire:model="lookup">
                 <div class="table-scroll">
                     <table>
                         <thead>
