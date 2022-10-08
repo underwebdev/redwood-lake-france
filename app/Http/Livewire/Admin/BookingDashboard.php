@@ -199,9 +199,9 @@ class BookingDashboard extends Component
         $lookup = $this->lookup;
 
         return view('livewire.admin.booking-dashboard',[
-            'bookings' => Booking::where('arrival', '>', Carbon::today()->subDays(7))->join('anglers', 'bookings.angler_id', '=', 'anglers.id')->orderBy('arrival', 'asc')->when($lookup, function ($query) use ($lookup) {
-                    return $query->where('lastName', 'like', '%' . $lookup . '%')->orWhere('firstName', 'like', '%' . $lookup . '%')->orWhere('ref', 'like', '%' . $lookup . '%');
-                })->get(),
+            'bookings' => Booking::where('arrival', '>', Carbon::today()->subDays(7))->join('anglers', 'bookings.angler_id', '=', 'anglers.id')->when($lookup, function ($query) use ($lookup) {
+                    return $query->where('lastName', 'like', '%' . $lookup . '%')->orWhere('firstName', 'like', '%' . $lookup . '%')->orWhere('id', 'like', '%' . $lookup . '%');
+                })->orderBy('arrival', 'asc')->get(),
             'adminplaceholders' => Placeholder::whereNull('expiry')->where('date', '>', Carbon::today())->get(),
             'placeholders' => Placeholder::where('date', '>', Carbon::today())->get(),
             'guests' => Angler::all()
