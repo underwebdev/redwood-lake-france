@@ -15,6 +15,8 @@
                             <p>Please Note: If the payment process is not completed in the 15 minuite time frame, then the date will become available again for other anglers to book.</p>
 
                             <p><strong>Please confirm you have read all the <a data-open="terms">booking terms and conditions</a> by selecting the dropdown box below to continue.</strong></p>
+
+                            <p><span class="error">Bookings at Redwood Lake are currently only available to members of Croxley Hall Fisheries</span></p>
                             
                             <select id="" wire:model="terms">
                                 <option value="">Please Confirm</option>
@@ -130,9 +132,9 @@
                             </select>
 
                             <div class="button-group">
-                                @isset($payment && $validcode)
+                                @if($payment && $validcode)
                                 <button class="button expanded success" wire:click="calculate">Proceed To Payment</button>
-                                @endisset
+                                @endif
                                 <button class="button expanded alert hollow" wire:click="$set('step', 2)">Go Back</button>
                             </div>
 
