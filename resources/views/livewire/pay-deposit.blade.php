@@ -130,7 +130,7 @@
                             </select>
 
                             <div class="button-group">
-                                @isset($payment)
+                                @isset($payment && $validcode)
                                 <button class="button expanded success" wire:click="calculate">Proceed To Payment</button>
                                 @endisset
                                 <button class="button expanded alert hollow" wire:click="$set('step', 2)">Go Back</button>
