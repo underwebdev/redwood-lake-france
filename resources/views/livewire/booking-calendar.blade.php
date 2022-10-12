@@ -40,9 +40,8 @@
             <div class="grid-x grid-padding-x">
                 @if($filteredDates->count() > 0)
                     @foreach($filteredDates as $date)
-                        @if(Carbon\Carbon::parse($date['date'])->format('Y-m') == Carbon\Carbon::parse($selectedDate)->format('Y-m'))
+                        @if(Carbon\Carbon::parse($date['date'])->format('Y-m') == Carbon\Carbon::parse($selectedDate)->format('Y-m') AND Carbon\Carbon::parse($date['date'])->format('d-m-Y') > Carbon\Carbon::today()->format('d-m-Y'))
                         <div class="cell small-6 medium-4 ml-3 text-center">
-                            
                             <div class="date-container">
                                 <div class="date-tile">
                                     <p>{{ Carbon\Carbon::parse($date['date'])->format('F') }}</p>
