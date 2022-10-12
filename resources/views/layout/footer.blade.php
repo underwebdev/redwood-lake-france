@@ -35,7 +35,6 @@
 		<div class="cell small-12 text-center">
 			<div class="mobile-footer-icons">
 					<a href=""><i class="fab fa-instagram"></i></a>
-					<a href=""><i class="fab fa-facebook-square"></i></a> 
 			</div>
 		</div><!-- End of cell-->
 	</div><!--end of grid-x -->
