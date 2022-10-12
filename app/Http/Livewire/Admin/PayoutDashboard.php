@@ -24,7 +24,7 @@ class PayoutDashboard extends Component
     public function render()
     {
         return view('livewire.admin.payout-dashboard',[
-            'payouts' => Payout::all()
+            'payouts' => Payout::orderBy('due', 'desc')->get()
         ]);
     }
 }

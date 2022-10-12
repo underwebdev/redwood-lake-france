@@ -5,14 +5,14 @@
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	    <meta name="keywords" content="">
 	    <meta name="description" content="">
-	    <meta name="google-site-verification" content="Underwood Web Services" />
+	    <meta name="google-site-verification" content="Redwood Lake" />
 	    <meta name="robots" content="noindex">
 	    <meta property="og:site_name" content=""/>
-	    <meta property="og:title" content="Underwood Web Services"/>
+	    <meta property="og:title" content="Redwood Lake"/>
 	    <meta property="og:type" content="website"/>
 	    <meta property="og:image" content=""/>
 	    <meta property="og:locale" content="en_UK"/>
-		<title>Underwood Web Services - Admin Dashboard</title>
+		<title>Redwood Lake - Admin Dashboard</title>
 		<link href="/css/admin.css" rel="stylesheet" type="text/css">
 		@livewireStyles
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/motion-ui@1.2.3/dist/motion-ui.min.css" />
