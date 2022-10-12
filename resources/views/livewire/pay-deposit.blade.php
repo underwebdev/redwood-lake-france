@@ -29,7 +29,6 @@
                                 @endif
                                 <a href="/booking" class="button hollow alert expanded">Go Back</a>
                             </div>
-
                         @elseif($step == 2)
                             <h4 class="text-center">Lead Booking Details</h4>
                             

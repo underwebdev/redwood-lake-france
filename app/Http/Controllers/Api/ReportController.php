@@ -13,7 +13,7 @@ class ReportController extends Controller
 {
     public function index()
     {
-        return ReportResource::collection(Report::with('specimen')->orderBy('date', 'desc')->get());
+        return ReportResource::collection(Report::with('specimen')->where('lbs', '>', '15')->orderBy('date', 'desc')->get());
     }
 
     public function priceguide()
