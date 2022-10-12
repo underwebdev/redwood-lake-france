@@ -102,19 +102,18 @@
                             <strong>Address:</strong> {{ $address1 }}, {{ $address2 }} @if($address3) {{ $address3 }} @endif {{ $postcode }}<br>
                             <strong>Total:</strong> 
                                 @if($validcode) 
-                                    <span class="error"><del>£{{ $this->priceguide->price / 100 }}</del></span> £{{ ($this->priceguide->price - $voucher->amount) / 100 }}
+                                    £{{ ($this->priceguide->price - $voucher->amount) / 100 }}
                                 @else 
                                     £{{ $this->priceguide->price / 100 }}
                                 @endif
                             </p>
 
                             @if($validcode)
-                                <p><strong>Code:</strong> {{ $voucher->code }}<br>
-                                <strong>Discount:</strong> £{{ $voucher->amount / 100 }}</p>
+                                <p><strong>Code:</strong> {{ $voucher->code }}</p>
                                 <button wire:click="removeVoucher">Remove Voucher</button>
                                 <br>
                             @else
-                            <label for="">Discount Code
+                            <label for="">Code
                                 @if($invalidcode)
                                     <span class="error">Code not valid for selected booking date</span>
                                 @endif
