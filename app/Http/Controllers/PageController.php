@@ -75,6 +75,9 @@ class PageController extends Controller
         if(Carbon::parse($date)->dayOfWeekIso != 6)
         {
             return redirect('/booking');
+        } elseif(Booking::where('arrival', $date . ' 14:00:00')->exists())
+        {
+            return redirect('/booking');
         } elseif($date > $latestdate)
         {
             return redirect('/booking');

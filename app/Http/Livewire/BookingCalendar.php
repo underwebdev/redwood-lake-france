@@ -98,7 +98,7 @@ class BookingCalendar extends Component
     {
         return view('livewire.booking-calendar',[
             'placeholders' => Placeholder::all(),
-            'bookings' => Booking::where('arrival', '>=', $this->firstdate)->where('arrival', '<=', $this->latestdate)->get()->pluck('arrival'),
+            'bookings' => Booking::where('arrival', '>=', Carbon::today())->get(),
         ]);
     }
 }

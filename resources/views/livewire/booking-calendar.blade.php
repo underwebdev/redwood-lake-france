@@ -49,7 +49,7 @@
                                     <h3>{{ Carbon\Carbon::parse($date['date'])->format('j') }}</h3>
                                     <p>{{ Carbon\Carbon::parse($date['date'])->format('Y') }}</p>
                                 </div>
-                                @if($bookings->where('arrival', Carbon\Carbon::parse($date['date'])->format('Y-m-d'))->count() > 0)
+                                @if($bookings->where('arrival', Carbon\Carbon::parse($date['date'])->format('Y-m-d 14:00:00'))->count() > 0)
                                     <button class="button disabled expanded" disabled>Unavailable</button>
                                 @elseif($placeholders->where('date', Carbon\Carbon::parse($date['date'])->format('Y-m-d'))->count() > 0)
                                     <button class="button disabled expanded" disabled>Unavailable</button>
@@ -98,7 +98,7 @@
                                 <h3>{{ Carbon\Carbon::parse($date)->format('j') }}</h3>
                                 <p>{{ Carbon\Carbon::parse($date)->format('Y') }}</p>
                             </div>
-                            @if($bookings->where('arrival', Carbon\Carbon::parse($date)->format('Y-m-d'))->count() > 0)
+                            @if($bookings->where('arrival', Carbon\Carbon::parse($date)->format('Y-m-d 14:00:00'))->count() > 0)
                                 <button class="button disabled expanded" disabled>Unavailable</button>
                             @elseif($placeholders->where('date', Carbon\Carbon::parse($date)->format('Y-m-d'))->count() > 0)
                                 <button class="button disabled expanded" disabled>Unavailable</button>
