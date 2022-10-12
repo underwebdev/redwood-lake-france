@@ -16,7 +16,7 @@
 
                             <p><strong>Please confirm you have read all the <a data-open="terms">booking terms and conditions</a> by selecting the dropdown box below to continue.</strong></p>
 
-                            <p><span class="error">Bookings at Redwood Lake are currently available to Croxley Hall members only.</span></p>
+                            <p><span class="error">Bookings at Redwood Lake are currently available to Croxley Hall Syndicate members only.</span></p>
                             
                             <select id="" wire:model="terms">
                                 <option value="">Please Confirm</option>
