@@ -27,11 +27,11 @@
 			<div class="cell large-3 show-for-large">
 				<h5>Contact</h5>
 				<i class="far fa-envelope"></i> info@redwoodlake.co.uk<br>
-				<i class="fab fa-instagram"></i> redwoodlakefrance 
+				<div class="hide"><i class="fab fa-instagram"></i> redwoodlakefrance </div>
 			</div><!-- End of cell-->
 		</div><!--end of grid-x -->
 	</div><!--End of grid container-->
-	<div class="grid-x grid-padding-x hide-for-large">
+	<div class="grid-x grid-padding-x hide">
 		<div class="cell small-12 text-center">
 			<div class="mobile-footer-icons">
 					<a href=""><i class="fab fa-instagram"></i></a>
