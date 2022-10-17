@@ -4,7 +4,7 @@
         <div class="cell small-12 text-center">
             <h4 id="bookingcalender"><span class="weighted">Booking</span> Availabillity</h4>
             <p>We are currently taking bookings up until {{ Carbon\Carbon::parse($latestdate)->format('F Y') }}. All bookings run from 2pm Saturday to 10am Saturday. Please check for availability below.</p>
-            <p><span class="error">Bookings at Redwood Lake are currently available to Croxley Hall Syndicate members only.</span></p>
+            <p><span class="error">Bookings at Redwood Lake are currently available to Croxley Hall Syndicate members only, If you are not a member and would like to book, please fill out the contact form and we will get back to you.</span></p>
         </div>
     </div>
     <div class="grid-x grid-padding-x">
