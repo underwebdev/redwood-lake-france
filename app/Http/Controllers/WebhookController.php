@@ -24,7 +24,7 @@ class WebhookController extends Controller
 {
     public function handle(Request $request)
     {
-        $key = env('STRIPE_WEBHOOK_SECRET');
+        $key = config('services.stripe.signature');
         $endpoint_secret = $key;
 
         $payload = @file_get_contents('php://input');
@@ -49,216 +49,229 @@ class WebhookController extends Controller
             ], 200);
         }
 
-        if ($event->type == "charge.succeeded")
+        $account = config('services.stripe.connect');
+
+        if($event->account == $account)
         {
-
-            $intent = $event->data->object;
-
-            if($intent->metadata->type == 'booking')
+            if($event->type == "charge.succeeded")
             {
 
-                $paid = $intent->amount;
-                $percentage = 3;
-                $fee = 30;
-                $applicationFee = ($percentage / 100) * $paid + $fee;
-                $roundedFee = round($applicationFee); 
-                $net = $paid - $roundedFee;
+                $intent = $event->data->object;
 
-                if(User::where('email', $intent->metadata->email)->exists())
+                if($intent->metadata->type == 'booking')
                 {
-                    $user = User::where('email', $intent->metadata->email)->first();
 
+                    $paid = $intent->amount;
+                    $percentage = 3;
+                    $fee = 30;
+                    $applicationFee = ($percentage / 100) * $paid + $fee;
+                    $roundedFee = round($applicationFee); 
+                    $net = $paid - $roundedFee;
 
-                } else {
-                    $newPWD = Str::random(8);
-
-                    $user = User::create([
-                        'email' => $intent->metadata->email,
-                        'password' => bcrypt($newPWD),
-                        'permission' => '2',
-                        'reset' => '1'
-                    ]);
-
-                    $ref = Angler::latest()->pluck('ref')->first();
-
-                    $user->angler()->create([
-                        'firstName' => Str::of($intent->metadata->firstName)->ucfirst(),
-                        'lastName' => Str::of($intent->metadata->lastName)->ucfirst(),
-                        'telephone' => $intent->metadata->telephone,
-                        'ref' => $ref + 1
-                    ]);
-
-                    $data = [
-                        'firstName' => $user->angler->firstName,
-                        'password' => $newPWD,
-                        'email' => $user->email
-                    ];
-
-                    Mail::to($user->email)->send(new AccountCreated($data));
-                }
-
-                $booking = $user->angler->bookings()->create([
-                    'anglers' => $intent->metadata->anglers,
-                    'arrival' => $intent->metadata->arrival . ' 14:00:00',
-                    'departure' => Carbon::parse($intent->metadata->arrival)->addDays(7)->format('Y-m-d') . ' 11:00:00',
-                    'total' => $intent->metadata->total,
-                    'priceguide_id' => $intent->metadata->priceguide
-                ]);
-
-                $user->angler->address()->updateOrCreate([
-                    'angler_id' => $user->angler->id ],[
-                    'address1' => $intent->metadata->address1,
-                    'address2' => $intent->metadata->address2,
-                    'address3' => $intent->metadata->address3,
-                    'postcode' => $intent->metadata->postcode
-                ]);
-
-                if(Payment::where('transaction_id', $intent->id)->doesntExist())
-                {
-                    $booking->payments()->create([
-                        'angler_id' => $user->angler->id,
-                        'total' => $paid,
-                        'net' => $net,
-                        'transaction_id' => $intent->id,
-                        'paymethod_id' => 1,
-                        'status' => 1
-                    ]);
-
-                    if($intent->metadata->voucher > 0)
+                    if(User::where('email', $intent->metadata->email)->exists())
                     {
-                        $voucher = Voucher::find($intent->metadata->voucher);
+                        $user = User::where('email', $intent->metadata->email)->first();
 
-                        $voucher->update([
-                            'used' => $voucher->used + 1
+
+                    } else {
+                        $newPWD = Str::random(8);
+
+                        $user = User::create([
+                            'email' => $intent->metadata->email,
+                            'password' => bcrypt($newPWD),
+                            'permission' => '2',
+                            'reset' => '1'
                         ]);
 
-                        if($voucher->used >= $voucher->limit)
-                        {
-                            $voucher->update([
-                                'active' => 0
-                            ]);
-                        }
+                        $ref = Angler::latest()->pluck('ref')->first();
 
-                        $booking->voucher()->attach($voucher->id);  
+                        $user->angler()->create([
+                            'firstName' => Str::of($intent->metadata->firstName)->ucfirst(),
+                            'lastName' => Str::of($intent->metadata->lastName)->ucfirst(),
+                            'telephone' => $intent->metadata->telephone,
+                            'ref' => $ref + 1
+                        ]);
+
+                        $data = [
+                            'firstName' => $user->angler->firstName,
+                            'password' => $newPWD,
+                            'email' => $user->email
+                        ];
+
+                        Mail::to($user->email)->send(new AccountCreated($data));
                     }
 
-                    Mail::to($user->email)->send(new BookingReceipt($booking));
-                    Mail::to('info@redwoodlake.co.uk')->send(new BookingNotification($booking));
-                }
-            } elseif($intent->metadata->type == 'payment')
-            {
-                $angler = Angler::find($intent->metadata->angler_id);
-                $booking = Booking::find($intent->metadata->booking_id);
-
-                $paid = $intent->amount;
-                $percentage = 3;
-                $fee = 30;
-                $applicationFee = ($percentage / 100) * $paid + $fee;
-                $roundedFee = round($applicationFee); 
-                $net = $paid - $roundedFee;
-
-                if(Payment::where('transaction_id', $intent->id)->doesntExist())
-                {
-                    $payment = $booking->payments()->create([
-                        'angler_id' => $angler->id,
-                        'total' => $paid,
-                        'net' => $net,
-                        'transaction_id' => $intent->id,
-                        'paymethod_id' => 1,
-                        'status' => 1
+                    $booking = $user->angler->bookings()->create([
+                        'anglers' => $intent->metadata->anglers,
+                        'arrival' => $intent->metadata->arrival . ' 14:00:00',
+                        'departure' => Carbon::parse($intent->metadata->arrival)->addDays(7)->format('Y-m-d') . ' 11:00:00',
+                        'total' => $intent->metadata->total,
+                        'priceguide_id' => $intent->metadata->priceguide
                     ]);
 
-                    Mail::to($angler->user->email)->send(new PaymentReceipt($payment));
-                    Mail::to('info@redwoodlake.co.uk')->send(new BookingNotification($booking));
+                    $user->angler->address()->updateOrCreate([
+                        'angler_id' => $user->angler->id ],[
+                        'address1' => $intent->metadata->address1,
+                        'address2' => $intent->metadata->address2,
+                        'address3' => $intent->metadata->address3,
+                        'postcode' => $intent->metadata->postcode
+                    ]);
+
+                    if(Payment::where('transaction_id', $intent->id)->doesntExist())
+                    {
+                        $booking->payments()->create([
+                            'angler_id' => $user->angler->id,
+                            'total' => $paid,
+                            'net' => $net,
+                            'transaction_id' => $intent->id,
+                            'paymethod_id' => 1,
+                            'status' => 1
+                        ]);
+
+                        if($intent->metadata->voucher > 0)
+                        {
+                            $voucher = Voucher::find($intent->metadata->voucher);
+
+                            $voucher->update([
+                                'used' => $voucher->used + 1
+                            ]);
+
+                            if($voucher->used >= $voucher->limit)
+                            {
+                                $voucher->update([
+                                    'active' => 0
+                                ]);
+                            }
+
+                            $booking->voucher()->attach($voucher->id);  
+                        }
+
+                        Mail::to($user->email)->send(new BookingReceipt($booking));
+                        Mail::to('info@redwoodlake.co.uk')->send(new BookingNotification($booking));
+                    }
+                } elseif($intent->metadata->type == 'payment')
+                {
+                    $angler = Angler::find($intent->metadata->angler_id);
+                    $booking = Booking::find($intent->metadata->booking_id);
+
+                    $paid = $intent->amount;
+                    $percentage = 3;
+                    $fee = 30;
+                    $applicationFee = ($percentage / 100) * $paid + $fee;
+                    $roundedFee = round($applicationFee); 
+                    $net = $paid - $roundedFee;
+
+                    if(Payment::where('transaction_id', $intent->id)->doesntExist())
+                    {
+                        $payment = $booking->payments()->create([
+                            'angler_id' => $angler->id,
+                            'total' => $paid,
+                            'net' => $net,
+                            'transaction_id' => $intent->id,
+                            'paymethod_id' => 1,
+                            'status' => 1
+                        ]);
+
+                        Mail::to($angler->user->email)->send(new PaymentReceipt($payment));
+                        Mail::to('info@redwoodlake.co.uk')->send(new BookingNotification($booking));
+                    }
+
                 }
 
             }
 
-        }
-
-        if ($event->type == "payment_intent.payment_failed")
-        {
-            //Payment failed to be completed
-            
-            $intent = $event->data->object;
-            $error_message = $intent->last_payment_error ? $intent->last_payment_error->message : "";
-
-            if($intent->metadata->type == 'guest')
+            if ($event->type == "payment_intent.payment_failed")
             {
-                $booking = Booking::firstOrFail($intent->metadata->booking_id);
+                //Payment failed to be completed
+                
+                $intent = $event->data->object;
+                $error_message = $intent->last_payment_error ? $intent->last_payment_error->message : "";
 
-                $booking->guests()->delete();
-
-                $booking->delete();
-
-            }   
-
-            //Mail::to($booking->member->email)->send(new PaymentFailed ($order));
-
-            return response()->json([
-                'intentId' => $intent->id,
-                'message' => 'Payment failed. send and email: '.$error_message
-            ], 400); 
-        }
-
-        if($event->type == 'payout.created')
-        {
-            $payout = $event->data->object;
-            $due = Carbon::createFromTimestamp($payout->arrival_date)->toDateString();
-
-            $newpayout = Payout::create([
-                'payout' => $payout->id,
-                'amount' => $payout->amount,
-                'created' => Carbon::createFromTimestamp($payout->created)->toDateString(),
-                'due' => $due,
-                'status' => $payout->status,
-                'account' => $event->account
-            ]);
-
-            $stripe = Stripe::setApiKey(config('services.stripe.secret'));
-
-            $bt = \Stripe\BalanceTransaction::all(
-                ['payout' => $payout->id],
-                ['stripe_account' => $event->account]
-            );
-
-            foreach($bt['data'] as $d)
-            {
-                if($d['type'] == 'charge')
+                if($intent->metadata->type == 'guest')
                 {
-                    if(Payment::where('transaction_id', $d['source'])->exists())
-                    {
-                        $payment = Payment::where('transaction_id', $d['source'])->first();
+                    $booking = Booking::firstOrFail($intent->metadata->booking_id);
 
-                        $newpayout->payments()->attach($payment->id);
+                    $booking->guests()->delete();
 
-                    } elseif(Payment::where('transaction_id', $d['source'])->exists())
-                    {
-                        $payment = Payment::where('transaction_id', $d['source'])->first();
+                    $booking->delete();
 
-                        $newpayout->payments()->attach($payment->id);
-                    }
                 }   
+
+                //Mail::to($booking->member->email)->send(new PaymentFailed ($order));
+
+                return response()->json([
+                    'intentId' => $intent->id,
+                    'message' => 'Payment failed. send and email: '.$error_message
+                ], 400); 
             }
+
+            if($event->type == 'payout.created')
+            {
+                $payout = $event->data->object;
+                $due = Carbon::createFromTimestamp($payout->arrival_date)->toDateString();
+
+                $newpayout = Payout::create([
+                    'payout' => $payout->id,
+                    'amount' => $payout->amount,
+                    'created' => Carbon::createFromTimestamp($payout->created)->toDateString(),
+                    'due' => $due,
+                    'status' => $payout->status,
+                    'account' => $event->account
+                ]);
+
+                $stripe = Stripe::setApiKey(config('services.stripe.secret'));
+
+                $bt = \Stripe\BalanceTransaction::all(
+                    ['payout' => $payout->id],
+                    ['stripe_account' => $event->account]
+                );
+
+                foreach($bt['data'] as $d)
+                {
+                    if($d['type'] == 'charge')
+                    {
+                        if(Payment::where('transaction_id', $d['source'])->exists())
+                        {
+                            $payment = Payment::where('transaction_id', $d['source'])->first();
+
+                            $newpayout->payments()->attach($payment->id);
+
+                        } elseif(Payment::where('transaction_id', $d['source'])->exists())
+                        {
+                            $payment = Payment::where('transaction_id', $d['source'])->first();
+
+                            $newpayout->payments()->attach($payment->id);
+                        }
+                    }   
+                }
+            }
+
+            if($event->type == 'payout.updated')
+            {
+                $payout = $event->data->object;
+
+                Payout::where('payout', $payout->id)->update([
+                    'status' => $payout->status
+                ]);
+            }
+
+            if($event->type == 'payout.paid')
+            {
+                $payout = $event->data->object;
+
+                Payout::where('payout', $payout->id)->update([
+                    'status' => $payout->status
+                ]);
+            } 
+
+        } else {
+            return response()->json([
+                    'message' => 'Account id doesnt not match',
+                ], 200);
+
         }
 
-        if($event->type == 'payout.updated')
-        {
-            $payout = $event->data->object;
-
-            Payout::where('payout', $payout->id)->update([
-                'status' => $payout->status
-            ]);
-        }
-
-        if($event->type == 'payout.paid')
-        {
-            $payout = $event->data->object;
-
-            Payout::where('payout', $payout->id)->update([
-                'status' => $payout->status
-            ]);
-        } 
+        
         
     }
 }
