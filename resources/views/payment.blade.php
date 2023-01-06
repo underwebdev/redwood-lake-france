@@ -5,9 +5,9 @@
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	    <meta name="description" content="@yield('metadescription')">
 	    <meta name="google-site-verification" content=""/>
-	    <meta name="robots" content="index, follow">
-	    <meta property="og:site_name" content="Underwood Web Services"/>
-	    <meta property="og:title" content="Underwood Web Services"/>
+	    <meta name="robots" content="noindex">
+	    <meta property="og:site_name" content="Redwood Lake"/>
+	    <meta property="og:title" content="Redwood Lake"/>
 	    <meta property="og:type" content="website"/>
 	    <meta property="og:image" content=""/>
 	    <meta property="og:locale" content="en_UK"/>
@@ -28,18 +28,6 @@
 		<link href="https://fonts.googleapis.com/css2?family=Expletus+Sans:wght@500&display=swap" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
-		
-		<script type="application/ld+json">
-	    { "@context" : "http://schema.org",
-	      "@type" : "Organization",
-	      "name" : "Underwood Web Services",
-	      "logo": "https://underweb.co.uk.co.uk/img/logos/uws-logo-rgb.png",
-	      "url" : "https://underweb.co.uk.co.uk",
-	      "sameAs" : [ "https://www.facebook.com/underwebdevelopment/",
-                   "https://www.linkedin.com/in/joe-underwood-010765b7/",
-                   "https://www.twitter.com/underwebdev"]
-	    } 
-	    </script>
 
 	    <script type="application/ld+json">
 	    	{ 

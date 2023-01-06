@@ -35,7 +35,7 @@ return [
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
         'connect' => env('STRIPE_CONNECT'),
-        'signature' => ENV('STRIPE_WEBHOOK_SECRET'),
+        'signature' => env('STRIPE_WEBHOOK_SECRET'),
     ],
 
 ];

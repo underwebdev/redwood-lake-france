@@ -93,6 +93,5 @@
 		<script>
 		    $(document).foundation(); 
 		</script>
-		<script src="//code.tidio.co/a2mqgwy7mf2qhkuzhwgxv1whlxh9lpbg.js" async></script>
 	</body>
 </html>

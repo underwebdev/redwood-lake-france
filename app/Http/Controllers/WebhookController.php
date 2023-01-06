@@ -269,9 +269,6 @@ class WebhookController extends Controller
                     'message' => 'Account id doesnt not match',
                 ], 200);
 
-        }
-
-        
-        
+        }   
     }
 }
