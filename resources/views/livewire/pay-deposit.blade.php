@@ -15,8 +15,6 @@
                             <p>Please Note: If the payment process is not completed in the 15 minuite time frame, then the date will become available again for other anglers to book.</p>
 
                             <p><strong>Please confirm you have read all the <a data-open="terms">booking terms and conditions</a> by selecting the dropdown box below to continue.</strong></p>
-
-                            <p><span class="error">Bookings at Redwood Lake are currently available to Croxley Hall Syndicate members only.</span></p>
                             
                             <select id="" wire:model="terms">
                                 <option value="">Please Confirm</option>
@@ -101,18 +99,18 @@
                             <strong>Address:</strong> {{ $address1 }}, {{ $address2 }} @if($address3) {{ $address3 }} @endif {{ $postcode }}<br>
                             <strong>Total:</strong> 
                                 @if($validcode) 
-                                    £{{ ($this->priceguide->price - $voucher->amount) / 100 }}
+                                    <span class="error"><strike>£{{ $priceguide->price / 100 }}</strike></span> £{{ ($priceguide->price - $voucher->amount) / 100 }}
                                 @else 
-                                    £{{ $this->priceguide->price / 100 }}
+                                    £{{ $priceguide->price / 100 }}
                                 @endif
                             </p>
 
                             @if($validcode)
-                                <p><strong>Code:</strong> {{ $voucher->code }}</p>
-                                <button wire:click="removeVoucher">Remove Voucher</button>
+                                <p><strong>Discount Code:</strong> {{ $voucher->code }} - 
+                                <button wire:click="removeVoucher">Remove Voucher</button></p>
                                 <br>
                             @else
-                            <label for="">Code
+                            <label for="">Discount Code
                                 @if($invalidcode)
                                     <span class="error">Code not valid for selected booking date</span>
                                 @endif
@@ -130,7 +128,7 @@
                             </select>
 
                             <div class="button-group">
-                                @if($payment && $validcode)
+                                @if($payment)
                                 <button class="button expanded success" wire:click="calculate">Proceed To Payment</button>
                                 @endif
                                 <button class="button expanded alert hollow" wire:click="$set('step', 2)">Go Back</button>
