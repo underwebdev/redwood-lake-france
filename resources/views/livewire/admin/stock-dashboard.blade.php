@@ -84,48 +84,84 @@
                                 </button>
                             <td>
                                 <button wire:click="weightFilter('54', '>')">
-                                    {{ $fishlist->where('lbs', '>', 54)->count() }}
+                                    @if($selectedSpecies)
+                                        {{ $stock->where('lbs', '>', 54)->where('specimen_id', $selectedSpecies)->count() }}
+                                    @else
+                                        {{ $stock->where('lbs', '>', 54)->count() }}
+                                    @endif
                                 </button>
                             </td>
                             <td>
                                 <button wire:click="weightFilter('49', '>')">
-                                    {{ $fishlist->where('lbs', '>', 49)->count() }}
+                                    @if($selectedSpecies)
+                                        {{ $stock->where('lbs', '>', 49)->where('specimen_id', $selectedSpecies)->count() }}
+                                    @else
+                                        {{ $stock->where('lbs', '>', 49)->count() }}
+                                    @endif
                                 </button>
                             </td>
                             <td>
                                 <button wire:click="weightFilter('44', '>')">
-                                    {{ $fishlist->where('lbs', '>', 44)->count() }}
+                                    @if($selectedSpecies)
+                                        {{ $stock->where('lbs', '>', 44)->where('specimen_id', $selectedSpecies)->count() }}
+                                    @else
+                                        {{ $stock->where('lbs', '>', 44)->count() }}
+                                    @endif
                                 </button>
                             </td>
                             <td>
                                 <button wire:click="weightFilter('39', '>')">
-                                    {{ $fishlist->where('lbs', '>', 39)->count() }}
+                                    @if($selectedSpecies)
+                                        {{ $stock->where('lbs', '>', 39)->where('specimen_id', $selectedSpecies)->count() }}
+                                    @else
+                                        {{ $stock->where('lbs', '>', 39)->count() }}
+                                    @endif
                                 </button>
                             </td>
                             <td>
                                 <button wire:click="weightFilter('34', '>')">
-                                    {{ $fishlist->where('lbs', '>', 34)->count() }}
+                                    @if($selectedSpecies)
+                                        {{ $stock->where('lbs', '>', 34)->where('specimen_id', $selectedSpecies)->count() }}
+                                    @else
+                                        {{ $stock->where('lbs', '>', 34)->count() }}
+                                    @endif
                                 </button>
                             </td>
                             <td>
                                 <button wire:click="weightFilter('29', '>')">
-                                    {{ $fishlist->where('lbs', '>', 29)->count() }}
+                                    @if($selectedSpecies)
+                                        {{ $stock->where('lbs', '>', 29)->where('specimen_id', $selectedSpecies)->count() }}
+                                    @else
+                                        {{ $stock->where('lbs', '>', 29)->count() }}
+                                    @endif
                                 </button>
                             </td>
                             <td>
                                 <button wire:click="weightFilter('24', '>')">
-                                    {{ $fishlist->where('lbs', '>', 24)->count() }}
+                                    @if($selectedSpecies)
+                                        {{ $stock->where('lbs', '>', 24)->where('specimen_id', $selectedSpecies)->count() }}
+                                    @else
+                                        {{ $stock->where('lbs', '>', 24)->count() }}
+                                    @endif
                                 </button>
                             </td>
                             <td>
                                 <button wire:click="weightFilter('19', '>')">
-                                    {{ $fishlist->where('lbs', '>', 19)->count() }}
+                                    @if($selectedSpecies)
+                                        {{ $stock->where('lbs', '>', 19)->where('specimen_id', $selectedSpecies)->count() }}
+                                    @else
+                                        {{ $stock->where('lbs', '>', 19)->count() }}
+                                    @endif
                                 </button>
                             </td>
                             <td>
                                 <button wire:click="weightFilter('20', '<')">
-                                    {{ $fishlist->where('lbs', '<', 20)->count() }}
-                                    </button>
+                                    @if($selectedSpecies)
+                                        {{ $stock->where('lbs', '<', 20)->where('specimen_id', $selectedSpecies)->count() }}
+                                    @else
+                                        {{ $stock->where('lbs', '<', 20)->count() }}
+                                    @endif
+                                </button>
                                 </td>
                         </tr>
                     </tbody>

@@ -152,7 +152,7 @@ class StockDashboard extends Component
             'fishlist' => Stock::whereNotNull('alive')->when($specimen, function ($query) use ($specimen) {
                     return $query->where('specimen_id', $specimen);
                 })->when($weight, function ($query) use ($weight) {
-                    return $query->where('lbs', $this->symbol, '16');
+                    return $query->where('lbs', $this->symbol, $weight);
                 })->orderBy('lbs', 'desc')->orderBy('oz', 'desc')->get()
         ]);
     }
