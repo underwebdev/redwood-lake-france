@@ -267,7 +267,7 @@
                         <img src="{{ $selectedFish->sideone }}">
                         </a>
                     </div>
-                    @isset($fish->sidetwo)
+                    @isset($selectedFish->sidetwo)
                     <div class="photo-border-block">
                         <a href="{{ $selectedFish->sidetwo }}" data-lity>
                         <img src="{{ $selectedFish->sidetwo }}">
