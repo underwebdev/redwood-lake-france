@@ -105,6 +105,41 @@ class StockDashboard extends Component
         $this->reset();
     }
 
+    public function primary($id)
+    {
+        $report = Report::findOrFail($id);
+
+        $this->selectedFish->update([
+            'sideone' => $report->sideone,
+            'sideonethumb' => $report->sideonethumb
+        ]);
+
+        $this->selectedFish->refresh();
+    }
+
+    public function secondary($id)
+    {
+        $report = Report::findOrFail($id);
+
+        $this->selectedFish->update([
+            'sidetwo' => $report->sidetwo,
+            'sidetwothumb' => $report->sidetwothumb
+        ]);
+
+        $this->selectedFish->refresh();
+    }
+
+    public function detach($id)
+    {
+        $report = Report::findOrFail($id);
+
+        $report->update([
+            'stock_id' => Null
+        ]);
+
+        $this->selectedFish->refresh();
+    }
+
     public function render()
     {
         $specimen = $this->selectedSpecies;

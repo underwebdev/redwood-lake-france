@@ -341,12 +341,12 @@
                                 <td class="text-center">
                                     @isset($report->sideone)
                                         <a href="{{ $report->sideone }}" data-lity>
-                                            <img src="/img/reportIcon.png">
+                                            <i class="fas fa-camera"></i>
                                         </a>
                                     @endif
                                     @isset($report->sidetwo)
                                         <a href="{{ $report->sidetwo }}" data-lity>
-                                            <img src="/img/reportIcon.png">
+                                            <i class="fas fa-camera"></i>
                                         </a>
                                     @endif
                                 </td>
