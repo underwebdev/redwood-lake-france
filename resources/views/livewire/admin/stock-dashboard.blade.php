@@ -36,13 +36,13 @@
                     <tbody>
                         <tr>
                             <td class="text-center">
-                                <button wire:click="speciesFilter('2')">
-                                    {{ $stock->where('specimen_id', 2)->count() }}
+                                <button wire:click="speciesFilter('1')">
+                                    {{ $stock->where('specimen_id', 1)->count() }}
                                 </button>
                             </td>
                             <td class="text-center">
-                                <button wire:click="speciesFilter('1')">
-                                    {{ $stock->where('specimen_id', 1)->count() }}
+                                <button wire:click="speciesFilter('2')">
+                                    {{ $stock->where('specimen_id', 2)->count() }}
                                 </button>
                             </td>
                             <td class="text-center">
@@ -74,8 +74,13 @@
                     <tbody>
                         <tr>
                             <td>
-                                <button wire:click="clearFilter">
-                                    {{ $fishlist->count() }}
+                                <button wire:click="clearWeightFilter">
+                                    @if($selectedSpecies)
+                                        {{ $stock->where('specimen_id', $selectedSpecies)->count() }}
+                                    @else
+                                        {{ $stock->count() }}
+                                    @endif
+
                                 </button>
                             <td>
                                 <button wire:click="weightFilter('54', '>')">
