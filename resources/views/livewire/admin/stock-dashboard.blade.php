@@ -274,11 +274,18 @@
                         </a>
                     </div>
                     @endisset
+
+                    @unless($setPhoto)
+                    <button class="button success expanded" wire:click="$toggle('setPhoto')">Set Photo</button>
+                    @else
+                    <button class="button alert expanded" wire:click="$toggle('setPhoto')">Cancel</button>
+                    @endunless
                 </div>
                 </div><!-- End of cell-->
                   
             </div><!-- End of cell-->
             <div class="cell small-12 medium-8">
+                @unless($setPhoto)
                 <div class="table-scroll">
                     <table>
                         <thead>
@@ -358,17 +365,7 @@
                                     @endisset
                                 </td>
                                 <td class="text-right">
-                                    <div x-data="{ open: false }">
-                                        <button @click="open = true">Actions</button>
-
-                                        <ul x-show="open" @click.away="open = false">
-                                            
-                                            <li><button wire:click="primary('{{ $report->id }}')">Primary Photo</button></li>
-                                            <li><button wire:click="secondary('{{ $report->id }}')">Secondary Photo</button></li>
-                                            <li><button wire:click="detach('{{ $report->id }}')">Remove</button></li>
-                                            
-                                        </ul>
-                                    </div>
+                                    <button class="button alert small" wire:click="detach('{{ $report->id }}')">Remove</button>
                                 </td>
 
                             </tr>
@@ -376,6 +373,35 @@
                         </tbody>
                     </table>
                 </div>
+                @else
+                <div class="grid-x grid-padding-x">
+                    @foreach($selectedFish->reports as $report)
+                        @isset($report->sideone)
+                        <div class="cell small-12 medium-6">
+                            <div class="photo-border-block">
+                                <img src="{{ $report->sideonethumb }}">
+                            </div>
+                            <div class="button-group">
+                                <button class="button expanded" wire:click="primary('{{ $report->id }}')">Primary</button>
+                                <button class="button expanded hollow" wire:click="secondary('{{ $report->id }}')">Secondary</button>
+                            </div>
+                              
+                        </div><!-- End of cell-->
+                        @endisset
+                        @isset($report->sidetwo)
+                        <div class="cell small-12 medium-6">
+                            <div class="photo-border-block">
+                                <img src="{{ $report->sidetwothumb }}">
+                            </div>
+                            <div class="button-group">
+                                <button class="button expanded" wire:click="primary('{{ $report->id }}')">Primary</button>
+                                <button class="button expanded hollow" wire:click="secondary('{{ $report->id }}')">Secondary</button>
+                            </div>  
+                        </div><!-- End of cell-->
+                        @endisset
+                    @endforeach
+                </div><!--end of grid-x -->
+                @endif
             </div><!-- End of cell-->
         </div><!--end of grid-x -->
         @endif

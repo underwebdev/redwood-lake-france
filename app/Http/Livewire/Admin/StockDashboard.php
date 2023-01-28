@@ -17,6 +17,7 @@ class StockDashboard extends Component
     public $selectedFish;
     public $selectedWeight;
     public $symbol;
+    public $setPhoto = false;
 
     public function selectReport($id)
     {
