@@ -199,8 +199,11 @@
         @elseif($mode == 3)
         <div class="grid-x grid-padding-x">
             <div class="cell small-12 medium-4" data-sticky-container>
-                <div class="sticky" data-sticky data-top-anchor="admin-title-panel:bottom">
+                <div class="sticky" data-sticky data-margin-top="0">
                     <img src="{{ $selectedReport->sideonethumb }}">
+                    @isset($selectedReport->sidetwothumb)
+                    <img src="{{ $selectedReport->sideonethumb }}">
+                    @endisset
                     <div class="button-group">
                         <button class="button success expanded" wire:click="$set('mode', 4)">Create Fish</button>
                         <button class="button warning expanded" wire:click="$set('mode', 2)">Back To Unmatched</button>
