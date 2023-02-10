@@ -24,6 +24,7 @@ class StockDashboard extends Component
         $this->selectedReport = Report::findOrFail($id);
 
         $this->mode = 3;
+        $this->dispatchBrowserEvent('activate-foundation');
     }
 
     public function saveFish()

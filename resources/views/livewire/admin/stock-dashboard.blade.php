@@ -198,8 +198,8 @@
         </div><!--end of grid-x -->
         @elseif($mode == 3)
         <div class="grid-x grid-padding-x">
-            <div class="cell small-12 medium-4">
-                <div class="sticky">
+            <div class="cell small-12 medium-4" data-sticky-container>
+                <div class="sticky" data-sticky data-top-anchor="admin-title-panel:bottom">
                     <img src="{{ $selectedReport->sideonethumb }}">
                     <div class="button-group">
                         <button class="button success expanded" wire:click="$set('mode', 4)">Create Fish</button>

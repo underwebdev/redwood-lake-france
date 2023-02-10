@@ -83,6 +83,11 @@
 		  })
 		</script>
 		<script>
+	      window.addEventListener('activate-foundation', event => {
+	        $(document).foundation();  
+	      })
+	    </script>
+		<script>
 		    $(document).foundation();  
 		</script>
 	</body>
