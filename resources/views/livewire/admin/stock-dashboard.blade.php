@@ -202,7 +202,7 @@
                 <div class="sticky" data-sticky data-margin-top="0">
                     <img src="{{ $selectedReport->sideonethumb }}">
                     @isset($selectedReport->sidetwothumb)
-                    <img src="{{ $selectedReport->sideonethumb }}">
+                    <img src="{{ $selectedReport->sidetwothumb }}">
                     @endisset
                     <div class="button-group">
                         <button class="button success expanded" wire:click="$set('mode', 4)">Create Fish</button>
