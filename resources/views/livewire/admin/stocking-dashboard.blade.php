@@ -22,7 +22,10 @@
                                         Gallery View
                                     @endif
                                 </button>
+                                @elseif($mode == 5)
+                                    <button class="button warning" wire:click="$toggle('editfish')">Edit Fish</button>
                                 @endif
+
                                 <button class="button alert" wire:click="back">Cancel</button>
                             @endif
 
@@ -55,8 +58,8 @@
                             <tr>
                                 <td>{{ date('j/m/y', strtotime ($stocking->date)) }}</td>
                                 <td>{{ $stocking->farm->name }}</td>
-                                <td class="text-center">{{ $stocking->items()->where('specimen_id', 2)->count() }}</td>
                                 <td class="text-center">{{ $stocking->items()->where('specimen_id', 1)->count() }}</td>
+                                <td class="text-center">{{ $stocking->items()->where('specimen_id', 2)->count() }}</td>
                                 <td class="text-center">{{ $stocking->items()->count() }}</td>
                                 <td class="text-right">
                                     <button class="button" wire:click="selectStocking('{{ $stocking->id }}')">View Stocking</button>
@@ -75,8 +78,8 @@
                             <tr>
                                 <th>Date</th>
                                 <th>Supplier</th>
-                                <th class="text-center">Mirrors</th>
                                 <th class="text-center">Commons</th>
+                                <th class="text-center">Mirrors</th>
                                 <th class="text-center">Total Fish</th>
                                 <th class="text-center">Total Weight</th>
                                 <th class="text-center">Cost</th>
@@ -274,6 +277,56 @@
             </div><!-- End of cell-->
             <div class="cell small-12 medium-8">
                 @if($editfish)
+                    <label for="">Number</label>
+                    <input type="text" wire:model="number">
+                        <div class="grid-x grid-padding-x">
+                            <div class="cell small-6">
+                                <label for="">lbs</label>
+                                <input type="text" wire:model="lbs">  
+                            </div><!-- End of cell-->
+                            <div class="cell small-6">
+                                <label for="">oz</label>
+                                <input type="text" wire:model="oz">    
+                            </div><!-- End of cell-->
+                        </div><!--end of grid-x -->
+                    <label for="">Class</label>
+                    <select id=""wire:model="class">
+                        <option value="">Please select</option>
+                        <option value="C1">C1</option>
+                        <option value="C2">C2</option>
+                        <option value="C3">C3</option> 
+                        <option value="C4">C4</option> 
+                        <option value="C5">C5</option> 
+                        <option value="C6">C6</option>  
+                    </select>
+                    <label for="">Species</label>
+                    <select id=""wire:model="species">
+                        <option value="">Please select</option>
+                        @foreach($specimens as $specimen)
+                            <option value="{{ $specimen->id }}">{{ $specimen->name }}</option>
+                        @endforeach
+                    </select>
+
+                    <label for="">Price</label>
+                    <input type="text" wire:model="price">
+
+                    <label for="">Side 1</label>
+                    <input type="file" wire:model="sideone">
+                    <label for="">Side 2</label>
+                    <input type="file" wire:model="sidetwo">
+
+                    <div wire:loading wire:target="sideone">
+                        Uploading photo one...
+                    </div>
+
+                    <div wire:loading wire:target="sidetwo">
+                        Uploading photo two...
+                    </div>
+
+                    <div class="button-group">
+                        <button class="button success expanded" wire:click="saveFishChanges" wire:loading.attr="disabled">Save Fish</button>
+                        <button class="button warning expanded" wire:click="$toggle('editfish')">Cancel</button>
+                    </div>
 
 
                 @else
@@ -298,6 +351,9 @@
                             </tr>
                         </tbody>
                     </table>
+                </div>
+                <div class="text-center">
+                    <button class="button alert" wire:click="deleteFish">Delete</button>
                 </div>
                 @endif
             </div><!-- End of cell-->

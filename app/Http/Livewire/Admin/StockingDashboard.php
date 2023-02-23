@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Admin;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use App\Models\Stocking;
 use App\Models\Farm;
 use App\Models\Specimen;
@@ -147,6 +148,13 @@ class StockingDashboard extends Component
     {
         $this->selectedFish = Item::findOrFail($id);
 
+        $this->number = $this->selectedFish->number;
+        $this->lbs = $this->selectedFish->lbs;
+        $this->oz = $this->selectedFish->oz;
+        $this->species = $this->selectedFish->specimen_id;
+        $this->class = $this->selectedFish->class;
+        $this->price = $this->selectedFish->price;
+
         $this->mode = 5;
     }
 
@@ -157,6 +165,106 @@ class StockingDashboard extends Component
         $this->reset();
 
         session()->flash('success', 'Stocking Deleted');
+    }
+
+    public function updatedSideone()
+    {
+        if($this->editfish)
+        {
+            $sideone = Image::make($this->sideone);
+            $sideonename = uniqid() .'.' . $this->sideone->getClientOriginalExtension();
+
+            $photoone = $sideone->resize(600, null, function($constraint) 
+            {
+                $constraint->aspectRatio();
+            });
+
+            $directory = 'public/stockings/';
+
+            Storage::put($directory . '/' . $sideonename, $photoone->stream());
+
+            $imageToDelete = Str::after($this->selectedFish->side1, '/storage/');
+
+            Storage::delete('public/' . $imageToDelete);
+
+            $this->selectedFish->update([
+                'side1' => '/storage/stockings/'. $sideonename
+            ]);
+
+            $this->selectedFish->refresh();
+
+
+        }
+    }
+
+    public function updatedSidetwo()
+    {
+        if($this->editfish)
+        {
+            $sideone = Image::make($this->sidetwo);
+            $sideonename = uniqid() .'.' . $this->sidetwo->getClientOriginalExtension();
+
+            $photoone = $sideone->resize(600, null, function($constraint) 
+            {
+                $constraint->aspectRatio();
+            });
+
+            $directory = 'public/stockings/';
+
+            Storage::put($directory . '/' . $sideonename, $photoone->stream());
+
+            $imageToDelete = Str::after($this->selectedFish->side2, '/storage/');
+
+            Storage::delete('public/' . $imageToDelete);
+
+            $this->selectedFish->update([
+                'side2' => '/storage/stockings/'. $sideonename
+            ]);
+
+            $this->selectedFish->refresh();
+
+
+        }
+    }
+
+    public function saveFishChanges()
+    {
+        $data = $this->validate([
+            'number' => 'required',
+            'lbs' => 'required|numeric',
+            'oz' => 'required|numeric',
+            'class' => 'required',
+            'species' => 'required',
+            'price' => 'required|numeric'
+        ]);
+
+        $this->selectedFish->update([
+            'number' => $data['number'],
+            'lbs' => $data['lbs'],
+            'oz' => $data['oz'],
+            'class' => $data['class'],
+            'specimen_id' => $data['species'],
+            'price' => $data['price']
+        ]);
+
+        $this->editfish = false;
+
+        $this->selectedFish->refresh();
+
+        session()->flash('success', 'Data updated');
+    }
+
+    public function deleteFish()
+    {
+        $this->selectedFish->stock()->update([
+            'item_id' => Null
+        ]);
+
+        $this->selectedFish->delete();
+
+        $this->reset();
+
+        session()->flash('success', 'Fish deleted');
     }
 
     public function render()
