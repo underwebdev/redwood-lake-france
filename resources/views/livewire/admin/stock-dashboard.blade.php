@@ -371,7 +371,7 @@
                                 <td class="text-center">Photo</td>
                                 <td>Bait</td>
                                 <td>Notes</td>
-                                <td>Stocked</td>
+                
                                 <td></td>
                                 
                                 
@@ -398,11 +398,7 @@
                                 </td>
                                 <td>{{ $report->bait }}</td>
                                 <td>{{ $report->notes }}</td>
-                                <td>
-                                    @isset($selectedFish->item_id)
-                                        put the date here
-                                    @endisset
-                                </td>
+                                
                                 <td class="text-right">
                                     <button class="button alert small" wire:click="detach('{{ $report->id }}')">Remove</button>
                                 </td>
@@ -410,6 +406,26 @@
                             </tr>
                             @endforeach
                         </tbody>
+                        @isset($selectedFish->item_id)
+                        <tfoot>
+                            <tr>
+                                <td>{{ date('j/m/y', strtotime ($selectedFish->item->stocking->date)) }}</td>
+                                <td>Stocked</td>
+                                <td>{{ $selectedFish->item->lbs }}lbs {{ $selectedFish->item->oz }}oz</td>
+                                <td class="text-center">
+                                    <a href="{{ $selectedFish->item->side1 }}" data-lity>
+                                        <i class="fas fa-camera"></i>
+                                    </a>
+                                    <a href="{{ $selectedFish->item->side2 }}" data-lity>
+                                        <i class="fas fa-camera"></i>
+                                    </a>    
+                                </td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tfoot>
+                        @endisset
                     </table>
                 </div>
                 @else

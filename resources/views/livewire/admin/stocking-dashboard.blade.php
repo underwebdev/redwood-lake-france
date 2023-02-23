@@ -14,17 +14,14 @@
                                 @if($mode == 2)
                                 <button class="button success" wire:click="$set('mode', 4)">Add Fish</button>
 
-                                @if($selectedFish)
-                                    <button class="button warning" wire:click="$toggle('selectedFish')">Back To Stocking</button>
-                                @else 
-                                    <button class="button warning" wire:click="$toggle('gallery')">
-                                        @if($gallery)
-                                            Table View
-                                        @else
-                                            Gallery View
-                                        @endif
-                                    </button>
-                                @endif
+                                
+                                <button class="button warning" wire:click="$toggle('gallery')">
+                                    @if($gallery)
+                                        Table View
+                                    @else
+                                        Gallery View
+                                    @endif
+                                </button>
                                 @endif
                                 <button class="button alert" wire:click="back">Cancel</button>
                             @endif
@@ -93,64 +90,28 @@
                                 <td class="text-center">{{ $selectedStocking->items()->where('specimen_id', 1)->count() }}</td>
                                 <td class="text-center">{{ $selectedStocking->items()->where('specimen_id', 2)->count() }}</td>
                                 <td class="text-center">{{ $selectedStocking->items()->count() }}</td>
-                                <td class="text-center">{{ $selectedStocking->items()->sum('lbs') }}</td>
-                                <td class="text-center">£{{ $selectedStocking->items()->sum('price') / 100 }}</td>
+                                <td class="text-center">{{ $selectedStocking->items()->sum('lbs') }}lbs</td>
+                                <td class="text-center">£{{ $selectedStocking->items()->sum('price') }}</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </div><!-- End of cell-->
-            @if($selectedFish)
-            <div class="grid-x grid-padding-x">
-                <div class="cell small-12">
-                    <div class="table-scroll">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Number</th>
-                                    <th>Weight</th>
-                                    <th>Class</th>
-                                    <th>Species</th>
-                                    <th>Date</th>
-                                    <th>Farm</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>{{ $selectedFish->number }}</td>
-                                    <td>{{ $selectedFish->lbs }}lb {{ $selectedFish->oz }}oz</td>
-                                    <td>{{ $selectedFish->class }}</td>
-                                    <td>{{ $selectedFish->species->name }}</td>
-                                    <td>{{ date('j/m/y', strtotime ($selectedStocking->date)) }}</td>
-                                    <td>{{ $selectedStocking->farm->name }}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div><!-- End of cell-->
-                <div class="grid-x grid-padding-x">
-                    <div class="cell small-12 medium-4">
-                        <img src="{{ $selectedFish->sideone }}">
-                    </div><!-- End of cell-->
-                    <div class="cell small-12 medium-4">
-                        <img src="{{ $selectedFish->sidetwo }}">
-                    </div><!-- End of cell-->
-                    <div class="cell small-12 medium-4">
-                        <img src="">
-                    </div><!-- End of cell-->
-                </div><!--end of grid-x --> 
-            </div><!--end of grid-x -->
-            @else
+            
                 @if($gallery)
-                <div class="grid-x grid-padding-x">
+                
                     @foreach($selectedStocking->items as $fish)
                     <div class="cell small-12 medium-6 large-4">
-                        <img src="{{ $item->sideone }}">
-                        <img src="{{ $item->sidetwo }}">
-                        <button class="button success expanded" wire:click="">View Fish</button>
+                        <div class="fish-photo">
+                            <img src="{{ $fish->side1 }}">
+                        </div>
+                        <div class="fish-photo">
+                            <img src="{{ $fish->side2 }}">
+                        </div>
+                        <button class="button success expanded" wire:click="selectFish('{{ $fish->id }}')">View Fish</button>
                     </div><!-- End of cell-->
                     @endforeach
-                </div><!--end of grid-x -->
+                
                 @else
                 <div class="cell small-12">
                     <div class="table-scroll">
@@ -161,7 +122,7 @@
                                     <th>Weight</th>
                                     <th>Class</td>
                                     <th>Species</th>
-                                    <th>Photos</th>
+                                    <th class="text-center">Photos</th>
                                     <th>Captures</th>
                                     <th>£</th>
                                     <th></th>
@@ -171,13 +132,24 @@
                                 @foreach($selectedStocking->items as $fish)
                                 <tr>
                                     <td>{{ $fish->number }}</td>
-                                    <td>{{ $fish->lbs }}lb {{ $fish->oz }}oz }}</td>
+                                    <td>{{ $fish->lbs }}lb {{ $fish->oz }}oz</td>
                                     <td>{{ $fish->class }}</td>
                                     <td>{{ $fish->specimen->name }}</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>£{{ $fish->price * $fish->lbs / 100 }}</td>
-                                    <td><button class="button success" wire:click="">View Fish</button></td>
+                                    <td class="text-center">
+                                        <a href="{{ $fish->side1 }}" data-lity>
+                                            <i class="fas fa-camera"></i>
+                                        </a>
+                                        <a href="{{ $fish->side2 }}" data-lity>
+                                            <i class="fas fa-camera"></i>
+                                        </a>
+                                    </td>
+                                    <td>
+                                       
+                                    </td>
+                                    <td>£{{ $fish->price }}</td>
+                                    <td class="text-right">
+                                        <button class="button success" wire:click="selectFish('{{ $fish->id }}')">View Fish</button>
+                                    </td>
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -185,7 +157,6 @@
                     </div>
                 </div><!-- End of cell-->
                 @endif
-            @endif
         @elseif($mode == 3)
             <div class="cell small-12 medium-8 large-6 medium-offset-2 large-offset-3">
                 <label for="">Date
@@ -228,6 +199,7 @@
                     </div><!--end of grid-x -->
                 <label for="">Class</label>
                 <select id=""wire:model="class">
+                    <option value="">Please select</option>
                     <option value="C1">C1</option>
                     <option value="C2">C2</option>
                     <option value="C3">C3</option> 
@@ -237,6 +209,7 @@
                 </select>
                 <label for="">Species</label>
                 <select id=""wire:model="species">
+                    <option value="">Please select</option>
                     @foreach($specimens as $specimen)
                         <option value="{{ $specimen->id }}">{{ $specimen->name }}</option>
                     @endforeach
@@ -250,11 +223,78 @@
                 <label for="">Side 2</label>
                 <input type="file" wire:model="sidetwo">
 
+                <div class="grid-x grid-padding-x">
+                    <div class="cell small-12 medium-6">
+                        @if($sideone)
+                        <div class="photo-preview">
+                            <img src="{{ $sideone->temporaryUrl() }}">
+                        </div>
+                        @endif
+                    </div><!-- End of cell-->
+                    <div class="cell small-12 medium-6">
+                        @if($sidetwo)
+                        <div class="photo-preview">
+                            <img src="{{ $sidetwo->temporaryUrl() }}">
+                        </div>
+                        @endif
+                    </div><!-- End of cell-->
+                </div><!--end of grid-x -->
+
+                <div wire:loading wire:target="sideone">
+                    Uploading photo one...
+                </div>
+
+                <div wire:loading wire:target="sidetwo">
+                    Uploading photo two...
+                </div>
+
                 <div class="button-group">
-                    <button class="button success" wire:click="saveFish">Save Fish</button>
+                    <button class="button success" wire:click="saveFish" wire:loading.attr="disabled">Save Fish</button>
                     <button class="button warning" wire:click="$set('mode', 2)">Cancel</button>
                 </div>
             </div>
+        @elseif($mode == 5)
+            <div class="cell small-12 medium-4">
+                <div class="fish-photo">
+                    <img src="{{ $selectedFish->side1 }}">
+                </div>
+
+                <div class="fish-photo">
+                    <img src="{{ $selectedFish->side2 }}">
+                </div>
+
+                <button class="button alert expanded" wire:click="$set('mode', 2)">Go Back</button>
+                  
+            </div><!-- End of cell-->
+            <div class="cell small-12 medium-8">
+                @if($editfish)
+
+
+                @else
+                <div class="table-scroll">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Number</th>
+                                <th>Weight</th>
+                                <th>Class</th>
+                                <th>Species</th>
+                                <th>Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{ $selectedFish->number }}</td>
+                                <td>{{ $selectedFish->lbs }}lbs {{ $selectedFish->oz }}oz</td>
+                                <td>{{ $selectedFish->class }}</td>
+                                <td>{{ $selectedFish->specimen->name }}</td>
+                                <td>£{{ $selectedFish->price }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                @endif
+            </div><!-- End of cell-->
         @endif
         </div><!--end of grid-x -->
     </div><!--End of grid container-->

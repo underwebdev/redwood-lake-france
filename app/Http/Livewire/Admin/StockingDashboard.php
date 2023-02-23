@@ -3,13 +3,19 @@
 namespace App\Http\Livewire\Admin;
 
 use Livewire\Component;
+use Livewire\WithFileUploads;
+use Illuminate\Support\Facades\Storage;
 use App\Models\Stocking;
 use App\Models\Farm;
 use App\Models\Specimen;
+use App\Models\Item;
 use Carbon\Carbon;
+use Image;
 
 class StockingDashboard extends Component
 {
+    use WithFileUploads;
+
     public $mode = 1;
     public $date;
     public $selectedFarm;
@@ -27,6 +33,7 @@ class StockingDashboard extends Component
 
     public $gallery;
     public $selectedFish;
+    public $editfish = false;
 
     public function selectStocking($id)
     {
@@ -55,10 +62,62 @@ class StockingDashboard extends Component
     {
         $data = $this->validate([
             'number' => 'required',
+            'lbs' => 'required|numeric',
+            'oz' => 'required|numeric',
+            'class' => 'required',
+            'species' => 'required',
+            'price' => 'required|numeric'
         ]);
 
-        $this->selectedStocking->items()->create([
+        $sideone = Image::make($this->sideone);
+        $sidetwo = Image::make($this->sidetwo);
+
+        $sideonename = uniqid() .'.' . $this->sideone->getClientOriginalExtension();
+        $sidetwoname = uniqid() .'.' . $this->sideone->getClientOriginalExtension();
+
+        $directory = 'public/stockings/';
+        Storage::makeDirectory($directory);
+
+        $photoone = $sideone->resize(600, null, function($constraint) 
+        {
+            $constraint->aspectRatio();
+        });
+
+        $phototwo = $sidetwo->resize(600, null, function($constraint) 
+        {
+            $constraint->aspectRatio();
+        });
+
+        Storage::put($directory . '/' . $sideonename, $photoone->stream());
+        Storage::put($directory . '/' . $sidetwoname, $phototwo->stream());
+
+        $item = $this->selectedStocking->items()->create([
+            'number' => $data['number'],
+            'lbs' => $data['lbs'],
+            'oz' => $data['oz'],
+            'class' => $data['class'],
+            'specimen_id' => $data['species'],
+            'side1' => '/storage/stockings/'. $sideonename,
+            'side2' => '/storage/stockings/'. $sidetwoname,
+            'price' => $data['price'] * $data['lbs']
         ]);
+
+        $item->stock()->create([
+            'lbs' => $data['lbs'],
+            'oz' => $data['oz'],
+            'specimen_id' => $data['species'],
+            'sideone' => '/storage/stockings/'. $sideonename,
+            'sideonethumb' => '/storage/stockings/'. $sideonename,
+            'sidetwo' => '/storage/stockings/'. $sidetwoname,
+            'sidetwothumb' => '/storage/stockings/'. $sidetwoname,
+            'alive' => 1
+        ]);
+
+        session()->flash('success', 'Fish uploaded');
+
+        $this->reset();
+
+        $this->mode = 4;
     }    
 
     public function saveFarm()
@@ -82,6 +141,13 @@ class StockingDashboard extends Component
     public function back()
     {
         $this->reset();
+    }
+
+    public function selectFish($id)
+    {
+        $this->selectedFish = Item::findOrFail($id);
+
+        $this->mode = 5;
     }
 
     public function render()
