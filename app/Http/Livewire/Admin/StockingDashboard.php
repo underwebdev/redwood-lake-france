@@ -67,7 +67,9 @@ class StockingDashboard extends Component
             'oz' => 'required|numeric',
             'class' => 'required',
             'species' => 'required',
-            'price' => 'required|numeric'
+            'price' => 'required|numeric',
+            'sideone' => 'required',
+            'sidetwo' => 'required'
         ]);
 
         $sideone = Image::make($this->sideone);

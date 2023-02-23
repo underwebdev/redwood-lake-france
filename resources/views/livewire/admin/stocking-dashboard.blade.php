@@ -227,9 +227,13 @@
                 <label for="">Price per lb</label>
                 <input type="text" wire:model="price">
 
-                <label for="">Side 1</label>
+                <label for="">Side 1
+                    @error('sideone')<span class="error">{{ $message }}</span>@enderror
+                </label>
                 <input type="file" wire:model="sideone">
-                <label for="">Side 2</label>
+                <label for="">Side 2
+                    @error('sidetwo')<span class="error">{{ $message }}</span>@enderror
+                </label>
                 <input type="file" wire:model="sidetwo">
 
                 <div class="grid-x grid-padding-x">
@@ -259,7 +263,7 @@
 
                 <div class="button-group">
                     <button class="button success" wire:click="saveFish" wire:loading.attr="disabled">Save Fish</button>
-                    <button class="button warning" wire:click="$set('mode', 2)">Cancel</button>
+                    <button class="button warning" wire:click="back">Cancel</button>
                 </div>
             </div>
         @elseif($mode == 5)
