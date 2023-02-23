@@ -157,6 +157,12 @@
                     </div>
                 </div><!-- End of cell-->
                 @endif
+
+            @if($selectedStocking->items()->count() < 1)
+            <div class="cell small-12 text-center">
+                <button class="button alert" wire:click="deleteStocking">Delete Stocking</button>
+            </div><!-- End of cell-->
+            @endif
         @elseif($mode == 3)
             <div class="cell small-12 medium-8 large-6 medium-offset-2 large-offset-3">
                 <label for="">Date

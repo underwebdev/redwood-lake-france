@@ -150,6 +150,15 @@ class StockingDashboard extends Component
         $this->mode = 5;
     }
 
+    public function deleteStocking()
+    {
+        $this->selectedStocking->delete();
+
+        $this->reset();
+
+        session()->flash('success', 'Stocking Deleted');
+    }
+
     public function render()
     {
         return view('livewire.admin.stocking-dashboard',[
