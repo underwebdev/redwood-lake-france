@@ -142,6 +142,28 @@ class StockDashboard extends Component
         $this->selectedFish->refresh();
     }
 
+    public function deactivate()
+    {
+        $this->selectedFish->update([
+            'alive' => Null
+        ]);
+
+        $this->reset();
+
+        session()->flash('success', 'Fish deactivated');
+    }
+
+    public function reactivate()
+    {
+        $this->selectedFish->update([
+            'alive' => 1
+        ]);
+
+        $this->reset();
+
+        session()->flash('success', 'Fish reactivated');
+    }
+
     public function render()
     {
         $specimen = $this->selectedSpecies;
@@ -154,7 +176,8 @@ class StockDashboard extends Component
                     return $query->where('specimen_id', $specimen);
                 })->when($weight, function ($query) use ($weight) {
                     return $query->where('lbs', $this->symbol, $weight);
-                })->orderBy('lbs', 'desc')->orderBy('oz', 'desc')->get()
+                })->orderBy('lbs', 'desc')->orderBy('oz', 'desc')->get(),
+            'deadlist' => Stock::whereNull('alive')->orderBy('lbs', 'desc')->orderBy('oz', 'desc')->get()
         ]);
     }
 }

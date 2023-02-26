@@ -9,9 +9,15 @@
                         </div>
                         <div class="cell small-12 medium-6 text-right align-self-middle">
                             @if($mode == 1)
-                                <button class="button warning" wire:click="$set('mode', 2)">Unmatched</button>   
+                                <button class="button warning" wire:click="$set('mode', 2)">Unmatched</button>
+                                <button class="button alert" wire:click="$set('mode', 6)">Inactive</button>      
                             @else
-                                <button class="button alert" wire:click="back">Go Back</button>
+                                @if($selectedFish AND $selectedFish->alive == 1)
+                                    <button class="button alert" wire:click="deactivate">Deactivate</button>
+                                @elseif($selectedFish AND $selectedFish->alive == Null)
+                                    <button class="button success" wire:click="reactivate">Reactivate</button>
+                                @endif
+                                <button class="button warning" wire:click="back">Go Back</button>
                             @endif
                         </div><!-- End of cell-->
                     </div>
@@ -168,7 +174,7 @@
                 </table>
             </div>
         </div>
-        @foreach($fishlist as $fish)
+            @foreach($fishlist as $fish)
             <div class="cell small-12 medium-4 large-3">
                 <img src="{{ $fish->sideone }}">
                 @isset($fish->name)<strong>{{ $fish->name }}</strong>@endisset
@@ -458,6 +464,28 @@
                 </div><!--end of grid-x -->
                 @endif
             </div><!-- End of cell-->
+        </div><!--end of grid-x -->
+        @elseif($mode == 6)
+        <div class="grid-x grid-padding-x">
+            @foreach($deadlist as $fish)
+            <div class="cell small-12 medium-4 large-3">
+                <img src="{{ $fish->sideone }}">
+                @isset($fish->name)<strong>{{ $fish->name }}</strong>@endisset
+                <strong>Top Weight:</strong> {{ $fish->lbs }}lb {{ $fish->oz }}oz<br>
+                <strong>Last Capture:</strong> 
+                @foreach($fish->reports as $report)
+                    @if($loop->first)
+                        {{ date('j/m/y', strtotime ($report->date)) }}<br>
+                    @endif
+                @endforeach
+                @if($fish->reports->count() < 1)
+                    N/A <br>
+                @endif
+                <strong>Captures:</strong>{{ $fish->reports()->count() }}
+                <button class="button success expanded" wire:click="selectFish('{{ $fish->id }}')">View Fish</button>
+            </div><!-- End of cell-->
+            @endforeach
+          
         </div><!--end of grid-x -->
         @endif
     </div><!--End of grid container-->
