@@ -16,11 +16,13 @@
                                 <a href="/admin/news" class="button warning">Back To News</a>
                                 <button class="button alert" wire:click="$set('mode', 2)">Delete</button>
                             @else
-                                @isset($article->draft)
-                                    <button class="button success" wire:click="publish">Publish</button>
-                                @else
-                                    <button class="button warning" wire:click="unpublish">Unpublish</button>
-                                @endif
+                                @unless($article->url == Null)
+                                    @isset($article->draft)
+                                        <button class="button success" wire:click="publish">Publish</button>
+                                    @else
+                                        <button class="button warning" wire:click="unpublish">Unpublish</button>
+                                    @endif
+                                @endunless
                                 <button class="button alert" wire:click="$set('mode', 1)">Cancel</button>
                             @endif
 
@@ -30,6 +32,24 @@
             </div><!-- End of cell-->
         </div><!--end of grid-x -->
         @include('layout.alerts')
+        @if($article->url == Null)
+        <div class="grid-x grid-padding-x">
+        <div class="cell small-12">
+            <div class="callout alert text-center">
+                <p><strong>Article cannot be published until metadata has been set.</strong></p>
+            </div>
+        </div>
+        </div><!--end of grid-x -->
+        @endif
+        @if($article->draft == 1)
+        <div class="grid-x grid-padding-x">
+        <div class="cell small-12">
+            <div class="callout alert text-center">
+                <p><strong>This article is a draft and is not publicly visible</strong></p>
+            </div>
+        </div>
+        </div><!--end of grid-x -->
+        @endif
     </div><!--End of grid container-->
     <div class="grid-container">
         <div class="grid-x grid-padding-x">
@@ -87,6 +107,28 @@
 
                         <label for="">Body</label>
                         <textarea wire:model="body" cols="50" rows="10"></textarea>
+
+                        <hr>
+
+                        <label for="">Url (https://etangdeseuil.co.uk/news/)
+                            @error('url')<span class="error">{{ $message }}</span>@enderror
+                        </label>
+                        <input type="text" placeholder="" wire:model="url">
+
+                        <label for="">Meta Title
+                            @error('metatitle')<span class="error">This field is required if the article is active.</span> @enderror
+                        </label>
+                        <input type="text" placeholder="" wire:model="metatitle">
+
+                        <label for="">Meta Description
+                            @error('metadesc')<span class="error">This field is required if the article is active.</span> @enderror
+                        </label>
+                        <input type="text" placeholder="" wire:model="metadesc">
+
+                        <label for="">Meta Keywords
+                            @error('metakeywords')<span class="error">This field is required if the article is active.</span> @enderror
+                        </label>
+                        <input type="text" placeholder="" wire:model="metakeywords">
 
                         <button class="button success">Save Changes</button>
                     </form>

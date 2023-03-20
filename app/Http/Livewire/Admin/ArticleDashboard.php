@@ -19,23 +19,39 @@ class ArticleDashboard extends Component
     public $body;
     public $gallery;
     public $cover;
+    public $metatitle;
+    public $metadesc;
+    public $metakeywords;
+    public $url;
 
     public function mount()
     {
         $this->title = $this->article->title;
         $this->body = $this->article->body;
+        $this->url = $this->article->url;
+        $this->metatitle = $this->metatitle;
+        $this->metadesc = $this->metadesc;
+        $this->metakeywords = $this->metakeywords;
     }
 
     public function saveChanges()
     {
         $data = $this->validate([
             'title' => 'required',
-            'body' => 'required'
+            'body' => 'required',
+            'metatitle' => 'nullable',
+            'metadesc' => 'nullable',
+            'metakeywords' => 'nullable',
+            'url' => 'nullable'
         ]);
 
         $this->article->update([
             'title' => $data['title'],
-            'body' => $data['body']
+            'body' => $data['body'],
+            'url' => $data['url'],
+            'metatitle' => $data['metatitle'],
+            'metadescription' => $data['metadesc'],
+            'metakeywords' => $data['metakeywords']
         ]);
 
         $this->reset(['mode']);
