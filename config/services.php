@@ -36,6 +36,8 @@ return [
         'secret' => env('STRIPE_SECRET'),
         'connect' => env('STRIPE_CONNECT'),
         'signature' => env('STRIPE_WEBHOOK_SECRET'),
+        'percentage' => env('STRIPE_PERCENTAGE'),
+        'fee' => env('STRIPE_FEE'),
     ],
 
 ];

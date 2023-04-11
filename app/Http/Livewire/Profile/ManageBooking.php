@@ -128,8 +128,8 @@ class ManageBooking extends Component
             $this->mode = 5;
 
         } elseif($data['paymentMethod'] == 2) {
-            $percentage = 1.6;
-            $fee = 10;
+            $percentage = config('services.stripe.percentage');
+            $fee = config('services.stripe.fee');
             $applicationFee = ($percentage / 100) * $amountToPay + $fee;
 
             Stripe::setApiKey(config('services.stripe.secret'));

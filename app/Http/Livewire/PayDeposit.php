@@ -148,8 +148,8 @@ class PayDeposit extends Component
 
         }
 
-        $percentage = 1.6;
-        $fee = 10;
+        $percentage = config('services.stripe.percentage');
+        $fee = config('services.stripe.fee');
         $applicationFee = ($percentage / 100) * $toPay + $fee;
 
         Stripe::setApiKey(config('services.stripe.secret'));
