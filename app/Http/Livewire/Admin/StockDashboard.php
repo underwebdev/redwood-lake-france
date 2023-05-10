@@ -70,14 +70,14 @@ class StockDashboard extends Component
 
         if($this->selectedReport->lbs > $fish->lbs)
         {
-            $lbs = 1;
+            $lbs = $this->selectedReport->lbs;
             $oz = $this->selectedReport->oz;
         } elseif($this->selectedReport->lbs == $fish->lbs AND $this->selectedReport->oz > $fish->oz)
         {
-            $lbs = 2;
+            $lbs = $this->selectedReport->lbs;
             $oz = $this->selectedReport->oz;
         } else {
-            $lbs = 3;
+            $lbs = $fish->lbs;
             $oz = $fish->oz;
         }
 
