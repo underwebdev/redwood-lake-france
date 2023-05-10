@@ -42,7 +42,7 @@
                             @foreach($bookings as $booking)
                             <tr>
                                 <td>{{ date('j/m/y', strtotime ($booking->arrival)) }}</td>
-                                <td>{{ $booking->id }}</td>
+                                <td>#{{ $booking->id }}</td>
                                 <td>{{ $booking->angler->firstName }} {{ $booking->angler->lastName }}</td>
                                 <td>{{ Carbon\Carbon::parse($booking->arrival)->subDays($booking->priceguide->due)->format('d/m/Y') }}</td>
                                 <td class="text-center">

@@ -58,15 +58,18 @@ class WebhookController extends Controller
 
                 $intent = $event->data->object;
 
+                $stripe = Stripe::setApiKey(config('services.stripe.secret'));
+
+                $balancetransaction = \Stripe\BalanceTransaction::retrieve(
+                    $intent->balance_transaction,
+                    ['stripe_account' => $connect]
+                );
+
+                $paid = $balancetransaction->amount;
+                $net = $balancetransaction->net;
+
                 if($intent->metadata->type == 'booking')
                 {
-
-                    $paid = $intent->amount;
-                    $percentage = 3;
-                    $fee = 30;
-                    $applicationFee = ($percentage / 100) * $paid + $fee;
-                    $roundedFee = round($applicationFee); 
-                    $net = $paid - $roundedFee;
 
                     if(User::where('email', $intent->metadata->email)->exists())
                     {
@@ -105,7 +108,7 @@ class WebhookController extends Controller
                         'anglers' => $intent->metadata->anglers,
                         'arrival' => $intent->metadata->arrival . ' 14:00:00',
                         'departure' => Carbon::parse($intent->metadata->arrival)->addDays(7)->format('Y-m-d') . ' 11:00:00',
-                        'total' => $intent->metadata->total,
+                        'total' => $paid,
                         'priceguide_id' => $intent->metadata->priceguide
                     ]);
 
@@ -154,13 +157,6 @@ class WebhookController extends Controller
                     $angler = Angler::find($intent->metadata->angler_id);
                     $booking = Booking::find($intent->metadata->booking_id);
 
-                    $paid = $intent->amount;
-                    $percentage = 3;
-                    $fee = 30;
-                    $applicationFee = ($percentage / 100) * $paid + $fee;
-                    $roundedFee = round($applicationFee); 
-                    $net = $paid - $roundedFee;
-
                     if(Payment::where('transaction_id', $intent->id)->doesntExist())
                     {
                         $payment = $booking->payments()->create([
@@ -182,27 +178,7 @@ class WebhookController extends Controller
 
             if ($event->type == "payment_intent.payment_failed")
             {
-                //Payment failed to be completed
                 
-                $intent = $event->data->object;
-                $error_message = $intent->last_payment_error ? $intent->last_payment_error->message : "";
-
-                if($intent->metadata->type == 'guest')
-                {
-                    $booking = Booking::firstOrFail($intent->metadata->booking_id);
-
-                    $booking->guests()->delete();
-
-                    $booking->delete();
-
-                }   
-
-                //Mail::to($booking->member->email)->send(new PaymentFailed ($order));
-
-                return response()->json([
-                    'intentId' => $intent->id,
-                    'message' => 'Payment failed. send and email: '.$error_message
-                ], 400); 
             }
 
             if($event->type == 'payout.created')
