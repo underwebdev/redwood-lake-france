@@ -66,8 +66,25 @@ class StockDashboard extends Component
 
     public function attachReport($id)
     {
+        $fish = Fish::findOrFail($id);
+
+        if($this->selectedReport->lbs > $fish->lbs)
+        {
+            $lbs = $this->selectedReport->lbs;
+            $oz = $this->selectedReport->oz;
+        } elseif($this->selectedReport->lbs == $fish->lbs AND $this->selectedReport->oz > $fish->oz)
+        {
+            $lbs = $this->selectedReport->lbs;
+            $oz = $this->selectedReport->oz;
+        } else {
+            $lbs = $fish->lbs;
+            $oz = $fish->oz;
+        }
+
         $this->selectedReport->update([
-            'stock_id' => $id 
+            'stock_id' => $id,
+            'lbs' => $lbs,
+            'oz' => $oz 
         ]);
 
         $this->mode = 2;
