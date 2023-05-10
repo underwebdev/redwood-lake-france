@@ -82,9 +82,12 @@ class StockDashboard extends Component
         }
 
         $this->selectedReport->update([
-            'stock_id' => 10000,
+            'stock_id' => $id,
+        ]);
+
+        $fish->update([
             'lbs' => $lbs,
-            'oz' => $oz 
+            'oz' => $oz
         ]);
 
         $this->mode = 2;
