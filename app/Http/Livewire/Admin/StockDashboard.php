@@ -66,7 +66,7 @@ class StockDashboard extends Component
 
     public function attachReport($id)
     {
-        $fish = Fish::findOrFail($id);
+        $fish = Stock::findOrFail($id);
 
         if($this->selectedReport->lbs > $fish->lbs)
         {
