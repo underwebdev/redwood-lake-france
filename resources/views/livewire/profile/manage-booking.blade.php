@@ -167,10 +167,10 @@
                     </div>
                     <div class="center-border-content">
                         <h4 class="text-center"><strong>Confirm Your Payment <br>£{{ $amountToPay / 100}}</strong></h4>
-                        <p><strong>Payee:</strong> Account Name<br>
+                        <p><strong>Payee:</strong> Toby Cooke<br>
                         <strong>Reference:</strong> {{ $booking->id }}-{{ Auth::user()->angler->lastName }}<br>
-                        <strong>Account Number:</strong> 00000000<br>
-                        <strong>Sort Code:</strong> 00-00-00</p>
+                        <strong>Account Number:</strong> 13200568<br>
+                        <strong>Sort Code:</strong> 30-93-90</p>
 
                         @error('confirm')
                             <span class="error">Please confirm you have transfered funds to the account listed above</span>      
