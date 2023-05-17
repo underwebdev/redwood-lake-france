@@ -196,8 +196,9 @@
         @elseif($mode == 2)
         <div class="grid-x grid-padding-x">
             @foreach($reports as $report)
-            <div class="cell small-12 medium-4 large-3">
+            <div class="cell small-12 medium-4 large-3 text-center">
                 <img src="{{ $report->sideone }}">
+                <strong>{{ $report->lbs }}lb {{ $report->oz }}</strong>
                 <button class="button success expanded" wire:click="selectReport('{{ $report->id }}')">Look Up</button>
             </div><!-- End of cell-->
             @endforeach

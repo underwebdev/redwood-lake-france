@@ -18,6 +18,8 @@ class StockDashboard extends Component
     public $selectedWeight;
     public $symbol;
     public $setPhoto = false;
+    public $setName = false;
+    public $setDescription = false;
 
     public function selectReport($id)
     {
@@ -182,6 +184,32 @@ class StockDashboard extends Component
         $this->reset();
 
         session()->flash('success', 'Fish reactivated');
+    }
+
+    public function setname()
+    {
+        $data = $this->validate([
+            'name' => 'required'
+        ]);
+
+        $this->selectedFish->update([
+            'name' => $data['name']
+        ]);
+
+        $this->setName = false;
+    }
+
+    public function setdescription()
+    {
+        $data = $this->validate([
+            'description' => 'required'
+        ]);
+
+        $this->selectedFish->update([
+            'derscription' => $data['description']
+        ]);
+
+        $this->setDescription = false;        
     }
 
     public function render()
