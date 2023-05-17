@@ -198,7 +198,7 @@
             @foreach($reports as $report)
             <div class="cell small-12 medium-4 large-3 text-center">
                 <img src="{{ $report->sideone }}">
-                <strong>{{ $report->lbs }}lb {{ $report->oz }}</strong>
+                <strong>{{ $report->lbs }}lb {{ $report->oz }}oz</strong>
                 <button class="button success expanded" wire:click="selectReport('{{ $report->id }}')">Look Up</button>
             </div><!-- End of cell-->
             @endforeach
