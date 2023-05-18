@@ -222,6 +222,7 @@
                     @foreach($stock->where('specimen_id', $selectedReport->specimen_id) as $fish)
                     <div class="cell small-12 medium-6">
                         <img src="{{ $fish->sideonethumb }}">
+                        <strong>{{ $fish->lbs }}lbs {{ $fish->oz }}oz</strong>
                         <button class="button success expanded" wire:click="attachReport('{{ $fish->id }}')">Attach Fish</button>
                     </div><!-- End of cell-->
                     <div class="cell small-12 medium-6">
