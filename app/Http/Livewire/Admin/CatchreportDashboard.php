@@ -301,16 +301,16 @@ class CatchreportDashboard extends Component
     {
         if($side == 1)
         {
-            $photoToRotate = Str::after($this->selectedReport->sideone, '/storage/');
-            $thumbToRotate = Str::after($this->selectedReport->sideoneThumb, '/storage/');
+            $photoToRotate = Str::after($this->selectedReport->sideone, '/storage/reports/');
+            $thumbToRotate = Str::after($this->selectedReport->sideonethumb, '/storage/reports/thumbnails/');
         } elseif($side == 2)
         {
-            $photoToRotate = Str::after($this->selectedReport->sidetwo, '/storage/');
-            $thumbToRotate = Str::after($this->selectedReport->sidetwoThumb, '/storage/');
+            $photoToRotate = Str::after($this->selectedReport->sidetwo, '/storage/reports/');
+            $thumbToRotate = Str::after($this->selectedReport->sidetwothumb, '/storage/reports/thumbnails/');
         }
 
-        $photo = Storage::get('public/'. $photoToRotate);
-        $thumbnail = Storage::get('public/'. $thumbToRotate);
+        $photo = Storage::get('public/reports/'. $photoToRotate);
+        $thumbnail = Storage::get('public/reports/thumbnails/'. $thumbToRotate);
 
         $img = Image::make($photo);
         $thumb = Image::make($thumbnail);
@@ -318,8 +318,8 @@ class CatchreportDashboard extends Component
         $rotatedPhoto = $img->rotate(-90);
         $rotatedThumb = $thumb->rotate(-90);
 
-        Storage::put('public/'.$photoToRotate, $rotatedPhoto->stream());
-        Storage::put('public/'.$thumbToRotate, $rotatedThumb->stream());
+        Storage::put('public/reports/'.$photoToRotate, $rotatedPhoto->stream());
+        Storage::put('public/reports/thumbnails/'.$thumbToRotate, $rotatedThumb->stream());
 
         $this->selectedReport->update([
             'updated_at' => Carbon::now()
