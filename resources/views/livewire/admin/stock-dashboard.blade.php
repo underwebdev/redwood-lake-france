@@ -177,7 +177,7 @@
             @foreach($fishlist as $fish)
             <div class="cell small-12 medium-4 large-3">
                 <img src="{{ $fish->sideone }}">
-                @isset($fish->name)<strong>{{ $fish->name }}</strong>@endisset
+                @isset($fish->name)<strong>{{ $fish->name }}</strong><br>@endisset
                 <strong>Top Weight:</strong> {{ $fish->lbs }}lb {{ $fish->oz }}oz<br>
                 <strong>Last Capture:</strong> 
                 @foreach($fish->reports as $report)
@@ -277,9 +277,9 @@
                         <tr>
                             <td>
                                 @isset($selectedFish->name)
-                                    <a data-open="editName">{{ $selectedFish->name }}</a>
+                                    <button wire:click="selectname">{{ $selectedFish->name }}</button>
                                 @else
-                                    <a data-open="name">Set Name</a>
+                                    <button wire:click="selectname">Set Name</button>
                                 @endisset
                             </td>
                             <td>{{$selectedFish->specimen->name }}</td>
@@ -293,11 +293,12 @@
                             </td>
                             <td class="text-center">{{ $selectedFish->reports->count() }}</td>
                             <td>
-                                @isset($fish->description)
-                                    <a data-open="editDescription">{{ $selectedFish->description }}</a>
-                                @else
-                                    <a data-open="description">Set Description</a>
+                                @isset($selectedFish->description)
+                                    {{ $selectedFish->description }}<br>
                                 @endisset
+
+                                <button wire:click="selectdescription">Set Description</a>
+                                
                             </td>
                         </tr>
                     </tbody>
@@ -488,6 +489,27 @@
             </div><!-- End of cell-->
             @endforeach
           
+        </div><!--end of grid-x -->
+        @elseif($mode == 7)
+        <div class="grid-x grid-padding-x">
+            <div class="cell small-12 medium-8 large-6 medium-offset-2 large-offset-3">
+                <label for="">
+                    Name                            
+                    @error('Name')<span class="error">{{ $message }}</span>@enderror
+                </label>
+                <input type="text" placeholder="" wire:model="name">
+
+                <button class="button expanded success" wire:click="setname">Save Name</button>
+            </div><!-- End of cell-->
+        </div><!--end of grid-x -->
+        @elseif($mode == 8)
+        <div class="grid-x grid-padding-x">
+            <div class="cell small-12 medium-8 large-6 medium-offset-2 large-offset-3">
+                <label for="">Description</label>
+                <textarea wire:model="description" cols="50" rows="10"></textarea>
+
+                <button class="button expanded success" wire:click="setdescription">Save Description</button>
+            </div><!-- End of cell-->
         </div><!--end of grid-x -->
         @endif
     </div><!--End of grid container-->
