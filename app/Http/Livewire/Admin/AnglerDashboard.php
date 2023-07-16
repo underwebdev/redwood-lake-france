@@ -132,15 +132,12 @@ class AnglerDashboard extends Component
     {
         $password = Str::random(8);
 
-        $user = $this->selectedAngler->user()->create([
-            'email' => $data['email'],
+        $user = $this->selectedAngler->user()->update([
             'password' => bcrypt($password),
-            'permission' => 2,
-            'reset' => 1
         ]);
 
         $data = [
-            'firstName' => $angler->firstName,
+            'firstName' => $this->selectedAngler->firstName,
             'password' => $password,
             'email' => $user->email
         ];
