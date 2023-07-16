@@ -142,7 +142,7 @@ class AnglerDashboard extends Component
         $data = [
             'firstName' => $angler->firstName,
             'password' => $password,
-            'email' => $data['email']
+            'email' => $user->email
         ];
 
         Mail::to($data['email'])->send(new AnglerAccount($data));
