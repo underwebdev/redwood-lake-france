@@ -11,6 +11,7 @@
                             @if($mode == 1)
                             <button class="button success" wire:click="$set('mode', 2)">New Angler</button>
                             @else
+                            <button class="button warning" wire:click="resetpassword" wire:loading.attr="disabled">Reset Password</button>
                             <button class="button alert" wire:click="back">Go Back</button>
                             @endif
                         </div><!-- End of cell-->

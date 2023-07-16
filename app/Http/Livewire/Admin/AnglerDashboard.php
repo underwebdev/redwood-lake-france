@@ -128,6 +128,28 @@ class AnglerDashboard extends Component
         session()->flash('success', 'Details Updated');
     }
 
+    public function resetpassword()
+    {
+        $password = Str::random(8);
+
+        $user = $this->selectedAngler->user()->create([
+            'email' => $data['email'],
+            'password' => bcrypt($password),
+            'permission' => 2,
+            'reset' => 1
+        ]);
+
+        $data = [
+            'firstName' => $angler->firstName,
+            'password' => $password,
+            'email' => $data['email']
+        ];
+
+        Mail::to($data['email'])->send(new AnglerAccount($data));
+
+        session()->flash('success', 'Password Reset');
+    }
+
     public function back()
     {
         $this->reset();
