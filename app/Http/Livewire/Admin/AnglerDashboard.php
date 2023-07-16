@@ -134,6 +134,7 @@ class AnglerDashboard extends Component
 
         $user = $this->selectedAngler->user()->update([
             'password' => bcrypt($password),
+            'reset' => 1
         ]);
 
         $data = [
