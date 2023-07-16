@@ -5,7 +5,7 @@ namespace App\Http\Livewire\Admin;
 use Livewire\Component;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\AccountAccount;
+use App\Mail\AnglerAccount;
 use App\Models\Angler;
 
 class AnglerDashboard extends Component
