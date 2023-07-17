@@ -220,10 +220,10 @@
             <div class="cell small-12 medium-8" >
                 <div class="grid-x grid-padding-x">
                     @foreach($stock->where('specimen_id', $selectedReport->specimen_id) as $fish)
-                    <div class="cell small-12 medium-6 text-center" @if($loop->last) id="bottom-anchor" @endif >
+                    <div class="cell small-12 medium-6 text-center" >
                         <img src="{{ $fish->sideonethumb }}">
                         <strong>{{ $fish->lbs }}lbs {{ $fish->oz }}oz</strong>
-                        <button class="button success expanded" wire:click="attachReport('{{ $fish->id }}')">Attach Fish</button>
+                        <button class="button success expanded" @if($loop->last) id="bottom-anchor" @endif wire:click="attachReport('{{ $fish->id }}')">Attach Fish</button>
                     </div><!-- End of cell-->
                     <div class="cell small-12 medium-6">
                         @isset($fish->sidetwothumb)
