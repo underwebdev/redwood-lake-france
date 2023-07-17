@@ -204,9 +204,9 @@
             @endforeach
         </div><!--end of grid-x -->
         @elseif($mode == 3)
-        <div class="grid-x grid-padding-x" id="unmatched-fish">
+        <div class="grid-x grid-padding-x">
             <div class="cell small-12 medium-4" data-sticky-container>
-                <div class="sticky" data-sticky data-anchor="unmatched-fish">
+                <div class="sticky" data-sticky>
                     <img src="{{ $selectedReport->sideonethumb }}">
                     @isset($selectedReport->sidetwothumb)
                     <img src="{{ $selectedReport->sidetwothumb }}">
