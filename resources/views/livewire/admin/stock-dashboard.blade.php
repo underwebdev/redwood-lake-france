@@ -206,7 +206,7 @@
         @elseif($mode == 3)
         <div class="grid-x grid-padding-x">
             <div class="cell small-12 medium-4" data-sticky-container>
-                <div class="sticky" data-sticky data-top-anchor="admin-nav:bottom">
+                <div class="sticky" data-sticky data-top-anchor="admin-nav:bottom" data-check-every="0">
                     <img src="{{ $selectedReport->sideonethumb }}">
                     @isset($selectedReport->sidetwothumb)
                     <img src="{{ $selectedReport->sidetwothumb }}">
