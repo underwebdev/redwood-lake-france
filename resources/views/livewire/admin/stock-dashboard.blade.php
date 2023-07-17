@@ -206,7 +206,7 @@
         @elseif($mode == 3)
         <div class="grid-x grid-padding-x">
             <div class="cell small-12 medium-4" data-sticky-container>
-                <div class="sticky" data-sticky data-top-anchor="admin-nav:bottom" data-btm-anchor="bottom-anchor:bottom">
+                <div class="sticky" data-sticky data-top-anchor="admin-nav:bottom" data-btm-anchor="fish-list:bottom">
                     <img src="{{ $selectedReport->sideonethumb }}">
                     @isset($selectedReport->sidetwothumb)
                     <img src="{{ $selectedReport->sidetwothumb }}">
@@ -217,13 +217,13 @@
                     </div>
                 </div>
             </div><!-- End of cell-->
-            <div class="cell small-12 medium-8" >
+            <div class="cell small-12 medium-8" id="fish-list">
                 <div class="grid-x grid-padding-x">
                     @foreach($stock->where('specimen_id', $selectedReport->specimen_id) as $fish)
                     <div class="cell small-12 medium-6 text-center" >
                         <img src="{{ $fish->sideonethumb }}">
                         <strong>{{ $fish->lbs }}lbs {{ $fish->oz }}oz</strong>
-                        <button class="button success expanded" @if($loop->last) id="bottom-anchor" @endif wire:click="attachReport('{{ $fish->id }}')">Attach Fish</button>
+                        <button class="button success expanded" wire:click="attachReport('{{ $fish->id }}')">Attach Fish</button>
                     </div><!-- End of cell-->
                     <div class="cell small-12 medium-6">
                         @isset($fish->sidetwothumb)
