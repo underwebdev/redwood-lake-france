@@ -75,8 +75,8 @@ class AccountReport extends Component
                 $constraint->aspectRatio();
             });
 
-            $onePath = Storage::put($directory.$sideOneName, $sideOne->stream());
-            $oneThumbPath = Storage::put($thumbDirectory.$sideOneThumbName, $sideOneThumb->stream());
+            $sideOnePath = Storage::put($directory.$sideOneName, $sideOne->stream());
+            $sideOneThumbPath = Storage::put($thumbDirectory.$sideOneThumbName, $sideOneThumb->stream());
 
             $sideTwoPath = '/storage/reports/'.$sideOneName;
             $sideTwoThumbPath = '/storage/reports/thumbnails/'.$sideOneThumbName;
