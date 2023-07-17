@@ -206,7 +206,7 @@
         @elseif($mode == 3)
         <div class="grid-x grid-padding-x">
             <div class="cell small-12 medium-4" data-sticky-container>
-                <div class="sticky" data-sticky data-top-anchor="admin-nav:bottom" data-btm-anchor="fish-list:bottom">
+                <div class="sticky" data-sticky data-top-anchor="admin-nav:bottom">
                     <img src="{{ $selectedReport->sideonethumb }}">
                     @isset($selectedReport->sidetwothumb)
                     <img src="{{ $selectedReport->sidetwothumb }}">
@@ -219,7 +219,6 @@
             </div><!-- End of cell-->
             <div class="cell small-12 medium-8">
                 <div class="grid-x grid-padding-x">
-                    <div id="fish-list">
                     @foreach($stock->where('specimen_id', $selectedReport->specimen_id) as $fish)
                     <div class="cell small-12 medium-6 text-center" >
                         <img src="{{ $fish->sideonethumb }}">
@@ -234,7 +233,6 @@
                         @endisset
                     </div><!-- End of cell-->
                     @endforeach
-                    </div>
                 </div><!--end of grid-x -->
             </div><!-- End of cell-->
         </div><!--end of grid-x -->
