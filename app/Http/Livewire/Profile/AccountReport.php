@@ -78,8 +78,8 @@ class AccountReport extends Component
             $sideOnePath = Storage::put($directory.$sideOneName, $sideOne->stream());
             $sideOneThumbPath = Storage::put($thumbDirectory.$sideOneThumbName, $sideOneThumb->stream());
 
-            $sideTwoPath = '/storage/reports/'.$sideOneName;
-            $sideTwoThumbPath = '/storage/reports/thumbnails/'.$sideOneThumbName;
+            $sideOnePath = '/storage/reports/'.$sideOneName;
+            $sideOneThumbPath = '/storage/reports/thumbnails/'.$sideOneThumbName;
         } else {
             $sideOnePath = Null;
             $sideOneThumbPath = Null;
