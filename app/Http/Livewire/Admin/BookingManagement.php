@@ -155,7 +155,7 @@ class BookingManagement extends Component
 
     public function cancelBooking()
     {
-        $this->booking->cancellation->create([
+        $this->booking->cancellation()->create([
             'date' => $this->booking->arrival
         ]);
 
