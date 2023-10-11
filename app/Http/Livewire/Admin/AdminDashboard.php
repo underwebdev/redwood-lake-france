@@ -14,7 +14,7 @@ class AdminDashboard extends Component
     public function render()
     {
         return view('livewire.admin.admin-dashboard',[
-            'bookings' => Booking::wehere('arrival', '>', Carbon::today())->latest()->limit(5)->get(),
+            'bookings' => Booking::where('arrival', '>', Carbon::today())->latest()->limit(5)->get(),
             'payments' => Payment::latest()->limit(10)->get(),
             'current' => Booking::where('departure', '>', Carbon::now())->where('arrival', '<', Carbon::now())->first(),
             'next' => Booking::where('arrival', '>', Carbon::now())->orderBy('arrival', 'asc')->first()
