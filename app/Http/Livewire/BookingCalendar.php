@@ -47,7 +47,6 @@ class BookingCalendar extends Component
 
                 if($my == $this->selectedYear . '-' . $this->selectedMonth)
                 {
-
                     $filtered->push(['date' => $date]);
                 }
             }
