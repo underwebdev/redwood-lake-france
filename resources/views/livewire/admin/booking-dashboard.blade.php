@@ -171,19 +171,12 @@
                     <option value="5">5</option> 
                 </select>
 
-                @if($validcode)
-                    <p><strong>Code:</strong> {{ $voucher->code }}<br>
-                    <strong>Discount:</strong> £{{ $voucher->amount / 100 }}</p>
-                    <button wire:click="removeVoucher">Remove Voucher</button>
-                    <br>
-                @else
-                <label for="">Discount Code
-                    @if($invalidcode)
-                        <span class="error">Code not valid for selected booking date</span>
-                    @endif
+                
+                <label for="">Discount Amount £
+                    @error('discount')<span class="error">Discount field must be numbers only</span>@enderror
                 </label>
-                <input type="text" wire:model.lazy="discountcode">
-                @endif
+                <input type="text" wire:model="discount">
+                
 
                 <label for="">Add a Payment</label>
                 <select id="" wire:model="payment">

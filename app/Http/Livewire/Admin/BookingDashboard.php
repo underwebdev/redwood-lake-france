@@ -40,6 +40,7 @@ class BookingDashboard extends Component
     public $voucher;
     public $duedate;
     public $amount;
+    public $discount = 0;
 
     public function saveBooking()
     {
@@ -57,6 +58,7 @@ class BookingDashboard extends Component
             'postcode' => 'required_if:angler,new',
             'payment' => 'required',
             'amount' => 'required_if:payment,1',
+            'discount' => 'required|numeric'
         ]);
 
         if($data['angler'] == 'new')
@@ -97,11 +99,13 @@ class BookingDashboard extends Component
 
         $priceguide = Priceguide::where('end', '>=', $bookingdate)->where('start', '<=', $bookingdate)->first();
 
+        $discount = $data['discount'] * 100;
+
         $booking = $user->angler->bookings()->create([
             'anglers' => $data['anglers'],
             'arrival' => $bookingdate . ' 14:00:00',
             'departure' => Carbon::parse($bookingdate)->addDays(7)->format('Y-m-d') . ' 11:00:00',
-            'total' => $priceguide->price,
+            'total' => $priceguide->price - $discount,
             'priceguide_id' => $priceguide->id
         ]);
 
