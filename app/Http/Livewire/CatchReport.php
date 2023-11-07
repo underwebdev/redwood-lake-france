@@ -10,6 +10,8 @@ use App\Models\Swim;
 
 class CatchReport extends Component
 {
+    use WithPagination;
+    
     protected $paginationTheme = 'bootstrap';
     
     public $selectedSpecies;
@@ -25,7 +27,7 @@ class CatchReport extends Component
         $swim = $this->selectedSwim;
 
         return view('livewire.catch-report',[
-            'reports' => Report::where('lbs', '>', '15')->when($specimen, function ($query) use ($specimen) {
+            'reports' => Report::where('lbs', '>', '19')->when($specimen, function ($query) use ($specimen) {
                     return $query->where('specimen_id', $specimen);
                 })->when($weight, function ($query) use ($weight) {
                     return $query->where('lbs', '>', $weight);
