@@ -28,8 +28,10 @@ class BookingCalendar extends Component
         $this->latestdate = Priceguide::orderBy('end', 'desc')->pluck('end')->first();
 
         $this->bookingdates = Collect(CarbonInterval::days(7)->toPeriod($this->firstdate, $this->latestdate));
-        $this->bookingmonths = Collect(CarbonInterval::months(1)->toPeriod($this->firstdate, $this->latestdate));
+        $this->bookingmonths = Collect(CarbonInterval::months(1)->toPeriod(Carbon::parse($this->firstdate)->startOfMonth(), $this->latestdate));
         $this->bookingyears = Collect(CarbonInterval::years(1)->toPeriod($this->firstdate, $this->latestdate));
+
+        
 
     }
 
