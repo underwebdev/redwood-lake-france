@@ -46,7 +46,7 @@
 				@include('layout.pricing-block-alt')
 			@endforeach
 			<div class="cell small-12 text-center">
-				<p>All bookings require a 30% deposit to confirm the requested dates. The remaining balance is due 8 weeks prior to arrival.</p>
+				<p>All bookings require a £250 deposit to confirm the requested dates. The remaining balance is due 8 weeks prior to arrival.</p>
 
 				<strong>Scroll Down For Availabillity</strong><br>
 				<i class="fas fa-arrow-alt-circle-down bounce"></i>
