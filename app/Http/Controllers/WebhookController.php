@@ -49,9 +49,9 @@ class WebhookController extends Controller
             ], 200);
         }
 
-        $account = config('services.stripe.connect');
+        $connect = config('services.stripe.connect');
 
-        if($event->account == $account)
+        if($event->account == $connect)
         {
             if($event->type == "charge.succeeded")
             {
