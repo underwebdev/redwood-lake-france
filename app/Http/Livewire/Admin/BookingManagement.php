@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Admin;
 use Livewire\Component;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Mail;
+use App\Mail\BookingReceipt;
 use App\Mail\BookingAmendment;
 use App\Mail\PaymentReceipt;
 use App\Mail\PaymentReminder;
@@ -277,6 +278,13 @@ class BookingManagement extends Component
         $this->booking->refresh();
 
         session()->flash('success', 'Booking Date Changed!');
+    }
+
+    public function resendConfirmation()
+    {
+        Mail::to($this->booking->angler->user->email)->bcc('joe@underweb.co.uk')->send(new BookingReceipt($this->booking));
+
+        session()->flash('success', 'Email sent')
     }
 
     public function sendPaymentReminder()
