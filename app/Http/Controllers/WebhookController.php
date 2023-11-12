@@ -108,7 +108,7 @@ class WebhookController extends Controller
                         'anglers' => $intent->metadata->anglers,
                         'arrival' => $intent->metadata->arrival . ' 14:00:00',
                         'departure' => Carbon::parse($intent->metadata->arrival)->addDays(7)->format('Y-m-d') . ' 11:00:00',
-                        'total' => $paid,
+                        'total' => $intent->metadata->total,
                         'priceguide_id' => $intent->metadata->priceguide
                     ]);
 
