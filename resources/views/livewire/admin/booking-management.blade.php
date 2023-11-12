@@ -92,7 +92,6 @@
                             <td>£{{ ($booking->total - $booking->payments()->sum('total')) / 100 }}</td>
                             <td>{{ Carbon\Carbon::parse($booking->arrival)->subDays($booking->priceguide->due)->format('j/m/Y') }}</td>
                             <td class="text-right">
-                                <button class="button success small" wire:click="resendConfirmation">Resend Confirmation</button>
                                 @if($booking->payments->sum('total') < $booking->total)
                                     <button class="button alert small" wire:click="sendPaymentReminder">Reminder</button>
                                 @endif
@@ -229,6 +228,10 @@
                                 </tr>
                             </tbody>
                         </table>
+                    </div>
+
+                    <div class="text-center">
+                        <button class="button success small" wire:click="resendConfirmation">Resend Confirmation</button>
                     </div>
                 </div>
             </div><!-- End of cell-->
