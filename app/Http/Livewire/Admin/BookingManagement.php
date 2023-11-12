@@ -284,7 +284,7 @@ class BookingManagement extends Component
     {
         Mail::to($this->booking->angler->user->email)->bcc('joe@underweb.co.uk')->send(new BookingReceipt($this->booking));
 
-        session()->flash('success', 'Email sent')
+        session()->flash('success', 'Email sent');
     }
 
     public function sendPaymentReminder()
