@@ -1,4 +1,4 @@
-<div class="cell small-12 medium-6 large-5 @if($loop->first)large-offset-1 @endif"> 
+<div class="cell small-12 medium-6 large-5 @if($loop->odd)large-offset-1 @endif"> 
 	<div class="pricing-block-alt" data-equalizer-watch>
 		<div class="price-block-header-alt">
 			<h4 class=text-center>{{ $priceguide->package->name }}</h4>
