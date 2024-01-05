@@ -29,9 +29,9 @@ class ArticleDashboard extends Component
         $this->title = $this->article->title;
         $this->body = $this->article->body;
         $this->url = $this->article->url;
-        $this->metatitle = $this->metatitle;
-        $this->metadesc = $this->metadesc;
-        $this->metakeywords = $this->metakeywords;
+        $this->metatitle = $this->article->metatitle;
+        $this->metadesc = $this->article->metadesc;
+        $this->metakeywords = $this->article->metakeywords;
     }
 
     public function saveChanges()

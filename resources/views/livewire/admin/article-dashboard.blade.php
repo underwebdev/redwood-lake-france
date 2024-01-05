@@ -110,7 +110,7 @@
 
                         <hr>
 
-                        <label for="">Url (https://etangdeseuil.co.uk/news/)
+                        <label for="">Url (https://redwoodlake.co.uk/news/)
                             @error('url')<span class="error">{{ $message }}</span>@enderror
                         </label>
                         <input type="text" placeholder="" wire:model="url">
