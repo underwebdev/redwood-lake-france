@@ -30,7 +30,7 @@ class ArticleDashboard extends Component
         $this->body = $this->article->body;
         $this->url = $this->article->url;
         $this->metatitle = $this->article->metatitle;
-        $this->metadesc = $this->article->metadesc;
+        $this->metadesc = $this->article->metadescription;
         $this->metakeywords = $this->article->metakeywords;
     }
 
