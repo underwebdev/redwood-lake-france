@@ -57,6 +57,7 @@
                 <input type="text" placeholder="" wire:model="name">
                 <label for="">Featured</label>
                 <select id="" wire:model="featured">
+                    <option value="">Please select</option>
                     <option value="">No</option>
                     <option value="1">Yes</option> 
                 </select>
