@@ -4,6 +4,8 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\Contact;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ContactAlert;
 
 class ContactForm extends Component
 {
@@ -30,12 +32,14 @@ class ContactForm extends Component
             $this->sent = true;
         } else {
 
-            Contact::create([
+            $contact = Contact::create([
                 'name' => $data['name'],
                 'email' => $data['email'],
                 'telephone' => $data['telephone'],
                 'message' => $data['message']
             ]);
+
+            Mail::to('info@redwoodlake.co.uk')->send(new ContactAlert($contact));
 
             $this->sent = true;
 
