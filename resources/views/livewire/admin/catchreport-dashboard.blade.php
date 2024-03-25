@@ -111,7 +111,7 @@
                                         </a>
                                         @endisset
                                     </td>
-                                    <td class="text-center">{{ $report->swim_id }}</td>
+                                    <td class="text-center">{{ $report->swim->shortname }}</td>
                                     <td>{{ $report->bait }}</td>
                                     <td>{{ $report->notes }}</td>
                                     <td class="text-right">
