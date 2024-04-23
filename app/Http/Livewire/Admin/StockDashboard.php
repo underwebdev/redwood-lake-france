@@ -235,7 +235,7 @@ class StockDashboard extends Component
 
         return view('livewire.admin.stock-dashboard',[
             'reports' => Report::whereNull('stock_id')->get(),
-            'stock' => Stock::whereNotNull('alive')->get(),
+            'stock' => Stock::whereNotNull('alive')->orderBy('lbs', 'desc')->orderBy('oz', 'desc')->get(),
             'fishlist' => Stock::whereNotNull('alive')->when($specimen, function ($query) use ($specimen) {
                     return $query->where('specimen_id', $specimen);
                 })->when($weight, function ($query) use ($weight) {
