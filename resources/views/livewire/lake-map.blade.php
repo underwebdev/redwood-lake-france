@@ -6,7 +6,7 @@
                     <img src="{{ $selectedSwim->photo }}" class="lake-map">
                 @endisset
             @else
-                <img src="/img/RedwoodLakeMap.png" class="lake-map">
+                <img src="/img/redwood-map.png" class="lake-map">
             @endif
         </div><!-- End of cell-->
         <div class="cell small-12 large-4">
