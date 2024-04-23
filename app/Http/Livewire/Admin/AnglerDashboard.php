@@ -143,7 +143,7 @@ class AnglerDashboard extends Component
             'email' => $this->selectedAngler->user->email
         ];
 
-        Mail::to($this->selectedAngler->user->email)->bcc('tobylc33@gmail.com', 'joe@underweb.co.uk')->send(new AnglerAccount($data));
+        Mail::to($this->selectedAngler->user->email)->bcc('tobylc33@gmail.com')->send(new AnglerAccount($data));
 
         session()->flash('success', 'Password Reset');
     }
