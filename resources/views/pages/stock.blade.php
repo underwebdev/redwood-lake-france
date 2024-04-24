@@ -89,6 +89,7 @@
 <div class="grid-container full">
 	<div class="grid-x grid-padding-x">
 		@foreach($stock as $fish)
+		@if($fish->reports()->exists())
 		<div class="cell small-12 medium-4 large-3 text-center">
 			<div class="fish-border-block">
 		    	<img src="{{ $fish->sideonethumb }}">
@@ -105,6 +106,7 @@
 			</div>
 		    <a href="/stock/{{ $fish->id }}" class="button success expanded">View Fish</a>
 		</div><!-- End of cell-->
+		@endif
 		@endforeach
 	</div><!--end of grid-x -->
 </div><!--End of grid container-->
