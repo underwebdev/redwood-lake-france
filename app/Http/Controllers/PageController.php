@@ -114,7 +114,7 @@ class PageController extends Controller
     {
         $page = Page::find(6);
 
-        $stock = Stock::whereNotNull('alive')->get();
+        $stock = Stock::whereNotNull('alive')->orderBy('lbs', 'desc')->orderBy('oz', 'desc')->get();
 
         return view('pages.stock', compact('page', 'stock'));
     }
