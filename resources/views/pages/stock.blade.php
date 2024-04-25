@@ -49,7 +49,7 @@
 							<td>{{ $stock->where('specimen_id', 2)->count() }}</td>
 							<td>{{ $stock->where('specimen_id', 1)->count() }}</td>
 							<td>{{ $stock->count() }}</td>
-							<td>{{ $stock->reports()->doesntExist()->count() }}+</td>
+							<td></td>
 						</tr>
 					</tbody>
 				</table>
