@@ -102,16 +102,20 @@
                                     <td class="text-center">
                                         @isset($report->sideone)
                                         <a href="{{ $report->sideone }}" data-lity>
-                                            <i class="fas fa-camera"></i>
+                                            <img src="/icons/camera-icon.svg" width="50%">
                                         </a>
                                         @endisset
                                         @isset($report->sidetwo)
                                         <a href="{{ $report->sidetwo }}" data-lity>
-                                            <i class="fas fa-camera"></i>
+                                            <img src="/icons/camera-icon.svg" width="50%">
                                         </a>
                                         @endisset
                                     </td>
-                                    <td class="text-center">{{ $report->swim->shortname }}</td>
+                                    <td class="text-center">
+                                        @isset($report->swim_id)
+                                            {{ $report->swim->shortname }}
+                                        @endisset
+                                    </td>
                                     <td>{{ $report->bait }}</td>
                                     <td>{{ $report->notes }}</td>
                                     <td class="text-right">
