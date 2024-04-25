@@ -41,6 +41,7 @@
 							<th>Mirror</th>
 							<th>Common</th>
 							<th>Total</th>
+							<th>Uncaught</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -48,6 +49,7 @@
 							<td>{{ $stock->where('specimen_id', 2)->count() }}</td>
 							<td>{{ $stock->where('specimen_id', 1)->count() }}</td>
 							<td>{{ $stock->count() }}</td>
+							<td>{{ $stock->reports()->doesntExist()->count() }}+</td>
 						</tr>
 					</tbody>
 				</table>
