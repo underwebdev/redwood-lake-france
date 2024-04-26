@@ -28,7 +28,7 @@
                         <div class="grid-x grid-padding-x">
                             <div class="cell small-12 medium-6">
                                 @foreach($lake->swims as $swim)
-                                    @if($loop->index < 5)
+                                    @if($loop->index < 6)
                                     <button wire:click="selectSwim('{{ $swim->id }}')">
                                         <i class="fas fa-map-signs"></i> {{ $swim->name }}
                                     </button><br>
@@ -37,7 +37,7 @@
                             </div><!-- End of cell-->
                             <div class="cell small-12 medium-6">
                                 @foreach($lake->swims as $swim)
-                                    @if($loop->index > 4)
+                                    @if($loop->index > 5)
                                     <button wire:click="selectSwim('{{ $swim->id }}')">
                                         <i class="fas fa-map-signs"></i> {{ $swim->name }}
                                     </button><br>
