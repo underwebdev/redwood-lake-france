@@ -28,14 +28,14 @@
 				<h5>Contact</h5>
 				<a href="https://croxleyhallfisheries.co.uk">Croxley Hall Fisheries</a><br>
 				<i class="far fa-envelope"></i> info@redwoodlake.co.uk<br>
-				<div class="hide"><i class="fab fa-instagram"></i> redwoodlakefrance </div>
+				<a href="https://instagram.com/redwoodlakefrance"><i class="fab fa-instagram"></i> redwoodlakefrance</a>
 			</div><!-- End of cell-->
 		</div><!--end of grid-x -->
 	</div><!--End of grid container-->
 	<div class="grid-x grid-padding-x hide">
 		<div class="cell small-12 text-center">
 			<div class="mobile-footer-icons">
-					<a href=""><i class="fab fa-instagram"></i></a>
+				<a href="https://instagram.com/redwoodlakefrance"><i class="fab fa-instagram"></i> redwoodlakefrance</a>
 			</div>
 		</div><!-- End of cell-->
 	</div><!--end of grid-x -->
