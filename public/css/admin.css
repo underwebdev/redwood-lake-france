@@ -8845,9 +8845,9 @@ img {
 .fish-list-block {
   border-radius: 8px;
   margin-bottom: 15px;
-  padding: 2px;
+  padding: 1px;
   box-shadow: 0 0 10px rgba(24, 50, 115, 0.1);
-  border: 1px solid #000000;
+  background: #FFFFFF;
 }
 
 .fish-photo-container {
