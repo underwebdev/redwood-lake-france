@@ -22,7 +22,6 @@
 				<table>
 					<thead>
 						<tr>
-							<th>Name</th>
 							<th>Species</th>
 							<th>Top Weight</th>
 							<th>Last Capture</th>
@@ -32,13 +31,6 @@
 					</thead>
 					<tbody>
 						<tr>
-							<td>
-								@isset($stock->name)
-									{{ $stock->name }}
-								@else 
-									N/A
-								@endisset
-							</td>
 							<td>{{ $stock->specimen->name }}</td>
 							<td>{{ $stock->lbs }}lb {{ $stock->oz }}oz</td>
 							<td>
