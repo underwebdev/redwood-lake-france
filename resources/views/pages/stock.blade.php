@@ -93,9 +93,11 @@
 		@foreach($stock as $fish)
 		@if($fish->reports()->exists())
 		<div class="cell small-12 medium-4 large-3 text-center">
-			<div class="fish-border-block">
-		    	<img src="{{ $fish->sideonethumb }}">
-		    </div>
+			<div class="fish-list-block">
+                <div class="fish-photo-container"> 
+                    <img src="{{ $fish->sideone }}">
+                </div>
+            </div>
 		    <div class="stock-info text-left">
 			    <strong>Top Weight:</strong> {{ $fish->lbs }}lb {{ $fish->oz }}oz<br>
 			    <strong>Captures:</strong> {{ $fish->reports->count() }}<br>
