@@ -9,6 +9,7 @@
 <ul class="dropdown menu" data-dropdown-menu>
 	<a href="/">Redwood Lake</a>
 	<li><a href="/lake">The Lake</a></li>
+	<li><a href="/stock">The Fish</a></li>
 	<li><a href="/booking">Availability</a></li>
 	<li><a href="#">Information</a>
 		<ul class="menu">
@@ -28,10 +29,11 @@
 </div>
 
 <div class="off-canvas position-left" id="offCanvasLeft" data-off-canvas data-transition="push">
-  <div class="mobile-menu" data-sticky-container>
-        <i class="fas fa-times-circle"></i><button data-close="offCanvasLeft"><strong>Close Menu</strong></button><br>
-        <i class="fas fa-home"></i><a href="/"> Home</a><br>
-        <i class="fas fa-tree"></i><a href="/lake">The Lake</a><br>
+  	<div class="mobile-menu" data-sticky-container>
+    	<i class="fas fa-times-circle"></i><button data-close="offCanvasLeft"><strong>Close Menu</strong></button><br>
+    	<i class="fas fa-home"></i><a href="/"> Home</a><br>
+    	<i class="fas fa-tree"></i><a href="/lake">The Lake</a><br>
+    	<i class="fas fa-tree"></i><a href="/stock">The Fish</a><br>
 		<i class="far fa-calendar"></i><a href="/booking">Availability</a><br>
 		<i class="fas fa-camera"></i><a href="/catch-reports">Reports</a><br>
 		<i class="fas fa-map-marker-alt"></i><a href="/location">Finding Us</a><br>
@@ -42,6 +44,6 @@
 		<i class="fas fa-temperature-high"></i><a href="/weather">Weather</a><br>
 		<i class="far fa-envelope"></i><a href="/contact">Contact</a><br>
 		<i class="fas fa-user-circle"></i><a href="/login">My Booking</a><br>
-  </div>
+  	</div>
 </div>
 </div>
