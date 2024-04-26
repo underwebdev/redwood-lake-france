@@ -72,8 +72,8 @@
 				
 				@isset($stock->sidetwo)
 				<div class="fish-border-block">
-					<a href="{{ $stock->sideone }}" data-lity>
-					<img src="{{ $stock->sideonethumb }}">
+					<a href="{{ $stock->sidetwo }}" data-lity>
+					<img src="{{ $stock->sidetwothumb }}">
 					</a>
 				</div>
 				@endisset
