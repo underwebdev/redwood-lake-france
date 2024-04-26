@@ -9456,6 +9456,7 @@ textarea {
   background-color: #FFFFFF;
   border: 1px solid #FFFFFF;
   box-shadow: 0 0 10px rgba(24, 50, 115, 0.1);
+  width: 100%;
 }
 
 .fish-list-block {
@@ -9483,8 +9484,6 @@ textarea {
   -o-object-fit: cover;
      object-fit: cover;
   min-height: 100%;
-  -o-object-position: center middle;
-     object-position: center middle;
 }
 
 .stock-info {
