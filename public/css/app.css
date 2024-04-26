@@ -9471,7 +9471,6 @@ textarea {
   aspect-ratio: 4/3;
   position: relative;
   overflow: hidden;
-  align-items: center;
 }
 
 .fish-photo-container img {
