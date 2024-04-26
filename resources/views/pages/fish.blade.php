@@ -160,6 +160,18 @@
 						</tr>
 						@endforeach
 					</tbody>
+					@if($stock->item()->exists())
+					<tfoot>
+						<tr>
+							<td>{{ date('j/m/y', strtotime ($stock->item->stocking->date)) }}</td>
+							<td>Stocked</td>
+							<td>{{ $stock->item->lbs }}lb {{ $stock->item->oz }}oz</td>
+							<td></td>
+							<td></td>
+							
+						</tr>
+					</tfoot>
+					@endif
 				</table>
 		    </div>
 			
