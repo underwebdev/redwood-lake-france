@@ -9483,6 +9483,7 @@ textarea {
   -o-object-fit: cover;
      object-fit: cover;
   min-height: 100%;
+  align-self: center;
 }
 
 .stock-info {

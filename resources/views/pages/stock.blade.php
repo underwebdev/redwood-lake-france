@@ -94,7 +94,7 @@
 		@if($fish->reports()->exists())
 		<div class="cell small-12 medium-4 large-3">
 			<div class="fish-list-block">
-                <div class="fish-photo-container align-self-middle"> 
+                <div class="fish-photo-container"> 
                     <img src="{{ $fish->sideone }}">
                 </div>
             </div>
