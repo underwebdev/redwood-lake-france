@@ -92,13 +92,13 @@
 	<div class="grid-x grid-padding-x">
 		@foreach($stock as $fish)
 		@if($fish->reports()->exists())
-		<div class="cell small-12 medium-4 large-3 text-center">
+		<div class="cell small-12 medium-4 large-3">
 			<div class="fish-list-block">
                 <div class="fish-photo-container"> 
                     <img class="align-self-middle" src="{{ $fish->sideone }}">
                 </div>
             </div>
-		    <div class="stock-info text-left">
+		    <div class="stock-info">
 			    <strong>Top Weight:</strong> {{ $fish->lbs }}lb {{ $fish->oz }}oz<br>
 			    <strong>Captures:</strong> {{ $fish->reports->count() }}<br>
 			    <strong>Last Capture:</strong> 
