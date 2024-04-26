@@ -176,8 +176,10 @@
         </div>
             @foreach($fishlist as $fish)
             <div class="cell small-12 medium-4 large-3">
-                <div class="fish-list-container"> 
-                    <img src="{{ $fish->sideone }}">
+                <div class="fish-list-block">
+                    <div class="fish-photo-container"> 
+                        <img src="{{ $fish->sideone }}">
+                    </div>
                 </div>
                 @isset($fish->name)<strong>{{ $fish->name }}</strong><br>@endisset
                 <strong>Top Weight:</strong> {{ $fish->lbs }}lb {{ $fish->oz }}oz<br>
