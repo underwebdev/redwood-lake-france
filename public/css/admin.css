@@ -8845,10 +8845,13 @@ img {
 .fish-list-container {
   border-radius: 8px;
   margin-bottom: 15px;
-  border: 1px solid #FFFFFF;
+  border: 1px solid #000000;
   box-shadow: 0 0 10px rgba(24, 50, 115, 0.1);
-  aspect-ratio: 1/1;
+  aspect-ratio: 4/3;
+  position: relative;
   overflow: hidden;
+  align-items: center;
+  padding-top: 65%;
 }
 
 .fish-list-container img {
