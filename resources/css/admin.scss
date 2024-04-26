@@ -222,3 +222,20 @@ img {
   margin: 0;
   border-radius:0;
 }
+
+.fish-list-container {
+  border-radius: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #FFFFFF;
+  box-shadow: 0 0 10px rgba(24, 50, 115, 0.1);
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+.fish-list-container img {
+
+  border-radius: 8px;
+  background-color: #FFFFFF;
+  border: 1px solid #FFFFFF;
+  box-shadow: 0 0 10px rgba(24, 50, 115, 0.1);
+}
