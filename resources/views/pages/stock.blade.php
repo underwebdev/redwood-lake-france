@@ -95,7 +95,7 @@
 		<div class="cell small-12 medium-4 large-3 text-center">
 			<div class="fish-list-block">
                 <div class="fish-photo-container"> 
-                    <img src="{{ $fish->sideone }}">
+                    <img class="align-self-middle" src="{{ $fish->sideone }}">
                 </div>
             </div>
 		    <div class="stock-info text-left">
