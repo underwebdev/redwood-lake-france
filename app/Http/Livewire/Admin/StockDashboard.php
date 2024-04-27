@@ -156,8 +156,6 @@ class StockDashboard extends Component
 
     public function selectphoto($main, $thumb, $side)
     {
-        dd($main, $thumb, $side);
-        
         if($side == 1)
         {
             $this->selectedFish->update([
