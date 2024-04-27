@@ -129,6 +129,8 @@ class StockDashboard extends Component
 
     public function primary($id)
     {
+        dd($id);
+
         $report = Report::findOrFail($id);
 
         $this->selectedFish->update([
@@ -141,12 +143,34 @@ class StockDashboard extends Component
 
     public function secondary($id)
     {
+        dd($id);
         $report = Report::findOrFail($id);
 
         $this->selectedFish->update([
             'sidetwo' => $report->sidetwo,
             'sidetwothumb' => $report->sidetwothumb
         ]);
+
+        $this->selectedFish->refresh();
+    }
+
+    public function selectphoto($main, $thumb, $side)
+    {
+        dd($main, $thumb, $side);
+        
+        if($side == 1)
+        {
+            $this->selectedFish->update([
+                'sideone' => $main,
+                'sideonethumb' => $thumb
+            ]);
+        } elseif($side == 2)
+        {
+            $this->selectedFish->update([
+                'sidetwo' => $main,
+                'sidetwothumb' => $thumb
+            ]);
+        }
 
         $this->selectedFish->refresh();
     }

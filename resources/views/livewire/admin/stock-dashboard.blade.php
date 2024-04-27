@@ -450,8 +450,8 @@
                                 <img src="{{ $report->sideonethumb }}">
                             </div>
                             <div class="button-group">
-                                <button class="button expanded" wire:click="primary('{{ $report->id }}')">Primary</button>
-                                <button class="button expanded hollow" wire:click="secondary('{{ $report->id }}')">Secondary</button>
+                                <button class="button expanded" wire:click="selectphoto('{{ $report->sideone }}', '{{ $report->sideonethumb }}', 1)">Primary</button>
+                                <button class="button expanded hollow" wire:click="selectphoto('{{ $report->sideone }}', '{{ $report->sideonethumb }}', 2)">Secondary</button>
                             </div>
                               
                         </div><!-- End of cell-->
@@ -462,8 +462,8 @@
                                 <img src="{{ $report->sidetwothumb }}">
                             </div>
                             <div class="button-group">
-                                <button class="button expanded" wire:click="primary('{{ $report->id }}')">Primary</button>
-                                <button class="button expanded hollow" wire:click="secondary('{{ $report->id }}')">Secondary</button>
+                                <button class="button expanded" wire:click="selectphoto('{{ $report->sidetwo }}', '{{ $report->sidetwothumb }}', 1)">Primary</button>
+                                <button class="button expanded hollow" wire:click="selectphoto('{{ $report->sidetwo }}', '{{ $report->sidetwothumb }}', 2)">Secondary</button>
                             </div>  
                         </div><!-- End of cell-->
                         @endisset
