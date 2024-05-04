@@ -41,7 +41,6 @@
 							<th>Mirror</th>
 							<th class="text-center">Common</th>
 							<th class="text-center">Total</th>
-							<th class="text-center">Uncaught</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -49,7 +48,6 @@
 							<td>{{ $stock->where('specimen_id', 2)->count() }}</td>
 							<td class="text-center">{{ $stock->where('specimen_id', 1)->count() }}</td>
 							<td class="text-center">{{ $stock->count() }}</td>
-							<td class="text-center">{{ $uncaught }}</td>
 						</tr>
 					</tbody>
 				</table>
