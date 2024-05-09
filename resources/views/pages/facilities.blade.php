@@ -44,6 +44,18 @@
 			</div><!-- End of cell-->
 		</div><!--end of grid-x -->
 	</div><!--End of grid container-->
+
+	<div class="grid-container">
+		<div class="grid-x grid-padding-x">
+			<div class="cell small-12">
+				<br>
+				<h3 class="text-center"><span class="weighted">Additional</span> Accommodation</h3>
+				@foreach($page->modules->where('order', 3) as $module)
+					<p>{!! nl2br(e($module->content)) !!}</p>
+				@endforeach
+			</div><!-- End of cell-->
+		</div><!--end of grid-x -->
+	</div><!--End of grid container-->
 </div>
 
 @endsection
