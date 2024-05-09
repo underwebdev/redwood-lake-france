@@ -136,7 +136,9 @@ class PageController extends Controller
     {
         $page = Page::find(8);
 
-        return view('pages.facilities', compact('page'));
+        $gallery = Page::find(9);
+
+        return view('pages.facilities', compact('page', 'gallery'));
     }
 
     public function rules()
