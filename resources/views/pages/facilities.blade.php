@@ -56,8 +56,6 @@
 			</div><!-- End of cell-->
 		</div><!--end of grid-x -->
 	</div><!--End of grid container-->
-
-	
 </div>
 
 @endsection
