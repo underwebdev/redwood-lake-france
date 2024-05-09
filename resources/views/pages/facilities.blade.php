@@ -56,6 +56,8 @@
 			</div><!-- End of cell-->
 		</div><!--end of grid-x -->
 	</div><!--End of grid container-->
+
+	@livewire('feature-gallery', ['page' => 9])
 </div>
 
 @endsection
