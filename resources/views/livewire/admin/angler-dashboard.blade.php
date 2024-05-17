@@ -52,11 +52,11 @@
                                     @endif
                                 </td>
                                 <td>
-                                    @if($angler->user()->exists())
+                                    @isset($angler->user->last_login)
                                         {{ date('j/m/y H:i', strtotime ($angler->user->last_login)) }}
                                     @else 
                                         N/A
-                                    @endif
+                                    @endisset
                                     
                                 </td>
                                 <td class="text-right">
