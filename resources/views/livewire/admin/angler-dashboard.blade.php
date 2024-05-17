@@ -53,7 +53,7 @@
                                 </td>
                                 <td>
                                     @if($angler->user()->exists())
-                                        {{ date('j/m/y', strtotime ($angler->user->last_login)) }}
+                                        {{ date('j/m/y H:i', strtotime ($angler->user->last_login)) }}
                                     @else 
                                         N/A
                                     @endif
