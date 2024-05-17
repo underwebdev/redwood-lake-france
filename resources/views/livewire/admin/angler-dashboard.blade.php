@@ -34,6 +34,7 @@
                                 <th>Name</th>
                                 <th>Telephone</th>
                                 <th>Email</th>
+                                <th>Last Login</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -49,6 +50,14 @@
                                     @else 
                                         N/A
                                     @endif
+                                </td>
+                                <td>
+                                    @if($angler->user()->exists())
+                                        {{ date('j/m/y', strtotime ($angler->user->last_login)) }}
+                                    @else 
+                                        N/A
+                                    @endif
+                                    
                                 </td>
                                 <td class="text-right">
                                     <button class="button small" wire:click="selectAngler('{{ $angler->id }}')">View</button>
