@@ -112,7 +112,7 @@
                             @else
                             <label for="">Discount Code
                                 @if($invalidcode)
-                                    <span class="error">Code not valid for selected booking date</span>
+                                    <span class="error">{{ $message }}</span>
                                 @endif
                             </label>
                             <input type="text" wire:model.lazy="discountcode">

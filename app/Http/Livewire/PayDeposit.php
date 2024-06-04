@@ -36,6 +36,7 @@ class PayDeposit extends Component
     public $discountcode;
     public $validcode;
     public $invalidcode;
+    public $message;
     public $voucher;
     public $duedate;
     public $balance;
@@ -86,12 +87,25 @@ class PayDeposit extends Component
     {
         if(Voucher::where('code', $this->discountcode)->exists())
         {
-            $this->invalidcode = false;
-            $this->validcode = true;
             $this->voucher = Voucher::where('code', $this->discountcode)->first();
+
+            if($this->voucher->end >= $this->date && $this->voucher->start <= $this->date)
+            {
+                //dd('Valid voucher');
+                $this->invalidcode = false;
+                $this->validcode = true;
+            } else {
+                //dd('invalid');
+                $this->invalidcode = true;
+                $this->validcode = false;
+                $this->message = 'Code only valid for bookings between '. Carbon::parse($this->voucher->start)->format('d/m/Y') . ' and ' . Carbon::parse($this->voucher->end)->format('d/m/Y');
+                $this->reset('voucher');
+            }
+            
         } else {
             $this->invalidcode = true;
             $this->validcode = false;
+            $this->message = 'Code not valid for selected booking date';
         }
     }
 
