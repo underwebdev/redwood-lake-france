@@ -13,7 +13,7 @@ class Lake extends Model
 
     public function swims()
     {
-        return $this->hasMany(Swim::class);
+        return $this->hasMany(Swim::class)->orderBy('order', 'asc');
     }
 
     public function images()
