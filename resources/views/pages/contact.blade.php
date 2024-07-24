@@ -44,7 +44,8 @@
 			<div class="text-center">
 				<br>
 				<strong>Scroll Down For Contact Form</strong><br>
-				<i class="fas fa-arrow-alt-circle-down bounce"></i>
+				<!--<i class="fas fa-arrow-alt-circle-down bounce"></i>-->
+				@include('icons.down')
 			</div>
 		</div><!-- End of cell-->    
 	</div><!--end of grid-x -->

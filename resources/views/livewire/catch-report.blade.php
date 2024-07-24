@@ -42,6 +42,7 @@
                                 <th class="tspace">Weight</th>
                                 <th>Species</th>
                                 <th></th>
+                                <th></th>
                                 <th class="text-center">Swim</th>
                             </tr>
                         </thead>
@@ -54,10 +55,16 @@
                                 <td>{{ $report->specimen->name }}</td>
                                 <td class="text-center">
                                     @isset($report->sideone)
-                                        <a href="{{ $report->sideone }}" data-lity><i class="fas fa-camera"></i></a>
+                                        <a href="{{ $report->sideone }}" data-lity>
+                                            @include('icons.camera')
+                                        </a>
                                     @endisset
+                                </td>
+                                <td class="text-center">
                                     @isset($report->sidetwo)
-                                        <a href="{{ $report->sidetwo }}" data-lity><i class="fas fa-camera"></i></a>
+                                        <a href="{{ $report->sidetwo }}" data-lity>
+                                            @include('icons.camera')
+                                        </a>
                                     @endisset
                                 </td>
                                 <td class="text-center">
