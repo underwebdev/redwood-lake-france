@@ -43,7 +43,7 @@
 				</div>
 
 				<div class="polaroid-photo rotate-right">
-					<img src="/img/redwood-lake-mirror-carp-rules-2024.jpeg">
+					<img src="/img/redwood-lake-mirror-carp-rules-2024.jpg">
 				</div>
 			      
 			</div><!-- End of cell-->
