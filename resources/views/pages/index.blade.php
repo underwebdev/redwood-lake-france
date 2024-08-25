@@ -104,9 +104,9 @@
 			</div><!-- End of cell-->
 			<div class="cell small-12 large-6 align-self-middle text-right">
 				<div class="show-for-medium" id="facility-image">
-			  	<img src="/img/facility.jpeg" class="photo-border-block">
+			  	<img src="/img/new-facillity.jpg" class="photo-border-block">
 			  </div>
-			  <img src="/img/facility.jpeg" class="mobile-border-block hide-for-medium">   
+			  <img src="/img/new-facillity.jpg" class="mobile-border-block hide-for-medium">   
 			</div><!-- End of cell-->
 		</div><!--end of grid-x -->
 	</div>
