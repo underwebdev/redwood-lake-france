@@ -8672,7 +8672,7 @@ hero-wave svg {
 }
 
 .facilitybg {
-  background-image: url("/img/backgrounds/facility-background.jpg");
+  background-image: url("/img/backgrounds/lodge-background-2024.jpg");
 }
 
 .rulebg {
@@ -8692,7 +8692,7 @@ hero-wave svg {
 }
 
 .contactbg {
-  background-image: url("/img/backgrounds/hero-background-alt3.jpg");
+  background-image: url("/img/backgrounds/contact-background-2024.jpg");
 }
 
 @media all and (max-width: 1024px) {
@@ -8718,7 +8718,7 @@ hero-wave svg {
     background-image: url("/img/backgrounds/tablet/location-background.jpg");
   }
   .facilitybg {
-    background-image: url("/img/backgrounds/tablet/facility-background.jpg");
+    background-image: url("/img/backgrounds/tablet/lodge-background-2024.jpg");
   }
   .rulebg {
     background-image: url("/img/backgrounds/tablet/rule-background.jpg");
@@ -8733,7 +8733,7 @@ hero-wave svg {
     background-image: url("/img/backgrounds/tablet/weather-background.jpg");
   }
   .contactbg {
-    background-image: url("/img/backgrounds/tablet/hero-background-alt3.jpg");
+    background-image: url("/img/backgrounds/tablet/contact-background-2024.jpg");
   }
 }
 @media all and (max-width: 429px) {
@@ -8759,7 +8759,7 @@ hero-wave svg {
     background-image: url("/img/backgrounds/mobile/location-background.jpg");
   }
   .facilitybg {
-    background-image: url("/img/backgrounds/mobile/facility-background.jpg");
+    background-image: url("/img/backgrounds/mobile/lodge-background-2024.jpg");
   }
   .rulebg {
     background-image: url("/img/backgrounds/mobile/rule-background.jpg");
@@ -8774,7 +8774,7 @@ hero-wave svg {
     background-image: url("/img/backgrounds/mobile/weather-background.jpg");
   }
   .contactbg {
-    background-image: url("/img/backgrounds/mobile/hero-background-alt3.jpg");
+    background-image: url("/img/backgrounds/mobile/contact-background-2024.jpg");
   }
 }
 .black {
