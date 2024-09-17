@@ -80,34 +80,34 @@
 			<table>
 				<thead>
 					<tr>
-						<th>jan</th>
-						<th>feb</th>
-						<th>mar</th>
-						<th>apr</th>
-						<th>may</th>
-						<th>jun</th>
-						<th>jul</th>
-						<th>aug</th>
-						<th>sep</th>
-						<th>oct</th>
-						<th>nov</th>
-						<th>dec</th>
+						<th class="text-center">jan</th>
+						<th class="text-center">feb</th>
+						<th class="text-center">mar</th>
+						<th class="text-center">apr</th>
+						<th class="text-center">may</th>
+						<th class="text-center">jun</th>
+						<th class="text-center">jul</th>
+						<th class="text-center">aug</th>
+						<th class="text-center">sep</th>
+						<th class="text-center">oct</th>
+						<th class="text-center">nov</th>
+						<th class="text-center">dec</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
-						<td>{{ $stock->reports()->whereMonth('date', '=', date('01'))->count() }} </td>
-						<td>{{ $stock->reports()->whereMonth('date', '=', date('02'))->count() }}</td>
-						<td>{{ $stock->reports()->whereMonth('date', '=', date('03'))->count() }}</td>
-						<td>{{ $stock->reports()->whereMonth('date', '=', date('04'))->count() }}</td>
-						<td>{{ $stock->reports()->whereMonth('date', '=', date('05'))->count() }}</td>
-						<td>{{ $stock->reports()->whereMonth('date', '=', date('06'))->count() }}</td>
-						<td>{{ $stock->reports()->whereMonth('date', '=', date('07'))->count() }}</td>
-						<td>{{ $stock->reports()->whereMonth('date', '=', date('08'))->count() }}</td>
-						<td>{{ $stock->reports()->whereMonth('date', '=', date('09'))->count() }}</td>
-						<td>{{ $stock->reports()->whereMonth('date', '=', date('010'))->count() }}</td>
-						<td>{{ $stock->reports()->whereMonth('date', '=', date('11'))->count() }}</td>
-						<td>{{ $stock->reports()->whereMonth('date', '=', date('12'))->count() }}</td>
+						<td class="text-center">{{ $stock->reports()->whereMonth('date', '=', date('01'))->count() }} </td>
+						<td class="text-center">{{ $stock->reports()->whereMonth('date', '=', date('02'))->count() }}</td>
+						<td class="text-center">{{ $stock->reports()->whereMonth('date', '=', date('03'))->count() }}</td>
+						<td class="text-center">{{ $stock->reports()->whereMonth('date', '=', date('04'))->count() }}</td>
+						<td class="text-center">{{ $stock->reports()->whereMonth('date', '=', date('05'))->count() }}</td>
+						<td class="text-center">{{ $stock->reports()->whereMonth('date', '=', date('06'))->count() }}</td>
+						<td class="text-center">{{ $stock->reports()->whereMonth('date', '=', date('07'))->count() }}</td>
+						<td class="text-center">{{ $stock->reports()->whereMonth('date', '=', date('08'))->count() }}</td>
+						<td class="text-center">{{ $stock->reports()->whereMonth('date', '=', date('09'))->count() }}</td>
+						<td class="text-center">{{ $stock->reports()->whereMonth('date', '=', date('010'))->count() }}</td>
+						<td class="text-center">{{ $stock->reports()->whereMonth('date', '=', date('11'))->count() }}</td>
+						<td class="text-center">{{ $stock->reports()->whereMonth('date', '=', date('12'))->count() }}</td>
 					</tr>
 				</tbody>
 			</table>
