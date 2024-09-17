@@ -10,7 +10,7 @@
 	<a href="/">Redwood Lake</a>
 	<li><a href="/lake">The Lake</a></li>
 	<li><a href="/stock">The Fish</a></li>
-	<li><a href="/booking">Availability</a></li>
+	<li><a href="/booking">Book Now</a></li>
 	<li><a href="#">Information</a>
 		<ul class="menu">
 			<li><a href="/catch-reports">Catch Reports</a></li>
@@ -34,7 +34,7 @@
     	<i class="fas fa-home"></i><a href="/"> Home</a><br>
     	<i class="fas fa-tree"></i><a href="/lake">The Lake</a><br>
     	<i class="fas fa-tree"></i><a href="/stock">The Fish</a><br>
-		<i class="far fa-calendar"></i><a href="/booking">Availability</a><br>
+		<i class="far fa-calendar"></i><a href="/booking">Book Now</a><br>
 		<i class="fas fa-camera"></i><a href="/catch-reports">Reports</a><br>
 		<i class="fas fa-map-marker-alt"></i><a href="/location">Finding Us</a><br>
 		<i class="fas fa-restroom"></i><a href="/facilities">Facilities</a><br>
