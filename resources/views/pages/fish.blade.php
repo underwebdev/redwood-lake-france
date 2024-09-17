@@ -54,8 +54,8 @@
 <div class="grid-container full">
 	<div class="grid-x grid-padding-x">
 		<div class="cell small-12 medium-4">
-			<div class="cell small-12 text-center" data-sticky-container>
-			<div class="sticky" data-sticky data-top-anchor="dark-container:bottom">
+			<div class="cell small-12 text-center">
+			<div class="sticky">
 				<div class="fish-border-block">
 					<a href="{{ $stock->sideone }}" data-lity>
 					<img src="{{ $stock->sideonethumb }}">
