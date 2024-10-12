@@ -219,6 +219,9 @@
                         <img src="{{ $selectedReport->sidetwothumb }}">
                     </a>
                     @endisset
+                    <div class="text-center">
+                        <p><strong>{{ $selectedReport->lbs }}lb {{ $selectedReport->oz }}oz</strong></p>
+                    </div>
                     <div class="button-group">
                         <button class="button success expanded" wire:click="$set('mode', 4)">Create Fish</button>
                         <button class="button warning expanded" wire:click="$set('mode', 2)">Back To Unmatched</button>
