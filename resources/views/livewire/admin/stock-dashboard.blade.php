@@ -211,9 +211,13 @@
         <div class="grid-x grid-padding-x">
             <div class="cell small-12 medium-4" data-sticky-container>
                 <div class="sticky" data-sticky data-top-anchor="admin-nav:bottom" data-check-every="0">
-                    <img src="{{ $selectedReport->sideonethumb }}">
+                    <a href="{{ $selectedReport->sideone }}" data-lity>
+                        <img src="{{ $selectedReport->sideonethumb }}">
+                    </a>
                     @isset($selectedReport->sidetwothumb)
-                    <img src="{{ $selectedReport->sidetwothumb }}">
+                    <a href="{{ $selectedReport->sideone }}" data-lity>
+                        <img src="{{ $selectedReport->sidetwothumb }}">
+                    </a>
                     @endisset
                     <div class="button-group">
                         <button class="button success expanded" wire:click="$set('mode', 4)">Create Fish</button>
@@ -224,14 +228,18 @@
             <div class="cell small-12 medium-8">
                 <div class="grid-x grid-padding-x">
                     @foreach($stock->where('specimen_id', $selectedReport->specimen_id) as $fish)
-                    <div class="cell small-12 medium-6 text-center" >
-                        <img src="{{ $fish->sideonethumb }}">
+                    <div class="cell small-12 medium-6 text-center">
+                        <div>
+                            <img src="{{ $fish->sideonethumb }}">
+                        </div>
                         <strong>{{ $fish->lbs }}lbs {{ $fish->oz }}oz</strong>
                         <button class="button success expanded" wire:click="attachReport('{{ $fish->id }}')">Attach Fish</button>
                     </div><!-- End of cell-->
                     <div class="cell small-12 medium-6">
                         @isset($fish->sidetwothumb)
-                        <img src="{{ $fish->sidetwothumb }}">
+                        <div>
+                            <img src="{{ $fish->sidetwothumb }}">
+                        </div>
                         @else
                             <p class="text-center"><strong>Not Available</strong></p>
                         @endisset
