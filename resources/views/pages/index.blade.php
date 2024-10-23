@@ -75,7 +75,7 @@
 				<div class="show-for-medium" id="fish-image">
 			    	<img src="/img/redwood-lake-common-carp-2024.jpg" class="photo-border-block"> 
 			  </div>
-			  <img src="/img/redwood-lake-common-carp-2024.jpg" class="mobile-border-block hide-for-medium">   
+			  <img src="/img/rob-burgess-common.JPG" class="mobile-border-block hide-for-medium">   
 			</div><!-- End of cell-->
 			<div class="cell small-12 ml-6">
 				<div id="fish-desc">
