@@ -73,9 +73,9 @@
 		<div class="grid-x grid-padding-x">
 			<div class="cell small-12 ml-6 align-self-middle">
 				<div class="show-for-medium" id="fish-image">
-			    	<img src="/img/redwood-lake-common-carp-2024.jpg" class="photo-border-block"> 
+			    	<img src="/img/rob-burgess-common.JPG" class="photo-border-block" alt="Rob Burgess Common Carp - Redwood Lake"> 
 			  </div>
-			  <img src="/img/rob-burgess-common.JPG" class="mobile-border-block hide-for-medium">   
+			  <img src="/img/rob-burgess-common.JPG" class="mobile-border-block hide-for-medium" alt="Rob Burgess Common Carp - Redwood Lake">   
 			</div><!-- End of cell-->
 			<div class="cell small-12 ml-6">
 				<div id="fish-desc">
