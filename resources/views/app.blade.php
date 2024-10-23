@@ -29,7 +29,7 @@
 		@livewireStyles
 
 		<link rel="canonical" href="@yield('url')">
-		<script src="https://kit.fontawesome.com/0a03567b35.js" crossorigin="anonymous"></script>
+		<script defer src="https://underweb.co.uk/assets/ieQDGy"></script>
 
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
