@@ -22,6 +22,12 @@
 <div class="grid-container">
 	<div class="grid-x grid-padding-x">
 		<div class="cell small-12 medium-10 large-8 medium-offset-1 large-offset-2">
+			<div class="show-for-medium">
+			<img src="/img/rob-burgess-mirror.JPG" class="photo-border-block" alt="Rob Burgess French Mirror Carp - Redwood Lake"> 
+			</div>
+			<img src="/img/rob-burgess-mirror.JPG" class="mobile-border-block hide-for-medium" alt="Rob Burgess French Mirror Carp - Redwood Lake">  
+			<br>
+			<br>
 			@foreach($page->modules->where('order', 1) as $module)
 				<p>{!! nl2br(e($module->content)) !!}</p>
 			@endforeach
