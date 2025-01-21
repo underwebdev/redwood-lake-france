@@ -52,9 +52,9 @@
 	    </script>
 
 	    <script type="application/ld+json">
-	    	{ 
-	    		@yield('schema') 
-	    	}
+	    { 
+	    	@yield('schema')
+	    }
 		</script>
 	</head>
 	<body>
