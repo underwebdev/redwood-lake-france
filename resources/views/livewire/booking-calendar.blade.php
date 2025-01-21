@@ -89,7 +89,7 @@
                 @foreach($bookingdates as $date)
                 @if($date > Carbon\Carbon::now())
                     @if(Carbon\Carbon::parse($date)->format('Y-m') == Carbon\Carbon::parse($month)->format('Y-m'))
-                    <div class="cell small-6 ml-4 text-center">
+                    <div class="cell small-6 ml-4 text-center" wire:key="unfiltered-{{ $date }}">
                     
                         <div class="date-container">
                             <div class="date-tile">
