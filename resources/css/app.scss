@@ -293,6 +293,34 @@ h4 {
   margin-left: 8px;
 }
 
+.mobile-menu-item {
+	padding: 6px 0 8px 0;
+	display: flex;
+}
+
+.mobile-menu-item .icon-container {
+	width: 20%;
+	display: flex;
+	justify-content: center;
+}
+
+
+.mobile-menu-item .link-container {
+	width: 80%;
+}
+
+.mobile-menu-item svg {
+	margin-top: 4px;
+  color: #ffffff;
+	
+}
+
+.mobile-menu-item a {
+  align-items: center;
+  margin: 0;
+	
+}
+
 .hero-text h1 {
 	margin-bottom: 0px;
 	font-weight: 800;

@@ -30,20 +30,117 @@
 
 <div class="off-canvas position-left" id="offCanvasLeft" data-off-canvas data-transition="push">
   <div class="mobile-menu" data-sticky-container>
-        <i class="fas fa-times-circle"></i><button data-close="offCanvasLeft"><strong>Close Menu</strong></button><br>
-        <i class="fas fa-home"></i><a href="/"> Home</a><br>
-        <i class="fas fa-tree"></i><a href="/lake">The Lake</a><br>
-        <i class="fas fa-tree"></i><a href="/stock">The Fish</a><br>
-		<i class="far fa-calendar"></i><a href="/booking">Book Now</a><br>
-		<i class="fas fa-camera"></i><a href="/catch-reports">Reports</a><br>
-		
-		<i class="fas fa-map-marker-alt"></i><a href="/location">Finding Us</a><br>
-		<i class="fas fa-restroom"></i><a href="/facilities">Facilities</a><br>
-		<i class="fas fa-list-ol"></i><a href="/rules">Rules</a><br>
-		<i class="far fa-newspaper"></i><a href="/news">News</a><br>
-		<i class="fas fa-image"></i><a href="/photo-diary">Gallery</a><br>
-		<i class="fas fa-temperature-high"></i><a href="/weather">Weather</a><br>
-		<i class="far fa-envelope"></i><a href="/contact">Contact</a><br>
-		<i class="fas fa-user-circle"></i><a href="/login">My Booking</a><br>
+        <div class="mobile-menu-item">
+        	<div class="icon-container">
+    			<i class="fas fa-times-circle"></i> 
+    		</div>
+    		<div class="link-container">
+    			<a data-close="offCanvasLeft"><strong>Close Menu</strong></a>
+    		</div>
+    	</div>
+    	<div class="mobile-menu-item">
+    		<div class="icon-container">
+    			<i class="fas fa-home"></i> 
+    		</div>
+    		<div class="link-container">
+    			<a href="/">Home</a>
+    		</div>
+    	</div>
+    	<div class="mobile-menu-item">
+    		<div class="icon-container">
+    			<i class="fas fa-tree"></i> 
+    		</div>
+    		<div class="link-container">
+    			<a href="/lake">The Lake</a>
+    		</div>
+    	</div>
+    	<div class="mobile-menu-item">
+    		<div class="icon-container">
+    			<i class="fas fa-tree"></i> 
+    		</div>
+    		<div class="link-container">
+    			<a href="/stock">The Fish</a>
+			</div>
+		</div>
+		<div class="mobile-menu-item">
+			<div class="icon-container">
+				<i class="far fa-calendar"></i> 
+			</div>
+			<div class="link-container">
+				<a href="/booking">Book Now</a>
+			</div>
+		</div>
+		<div class="mobile-menu-item">
+			<div class="icon-container">
+				<i class="fas fa-camera"></i> 
+			</div>
+			<div class="link-container">
+				<a href="/catch-reports">Reports</a>
+			</div>
+		</div>
+		<div class="mobile-menu-item">
+			<div class="icon-container">
+				<i class="fas fa-map-marker-alt"></i> 
+			</div>
+			<div class="link-container">
+				<a href="/location">Finding Us</a>
+			</div>
+		</div>
+		<div class="mobile-menu-item">
+			<div class="icon-container">
+				<i class="fas fa-restroom"></i> 
+			</div>
+			<div class="link-container">
+				<a href="/facilities">Facilities</a>
+			</div>
+		</div>
+		<div class="mobile-menu-item">
+			<div class="icon-container">
+				<i class="fas fa-list-ol"></i> 
+			</div>
+			<div class="link-container">
+				<a href="/rules">Rules</a>
+			</div>
+		</div>
+		<div class="mobile-menu-item">
+			<div class="icon-container">
+				<i class="far fa-newspaper"></i> 
+			</div>
+			<div class="link-container">
+				<a href="/news">News</a>
+			</div>
+		</div>
+		<div class="mobile-menu-item">
+			<div class="icon-container">
+				<i class="fas fa-image"></i> 
+			</div>
+			<div class="link-container">
+				<a href="/photo-diary">Gallery</a>
+			</div>
+		</div>
+		<div class="mobile-menu-item">
+			<div class="icon-container">
+				<i class="fas fa-temperature-high"></i> 
+			</div>
+			<div class="link-container">
+				<a href="/weather">Weather</a>
+			</div>
+		</div>
+		<div class="mobile-menu-item">
+			<div class="icon-container">
+				<i class="far fa-envelope"></i> 
+			</div>
+			<div class="link-container">
+				<a href="/contact">Contact</a>
+			</div>
+		</div>
+		<div class="mobile-menu-item">
+			<div class="icon-container">
+				<i class="fas fa-user-circle"></i> 
+			</div>
+			<div class="link-container">
+				<a href="/login">My Booking</a>
+  			</div>
+  		</div>
   </div>
 </div>

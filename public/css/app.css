@@ -932,7 +932,6 @@ ul.no-bullet, ol.no-bullet {
     background: transparent !important;
     color: black !important;
     -webkit-print-color-adjust: economy;
-       color-adjust: economy;
             print-color-adjust: economy;
     box-shadow: none !important;
     text-shadow: none !important;
@@ -5224,7 +5223,6 @@ a.button:hover, a.button:focus {
   transform: translateY(-50%);
   left: 0;
   z-index: 1;
-  cursor: -webkit-grab;
   cursor: grab;
   display: inline-block;
   width: 1.4rem;
@@ -5242,7 +5240,6 @@ a.button:hover, a.button:focus {
 }
 .slider-handle.is-dragging {
   transition: all 0s linear;
-  cursor: -webkit-grabbing;
   cursor: grabbing;
 }
 
@@ -7079,8 +7076,7 @@ a.thumbnail image {
   position: fixed;
   z-index: 12;
   transition: transform 0.5s ease;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
+  backface-visibility: hidden;
   background: #232323;
 }
 [data-whatinput=mouse] .off-canvas {
@@ -7106,8 +7102,7 @@ a.thumbnail image {
   position: absolute;
   z-index: 12;
   transition: transform 0.5s ease;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
+  backface-visibility: hidden;
   background: #232323;
 }
 [data-whatinput=mouse] .off-canvas-absolute {
@@ -7227,8 +7222,7 @@ a.thumbnail image {
 
 .off-canvas-content {
   transform: none;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 .off-canvas-content.has-transition-overlap, .off-canvas-content.has-transition-push {
   transition: transform 0.5s ease;
@@ -7636,8 +7630,7 @@ html.is-reveal-open body {
 
 .reveal {
   z-index: 1006;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
+  backface-visibility: hidden;
   display: none;
   padding: 1rem;
   border: 1px solid #cacaca;
@@ -8884,6 +8877,31 @@ h4 {
   margin-left: 8px;
 }
 
+.mobile-menu-item {
+  padding: 6px 0 8px 0;
+  display: flex;
+}
+
+.mobile-menu-item .icon-container {
+  width: 20%;
+  display: flex;
+  justify-content: center;
+}
+
+.mobile-menu-item .link-container {
+  width: 80%;
+}
+
+.mobile-menu-item svg {
+  margin-top: 4px;
+  color: #ffffff;
+}
+
+.mobile-menu-item a {
+  align-items: center;
+  margin: 0;
+}
+
 .hero-text h1 {
   margin-bottom: 0px;
   font-weight: 800;
@@ -9623,33 +9641,8 @@ table svg {
 }
 
 .wobble {
-  -webkit-animation: wobble 2s ease infinite;
-          animation: wobble 2s ease infinite;
+  animation: wobble 2s ease infinite;
   margin-left: 10px;
-}
-
-@-webkit-keyframes wobble {
-  0% {
-    transform: translateX(0%);
-  }
-  15% {
-    transform: translateX(-25%) rotate(-5deg);
-  }
-  30% {
-    transform: translateX(20%) rotate(3deg);
-  }
-  45% {
-    transform: translateX(-15%) rotate(-3deg);
-  }
-  60% {
-    transform: translateX(10%) rotate(2deg);
-  }
-  75% {
-    transform: translateX(-5%) rotate(-1deg);
-  }
-  100% {
-    transform: translateX(0%);
-  }
 }
 
 @keyframes wobble {
@@ -9676,33 +9669,8 @@ table svg {
   }
 }
 .bounce {
-  -webkit-animation: bounce 2s ease infinite;
-          animation: bounce 2s ease infinite;
+  animation: bounce 2s ease infinite;
   margin-top: 10px;
-}
-
-@-webkit-keyframes bounce {
-  70% {
-    transform: translateY(0%);
-  }
-  80% {
-    transform: translateY(-15%);
-  }
-  90% {
-    transform: translateY(0%);
-  }
-  95% {
-    transform: translateY(-7%);
-  }
-  97% {
-    transform: translateY(0%);
-  }
-  99% {
-    transform: translateY(-3%);
-  }
-  100% {
-    transform: translateY(0);
-  }
 }
 
 @keyframes bounce {

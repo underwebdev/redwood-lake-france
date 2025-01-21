@@ -35,9 +35,7 @@
 	      "name" : "Underwood Web Services",
 	      "logo": "https://redwoodlake.co.uk/img/logo/RedwoodLake.png",
 	      "url" : "https://redwoodlake.co.uk",
-	      "sameAs" : [ "https://www.facebook.com/underwebdevelopment/",
-                   "https://www.linkedin.com/in/joe-underwood-010765b7/",
-                   "https://www.twitter.com/underwebdev"]
+	      "sameAs" : []
 	    } 
 	    </script>
 

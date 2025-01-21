@@ -932,7 +932,6 @@ ul.no-bullet, ol.no-bullet {
     background: transparent !important;
     color: black !important;
     -webkit-print-color-adjust: economy;
-       color-adjust: economy;
             print-color-adjust: economy;
     box-shadow: none !important;
     text-shadow: none !important;
@@ -5224,7 +5223,6 @@ a.button:hover, a.button:focus {
   transform: translateY(-50%);
   left: 0;
   z-index: 1;
-  cursor: -webkit-grab;
   cursor: grab;
   display: inline-block;
   width: 1.4rem;
@@ -5242,7 +5240,6 @@ a.button:hover, a.button:focus {
 }
 .slider-handle.is-dragging {
   transition: all 0s linear;
-  cursor: -webkit-grabbing;
   cursor: grabbing;
 }
 
@@ -7079,8 +7076,7 @@ a.thumbnail image {
   position: fixed;
   z-index: 12;
   transition: transform 0.5s ease;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
+  backface-visibility: hidden;
   background: #232323;
 }
 [data-whatinput=mouse] .off-canvas {
@@ -7106,8 +7102,7 @@ a.thumbnail image {
   position: absolute;
   z-index: 12;
   transition: transform 0.5s ease;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
+  backface-visibility: hidden;
   background: #232323;
 }
 [data-whatinput=mouse] .off-canvas-absolute {
@@ -7227,8 +7222,7 @@ a.thumbnail image {
 
 .off-canvas-content {
   transform: none;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 .off-canvas-content.has-transition-overlap, .off-canvas-content.has-transition-push {
   transition: transform 0.5s ease;
@@ -7636,8 +7630,7 @@ html.is-reveal-open body {
 
 .reveal {
   z-index: 1006;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
+  backface-visibility: hidden;
   display: none;
   padding: 1rem;
   border: 1px solid #cacaca;
