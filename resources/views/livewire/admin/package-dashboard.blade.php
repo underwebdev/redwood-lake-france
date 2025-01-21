@@ -20,7 +20,11 @@
                                     @endif
                                 @elseif($mode == 4)
                                     @if($selectedPriceguide)
+                                        @if($selectedPriceguide->bookings()->doesntExist())
                                         <button class="button alert" wire:click="deletePriceguide">Delete</button>
+                                        @else
+                                        <button class="button alert disabled">Delete</button>
+                                        @endif
                                     @endif
                                 @endif
                             <button class="button warning" wire:click="back">Go Back</button>
