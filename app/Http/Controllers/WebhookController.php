@@ -168,8 +168,8 @@ class WebhookController extends Controller
                             'status' => 1
                         ]);
 
-                        Mail::to($angler->user->email)->send(new PaymentReceipt($payment));
-                        Mail::to('info@redwoodlake.co.uk')->send(new BookingNotification($booking));
+                        Mail::to($angler->user->email)->cc('info@redwoodlake.co.uk')->send(new PaymentReceipt($payment));
+                        //Mail::to('info@redwoodlake.co.uk')->send(new BookingNotification($booking));
                     }
 
                 }
