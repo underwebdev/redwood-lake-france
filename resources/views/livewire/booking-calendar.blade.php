@@ -82,7 +82,7 @@
         @else
             @foreach($bookingmonths as $month)
             @if(Carbon\Carbon::parse($month)->format('Y-m') >= Carbon\Carbon::now()->format('Y-m'))
-                <div class="cell small-12 ml-6 text-center">
+                <div class="cell small-12 ml-6 text-center" wire:key="month-{{ Carbon\Carbon::parse($month)->format('FY') }}">
                     <h5 class="month-bar">{{ Carbon\Carbon::parse($month)->format('F Y') }}</h5>  
                 
                 <div class="grid-x grid-padding-x">
