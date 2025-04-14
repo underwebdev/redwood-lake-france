@@ -23,6 +23,7 @@
 
     <i class="far fa-envelope"></i> <a href="/admin/mailing-list">Mailing List</a><br>
     <i class="far fa-envelope"></i> <a href="/admin/inbox">Inbox</a><br>
+    <i class="far fa-envelope"></i> <a href="/admin/emails">Email Preview</a><br>
     <i class="fas fa-cog"></i> <a href="/admin/settings">Settings</a><br>
     <i class="fas fa-cog"></i> <a href="/admin/storage">Storage</a><br>
     <i class='fas fa-power-off'></i> <a href="/logout">Logout</a>

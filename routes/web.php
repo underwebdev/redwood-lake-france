@@ -7,6 +7,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\WebhookController;
 use App\Http\Controllers\EndpointController;
+use App\Http\Controllers\EmailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -78,6 +79,10 @@ Route::middleware(['admin'])->group(function () {
 	Route::get('admin/inbox', [AdminController::class, 'inbox']);
 	Route::get('admin/settings', [AdminController::class, 'settings']);
 	Route::get('admin/storage', [AdminController::class, 'storage']);
+	Route::get('admin/emails', [EmailController::class, 'index']);
+
+	Route::get('emails/welcome-email', [EmailController::class, 'welcome']);
+	Route::get('emails/review-request', [EmailController::class, 'review']);
 });
 
 Route::middleware(['auth'])->group(function () {
