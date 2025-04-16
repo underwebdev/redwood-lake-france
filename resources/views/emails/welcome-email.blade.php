@@ -5,7 +5,7 @@
 
 <p><strong>Gate code: 0502</strong></p>
 <p>The key for the cabin is in the lock box to the right of the patio doors on the rear wall of the cabin.</p>
-<o><strong>Lockbox Code: 5308<br>
+<p><strong>Lockbox Code: 5308<br>
 Wifi Password: Croxley333</strong></p>
 
 <p>Please note that you will need to switch the water pump on for the shower and toilet. The plug socket is located inside the cabin on the back wall.
