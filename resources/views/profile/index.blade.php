@@ -14,7 +14,8 @@
 					{{ $user->email }}<br>
 					{{ $user->angler->telephone }}</p>
 				</div>
-			</div>     
+			</div>
+			<a href="/my-account/upload-report" class="button expanded success">Add Catch Report</a>     
 		</div><!-- End of cell-->
 		<div class="cell small-12 ml-9">
 			@if($user->angler->bookings()->exists())
@@ -34,7 +35,15 @@
 						<tr>
 							<td>{{ $booking->id }}</td>
 							<td>{{ date('j/m/y', strtotime ($booking->arrival)) }}</td>
-							<td class="text-center">{{ $booking->anglers }}</td>
+							<td class="text-center">
+								@if($booking->guests()->count() < $booking->anglers - 1)
+									<span class="error"> {{ $booking->anglers }}
+									<i class="fas fa-exclamation-circle"></i>
+									</span>
+								@else
+									{{ $booking->anglers }}
+								@endif
+							</td>
 							<td class="text-right"><a href="/my-account/booking/{{ $booking->id }}" class="button success small">Manage</a></td>
 						</tr>
 						@endforeach
@@ -97,10 +106,6 @@
 			</div>
 
 			@endif
-
-			<div class="text-center">
-				<a href="/my-account/catch-reports" class="button success large">Add Catch Report</a>
-			</div>
 		</div><!-- End of cell-->
 	</div><!--end of grid-x -->
 </div><!--End of grid container-->

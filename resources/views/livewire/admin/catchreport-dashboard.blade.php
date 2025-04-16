@@ -124,19 +124,6 @@
                                 </tr>
                                 @endforeach
                             </tbody>
-                            <tfoot>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td class="text-center">{{ $reports->sum('lbs') + ($reports->sum('oz') / 16) }}lb</td>
-                                    <td class="text-center">Average: lb</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                            </tfoot>
                         </table>
                     </div>
                     <div class="text-center">
@@ -146,7 +133,7 @@
                         <table>
                             <thead>
                                 <tr>
-                                    <td></td>
+                                    <td>{{ Carbon\Carbon::now()->year }}</td>
                                     <td class="text-center">Jan</td>
                                     <td class="text-center">Feb</td>
                                     <td class="text-center">Mar</td>
@@ -177,7 +164,7 @@
                                     <td class="text-center">{{ $octstats->count() }}</td>
                                     <td class="text-center">{{ $novstats->count() }}</td>
                                     <td class="text-center">{{ $decstats->count() }}</td>
-                                    <td class="text-center">{{ $reports->count() }}</td>
+                                    <td class="text-center">{{ $yearreports->count() }}</td>
                                 </tr>
                                 <tr>
                                     <td>Weight</td>
@@ -193,7 +180,7 @@
                                     <td class="text-center">{{ round($octstats->sum('lbs') + ($octstats->sum('oz') / 16), 2) }}lb</td>
                                     <td class="text-center">{{ round($novstats->sum('lbs') + ($novstats->sum('oz') / 16), 2) }}lb</td>
                                     <td class="text-center">{{ round($decstats->sum('lbs') + ($decstats->sum('oz') / 16), 2) }}lb</td>
-                                    <td class="text-center">{{ round($reports->sum('lbs') + ($reports->sum('oz') / 16), 2) }}lb</td>    
+                                    <td class="text-center">{{ round($yearreports->sum('lbs') + ($yearreports->sum('oz') / 16), 2) }}lb</td>    
                                 </tr>
                                 <tr>
                                     <td>Avg</td>
@@ -282,16 +269,173 @@
                                         @endif
                                     </td>
                                     <td class="text-center">
-                                        @if($reports->count() == 0)
+                                        @if($yearreports->count() == 0)
                                             N/A
                                         @else
-                                            {{ round($reports->sum('lbs') / $reports->count(), 2)}} lb
+                                            {{ round($yearreports->sum('lbs') / $yearreports->count(), 2)}}lb
                                         @endif
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
-                    </div> 
+                    </div>
+
+                    <div class="table-scroll">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>
+                                        <select id="" wire:model="filteryear">
+                                            <option value="{{ Carbon\Carbon::now()->subYear()->year }}">{{ Carbon\Carbon::now()->subYear()->year }}</option> 
+                                            <option value="{{ Carbon\Carbon::now()->subYears(2)->year }}">{{ Carbon\Carbon::now()->subYears(2)->year }}</option> 
+                                            <option value="{{ Carbon\Carbon::now()->subYears(3)->year }}">{{ Carbon\Carbon::now()->subYears(3)->year }}</option> 
+                                        </select>
+                                    </td>
+                                    <td class="text-center">Jan</td>
+                                    <td class="text-center">Feb</td>
+                                    <td class="text-center">Mar</td>
+                                    <td class="text-center">Apr</td>
+                                    <td class="text-center">May</td>
+                                    <td class="text-center">Jun</td>
+                                    <td class="text-center">Jul</td>
+                                    <td class="text-center">Aug</td>
+                                    <td class="text-center">Sep</td>
+                                    <td class="text-center">Oct</td>
+                                    <td class="text-center">Nov</td>
+                                    <td class="text-center">Dec</td>
+                                    <td class="text-center">Total</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Captures</td>
+                                    <td class="text-center">{{ $filterjanstats->count() }}</td>
+                                    <td class="text-center">{{ $filterfebstats->count() }}</td>
+                                    <td class="text-center">{{ $filtermarstats->count() }}</td>
+                                    <td class="text-center">{{ $filteraprstats->count() }}</td>
+                                    <td class="text-center">{{ $filtermaystats->count() }}</td>
+                                    <td class="text-center">{{ $filterjunstats->count() }}</td>
+                                    <td class="text-center">{{ $filterjulstats->count() }}</td>
+                                    <td class="text-center">{{ $filteraugstats->count() }}</td>
+                                    <td class="text-center">{{ $filtersepstats->count() }}</td>
+                                    <td class="text-center">{{ $filteroctstats->count() }}</td>
+                                    <td class="text-center">{{ $filternovstats->count() }}</td>
+                                    <td class="text-center">{{ $filterdecstats->count() }}</td>
+                                    <td class="text-center">{{ $filterreports->count() }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Weight</td>
+                                    <td class="text-center">{{ round($filterjanstats->sum('lbs') + ($filterjanstats->sum('oz') / 16), 2) }}lb</td>
+                                    <td class="text-center">{{ round($filterfebstats->sum('lbs') + ($filterfebstats->sum('oz') / 16), 2) }}lb</td>
+                                    <td class="text-center">{{ round($filtermarstats->sum('lbs') + ($filtermarstats->sum('oz') / 16), 2) }}lb</td>
+                                    <td class="text-center">{{ round($filteraprstats->sum('lbs') + ($filteraprstats->sum('oz') / 16), 2) }}lb</td>
+                                    <td class="text-center">{{ round($filtermaystats->sum('lbs') + ($filtermaystats->sum('oz') / 16), 2) }}lb</td>
+                                    <td class="text-center">{{ round($filterjunstats->sum('lbs') + ($filterjunstats->sum('oz') / 16), 2) }}lb</td>
+                                    <td class="text-center">{{ round($filterjulstats->sum('lbs') + ($filterjulstats->sum('oz') / 16), 2) }}lb</td>
+                                    <td class="text-center">{{ round($filteraugstats->sum('lbs') + ($filteraugstats->sum('oz') / 16), 2) }}lb</td>
+                                    <td class="text-center">{{ round($filtersepstats->sum('lbs') + ($filtersepstats->sum('oz') / 16), 2) }}lb</td>
+                                    <td class="text-center">{{ round($filteroctstats->sum('lbs') + ($filteroctstats->sum('oz') / 16), 2) }}lb</td>
+                                    <td class="text-center">{{ round($filternovstats->sum('lbs') + ($filternovstats->sum('oz') / 16), 2) }}lb</td>
+                                    <td class="text-center">{{ round($filterdecstats->sum('lbs') + ($filterdecstats->sum('oz') / 16), 2) }}lb</td>
+                                    <td class="text-center">{{ round($filterreports->sum('lbs') + ($filterreports->sum('oz') / 16), 2) }}lb</td>    
+                                </tr>
+                                <tr>
+                                    <td>Avg</td>
+                                    <td class="text-center">
+                                        @if($filterjanstats->count() == 0)
+                                            N/A
+                                        @else
+                                            {{ round($filterjanstats->sum('lbs') / $filterjanstats->count(), 2) }}lb
+                                        @endif
+                                    </td>
+                                    <td class="text-center">
+                                        @if($filterfebstats->count() == 0)
+                                            N/A
+                                        @else
+                                            {{ round($filterfebstats->sum('lbs') / $filterfebstats->count(), 2) }}lb
+                                        @endif
+                                    </td>
+                                    <td class="text-center">
+                                        @if($filtermarstats->count() == 0)
+                                            N/A
+                                        @else
+                                            {{ round($filtermarstats->sum('lbs') / $filtermarstats->count(), 2) }}lb
+                                        @endif
+                                    </td>
+                                    <td class="text-center">
+                                        @if($filteraprstats->count() == 0)
+                                            N/A
+                                        @else
+                                            {{ round($filteraprstats->sum('lbs') / $filteraprstats->count(), 2) }}lb
+                                        @endif
+                                    </td>
+                                    <td class="text-center">
+                                        @if($filtermaystats->count() == 0)
+                                            N/A
+                                        @else
+                                            {{ round($filtermaystats->sum('lbs') / $filtermaystats->count(), 2) }}lb
+                                        @endif
+                                    </td>
+                                    <td class="text-center">
+                                        @if($filterjunstats->count() == 0)
+                                            N/A
+                                        @else
+                                            {{ round($filterjunstats->sum('lbs') / $filterjunstats->count(), 2) }}lb
+                                        @endif
+                                    </td>
+                                    <td class="text-center">
+                                        @if($filterjulstats->count() == 0)
+                                            N/A
+                                        @else
+                                            {{ round($filterjulstats->sum('lbs') / $filterjulstats->count(), 2) }}lb
+                                        @endif
+                                    </td>
+                                    <td class="text-center">
+                                        @if($filteraugstats->count() == 0)
+                                            N/A
+                                        @else
+                                            {{ round($filteraugstats->sum('lbs') / $filteraugstats->count(), 2) }}lb
+                                        @endif
+                                    </td>
+                                    <td class="text-center">
+                                        @if($filtersepstats->count() == 0)
+                                            N/A
+                                        @else
+                                            {{ round($filtersepstats->sum('lbs') / $filtersepstats->count(), 2) }}lb
+                                        @endif
+                                    </td>
+                                    <td class="text-center">
+                                        @if($filteroctstats->count() == 0)
+                                            N/A
+                                        @else
+                                            {{ round($filteroctstats->sum('lbs') / $filteroctstats->count(), 2) }}lb
+                                        @endif
+                                    </td>
+                                    <td class="text-center">
+                                        @if($filternovstats->count() == 0)
+                                            N/A
+                                        @else
+                                            {{ round($filternovstats->sum('lbs') / $filternovstats->count(), 2) }}lb
+                                        @endif
+                                    </td>
+                                    <td class="text-center">
+                                        @if($filterdecstats->count() == 0)
+                                            N/A
+                                        @else
+                                            {{ round($filterdecstats->sum('lbs') / $filterdecstats->count(), 2) }}lb
+                                        @endif
+                                    </td>
+                                    <td class="text-center">
+                                        @if($filterreports->count() == 0)
+                                            N/A
+                                        @else
+                                            {{ round($filterreports->sum('lbs') / $filterreports->count(), 2)}} lb
+                                        @endif
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>  
                 </div><!-- End of cell-->
                 @endif
             

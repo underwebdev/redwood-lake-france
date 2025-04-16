@@ -27,7 +27,15 @@
 							<tr>
 								<td>{{ date('j/m/y H:i', strtotime ($booking->arrival)) }}</th>
 								<td>{{ date('j/m/y H:i', strtotime ($booking->departure)) }}</td>
-								<td class="text-center">{{ $booking->anglers }}</td>
+								<td class="text-center">
+									@if($booking->guests()->count() < $booking->anglers - 1)
+										<span class="error"> {{ $booking->anglers }}
+										<i class="fas fa-exclamation-circle"></i>
+										</span>
+									@else
+										{{ $booking->anglers }}
+									@endif
+								</td>
 								<td>£{{ $booking->total / 100 }}</td>
 								<td>£{{ $booking->payments->sum('total') / 100 }}</td>
 								<td>£{{ ($booking->total - $booking->payments()->sum('total')) / 100 }}</td>

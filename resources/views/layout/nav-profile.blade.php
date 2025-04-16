@@ -9,7 +9,8 @@
 <ul class="dropdown menu" data-dropdown-menu>
 	<li><a href="/my-account">My Account</a></li>
 	<li><a href="/my-account/bookings">Bookings</a></li>
-	<li><a href="/my-account/catch-reports">Catch Report</a></li>
+	<li><a href="/my-account/my-reports">My Reports</a></li>
+	<li><a href="/my-account/catch-reports">Catch Reports</a></li>
 	<li><a href="/my-account/contact">Contact</a></li>
 	<li><a href="/my-account/settings">Settings</a></li>
 	<li><a href="/logout">Logout</a>
@@ -21,7 +22,8 @@
         <i class="fas fa-times-circle"></i><button data-close="offCanvasLeft"><strong>Close Menu</strong></button><br>
 				<i class="fas fa-tree"></i><a href="/my-account">My Account</a>
 				<i class="fas fa-tree"></i><a href="/my-account/bookings">Bookings</a>
-				<i class="fas fa-tree"></i><a href="/my-account/catch-reports">Catch Report</a>
+				<i class="fas fa-tree"></i><a href="/my-account/my-reports">My Reports</a>
+				<i class="fas fa-tree"></i><a href="/my-account/catch-reports">Catch Reports</a>
 				<i class="fas fa-tree"></i><a href="/my-account/contact">Contact</a>
 				<i class="fas fa-tree"></i><a href="/my-account/settings">Settings</a>
 				<i class="fas fa-tree"></i><a href="/logout">Logout</a>

@@ -25,7 +25,7 @@
 		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 		<link rel="manifest" href="/site.webmanifest">
 		<title>@yield('title')</title>
-		<link href="/css/app.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="{{ mix('css/app.css') }}">
 		@livewireStyles
 
 		<link rel="canonical" href="@yield('url')">

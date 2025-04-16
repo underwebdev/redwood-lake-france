@@ -9631,10 +9631,6 @@ table .button {
   margin: 0;
 }
 
-table i {
-  color: #9ab495 !important;
-}
-
 table svg {
   min-width: 20px;
   max-width: 25px;

@@ -47,6 +47,8 @@ Route::middleware(['angler'])->group(function () {
 	Route::get('my-account/booking/{booking}', [ProfileController::class, 'booking']);
 	Route::get('my-account/payment', [ProfileController::class, 'payment']);
 	Route::get('my-account/catch-reports', [ProfileController::class, 'reports']);
+	Route::get('my-account/my-reports', [ProfileController::class, 'myreports']);
+	Route::get('my-account/upload-report', [ProfileController::class, 'uploadreport']);
 	Route::get('my-account/contact', [ProfileController::class, 'contact']);
 	Route::get('my-account/settings', [ProfileController::class, 'settings']);
 });

@@ -13,7 +13,7 @@
 	    <meta property="og:image" content=""/>
 	    <meta property="og:locale" content="en_UK"/>
 		<title>Redwood Lake - Admin Dashboard</title>
-		<link href="/css/admin.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="{{ mix('css/admin.css') }}">
 		@livewireStyles
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/motion-ui@1.2.3/dist/motion-ui.min.css" />
 		<script defer src="https://underweb.co.uk/assets/ieQDGy"></script>

@@ -45,7 +45,7 @@ class ProfileController extends Controller
 
         if($booking->angler_id != $user->angler->id)
         {
-            return redirect('/bookings');
+            return redirect('/my-account/bookings');
         }
 
         return view('profile.booking', compact('booking'));
@@ -71,6 +71,30 @@ class ProfileController extends Controller
         }
 
         return view('profile.reports');
+    }
+
+    public function myreports()
+    {
+        $user = Auth::user();
+
+        if($user->reset == 1)
+        {
+            return redirect('/my-account/settings')->with('failure', 'Please update your password before continuing!');
+        }
+
+        return view('profile.myreports');
+    }
+
+    public function uploadreport()
+    {
+        $user = Auth::user();
+
+        if($user->reset == 1)
+        {
+            return redirect('/my-account/settings')->with('failure', 'Please update your password before continuing!');
+        }
+
+        return view('profile.uploadreport');
     }
 
     public function settings()

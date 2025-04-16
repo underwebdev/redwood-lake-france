@@ -3,28 +3,6 @@
         <div class="grid-x grid-padding-x">
             @if($mode == 1)
             <div class="cell small-12">
-                <h5 class="info-bar">Your Reports</h5>
-                <div class="table-scroll">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Reports</th>
-                                <th>Common</th>
-                                <th>Mirror</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>{{ Auth::user()->angler->reports()->count() }}</td>
-                                <td>{{ Auth::user()->angler->reports()->where('specimen_id', 1)->count() }}</td>
-                                <td>{{ Auth::user()->angler->reports()->where('specimen_id', 2)->count() }}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="text-center">
-                    <button class="button success" wire:click="$set('mode', 2)">Add Report</button>
-                </div>
 
                 <h5 class="info-bar">Latest Reports</h5>
                 <div class="grid-x grid-padding-x">
@@ -137,7 +115,7 @@
                     @error('date')
                         <span class="error">{{ $message }}</span>
                     @enderror</label>
-                <input type="text" id="datepicker" wire:model.lazy="date">
+                <input type="text" id="datepicker" readonly wire:model.lazy="date">
 
                 <label for="">Swim</label>
                 <select id="" wire:model="swim">

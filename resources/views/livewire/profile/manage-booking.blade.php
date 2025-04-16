@@ -3,6 +3,11 @@
         <div class="grid-x grid-padding-x">
             @if($mode == 1)
             <div class="cell small-12">
+                @if($booking->guests()->count() < $booking->anglers - 1)
+                <div class="callout alert text-center">
+                    <strong>Please add the info for all anglers in your party</strong>
+                </div>
+                @endif
                 <h5 class="info-bar">Bookings</h5>
                 <div class="table-scroll">
                     <table>
@@ -22,7 +27,15 @@
                             <tr>
                                 <td>{{ date('j/m/y H:i', strtotime ($booking->arrival)) }}</td>
                                 <td>{{ date('j/m/y H:i', strtotime ($booking->departure)) }}</td>
-                                <td class="text-center">{{ $booking->anglers }}</td>
+                                <td class="text-center">
+                                    @if($booking->guests()->count() < $booking->anglers - 1)
+                                        <span class="error"> {{ $booking->anglers }}
+                                        <i class="fas fa-exclamation-circle"></i>
+                                        </span>
+                                    @else
+                                        {{ $booking->anglers }}
+                                    @endif
+                                </td>
                                 <td>£{{ $booking->total / 100 }}</td>
                                 <td>£{{ $booking->payments->sum('total') / 100 }}</td>
                                 <td>£{{ ($booking->total - $booking->payments()->sum('total')) / 100 }}</td>
@@ -46,12 +59,19 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <tr>
+                                <td><strong>{{ $booking->angler->ref }}</strong></td>
+                                <td><strong>{{ $booking->angler->firstName }} {{ $booking->angler->lastName }}</strong></td>
+                                <td><strong>{{ $booking->angler->telephone }}</strong></td>
+                                <td><strong>{{ $booking->angler->user->email }}</strong></td>
+                                <td></td>
+                            </tr>
                             @foreach($booking->guests as $guest)
                             <tr>
                                 <td>{{ $guest->ref }}</td>
                                 <td>{{ $guest->firstName }} {{ $guest->lastName }}</td>
                                 <td>{{ $guest->telephone }}</td>
-                                <td>N/A</td>
+                                <td>@isset($guest->user->email) {{ $guest->user->email }} @else N/A @endisset</td>
                                 <td class="text-right">
                                     <button class="button success small" wire:click="selectAngler('{{ $guest->id }}')">Update</button>
                                 </td>
@@ -68,7 +88,7 @@
             @elseif($mode == 2)
             <div class="cell small-12 medium-8 large-6 medium-offset-2 large-offset-3">
                 <h5 class="info-bar">Create Angler</h5>
-                <p>Please add the names and contact details for all members of your party</p>
+                <p>Please add the names and contact details for all members of your party. An email will be sent to them so they can register on our website.</p>
                 <label for="">First Name
                     @error('firstName')<span class="error">{{ $message }}</span>@enderror
                 </label>
@@ -94,6 +114,7 @@
                 <input type="text" placeholder="" wire:model="email_confirmation">
 
                 <button class="button success" wire:click="saveAngler">Add Angler</button>
+                <button class="button alert" wire:click="$set('mode', 1)">Cancel</button>
 
             </div>
             @elseif($mode == 3)
@@ -116,6 +137,7 @@
                     @error('email_confirmation')<span class="error">{{ $message }}</span>@enderror
                 </label>
                 <button class="button success" wire:click="saveAnglerChanges">Save Angler</button>
+                <button class="button alert" wire:click="$set('mode', 1)">Cancel</button>
                   
             </div><!-- End of cell-->
             @elseif($mode == 4)

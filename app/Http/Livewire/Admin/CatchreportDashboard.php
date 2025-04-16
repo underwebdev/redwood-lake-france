@@ -35,6 +35,12 @@ class CatchreportDashboard extends Component
     public $sideone;
     public $sidetwo;
     public $selectedReport;
+    public $filteryear;
+
+    public function mount()
+    {
+        $this->filteryear = Carbon::now()->subYear()->year;
+    }
 
     public function copy()
     {
@@ -386,6 +392,7 @@ class CatchreportDashboard extends Component
     public function render()
     {
         $year = Carbon::now()->format('Y');
+        $filteryear = $this->filteryear;
 
         $lookup = '%'.$this->anglerLookup.'%';
 
@@ -396,6 +403,7 @@ class CatchreportDashboard extends Component
             'species' => Specimen::all(),
             'swims' => Swim::all(),
             'reports' => Report::orderBy('date', 'desc')->paginate(50),
+            'yearreports' => Report::whereYear('date', $year)->get(),
             'janstats' => Report::whereYear('date', $year)->whereMonth('date', '01')->get(),
             'febstats' => Report::whereYear('date', $year)->whereMonth('date', '02')->get(),
             'marstats' => Report::whereYear('date', $year)->whereMonth('date', '03')->get(),
@@ -408,6 +416,19 @@ class CatchreportDashboard extends Component
             'octstats' => Report::whereYear('date', $year)->whereMonth('date', '10')->get(),
             'novstats' => Report::whereYear('date', $year)->whereMonth('date', '11')->get(),
             'decstats' => Report::whereYear('date', $year)->whereMonth('date', '12')->get(),
+            'filterreports' => Report::whereYear('date', $filteryear)->get(),
+            'filterjanstats' => Report::whereYear('date', $filteryear)->whereMonth('date', '01')->get(),
+            'filterfebstats' => Report::whereYear('date', $filteryear)->whereMonth('date', '02')->get(),
+            'filtermarstats' => Report::whereYear('date', $filteryear)->whereMonth('date', '03')->get(),
+            'filteraprstats' => Report::whereYear('date', $filteryear)->whereMonth('date', '04')->get(),
+            'filtermaystats' => Report::whereYear('date', $filteryear)->whereMonth('date', '05')->get(),
+            'filterjunstats' => Report::whereYear('date', $filteryear)->whereMonth('date', '06')->get(),
+            'filterjulstats' => Report::whereYear('date', $filteryear)->whereMonth('date', '07')->get(),
+            'filteraugstats' => Report::whereYear('date', $filteryear)->whereMonth('date', '08')->get(),
+            'filtersepstats' => Report::whereYear('date', $filteryear)->whereMonth('date', '09')->get(),
+            'filteroctstats' => Report::whereYear('date', $filteryear)->whereMonth('date', '10')->get(),
+            'filternovstats' => Report::whereYear('date', $filteryear)->whereMonth('date', '11')->get(),
+            'filterdecstats' => Report::whereYear('date', $filteryear)->whereMonth('date', '12')->get(),
             'thisMonth' => Carbon::now()->startOfMonth(),
             'lastMonth' => Carbon::now()->startOfMonth()->subMonth(),
             'thisWeek' => Carbon::now()->startOfWeek(),
