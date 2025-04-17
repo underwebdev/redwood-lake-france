@@ -1,4 +1,4 @@
-<x-mail::message>
+@component('mail::message')
 <h1><center>Payment Overdue</center></h1>
 <p>Hello {{ $booking->angler->firstName }},<br>
 
@@ -16,4 +16,4 @@ Add Guest Information
 
 <p>Thanks,<br>
 Redwood Lake</p>
-</x-mail::message>
+@endcomponent
