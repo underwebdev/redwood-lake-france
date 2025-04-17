@@ -83,6 +83,10 @@ Route::middleware(['admin'])->group(function () {
 	Route::get('admin/storage', [AdminController::class, 'storage']);
 	Route::get('admin/emails', [EmailController::class, 'index']);
 
+
+	Route::get('emails/payment-reminder', [EmailController::class, 'paymentreminder']);
+	Route::get('emails/payment-overdue', [EmailController::class, 'overdue']);
+	Route::get('emails/guest-information', [EmailController::class, 'guestinfo']);
 	Route::get('emails/welcome-email', [EmailController::class, 'welcome']);
 	Route::get('emails/review-request', [EmailController::class, 'review']);
 });

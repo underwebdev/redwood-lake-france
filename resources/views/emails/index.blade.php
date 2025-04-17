@@ -31,6 +31,26 @@
         	            </tr>
         	        </thead>
         	        <tbody>
+                        <tr>
+                            <td>Payment reminder</td>
+                            <td class="float-right">
+                                <a class="button tiny" href="/emails/payment-reminder">Preview</a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Payment overdue</td>
+                            <td class="float-right">
+                                <a class="button tiny" href="/emails/payment-overdue">Preview</a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Guest information</td>
+                            <td class="float-right">
+                                <a class="button tiny" href="/emails/guest-information">Preview</a>
+                            </td>
+                        </tr>
    
         	            <tr>
         	                <td>Welcome Email</td>
