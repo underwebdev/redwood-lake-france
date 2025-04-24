@@ -217,6 +217,7 @@
                     </div>
 
                     <div class="text-center">
+                        <button class="button success" wire:click="dispatchBookingConfirmation">Booking Confirmation</button>
                         <button class="button success" wire:click="dispatchPaymentReminder">Payment Reminder</button>
                         <button class="button success" wire:click="dispatchOverdueReminder">Overdue Reminder</button>
                         <button class="button success" wire:click="dispatchGuestReminder">Guest Reminder</button>

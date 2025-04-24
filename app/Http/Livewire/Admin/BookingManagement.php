@@ -19,6 +19,7 @@ use App\Models\User;
 use App\Jobs\ProcessParty;
 use App\Jobs\ReviewRequest;
 
+use App\Jobs\SendBookingConfirmation;
 use App\Jobs\SendPaymentReminder;
 use App\Jobs\SendOverdueReminder;
 use App\Jobs\SendGuestReminder;
@@ -287,12 +288,7 @@ class BookingManagement extends Component
         session()->flash('success', 'Booking Date Changed!');
     }
 
-    public function resendConfirmation()
-    {
-        Mail::to($this->booking->angler->user->email)->bcc('joe@underweb.co.uk')->send(new BookingReceipt($this->booking));
-
-        session()->flash('success', 'Email sent');
-    }
+    
 
     public function sendPaymentReminder()
     {
@@ -351,29 +347,58 @@ class BookingManagement extends Component
         session()->flash('success', 'Review Request Sent');
     }
 
+    public function dispatchBookingConfirmation()
+    {
+        SendBookingConfirmation::dispatch($this->booking);
+
+        $this->booking->refresh();
+
+        session()->flash('success', 'Booking Confirmation Sent');
+    }
+
     public function dispatchPaymentReminder()
     {
         SendPaymentReminder::dispatch($this->booking);
+
+        $this->booking->refresh();
+
+        session()->flash('success', 'Payment Reminder Sent');
     }
 
     public function dispatchOverdueReminder()
     {
         SendOverdueReminder::dispatch($this->booking);
+
+        $this->booking->refresh();
+
+        session()->flash('success', 'Overdue Reminder Sent');
     }
 
     public function dispatchGuestReminder()
     {
         SendGuestReminder::dispatch($this->booking);
+
+        $this->booking->refresh();
+
+        session()->flash('success', 'Guest Reminder Sent');
     }
 
     public function dispatchWelcomeEmail()
     {
         SendWelcomeEmail::dispatch($this->booking);
+
+        $this->booking->refresh();
+
+        session()->flash('success', 'Welcome Email Sent');
     }
 
     public function dispatchReviewRequest()
     {
         SendReviewRequest::dispatch($this->booking);
+
+        $this->booking->refresh();
+
+        session()->flash('success', 'Review Request Sent');
     }
 
     public function back()
