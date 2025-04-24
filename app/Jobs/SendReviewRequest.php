@@ -49,7 +49,7 @@ class SendReviewRequest implements ShouldQueue
         {
             if($guest->email)
             {
-                $mailable = Mail::to($guest->user->email)->send(new ReviewRequest($guest));
+                $mailable = Mail::to($guest->email)->send(new ReviewRequest($guest));
 
                 $this->booking->maillogs()->create([
                     'type' => 'review',
