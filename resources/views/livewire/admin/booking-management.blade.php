@@ -181,51 +181,37 @@
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Payment Reminder</th>
-                                    <th class="text-center">Overdue Notification</th>
-                                    <th class="text-center">Welcome Email</th>
-                                    <th class="text-center">Review</th>
+                                    <th>Email</th>
+                                    <th>Recipient</th>
+                                    <th>Sent</th>
+                                    <th>Delivered</th>
+                                    <th>Opened</th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach($booking->maillogs as $log)
                                 <tr>
+                                    <td>{{ Str::ucFirst($log->type) }}</td>
+                                    <td>{{ $log->recipient }}</td>
+                                    <td>{{ $log->sent }}</td>
                                     <td>
-                                        @isset($booking->notifications->reminder)
-                                            {{ date('j/m/y H:i', strtotime ($booking->notifications->reminder)) }}
-                                        @elseif($booking->payments()->sum('total') >= $booking->total)
-                                            N/A
+                                        @isset($log->delivered)
+                                            {{ date('j/m/y H:i', strtotime ($log->delivered)) }}
                                         @else
-                                            <button class="button" wire:click="sendPaymentReminder">Send Reminder</button>
+                                            <strong>Not delivered</strong>
                                         @endisset
                                     </td>
-                                    <td class="text-center">
-                                        @isset($booking->notifications->overdue)
-                                            {{ date('j/m/y H:i', strtotime ($booking->notifications->overdue)) }}
-                                        @elseif($booking->payments->where('status', 1)->sum('total') < $booking->total && Carbon\Carbon::today() > Carbon\Carbon::parse($booking->arrival)->subDays($booking->priceguide->due))
-                                            <button class="button" wire:click="sendOverdueReminder">Send Email</button>
-                                        @else
-                                            N/A
-                                        @endif
+                                    <td>
+                                        @isset($log->opened)
+                                            {{ date('j/m/y H:i', strtotime ($log->opened)) }}
+                                        @endisset
                                     </td>
-                                    <td class="text-center">
-                                        @isset($booking->notifications->welcome)
-                                            {{ date('j/m/y H:i', strtotime ($booking->notifications->welcome)) }}
-                                        @elseif($booking->payments()->sum('total') >= $booking->total && Carbon\Carbon::parse($booking->arrival)->subDays(14) < Carbon\Carbon::now())
-                                            <button class="button" wire:click="sendWelcomeEmail">Send Welcome Email</button>
-                                        @else 
-                                            N/A
-                                        @endif
-                                    </td>
-                                    <td class="text-center">
-                                        @isset($booking->notifications->review)
-                                            {{ date('j/m/y', strtotime ($booking->notification->review)) }}
-                                        @elseif($booking->departure < Carbon\Carbon::now())
-                                            <button class="button" wire:click="sendReviewRequest">Send Review Request</button>
-                                        @else
-                                            N/A
-                                        @endif
+                                    <td>
+                                        <button class="button success small" wire:click="resend()">Resend</button>
                                     </td>
                                 </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

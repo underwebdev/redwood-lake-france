@@ -50,4 +50,9 @@ class Booking extends Model
     {
         return $this->hasOne(Notification::class);
     }
+
+    public function maillogs()
+    {
+        return $this->hasMany(BookingMailLog::class);
+    }
 }

@@ -6,10 +6,11 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use App\Models\Booking;
 
 class WelcomeEmail extends Mailable
 {
-    public $data;
+    public $booking;
 
     use Queueable, SerializesModels;
 
@@ -18,9 +19,9 @@ class WelcomeEmail extends Mailable
      *
      * @return void
      */
-    public function __construct($data)
+    public function __construct(Booking $booking)
     {
-        $this->data = $data;
+        $this->booking = $booking;
     }
 
     /**
@@ -30,6 +31,6 @@ class WelcomeEmail extends Mailable
      */
     public function build()
     {
-        return $this->from('info@redwoodlake.co.uk', 'Redwood Lake')->subject('Important information about your trip')->replyto('info@redwoodlake.co.uk')->markdown('emails.welcome-email')->with('data', $this->data);
+        return $this->from('info@redwoodlake.co.uk', 'Redwood Lake')->subject('Important information about your trip')->replyto('info@redwoodlake.co.uk')->markdown('emails.welcome-email');
     }
 }

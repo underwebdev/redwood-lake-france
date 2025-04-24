@@ -46,25 +46,13 @@ class EmailController extends Controller
     {
         $booking = Booking::where('arrival', '>', Carbon::now())->orderBy('arrival', 'asc')->first();
 
-        $data = [
-            'firstName' => $booking->angler->firstName,
-            'arrival' => $booking->arrival,
-            'departure' => $booking->departure,
-        ];
-
-        return new WelcomeEmail($data);
+        return new WelcomeEmail($booking);
     }
 
     public function review()
     {
         $booking = Booking::where('departure', '<', Carbon::now())->orderBy('arrival', 'desc')->first();
 
-        $data = [
-            'firstName' => $booking->angler->firstName,
-            'arrival' => $booking->arrival,
-            'departure' => $booking->departure,
-        ];
-
-        return new ReviewRequest($data);
+        return new ReviewRequest($booking->angler);
     }
 }

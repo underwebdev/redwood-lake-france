@@ -6,21 +6,22 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use App\Models\Angler;
 
 class ReviewRequest extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $data;
+    public $angler;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($data)
+    public function __construct(Angler $angler)
     {
-        $this->data = $data;
+        $this->angler = $angler;
     }
 
     /**
@@ -30,6 +31,6 @@ class ReviewRequest extends Mailable
      */
     public function build()
     {
-        return $this->from('bookings@redwoodlake.co.uk', 'Redwood Lake')->subject('Let us know your feedback')->replyto('info@redwoodlake.co.uk')->markdown('emails.review-request')->with('data', $this->data);
+        return $this->from('bookings@redwoodlake.co.uk', 'Redwood Lake')->subject('Let us know your feedback')->replyto('info@redwoodlake.co.uk')->markdown('emails.review-request');
     }
 }

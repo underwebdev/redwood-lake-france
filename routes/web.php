@@ -8,6 +8,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\WebhookController;
 use App\Http\Controllers\EndpointController;
 use App\Http\Controllers\EmailController;
+use App\Http\Controllers\MailhookController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +41,7 @@ Route::get('terms-conditions', [PageController::class, 'terms']);
 Route::get('privacy-policy', [PageController::class, 'privacy']);
 Route::get('payment-complete', [PageController::class, 'paymentcomplete']);
 Route::post('payment-webhook', [WebhookController::class, 'handle']);
+Route::post('mailhook', [MailhookController::class, 'handle']);
 
 Route::middleware(['angler'])->group(function () {
 	Route::get('my-account', [ProfileController::class, 'index']);
