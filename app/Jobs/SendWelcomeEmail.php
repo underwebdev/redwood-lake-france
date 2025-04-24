@@ -11,6 +11,7 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\WelcomeEmail;
 use App\Models\Booking;
+use Carbon\Carbon;
 
 class SendWelcomeEmail implements ShouldQueue
 {
