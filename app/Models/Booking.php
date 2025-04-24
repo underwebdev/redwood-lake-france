@@ -53,6 +53,6 @@ class Booking extends Model
 
     public function maillogs()
     {
-        return $this->hasMany(BookingMailLog::class);
+        return $this->hasMany(BookingMailLog::class)->latest();
     }
 }

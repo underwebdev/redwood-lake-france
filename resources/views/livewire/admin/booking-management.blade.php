@@ -194,7 +194,7 @@
                                 <tr>
                                     <td>{{ Str::ucFirst($log->type) }}</td>
                                     <td>{{ $log->recipient }}</td>
-                                    <td>{{ $log->sent }}</td>
+                                    <td>{{ date('j/m/y H:i', strtotime ($log->sent)) }}</td>
                                     <td>
                                         @isset($log->delivered)
                                             {{ date('j/m/y H:i', strtotime ($log->delivered)) }}
