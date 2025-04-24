@@ -18,6 +18,13 @@ use App\Models\Priceguide;
 use App\Models\User;
 use App\Jobs\ProcessParty;
 use App\Jobs\ReviewRequest;
+
+use App\Jobs\SendPaymentReminder;
+use App\Jobs\SendOverdueReminder;
+use App\Jobs\SendGuestReminder;
+use App\Jobs\SendWelcomeEmail;
+use App\Jobs\SendReviewRequest;
+
 use Carbon\Carbon;
 use Carbon\CarbonInterval;
 
@@ -342,6 +349,31 @@ class BookingManagement extends Component
         $this->booking->refresh();
 
         session()->flash('success', 'Review Request Sent');
+    }
+
+    public function dispatchPaymentReminder()
+    {
+        SendPaymentReminder::dispatch($this->booking);
+    }
+
+    public function dispatchOverdueReminder()
+    {
+        SendOverdueReminder::dispatch($this->booking);
+    }
+
+    public function dispatchGuestReminder()
+    {
+        SendGuestReminder::dispatch($this->booking);
+    }
+
+    public function dispatchWelcomeEmail()
+    {
+        SendWelcomeEmail::dispatch($this->booking);
+    }
+
+    public function dispatchReviewRequest()
+    {
+        SendReviewRequest::dispatch($this->booking);
     }
 
     public function back()
