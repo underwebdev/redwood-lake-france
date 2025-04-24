@@ -47,13 +47,13 @@ class SendReviewRequest implements ShouldQueue
 
         foreach($this->booking->guests as $guest)
         {
-            if($guest->user()->exists())
+            if($guest->email)
             {
                 $mailable = Mail::to($guest->user->email)->send(new ReviewRequest($guest));
 
                 $this->booking->maillogs()->create([
                     'type' => 'review',
-                    'recipient' => $guest->user->email,
+                    'recipient' => $guest->email,
                     'webhook_id' => $mailable->getMessageId(),
                     'sent' => Carbon::now()
                 ]);
