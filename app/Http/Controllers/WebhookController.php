@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Mail
+use App\Jobs\SendBookingConfirmation;
 use App\Mail\AccountCreated;
 use App\Mail\BookingReceipt;
 use App\Mail\BookingNotification;
@@ -149,7 +150,7 @@ class WebhookController extends Controller
                             $booking->voucher()->attach($voucher->id);  
                         }
 
-                        Mail::to($user->email)->send(new BookingReceipt($booking));
+                        SendBookingConfirmation::dispatch($booking);
                         Mail::to('info@redwoodlake.co.uk')->send(new BookingNotification($booking));
                     }
                 } elseif($intent->metadata->type == 'payment')

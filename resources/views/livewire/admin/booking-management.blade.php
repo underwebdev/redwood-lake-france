@@ -76,7 +76,7 @@
                             <th>Payments</th>
                             <th>Balance</th>
                             <th>Due</th>
-                            <th></th>
+                           
                         </tr>
                     </thead>
                     <tbody>
@@ -91,11 +91,7 @@
                             <td>£{{ $booking->payments->sum('total') / 100 }}</td>
                             <td>£{{ ($booking->total - $booking->payments()->sum('total')) / 100 }}</td>
                             <td>{{-- {{ Carbon\Carbon::parse($booking->arrival)->subDays($booking->priceguide->due)->format('j/m/Y') }} --}}</td>
-                            <td class="text-right">
-                                @if($booking->payments->sum('total') < $booking->total)
-                                    <button class="button alert small" wire:click="sendPaymentReminder">Reminder</button>
-                                @endif
-                            </td>
+                            
                         </tr>
                     </tbody>
                 </table>
@@ -220,7 +216,6 @@
                         <button class="button success" wire:click="dispatchWelcomeEmail">Welcome Email</button>
                         <button class="button success" wire:click="dispatchReviewRequest">Review Request</button>
 
-                        <!-- <button class="button success small" wire:click="resendConfirmation">Resend Confirmation</button> --> 
                     </div>
                 </div>
             </div><!-- End of cell-->
