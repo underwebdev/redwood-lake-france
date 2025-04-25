@@ -33,6 +33,7 @@
                                 <th>Arrival</th>
                                 <th>Ref</th>
                                 <th>Lead</th>
+                                <th>Anglers</th>
                                 <th>Balance Due</th>
                                 <th class="text-center">Payment</th>
                                 <th></th>
@@ -44,6 +45,7 @@
                                 <td>{{ date('j/m/y', strtotime ($booking->arrival)) }}</td>
                                 <td>#{{ $booking->id }}</td>
                                 <td>{{ $booking->angler->firstName }} {{ $booking->angler->lastName }}</td>
+                                <td>{{ $booking->anglers }}</td>
                                 <td>{{-- {{ Carbon\Carbon::parse($booking->arrival)->subDays($booking->priceguide->due)->format('d/m/Y') }} --}}</td>
                                 <td class="text-center">
                                     @if($booking->payments->where('status', 1)->sum('total') >= $booking->total)

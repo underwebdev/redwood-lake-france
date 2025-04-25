@@ -8,6 +8,8 @@
 Leave Review
 @endcomponent
 
+<p>Once you have completed your review, reply to this email to recieve your exclusive discount code on your next booking at Redwood Lake.</p>
+
 <p>Thanks,<br>
 Redwood Lake</p>
 @endcomponent
