@@ -186,7 +186,6 @@
                                     <th>Sent</th>
                                     <th>Delivered</th>
                                     <th>Opened</th>
-                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -206,9 +205,6 @@
                                         @isset($log->opened)
                                             {{ date('j/m/y H:i', strtotime ($log->opened)) }}
                                         @endisset
-                                    </td>
-                                    <td>
-                                        <button class="button success small" wire:click="resend()">Resend</button>
                                     </td>
                                 </tr>
                                 @endforeach
