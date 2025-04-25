@@ -45,7 +45,14 @@
                                 <td>{{ date('j/m/y', strtotime ($booking->arrival)) }}</td>
                                 <td>#{{ $booking->id }}</td>
                                 <td>{{ $booking->angler->firstName }} {{ $booking->angler->lastName }}</td>
-                                <td class="text-center">{{ $booking->anglers }}</td>
+                                <td class="text-center">
+                                    @if($bookings->anglers > ($booking->guests()->count() + 1))
+                                        <span class="error">{{ $booking->anglers }}</span>
+                                    @else
+                                        {{ $booking->anglers }}
+                                    @endif
+
+                                </td>
                                 <td>{{-- {{ Carbon\Carbon::parse($booking->arrival)->subDays($booking->priceguide->due)->format('d/m/Y') }} --}}</td>
                                 <td class="text-center">
                                     @if($booking->payments->where('status', 1)->sum('total') >= $booking->total)

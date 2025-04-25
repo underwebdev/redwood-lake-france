@@ -32,8 +32,6 @@ Please read the important information below regarding your upcoming trip to Redw
 
 <p><strong>Departure</strong><br>
 
-11 am</p>
-
 <p>Please remember to turn the pump off, empty the fridge leave the door open, and switch it off at the plug.<br>
 
 Lock the cabin up and put the key back in the lockbox.<br>
