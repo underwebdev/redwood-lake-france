@@ -1,5 +1,5 @@
 @component('mail::message')
-<h1><center>Payment Overdue</center></h1>
+<h1><center>Guest Information</center></h1>
 <p>Hello {{ $booking->angler->firstName }},<br>
 
 <p>Please make sure you have registered all members of your party as per our booking terms and conditions, this will also ensure they receive an email with instructions on how to register on our website to upload their catch reports as per the lake rules.</p>
