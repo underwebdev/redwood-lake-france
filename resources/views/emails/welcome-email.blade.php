@@ -28,7 +28,7 @@ Please read the important information below regarding your upcoming trip to Redw
 
 <p>Our system is sufficient and will keep the cabin lights and power working for the fridge during the evening. Still, we advise where possible to charge all batteries for Bait Boats and any other electrical items you may have during the daylight hours thus using the power of the sun and not putting unnecessary strain on the battery backup.</p>
 
-<p>The shower also runs off the electricity so again where possible please use this in the daytime. We are reliant on the sun and can't guarantee it will always shine so any help with reserving the power is greatly appreciated.</p>
+<p>The shower also runs off the solar, so again where possible please use this in the daytime. We are reliant on the sun and can't guarantee it will always shine so any help with reserving the power is greatly appreciated.</p>
 
 <p><strong>Departure</strong><br>
 

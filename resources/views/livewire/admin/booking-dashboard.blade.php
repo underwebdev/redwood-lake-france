@@ -46,7 +46,7 @@
                                 <td>#{{ $booking->id }}</td>
                                 <td>{{ $booking->angler->firstName }} {{ $booking->angler->lastName }}</td>
                                 <td class="text-center">
-                                    @if($bookings->anglers > ($booking->guests()->count() + 1))
+                                    @if($booking->anglers > ($booking->guests()->count() + 1))
                                         <span class="error">{{ $booking->anglers }}</span>
                                     @else
                                         {{ $booking->anglers }}
