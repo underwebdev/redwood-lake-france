@@ -43,8 +43,6 @@ class ProcessParty implements ShouldQueue
         
         if($this->guest->user()->doesntExist())
         {
-
-        
             $newPWD = Str::random(8);
 
             $user = $this->guest->user()->create([
@@ -54,17 +52,21 @@ class ProcessParty implements ShouldQueue
                 'reset' => '1'
             ]);
 
+            $this->guest->update([
+                'user_id' => $user->id
+            ]);
+
             $data = [
-                'firstName' => $user->angler->firstName,
-                'email' => $user->email,
+                'firstName' => $this->guest->firstName,
+                'email' => $this->guest->email,
                 'password' => $newPWD
             ];
 
-            $mailable = Mail::to($user->email)->send(new AnglerAccount($data));
+            $mailable = Mail::to($this->guest->email)->send(new AnglerAccount($data));
 
             $this->booking->maillogs()->create([
                 'type' => 'account-created',
-                'recipient' => $user->email,
+                'recipient' => $this->guest->email,
                 'webhook_id' => $mailable->getMessageId(),
                 'sent' => Carbon::now()
             ]);
