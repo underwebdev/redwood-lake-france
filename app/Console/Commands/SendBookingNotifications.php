@@ -9,6 +9,7 @@ use App\Jobs\SendOverdueReminder;
 use App\Jobs\SendGuestReminder;
 use App\Jobs\SendWelcomeEmail;
 use App\Jobs\SendReviewRequest;
+use App\Jobs\ProcessParty;
 use Carbon\Carbon;
 
 class SendBookingNotifications extends Command
@@ -92,6 +93,21 @@ class SendBookingNotifications extends Command
                         SendGuestReminder::dispatch($booking);
                     }
 
+                }
+
+                // Check guests to see if account has been created
+                if($eightWeeksAway->isPast() && Carbon::parse($booking->arrival)->isFuture() && $booking->guests()->exists())
+                {
+                    foreach($booking->guests as $guest)
+                    {
+                        if($guest->user()->doesntExist())
+                        {
+                            \Log::info('Booking #' . $booking->id . ' send ' . $guest->firstName . ' ' . $guest->lastName . ' login credentials');
+
+                            ProcessParty::dispatch($guest, $booking);
+
+                        }   
+                    }
                 }
 
                 // Check if arrival is 7 days away for the welcome email

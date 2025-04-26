@@ -9,25 +9,26 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\WelcomeEmail;
+use Illuminate\Support\Str;
 use App\Mail\AnglerAccount;
 use App\Models\Booking;
-use App\Models\User;
+use App\Models\Angler;
 use Carbon\Carbon;
 
 class ProcessParty implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    public $booking;
+    public $guest;
 
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct(Booking $booking)
+    public function __construct(Angler $guest, Booking $booking)
     {
+        $this->guest = $guest;
         $this->booking = $booking;
     }
 
@@ -38,43 +39,32 @@ class ProcessParty implements ShouldQueue
      */
     public function handle()
     {
-        $data = [
-            'firstName' => $this->booking->angler->firstName,
-            'arrival' => $this->booking->arrival,
-            'departure' => $this->booking->departure,
-        ];
+        
+        
+            $newPWD = Str::random(8);
 
-        Mail::to($this->booking->angler->user->email)->send(new WelcomeEmail($data));
-
-        foreach($this->booking->guests as $guest)
-        {
-            if(User::where('email', $guest->email)->doesntExist())
-            {
-                $newPWD = Str::random(8);
-
-                $user = User::create([
-                    'email' => $guest->email,
-                    'password' => bcrypt($newPWD),
-                    'permission' => '2',
-                    'reset' => '1'
-                ]);
-
-                $data = [
-                    'firstName' => $user->angler->firstName,
-                    'email' => $user->email,
-                    'password' => $newPWD
-                ];
-
-                Mail::to($user->email)->send(new AnglerAccount($data));
-            }
+            $user = $this->guest->user()->create([
+                'email' => $this->guest->email,
+                'password' => bcrypt($newPWD),
+                'permission' => '2',
+                'reset' => '1'
+            ]);
 
             $data = [
-                'firstName' => $this->guest->firstName,
-                'arrival' => $this->booking->arrival,
-                'departure' => $this->booking->departure,
+                'firstName' => $user->angler->firstName,
+                'email' => $user->email,
+                'password' => $newPWD
             ];
 
-            Mail::to($user->email)->send(new WelcomeEmail($data));
-        }
+            $mailable = Mail::to($user->email)->send(new AnglerAccount($data));
+
+            $this->booking->maillogs()->create([
+                'type' => 'account-created',
+                'recipient' => $user->email,
+                'webhook_id' => $mailable->getMessageId(),
+                'sent' => Carbon::now()
+            ]);
+
+        
     }
 }
