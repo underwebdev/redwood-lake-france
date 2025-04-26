@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Mail
+use Illuminate\Support\Facades\Mail;
 use App\Jobs\SendBookingConfirmation;
 use App\Mail\AccountCreated;
 use App\Mail\BookingReceipt;
