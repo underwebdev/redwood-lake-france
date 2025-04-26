@@ -41,6 +41,9 @@ class ProcessParty implements ShouldQueue
     public function handle()
     {
         
+        if($this->guest->user()->doesntExist())
+        {
+
         
             $newPWD = Str::random(8);
 
@@ -65,6 +68,7 @@ class ProcessParty implements ShouldQueue
                 'webhook_id' => $mailable->getMessageId(),
                 'sent' => Carbon::now()
             ]);
+        }
 
         
     }
