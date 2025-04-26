@@ -57,7 +57,7 @@
                                 <td class="text-center">
                                     @if($booking->payments->where('status', 1)->sum('total') >= $booking->total)
                                         <i class="fas fa-check-circle"></i>
-                                    @elseif(Carbon\Carbon::parse($booking->arrival)->subDays($booking->priceguide->due)->diffInDays(Carbon\Carbon::now()) < 21)
+                                    @elseif(Carbon\Carbon::parse($booking->arrival)->subDays($booking->priceguide->due) > Carbon\Carbon::now())
                                         <span class="error">Due in {{ Carbon\Carbon::parse($booking->arrival)->subDays($booking->priceguide->due)->diffInDays(Carbon\Carbon::now()) }} days</span>
                                     @elseif(Carbon\Carbon::parse($booking->arrival)->subDays($booking->priceguide->due) < Carbon\Carbon::now())
                                         <span class="error">Overdue</span>

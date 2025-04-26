@@ -90,7 +90,7 @@
                             @endif
                             <td>£{{ $booking->payments->sum('total') / 100 }}</td>
                             <td>£{{ ($booking->total - $booking->payments()->sum('total')) / 100 }}</td>
-                            <td>{{-- {{ Carbon\Carbon::parse($booking->arrival)->subDays($booking->priceguide->due)->format('j/m/Y') }} --}}</td>
+                            <td>{{ Carbon\Carbon::parse($booking->arrival)->subDays($booking->priceguide->due)->format('j/m/Y') }}</td>
                             
                         </tr>
                     </tbody>
