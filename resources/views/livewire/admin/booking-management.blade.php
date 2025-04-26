@@ -35,7 +35,7 @@
         </div><!--end of grid-x -->
     </div><!--End of grid container-->
 
-    @elseif($booking->payments->where('status', 1)->sum('total') < $booking->total && Carbon\Carbon::parse($booking->arrival)->subDays($booking->priceguide->due)) > Carbon\Carbon::now())
+    @elseif($booking->payments->where('status', 1)->sum('total') < $booking->total && Carbon\Carbon::parse($booking->arrival)->subDays($booking->priceguide->due) > Carbon\Carbon::now())
     <div class="grid-container">
         <div class="grid-x grid-padding-x">
             <div class="cell small-12">
