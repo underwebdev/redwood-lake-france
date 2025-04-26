@@ -20,6 +20,7 @@ class ProcessParty implements ShouldQueue
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     public $guest;
+    public $booking;
 
     /**
      * Create a new job instance.
