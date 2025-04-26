@@ -90,7 +90,14 @@
                             @endif
                             <td>£{{ $booking->payments->sum('total') / 100 }}</td>
                             <td>£{{ ($booking->total - $booking->payments()->sum('total')) / 100 }}</td>
-                            <td>{{ Carbon\Carbon::parse($booking->arrival)->subDays($booking->priceguide->due)->format('j/m/Y') }}</td>
+                            <td>
+                                @if(Carbon\Carbon::parse($booking->arrival)->subDays($booking->priceguide->due) < Carbon\Carbon::now())
+                                    <span class="error">{{ Carbon\Carbon::parse($booking->arrival)->subDays($booking->priceguide->due)->format('j/m/Y') }}</span>
+                                @else
+
+                                    {{ Carbon\Carbon::parse($booking->arrival)->subDays($booking->priceguide->due)->format('j/m/Y') }}
+                                @endif
+                            </td>
                             
                         </tr>
                     </tbody>
