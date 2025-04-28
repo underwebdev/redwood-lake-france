@@ -129,7 +129,12 @@
                                 <td>{{ $guest->ref }}</td>
                                 <td>{{ $guest->firstName }} {{ $guest->lastName }}</td>
                                 <td>{{ $guest->telephone }}</td>
-                                <td>N/A</td>
+                                <td>
+                                    @isset($guest->user->email)
+                                        {{ $guest->user->email }}
+                                    @else
+                                        Not Registered ({{ $guest->email ?? 'not provided' }})
+                                    @endisset</td>
                                 <td class="text-right">
                                     <button class="button success small" wire:click="selectAngler('{{ $guest->id }}')">Update</button>
                                 </td>

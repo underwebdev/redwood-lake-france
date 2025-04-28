@@ -125,6 +125,7 @@ class BookingManagement extends Component
         $this->firstName = $this->selectedAngler->firstName;
         $this->lastName = $this->selectedAngler->lastName;
         $this->telephone = $this->selectedAngler->telephone;
+        $this->email = $this->selectedAngler->email;
 
         $this->mode = 4;
     }
