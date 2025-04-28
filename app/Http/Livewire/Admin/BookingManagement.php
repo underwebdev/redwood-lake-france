@@ -401,6 +401,22 @@ class BookingManagement extends Component
         session()->flash('success', 'Review Request Sent');
     }
 
+    public function dispatchProcessParty()
+    {
+        foreach($this->booking->guests as $guest)
+        {
+            if($guest->user()->doesntExist())
+            {
+                \Log::info('Booking #' . $this->booking->id . ' send ' . $this->guest->firstName . ' ' . $this->guest->lastName . ' login credentials');
+
+                ProcessParty::dispatch($guest, $this->booking);
+
+            }   
+        }
+
+        session()->flash('success', 'Website accounts created');
+    }
+
     public function back()
     {
         $this->resetExcept('booking');

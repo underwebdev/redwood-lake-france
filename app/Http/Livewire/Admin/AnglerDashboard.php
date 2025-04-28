@@ -112,7 +112,7 @@ class AnglerDashboard extends Component
         ]);
 
         $data = [
-            'firstName' => $angler->firstName,
+            'firstName' => $this->selectedAngler->firstName,
             'password' => $password,
             'email' => $data['email']
         ];

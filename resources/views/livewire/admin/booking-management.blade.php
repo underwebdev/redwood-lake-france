@@ -220,6 +220,7 @@
                         <button class="button success" wire:click="dispatchPaymentReminder">Payment Reminder</button>
                         <button class="button success" wire:click="dispatchOverdueReminder">Overdue Reminder</button>
                         <button class="button success" wire:click="dispatchGuestReminder">Guest Reminder</button>
+                        <button class="button success" wire:click="dispatchProcessParty">Guest Accounts</button>
                         <button class="button success" wire:click="dispatchWelcomeEmail">Welcome Email</button>
                         <button class="button success" wire:click="dispatchReviewRequest">Review Request</button>
 
