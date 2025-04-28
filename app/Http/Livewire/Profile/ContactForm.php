@@ -4,6 +4,8 @@ namespace App\Http\Livewire\Profile;
 
 use Livewire\Component;
 use App\Models\Contact;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ContactAlert;
 use Auth;
 
 class ContactForm extends Component
@@ -27,13 +29,15 @@ class ContactForm extends Component
             $booking = $data['type'];
         }
 
-        Contact::create([
+        $contact = Contact::create([
             'name' => Auth::user()->angler->firstName . ' ' . Auth::user()->angler->lastName,
             'email' => Auth::user()->email,
             'telephone' => Auth::user()->angler->telephone,
             'message' => $data['message'],
             'booking_id' => $booking
         ]);
+
+        Mail::to('info@redwoodlake.co.uk')->send(new ContactAlert($contact));
 
         $this->reset();
 
