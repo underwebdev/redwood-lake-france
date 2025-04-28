@@ -135,13 +135,15 @@ class BookingManagement extends Component
             'firstName' => 'required',
             'lastName' => 'required',
             'telephone' => 'required|numeric',
+            'email' => 'nullable|email'
            
         ]);
 
         $this->selectedAngler->update([
             'firstName' => $data['firstName'],
             'lastName' => $data['lastName'],
-            'telephone' => $data['telephone']
+            'telephone' => $data['telephone'],
+            'email' => $data['email']
         ]);
 
         $this->booking->refresh();

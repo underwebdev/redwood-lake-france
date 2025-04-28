@@ -290,6 +290,9 @@
                 <label for="">Last Name</label>
                 <input type="text" placeholder="" wire:model="lastName">
 
+                <label for="">Email</label>
+                <input type="text" placeholder="" wire:model="email">
+
                 <label for="">Telephone</label>
                 <input type="text" placeholder="" wire:model="telephone">
                 <div class="button-group">
