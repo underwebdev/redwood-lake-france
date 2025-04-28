@@ -50,7 +50,7 @@ class InboxDashboard extends Component
     public function render()
     {
         return view('livewire.admin.inbox-dashboard',[
-            'messages' => Contact::whereNull('archive')->get(),
+            'messages' => Contact::whereNull('archive')->latest()->get(),
             'archives' => Contact::whereNotNull('archive')->get()
         ]);
     }
