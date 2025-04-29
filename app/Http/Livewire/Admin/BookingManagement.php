@@ -410,7 +410,7 @@ class BookingManagement extends Component
         {
             if($guest->user()->doesntExist())
             {
-                \Log::info('Booking #' . $this->booking->id . ' send ' . $this->guest->firstName . ' ' . $this->guest->lastName . ' login credentials');
+                \Log::info('Booking #' . $this->booking->id . ' send ' . $guest->firstName . ' ' . $guest->lastName . ' login credentials');
 
                 ProcessParty::dispatch($guest, $this->booking);
 
