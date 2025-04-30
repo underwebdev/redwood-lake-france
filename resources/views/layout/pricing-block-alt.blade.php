@@ -23,7 +23,7 @@
 				<h6>£{{ $priceguide->price / 100 }} <small>per week</small></h6>
 			</div>
 			<div class="price-individual-alt">
-				<strong>£{{ $priceguide->price / 5 / 100 }} p.p based on 5 anglers</strong>
+				<strong>£{{ $priceguide->price / 4 / 100 }} p.p based on 4 anglers</strong>
 			</div>
 		</div>
 	</div>
