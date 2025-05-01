@@ -35,7 +35,7 @@ class SendBookingConfirmation implements ShouldQueue
      */
     public function handle()
     {
-        $mailable = Mail::to($this->booking->angler->user->email)->bcc('joe@underweb.co.uk')->send(new BookingReceipt($this->booking));
+        $mailable = Mail::to($this->booking->angler->user->email)->send(new BookingReceipt($this->booking));
 
         $this->booking->maillogs()->create([
             'type' => 'booking-confirmation',

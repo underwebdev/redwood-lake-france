@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Booking;
+use App\Models\Report;
 
 class ProfileController extends Controller
 {
@@ -95,6 +96,24 @@ class ProfileController extends Controller
         }
 
         return view('profile.uploadreport');
+    }
+
+    public function updatereport(Report $report)
+    {
+        $user = Auth::user();
+
+        if($user->reset == 1)
+        {
+            return redirect('/my-account/settings')->with('failure', 'Please update your password before continuing!');
+        }
+
+        if($report->angler_id == $user->angler->id)
+        {
+            return view('profile.updatereport', compact('report'));
+
+        } else {
+            return back();
+        }
     }
 
     public function settings()

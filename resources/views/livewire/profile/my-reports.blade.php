@@ -65,6 +65,7 @@
                                     <th>Species</th>
                                     <th></th>
                                     <th class="text-center">Swim</th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -88,6 +89,9 @@
                                         @else
                                             N/A
                                         @endisset 
+                                    </td>
+                                    <td class="text-right">
+                                        <a href="/my-account/update-report/{{ $report->id }}" class="button success small">Update</a>
                                     </td>
                                 </tr>
                                 @endforeach
