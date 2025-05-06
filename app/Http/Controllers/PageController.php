@@ -153,7 +153,7 @@ class PageController extends Controller
     {
         $page = Page::find(11);
         $featured = Article::whereNull('draft')->latest()->first();
-        $articles = Article::whereNull('draft')->where('id', '!=', $featured->id)->get();
+        $articles = Article::whereNull('draft')->where('id', '!=', $featured->id)->latest()->get();
 
         return view('pages.news', compact('page', 'featured', 'articles'));
     }
