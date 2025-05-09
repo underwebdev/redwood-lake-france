@@ -215,7 +215,7 @@
                         <img src="{{ $selectedReport->sideonethumb }}">
                     </a>
                     @isset($selectedReport->sidetwothumb)
-                    <a href="{{ $selectedReport->sideone }}" data-lity>
+                    <a href="{{ $selectedReport->sidetwo }}" data-lity>
                         <img src="{{ $selectedReport->sidetwothumb }}">
                     </a>
                     @endisset
