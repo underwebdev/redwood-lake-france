@@ -81,7 +81,6 @@
 				<div class="show-for-medium" id="fish-image">
 			    	<img src="/img/rob-burgess-common.JPG" class="photo-border-block" alt="Rob Burgess French Common Carp - Redwood Lake"> 
 			  </div>
-			  <img src="/img/rob-burgess-common.JPG" class="mobile-border-block hide-for-medium" alt="Rob Burgess French Common Carp - Redwood Lake">   
 			</div><!-- End of cell-->
 			<div class="cell small-12 ml-6">
 				<div id="fish-desc">
@@ -89,6 +88,8 @@
 				@foreach($page->modules->where('order', 3) as $module)
 					<p>{!! nl2br(e($module->content)) !!}</p>
 				@endforeach
+
+				<img src="/img/rob-burgess-common.JPG" class="mobile-border-block hide-for-medium" alt="Rob Burgess French Common Carp - Redwood Lake">   
 				</div>
 			</div><!-- End of cell-->
 		</div><!--end of grid-x -->
