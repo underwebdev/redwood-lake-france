@@ -57,7 +57,7 @@
 					@endforeach
 				  </div>    
 				</div><!-- End of cell-->
-				<div class="cell show-for-ml ml-6 align-self-middle text-right">
+				<div class="cell small-12 ml-6 align-self-middle text-right">
 					<div class="lake-video">
 						<iframe
 							src="https://www.youtube.com/embed/7VjuPR-cLFQ?si=1IUe-TqWhTpd3oYj&amp;controls=0" 
