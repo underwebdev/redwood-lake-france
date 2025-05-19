@@ -58,8 +58,14 @@
 				  </div>    
 				</div><!-- End of cell-->
 				<div class="cell show-for-ml ml-6 align-self-middle text-right">
-					<div id="lake-image">
-						<img src="/img/redwood-lake-drone.JPG" class="photo-border-block" alt="Redwook lake arial view"> 
+					<div class="lake-video">
+						<iframe
+							src="https://www.youtube.com/embed/7VjuPR-cLFQ?si=1IUe-TqWhTpd3oYj&amp;controls=0" 
+							title="YouTube video player" 
+							frameborder="0" 
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+							referrerpolicy="strict-origin-when-cross-origin" 
+							allowfullscreen></iframe> 
 					</div> 
 				</div><!-- End of cell-->
 			</div><!--end of grid-x -->
