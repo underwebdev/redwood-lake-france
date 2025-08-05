@@ -1,4 +1,9 @@
 <div>
+    @if(Auth::user()->email == 'fishlist@redwoodlake.co.uk')
+    <i class="fas fa-fish"></i> <a href="/admin/catch-reports">Reports</a><br>
+    <i class="fas fa-fish"></i> <a href="/admin/stock">Fish List</a><br>
+    <i class="fas fa-fish"></i> <a href="/admin/stocking-diary">Stock Diary</a><br>
+    @else
     <i class='far fa-user-circle'></i> <a href="/admin/dashboard">Dashboard</a><br>
     <i class="far fa-calendar"></i> <a href="/admin/bookings">Bookings</a><br>
     <i class="far fa-user"></i> <a href="/admin/anglers">Anglers</a><br>
@@ -26,5 +31,7 @@
     <i class="far fa-envelope"></i> <a href="/admin/emails">Email Preview</a><br>
     <i class="fas fa-cog"></i> <a href="/admin/settings">Settings</a><br>
     <i class="fas fa-cog"></i> <a href="/admin/storage">Storage</a><br>
+    
+    @endif
     <i class='fas fa-power-off'></i> <a href="/logout">Logout</a>
 </div>

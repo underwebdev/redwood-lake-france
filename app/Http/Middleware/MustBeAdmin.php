@@ -19,9 +19,29 @@ class MustBeAdmin
         $user = $request->user();
 
         if ($user && $user->permission == '1') {
+            // Allow limited admin access for specific user and specific routes
+            if ($user && $user->email === 'fishlist@redwoodlake.co.uk') {
+                $allowedRoutes = [
+                    'admin/catch-reports',
+                    'admin/stock',
+                    'admin/stock/{id}',
+                    'admin/stocking-diary'
+                ];
 
-            return $next($request);
+                if (in_array($request->path(), $allowedRoutes)) {
+                    return $next($request);
+                } else {
+                    return redirect('/admin/stock');
+                }
+            } else {
+                return $next($request);
+
+            }
+
+            
         }
+
+
 
         if ($user && $user->permission == '2') {
 
