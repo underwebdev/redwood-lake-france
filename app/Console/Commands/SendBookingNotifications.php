@@ -126,11 +126,11 @@ class SendBookingNotifications extends Command
         // check booking departed 7 days ago and feedback request not sent 
         $departures = Booking::whereDate('departure', Carbon::now()->subdays(7))->get();
 
-        foreach($departures as $departure)
+        foreach($departures as $booking)
         {
-            if($departure->maillogs()->where('type', 'feedback')->doesntExist())
+            if($booking->maillogs()->where('type', 'feedback')->doesntExist())
             {
-                \Log::info('Booking #' . $departure->id . ' Feedback request');
+                \Log::info('Booking #' . $booking->id . ' Feedback request');
 
                 SendReviewRequest::dispatch($booking);
             }
