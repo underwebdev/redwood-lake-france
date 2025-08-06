@@ -7,9 +7,12 @@ use Illuminate\Support\Str;
 use Stripe\{Stripe, PaymentIntent};
 use Illuminate\Support\Facades\Mail;
 use App\Mail\PaymentNotification;
+use App\Mail\ExtraNotification;
+use App\Mail\BookingNotification;
 use App\Models\Payment;
 use App\Models\Angler;
 use App\Models\User;
+use App\Models\Product;
 use Auth;
 
 class ManageBooking extends Component
@@ -27,6 +30,9 @@ class ManageBooking extends Component
     public $email;
     public $email_confirmation;
     public $selectedAngler;
+
+    public $option = 1, $quantity;
+    public $previousstep;
 
     public $connect;
     public $pk;
@@ -153,6 +159,8 @@ class ManageBooking extends Component
             $this->mode = 6;
 
         }
+
+        $this->previousstep = 4;
     }
 
     public function confirmTransfer()
@@ -171,9 +179,78 @@ class ManageBooking extends Component
         $this->mode = 7;
     }
 
+    public function calculateExtras()
+    {
+        $data = $this->validate([
+            'paymentMethod' => 'required',
+            'option' => 'required',
+            'quantity' => 'required|numeric',
+        ]);
+
+        $product = Product::findOrFail($data['option']);
+
+        $amountToPay = $product->price * $data['quantity'];
+        
+        if($data['paymentMethod'] == 1) {
+            $this->amountToPay = $amountToPay;
+            $this->mode = 5;
+
+        } elseif($data['paymentMethod'] == 2) {
+
+            $percentage = config('services.stripe.percentage');
+            $fee = config('services.stripe.fee');
+            $applicationFee = ($percentage / 100) * $amountToPay + $fee;
+
+            Stripe::setApiKey(config('services.stripe.secret'));
+
+            $this->pk = config('services.stripe.key');
+            $this->connect = config('services.stripe.connect');
+
+            $this->intent = PaymentIntent::create([
+                'amount' => $amountToPay,
+                'currency' => 'gbp',
+                'payment_method_types' => ['card'],
+                'setup_future_usage' => 'on_session',
+                'application_fee_amount' => round($applicationFee),
+                'metadata' => [
+                    'type' => 'extras',
+                    'booking_id' => $this->booking->id,
+                    'angler_id' => Auth::user()->angler->id,
+                    'product_id' => $this->option,
+                    'quantity' => $this->quantity,
+                ],
+                'statement_descriptor_suffix' => 'Redwood Lake'
+            ], ['stripe_account' => $this->connect]);
+            $this->mode = 6;
+
+        }
+
+        $this->previousstep = 8;
+    }
+
+    public function confirmExtras()
+    {
+        $data = $this->validate(['confirm' => 'required']);
+
+        $product = Product::findOrFail($this->option);
+
+        $payment = $this->booking->extras()->create([
+            'product_id' => $product->id,
+            'price' => $product->price,
+            'quantity' => $this->quantity,
+            'total' => $this->amountToPay,
+            'net' => $this->amountToPay,
+            'paymethod_id' => 2,
+        ]);
+
+        //Mail::to('info@redwoodlake.co.uk')->send(new PaymentNotification($payment));
+
+        $this->mode = 7;
+    }
+
     public function backToMethod()
     {
-        $this->mode = 4;
+        $this->mode = $this->previousstep;
         $this->amountToPay = $this->amountToPay / 100;
     }
 
@@ -187,7 +264,8 @@ class ManageBooking extends Component
         $paymentIntent = $this->intent;
 
         return view('livewire.profile.manage-booking',[
-            'intent' => $paymentIntent
+            'intent' => $paymentIntent,
+            'products' => Product::where('status', 1)->get()
         ]);
     }
 }

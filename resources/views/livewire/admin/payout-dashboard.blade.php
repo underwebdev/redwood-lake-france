@@ -108,6 +108,14 @@
                                 <td class="text-right">£{{ number_format($payment->net / 100) }}</td>
                             </tr>
                             @endforeach
+                            @foreach($selectedpayout->extras as $extra)
+                            <tr>
+                                <td>{{ date('j/m/y H:i', strtotime ($extra->created_at)) }}</td>
+                                <td>{{ $extra->booking->angler->firstName }} {{ $extra->booking->angler->lastName }}</td>
+                                <td>{{ date('j/m/y', strtotime ($extra->booking->arrival)) }}</td>
+                                <td class="text-right">£{{ number_format($extra->net / 100) }}</td>
+                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

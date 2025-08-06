@@ -189,6 +189,53 @@
                         <table>
                             <thead>
                                 <tr>
+                                    <th>Product</th>
+                                    <th>Price</th>
+                                    <th class="text-center">Qty</th>
+                                    <th class="text-center">Total</th>
+                                    <th class="text-center">Status</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                    
+                                @foreach($booking->extras as $extra)
+                                <tr wire:key="extra-{{ $extra->id }}">
+                                    <td>{{ $extra->product->name }}</td>
+                                    <td>£{{ $extra->price / 100 }}</td>
+                                    <td class="text-center">{{ $extra->quantity }}</td>
+                                    <td class="text-center">£{{ $extra->total / 100 }}</td>
+                                    <td class="text-center">
+                                        @isset($extra->status)
+                                            {{ $extra->status }}
+                                        @else
+                                            Pending
+                                        @endisset
+                                    </td>
+                                    <td class="text-right">
+                                        <button class="button tiny" data-toggle="extra-dropdown-{{ $extra->id }}">Options</button>
+                                        <div class="dropdown-pane" data-position="right" data-alignment="bottom" id="extra-dropdown-{{ $extra->id }}" data-dropdown data-auto-focus="true">
+                                            @if($extra->status != 'paid')
+                                            <button class="button expanded small success" wire:click="extraPaid('{{ $extra->id }}')">Mark Paid</button>
+                                            @endif
+
+                                            <button class="button expanded small alert" wire:click="deleteExtra('{{ $extra->id }}')">Delete</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="text-center">
+                        <button class="button success" wire:click="$set('mode', 10)">Add Extras</button>
+                    </div>
+
+                    <div class="table-scroll">
+                        <table>
+                            <thead>
+                                <tr>
                                     <th>Email</th>
                                     <th>Recipient</th>
                                     <th>Sent</th>
@@ -445,6 +492,68 @@
                 <div class="button-group text-center">
                     <button class="button success" wire:click="modifyBooking">Update Booking</button>
                     <button class="button alert" wire:click="$set('mode', 5)">Go Back</button>
+                </div>
+              
+            </div>
+            @elseif($mode == 10)
+            <div class="cell small-12 medium-10 medium-offset-1">
+                <h1 class="text-center">Booking Extras</h1>
+                <p class="text-center">Add extras to this booking</p>
+
+                <label for="">
+                    Option                            
+                    @error('option')<span class="error">{{ $message }}</span>@enderror
+                </label>
+                <select id="" wire:model="option">
+                    <option value="">Please select</option>
+                    @foreach($products as $product)
+                    <option value="{{ $product->id }}">{{ $product->name }} - £{{ $product->price / 100 }}</option>
+                    @endforeach 
+                </select>
+
+                <label for="">
+                    Quantity                            
+                    @error('quantity')<span class="error">{{ $message }}</span>@enderror
+                </label>
+                <select id="" wire:model="quantity">
+                    <option value="">Please select</option> 
+                    <option value="1">1</option> 
+                    <option value="2">2</option> 
+                    <option value="3">3</option> 
+                    <option value="4">4</option> 
+                    <option value="5">5</option> 
+                    <option value="6">6</option> 
+                    <option value="7">7</option> 
+                    <option value="8">8</option> 
+                    <option value="9">9</option> 
+                    <option value="10">10</option> 
+                    <option value="11">11</option> 
+                    <option value="12">12</option> 
+                    <option value="13">13</option> 
+                    <option value="14">14</option> 
+                    <option value="15">15</option> 
+                </select>
+
+                <label for="">
+                    Total £                            
+                    @error('total')<span class="error">{{ $message }}</span>@enderror
+                </label>
+                <input type="text" placeholder="" wire:model="total">
+
+                <label for="">Payment
+                    @error('payment')<span class="error">{{ $message }}</span>@enderror
+                </label>
+
+                <select id="" wire:model="payment">
+                    <option value="">Please Select</option>
+                    <option value="paid">Paid</option>
+                    <option value="unpaid">Unpaid</option>
+                    <option value="included">Included</option> 
+                </select>
+
+                <div class="button-group float-center text-center">
+                    <button class="button success" wire:click="saveExtras">Save Extras</button>
+                    <button class="button alert" wire:click="$set('mode', 1)">Go Back</button>
                 </div>
               
             </div>

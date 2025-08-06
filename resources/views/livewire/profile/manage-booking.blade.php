@@ -46,6 +46,42 @@
                     </table>
                 </div>
 
+                <h5 class="info-bar">Extras</h5>
+                <div class="table-scroll">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Price</th>
+                                <th class="text-center">Qty</th>
+                                <th class="text-center">Total</th>
+                                <th class="text-right">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($booking->extras as $extra)
+                            <tr>
+                                <td>{{ $extra->product->name }}</td>
+                                <td>£{{ $extra->price / 100 }}</td>
+                                <td class="text-center">{{ $extra->quantity }}</td>
+                                <td class="text-center">£{{ $extra->total / 100 }}</td>
+                                <td class="text-right">
+                                    @isset($extra->status)
+                                        {{ $extra->status }}
+                                    @else
+                                        Pending
+                                    @endisset
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="text-center">
+                    <button class="button success" wire:click="$set('mode', 8)">Purchase Extras</button>
+                </div>
+
                 <h5 class="info-bar">Anglers</h5>
                 <div class="table-scroll">
                     <table>
@@ -206,7 +242,12 @@
 
                         <div class="button-group">
                         @if($confirm)
-                        <button class="button success expanded" wire:click="confirmTransfer">Confirm Transfer</button>
+                            @if($previousstep == 4)
+                                <button class="button success expanded" wire:click="confirmTransfer">Confirm Transfer</button>
+                            @elseif($previousstep == 8)
+                                <button class="button success expanded" wire:click="confirmExtras">Confirm Transfer</button>
+                            @endif
+
                         @endif
                         <button class="button alert expanded" wire:click="backToMethod">Go Back</button>
                         </div>
@@ -261,6 +302,65 @@
                     </div>
                 </div>
             </div><!-- End of cell-->
+            @elseif($mode == 8)
+            <div class="cell small-12 medium-8 large-6 medium-offset-2 large-offset-3">
+                <div class="center-border">
+                    <div class="center-border-header text-center">
+                        <img src="/img/logo/RedwoodLogo.png" width="200px">
+                    </div>
+                    <div class="center-border-content">
+                        <label for="">
+                            Option                            
+                            @error('option')<span class="error">{{ $message }}</span>@enderror
+                        </label>
+                        <select id="" wire:model="option">
+                            <option value="">Please select</option>
+                            @foreach($products as $product)
+                            <option value="{{ $product->id }}">{{ $product->name }} - £{{ $product->price / 100 }}</option>
+                            @endforeach 
+                        </select>
+
+                        <label for="">
+                            Quantity                            
+                            @error('quantity')<span class="error">{{ $message }}</span>@enderror
+                        </label>
+                        <select id="" wire:model="quantity">
+                            <option value="">Please select</option> 
+                            <option value="1">1</option> 
+                            <option value="2">2</option> 
+                            <option value="3">3</option> 
+                            <option value="4">4</option> 
+                            <option value="5">5</option> 
+                            <option value="6">6</option> 
+                            <option value="7">7</option> 
+                            <option value="8">8</option> 
+                            <option value="9">9</option> 
+                            <option value="10">10</option> 
+                            <option value="11">11</option> 
+                            <option value="12">12</option> 
+                            <option value="13">13</option> 
+                            <option value="14">14</option> 
+                            <option value="15">15</option> 
+                        </select>
+
+                        <label for="">Payment Method
+                            @error('paymentMethod')<span class="error">{{ $message }}</span>@enderror
+                        </label>
+
+                        <select id="" wire:model="paymentMethod">
+                            <option value="">Please Select</option>
+                            <option value="1">Bank Transfer</option>
+                            <option value="2">Credit/Debit</option> 
+                        </select>
+
+                        <div class="button-group">
+                            <button class="button success expanded" wire:click="calculateExtras">Proceed To Payment</button>
+                            <button class="button alert expanded" wire:click="back">Go Back</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             @endif
             
         </div><!--end of grid-x -->

@@ -15,4 +15,9 @@ class Payout extends Model
     {
         return $this->belongsToMany(Payment::class);
     }
+
+    public function extras()
+    {
+        return $this->belongsToMany(Extra::class);
+    }
 }

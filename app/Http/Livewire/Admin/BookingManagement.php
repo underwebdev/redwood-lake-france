@@ -15,7 +15,9 @@ use App\Models\Placeholder;
 use App\Models\Angler;
 use App\Models\Payment;
 use App\Models\Priceguide;
+use App\Models\Product;
 use App\Models\User;
+use App\Models\Extra;
 use App\Jobs\ProcessParty;
 use App\Jobs\ReviewRequest;
 
@@ -55,6 +57,8 @@ class BookingManagement extends Component
 
     public $lead;
     public $total;
+
+    public $option = 1, $quantity, $payment;
 
     public function confirmTransfer()
     {
@@ -425,11 +429,64 @@ class BookingManagement extends Component
         $this->resetExcept('booking');
     }
 
+    public function updatedQuantity()
+    {
+        if($this->option)
+        {
+            $this->total = Product::findOrFail($this->option)->price * $this->quantity / 100;
+        }
+    }
+
+    public function saveExtras()
+    {
+        $data = $this->validate([
+            'payment' => 'required',
+            'option' => 'required',
+            'quantity' => 'required|numeric',
+        ]);
+
+        $payment = $this->booking->extras()->create([
+            'product_id' => $this->option,
+            'price' => $this->total / $this->quantity * 100,
+            'quantity' => $this->quantity,
+            'total' => $this->total * 100,
+            'net' => $this->total * 100,
+            'paymethod_id' => 2,
+            'status' => $this->payment
+        ]);
+
+        return redirect()->to('admin/booking/'. $this->booking->id)->with('success', 'Extra saved');
+    }
+
+    public function deleteExtra(Extra $extra)
+    {
+        $extra->delete();
+
+        $this->booking->refresh();
+
+        return redirect()->to('admin/booking/'. $this->booking->id)->with('success', 'Extra deleted');
+
+
+    }
+
+    public function extraPaid(Extra $extra)
+    {
+        $extra->update([
+            'status' => 'paid'
+        ]);
+
+        $this->booking->refresh();
+
+        return redirect()->to('admin/booking/'. $this->booking->id)->with('success', 'Extra marked paid');
+
+    }
+
     public function render()
     {
         return view('livewire.admin.booking-management',[
             'bookings' => Booking::where('arrival', '>', Carbon::today()->subDays(7))->orderBy('arrival', 'desc')->get(),
-            'placeholders' => Placeholder::where('date', '>', Carbon::today())->get()
+            'placeholders' => Placeholder::where('date', '>', Carbon::today())->get(),
+            'products' => Product::where('status', 1)->get()
         ]);
     }
 }

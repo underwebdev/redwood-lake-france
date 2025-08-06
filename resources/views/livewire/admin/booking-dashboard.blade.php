@@ -34,6 +34,7 @@
                                 <th>Ref</th>
                                 <th>Lead</th>
                                 <th class="text-center">Anglers</th>
+                                <th class="text-center">Extras</th>
                                 <th>Balance Due</th>
                                 <th class="text-center">Payment</th>
                                 <th></th>
@@ -53,7 +54,8 @@
                                     @endif
 
                                 </td>
-                                <td>{{-- {{ Carbon\Carbon::parse($booking->arrival)->subDays($booking->priceguide->due)->format('d/m/Y') }} --}}</td>
+                                <td class="text-center">{{ $booking->extras()->sum('quantity') }}</td>
+                                <td>{{ Carbon\Carbon::parse($booking->arrival)->subDays($booking->priceguide->due)->format('d/m/Y') }}</td>
                                 <td class="text-center">
                                     @if($booking->payments->where('status', 1)->sum('total') >= $booking->total)
                                         <i class="fas fa-check-circle"></i>

@@ -12,12 +12,16 @@ use App\Mail\BookingNotification;
 use App\Mail\BookingUpdated;
 use App\Mail\PaymentReceipt;
 use App\Mail\PaymentNotification;
+use App\Mail\ExtraReceipt;
+use App\Mail\ExtraNotification;
 use App\Models\Payout;
 use App\Models\Booking;
 use App\Models\Payment;
 use App\Models\User;
 use App\Models\Angler;
 use App\Models\Voucher;
+use App\Models\Product;
+use App\Models\Extra;
 use Carbon\Carbon;
 use Stripe\{Stripe};
 
@@ -132,6 +136,15 @@ class WebhookController extends Controller
                             'status' => 1
                         ]);
 
+                        $booking->extras()->create([
+                            'product_id' => 1,
+                            'price' => 0,
+                            'quantity' => 1,
+                            'total' => 0,
+                            'net' => 0,
+                            'status' => 'included'
+                        ]);
+
                         if($intent->metadata->voucher > 0)
                         {
                             $voucher = Voucher::find($intent->metadata->voucher);
@@ -170,9 +183,28 @@ class WebhookController extends Controller
                         ]);
 
                         Mail::to($angler->user->email)->cc('info@redwoodlake.co.uk')->send(new PaymentReceipt($payment));
-                        //Mail::to('info@redwoodlake.co.uk')->send(new BookingNotification($booking));
                     }
 
+                } elseif($intent->metadata->type == 'extras')
+                {
+                    $angler = Angler::find($intent->metadata->angler_id);
+                    $booking = Booking::find($intent->metadata->booking_id);
+
+                    $product = Product::findOrFail($intent->metadata->product_id);
+
+                    $extra = $booking->extras()->create([
+                        'product_id' => $product->id,
+                        'price' => $product->price,
+                        'quantity' => $intent->metadata->quantity,
+                        'total' => $paid,
+                        'net' => $net,
+                        'transaction_id' => $intent->id,
+                        'paymethod_id' => 1,
+                        'status' => 'paid'
+                    ]);
+
+                    Mail::to($angler->user->email)->cc('info@redwoodlake.co.uk')->send(new ExtraReceipt($extra));
+                    Mail::to('info@redwoodlake.co.uk')->send(new ExtraNotification($extra));
                 }
 
             }
@@ -218,6 +250,11 @@ class WebhookController extends Controller
                             $payment = Payment::where('transaction_id', $d['source'])->first();
 
                             $newpayout->payments()->attach($payment->id);
+                        } elseif(Extra::where('transaction_id', $d['source'])->exists()) 
+                        {
+                            $extra = Extra::where('transaction_id', $d['source'])->first();
+
+                            $newpayout->extras()->attach($extra->id);
                         }
                     }   
                 }
