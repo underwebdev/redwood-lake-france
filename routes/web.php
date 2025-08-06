@@ -85,6 +85,7 @@ Route::middleware(['admin'])->group(function () {
 	Route::get('admin/settings', [AdminController::class, 'settings']);
 	Route::get('admin/storage', [AdminController::class, 'storage']);
 	Route::get('admin/emails', [EmailController::class, 'index']);
+	Route::get('admin/maillog', [EmailController::class, 'log']);
 
 
 	Route::get('emails/payment-reminder', [EmailController::class, 'paymentreminder']);

@@ -12,6 +12,7 @@ use App\Mail\WelcomeEmail;
 use App\Mail\ReviewRequest;
 
 use App\Models\Booking;
+use App\Models\BookingMailLog;
 use Carbon\Carbon;
 
 class EmailController extends Controller
@@ -19,6 +20,13 @@ class EmailController extends Controller
     public function index()
     {
         return view('emails.index');
+    }
+
+    public function log()
+    {
+        $emails = BookingMailLog::latest()->get();
+
+        return view('emails.log', compact('emails'));
     }
 
     public function paymentreminder()
