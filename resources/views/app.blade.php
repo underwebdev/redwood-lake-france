@@ -18,11 +18,12 @@
 	    <meta property="og:site_name" content="Redwood Lake"/>
 	    <meta property="og:title" content="Redwood Lake"/>
 	    <meta property="og:type" content="website"/>
-	    <meta property="og:image" content=""/>
+	    <meta property="og:image" content="https://redwoodlake.co.uk/img/rob-burgess-common.JPG"/>
 	    <meta property="og:locale" content="en_UK"/>
 	    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 		<link rel="manifest" href="/site.webmanifest">
 		<title>@yield('title')</title>
 		<link rel="stylesheet" href="{{ mix('css/app.css') }}">
@@ -46,8 +47,7 @@
 	      "name" : "Redwood Lake",
 	      "logo": "https://redwoodlake.co.uk/img/logo/RedwoodLogo.png",
 	      "url" : "https://redwoodlake.co.uk",
-	      "sameAs" : [ "https://www.facebook.com/",
-                   "https://www.instagram.com/"]
+	      "sameAs" : [ "https://www.instagram.com/redwoodlakefrance/"]
 	    } 
 	    </script>
 

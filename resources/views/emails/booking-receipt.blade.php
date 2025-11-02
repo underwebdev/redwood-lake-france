@@ -18,4 +18,6 @@ Thank you for booking your french carp fishing holiday at Redwood Lake. Please f
 <strong>Your final balance of £{{ ($booking->total - $booking->payments()->sum('total')) / 100 }} is due by 
 	{{ Carbon\Carbon::parse($booking->arrival)->subDays($booking->priceguide->due)->format('d/m/Y') }}.</strong> Payments can be made through our website via credit/debit or bank transfer.
 @endif
+
+<p>If you wish to purchase extra pellet for your trip, this can be done on the website under your booking.</p>
 @endcomponent
