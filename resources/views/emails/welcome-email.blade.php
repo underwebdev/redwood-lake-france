@@ -15,9 +15,6 @@ Please read the important information below regarding your upcoming trip to Redw
 <p>The key for the cabin is in the lock box to the right of the patio doors on the rear wall of the cabin.</p>
 <p><strong>Lockbox Code: 5308</strong></p>
 
-<p>We have Starlink Internet which works ok down to peg 5<br> 
-	<strong>Wifi Password: Croxley333</strong></p>
-
 <p>To use the toilet and shower you will need to switch the water pump on, the plug socket is located inside the cabin on the back wall below the fuse board.</p>
 
 <p>The plug for the fridge is located above it.</p>
