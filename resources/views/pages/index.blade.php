@@ -141,7 +141,7 @@
 				@include('layout.pricing-block-alt')
 			@endforeach
 			<div class="cell small-12 text-center">
-				<a href="/booking#bookingcalender" class="button large">View Availablility</a>     
+				<a href="/booking#bookingcalender" class="button large">View Availability</a>     
 			</div><!-- End of cell-->
 		</div><!--end of grid-x -->
 	</div>
