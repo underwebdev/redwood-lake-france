@@ -34,7 +34,7 @@
 					@endforeach
 				</ol>
 				<div class="text-center">
-					<a href="https://etangdeseuil.co.uk/booking" class="button success">Booking Availabillity</a>
+					<a href="https://redwoodlake.co.uk/booking" class="button success">Booking Availability</a>
 				</div>
 			</div><!-- End of cell-->
 		</div><!--end of grid-x -->

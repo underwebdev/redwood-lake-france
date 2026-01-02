@@ -48,7 +48,7 @@
 			<div class="cell small-12 text-center">
 				<p>All bookings require a £300 deposit to confirm the requested dates. The remaining balance is due 8 weeks prior to arrival.</p>
 
-				<strong>Scroll Down For Availabillity</strong><br>
+				<strong>Scroll Down For Availability</strong><br>
 				<!--<i class="fas fa-arrow-alt-circle-down bounce"></i>-->
 				@include('icons.down')
 			</div><!-- End of cell-->
