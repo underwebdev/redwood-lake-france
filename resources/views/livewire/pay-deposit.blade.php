@@ -10,9 +10,9 @@
                         @if($step == 1)
                             <h4 class="text-center">Booking Date<br> {{ Carbon\Carbon::parse($date)->format('j/m/y') }}</h4>
 
-                            <p>Once clicking "start booking" your chosen date will be held for 15 mins, whilst you enter your details and make payment.</p> 
+                            <p>Once clicking "start booking" your chosen date will be held for 15 minutes, whilst you enter your details and make payment.</p> 
 
-                            <p>Please Note: If the payment process is not completed in the 15 minuite time frame, then the date will become available again for other anglers to book.</p>
+                            <p>Please Note: If the payment process is not completed in the 15 minute time frame, then the date will become available again for other anglers to book.</p>
 
                             <p><strong>Please confirm you have read all the <a data-open="terms">booking terms and conditions</a> by selecting the dropdown box below to continue.</strong></p>
                             
@@ -80,7 +80,6 @@
                                 <option value="2">2</option> 
                                 <option value="3">3</option> 
                                 <option value="4">4</option> 
-                                <option value="5">5</option> 
                             </select>
                             <div class="button-group">
                                 <button class="button success expanded" wire:click="steptwo">Next Step 2/3</button>

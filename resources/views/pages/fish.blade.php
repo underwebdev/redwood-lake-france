@@ -1,5 +1,7 @@
 @extends('app')
 
+@section('title') Redwood Lake Stock @endsection
+
 @section('content')
 
 <div class="hero content fishbg">

@@ -111,9 +111,9 @@
 			</div><!-- End of cell-->
 			<div class="cell small-12 large-6 align-self-middle text-right">
 				<div class="show-for-medium" id="facility-image">
-			  	<img src="/img/new-facillity.jpg" class="photo-border-block" alt="lake excluse carp fishing in france facilities">
+			  	<img src="/img/new-facillity.jpg" class="photo-border-block" alt="lake exclusive carp fishing in france facilities">
 			  </div>
-			  <img src="/img/new-facillity.jpg" class="mobile-border-block hide-for-medium" alt="lake excluse carp fishing in france facilities">   
+			  <img src="/img/new-facillity.jpg" class="mobile-border-block hide-for-medium" alt="lake exclusive carp fishing in france facilities">   
 			</div><!-- End of cell-->
 		</div><!--end of grid-x -->
 	</div>
