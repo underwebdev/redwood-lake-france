@@ -8,6 +8,7 @@ use App\Http\Resources\PriceResource;
 use Illuminate\Http\Request;
 use App\Models\Report;
 use App\Models\Priceguide;
+use Carbon;
 
 class ReportController extends Controller
 {
