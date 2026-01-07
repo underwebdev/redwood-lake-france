@@ -8,7 +8,7 @@ use App\Http\Resources\PriceResource;
 use Illuminate\Http\Request;
 use App\Models\Report;
 use App\Models\Priceguide;
-use Carbon;
+use Carbon\Carbon;
 
 class ReportController extends Controller
 {
@@ -19,6 +19,6 @@ class ReportController extends Controller
 
     public function priceguide()
     {
-        return PriceResource::collection(Priceguide::whereNotNull('featured')->where('end', '>', Carbon::now()->toDateString()->format('Y-m-d'))->orderBy('start', 'asc')->get());
+        return PriceResource::collection(Priceguide::whereNotNull('featured')->where('end', '>', Carbon::now()->toDateString())->orderBy('start', 'asc')->get());
     }
 }
