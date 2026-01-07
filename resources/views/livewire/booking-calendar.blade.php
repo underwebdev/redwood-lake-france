@@ -3,7 +3,7 @@
     <div class="grid-x grid-padding-x">
         <div class="cell small-12 text-center">
             <h4 id="bookingcalender"><span class="weighted">Booking</span> Availability</h4>
-            <p>We are currently taking bookings up until {{ Carbon\Carbon::parse($latestdate)->format('F Y') }}. All bookings run from 2pm Saturday to 10am Saturday. Please check for availability below.</p>
+            <p>We are currently taking bookings up until {{ Carbon\Carbon::parse($latestdate)->format('F Y') }}. All bookings run from 2pm Saturday to 11am Saturday. Please check for availability below.</p>
         </div>
     </div>
     <div class="grid-x grid-padding-x">
