@@ -18,6 +18,6 @@ class ReportController extends Controller
 
     public function priceguide()
     {
-        return PriceResource::collection(Priceguide::whereNotNull('featured')->orderBy('start', 'asc')->get());
+        return PriceResource::collection(Priceguide::whereNotNull('featured')->where('end', '>', Carbon::now()->toDateString()->format('Y-m-d'))->orderBy('start', 'asc')->get());
     }
 }
