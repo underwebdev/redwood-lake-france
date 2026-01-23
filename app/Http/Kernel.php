@@ -43,6 +43,12 @@ class Kernel extends HttpKernel
             'throttle:api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
+
+        'livewire-upload' => [
+            'web',
+            'auth',
+            'throttle:5,1',
+        ],
     ];
 
     /**

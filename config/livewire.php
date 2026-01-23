@@ -99,7 +99,7 @@ return [
         'disk' => null,        // Example: 'local', 's3'              | Default: 'default'
         'rules' => ['required', 'file', 'max:2048', 'mimes:jpg,jpeg,png,webp,pdf'],       // 
         'directory' => null,   // Example: 'tmp'                      | Default: 'livewire-tmp'
-        'middleware' => ['web', 'auth', 'throttle:5,1'],  // Example: 'throttle:5,1'   
+        'middleware' => 'livewire-upload',   
         'preview_mimes' => [   // Supported file types for temporary pre-signed file URLs...
             'png', 'gif', 'bmp', 'svg', 'wav', 'mp4',
             'mov', 'avi', 'wmv', 'mp3', 'm4a',
