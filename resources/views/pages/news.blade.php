@@ -50,9 +50,9 @@
 		@foreach($articles as $article)
 		<div class="cell small-12 medium-6 large-4">
 			<div class="news-holder" data-equalizer-watch>
-				<div class="news-thumb">
+				<div class="news-thumb expanded">
 					<a href="/article/{{ $article->url }}">
-						<img src="/assets/article-cover/{{ $article->id }}">
+						<img src="/assets/article-cover/{{ $article->id }}" width="100%">
 					</a>
 				</div>
 				<h5><a href="/article/{{ $article->url }}">{{ $article->title }}</a></h5>

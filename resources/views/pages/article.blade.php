@@ -9,7 +9,7 @@
 	<div class="cell small-12 large-8">
 		<div class="feature-container">	 
 			@isset($article->cover)
-				<img src="/assets/article-cover/{{ $article->id }}" class="news-feature">
+				<img src="/assets/article-cover/{{ $article->id }}" class="news-feature" width="100%">
 			@endisset
 		
 			<h2>{{ $article->title }}</h2>
