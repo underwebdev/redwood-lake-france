@@ -3,7 +3,7 @@
         <div class="grid-x grid-padding-x">
             <div class="cell small-12 show-for-ml">
                 <div class="gallery-block">
-                    <img src="{{ $featured->image }}" alt="{{ $featured->alt }}">
+                    <img src="/assets/lake-gallery/{{ $featured->id }}" alt="{{ $featured->alt }}" width="100%">
                 </div>
             </div><!-- End of cell-->
         </div><!--end of grid-x -->
@@ -12,7 +12,7 @@
             @foreach($thumbnails as $thumbnail)
             <div class="cell large-3">
                 <div class="gallery-block">
-                    <button wire:click="selectImage('{{ $thumbnail->id }}')"><img src="{{ $thumbnail->mobile }}"></button>
+                    <button wire:click="selectImage('{{ $thumbnail->id }}')"><img src="/assets/lake-gallery/{{ $thumbnail->id }}"></button>
                 </div>
             </div><!-- End of cell-->
             @endforeach
