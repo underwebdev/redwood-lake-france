@@ -39,8 +39,13 @@ class ContactForm extends Component
                 'message' => $data['message']
             ]);
 
-            Mail::to('info@redwoodlake.co.uk')->send(new ContactAlert($contact));
+            if($data['email'] == 'joe@underweb.co.uk')
+            {
+                Mail::to('joe@underweb.co.uk')->send(new ContactAlert($contact));
+            } else {
 
+                Mail::to('info@redwoodlake.co.uk')->send(new ContactAlert($contact));
+            }
             $this->sent = true;
 
         }
