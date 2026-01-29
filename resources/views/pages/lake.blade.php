@@ -42,8 +42,8 @@
 			<div class="grid-x grid-padding-x">
 				@foreach($lake->images as $image)
 				<div class="cell small-6 medium-4 text-center">
-					<a href="{{ $image->photo }}" data-lity>
-						<img src="{{ $image->thumbnail }}" class="photo-border-block">
+					<a href="/assets/lake-gallery/{{ $image->id }}.{{ Str::afterLast($image->photo, '.') }}" data-lity>
+						<img src="/assets/lake-gallery/{{ $image->id }}.{{ Str::afterLast($image->photo, '.') }}" class="photo-border-block">
 					</a>
 				</div><!-- End of cell-->
 				@endforeach

@@ -59,15 +59,15 @@
 			<div class="cell small-12 text-center">
 			<div class="sticky">
 				<div class="fish-border-block">
-					<a href="{{ $stock->sideone }}" data-lity>
-					<img src="{{ $stock->sideonethumb }}">
+					<a href="/assets/stock/sidetwo/{{ $stock->id }}.{{ Str::afterLast($stock->sideone, '.') }}" data-lity>
+					<img src="/assets/stock/sideone/{{ $stock->id }}">
 					</a>
 				</div>
 				
 				@isset($stock->sidetwo)
 				<div class="fish-border-block">
-					<a href="{{ $stock->sidetwo }}" data-lity>
-					<img src="{{ $stock->sidetwothumb }}">
+					<a href="/assets/stock/sidetwo/{{ $stock->id }}.{{ Str::afterLast($stock->sideone, '.') }}" data-lity>
+					<img src="/assets/stock/sidetwo/{{ $stock->id }}">
 					</a>
 				</div>
 				@endisset
@@ -135,14 +135,15 @@
 							<td class="">{{ $report->lbs }}lb {{ $report->oz }}oz</td>
 							<td class="text-center">
                                 @isset($report->sideone)
-                                    <a href="{{ $report->sideone }}" data-lity>
+                                    <a href="/assets/catch-reports/sideone/{{ $report->id }}.{{ Str::afterLast($report->sideone, '.') }}" data-lity>
                                         @include('icons.camera')
                                     </a>
                                 @endisset
                             </td>
                             <td class="text-center">
                                 @isset($report->sidetwo)
-                                    <a href="{{ $report->sidetwo }}" data-lity>
+                                    <a href="/assets/catch-reports/sidetwo/{{ $report->id }}.{{ Str::afterLast($report->sideone, '.') }}" data-lity>
+                                    	
                                         @include('icons.camera')
                                     </a>
                                 @endisset
@@ -163,6 +164,7 @@
 							<td>{{ date('j/m/y', strtotime ($stock->item->stocking->date)) }}</td>
 							<td>Stocked</td>
 							<td>{{ $stock->item->lbs }}lb {{ $stock->item->oz }}oz</td>
+							<td></td>
 							<td></td>
 							<td></td>
 							

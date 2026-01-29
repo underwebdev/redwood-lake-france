@@ -55,14 +55,14 @@
                                 <td>{{ $report->specimen->name }}</td>
                                 <td class="text-center">
                                     @isset($report->sideone)
-                                        <a href="{{ $report->sideone }}" data-lity>
+                                        <a href="/assets/catch-reports/sideone/{{ $report->id }}.{{ Str::afterLast($report->sideone, '.') }}" data-lity>
                                             @include('icons.camera')
                                         </a>
                                     @endisset
                                 </td>
                                 <td class="text-center">
                                     @isset($report->sidetwo)
-                                        <a href="{{ $report->sidetwo }}" data-lity>
+                                        <a href="/assets/catch-reports/sidetwo/{{ $report->id }}.{{ Str::afterLast($report->sidetwo, '.') }}" data-lity>
                                             @include('icons.camera')
                                         </a>
                                     @endisset
@@ -89,11 +89,11 @@
         </div><!--end of grid-x -->
         @else
             <div class="grid-x grid-padding-x">
-                @foreach($reports as $report)
+                @foreach($reports->whereNotNull('sideone') as $report)
                 <div class="cell small-6 medium-4 ml-3">
                     <div class="report-polaroid">
-                        <a href="{{ $report->sideone }}" data-lity>
-                            <img src="{{ $report->sideonethumb }}">
+                        <a href="/assets/catch-reports/sideone/{{ $report->id }}.{{ Str::afterLast($report->sideone, '.') }}" data-lity>
+                            <img src="/assets/catch-reports/sideone/{{ $report->id }}">
                         </a>
                         <p class="text-center">{{ $report->lbs }}lb {{ $report->oz }}oz</p>
                     </div>

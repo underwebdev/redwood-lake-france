@@ -93,7 +93,7 @@
 		<div class="cell small-12 medium-4 large-3">
 			<div class="fish-list-block">
                 <div class="fish-photo-container"> 
-                    <img src="{{ $fish->sideone }}">
+                    <img src="assets/stock/sideone/{{ $fish->id }}">
                 </div>
             </div>
 		    <div class="stock-info">

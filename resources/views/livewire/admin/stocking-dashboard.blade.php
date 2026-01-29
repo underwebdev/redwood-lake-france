@@ -106,10 +106,10 @@
                     @foreach($selectedStocking->items as $fish)
                     <div class="cell small-12 medium-6 large-4">
                         <div class="fish-photo">
-                            <img src="{{ $fish->side1 }}">
+                            <img src="/assets/stocking/side1/{{ $fish->id }}.{{ Str::afterLast($fish->side1, '.') }}">
                         </div>
                         <div class="fish-photo">
-                            <img src="{{ $fish->side2 }}">
+                            <img src="/assets/stocking/side2/{{ $fish->id }}.{{ Str::afterLast($fish->side2, '.') }}">
                         </div>
                         <button class="button success expanded" wire:click="selectFish('{{ $fish->id }}')">View Fish</button>
                     </div><!-- End of cell-->
@@ -139,10 +139,10 @@
                                     <td>{{ $fish->class }}</td>
                                     <td>{{ $fish->specimen->name }}</td>
                                     <td class="text-center">
-                                        <a href="{{ $fish->side1 }}" data-lity>
+                                        <a href="/assets/stocking/side1/{{ $fish->id }}.{{ Str::afterLast($fish->side1, '.') }}" data-lity>
                                             <i class="fas fa-camera"></i>
                                         </a>
-                                        <a href="{{ $fish->side2 }}" data-lity>
+                                        <a href="/assets/stocking/side2/{{ $fish->id }}.{{ Str::afterLast($fish->side2, '.') }}" data-lity>
                                             <i class="fas fa-camera"></i>
                                         </a>
                                     </td>

@@ -96,7 +96,7 @@ return [
     */
 
     'temporary_file_upload' => [
-        'disk' => null,        // Example: 'local', 's3'              | Default: 'default'
+        'disk' => 'local',        // Example: 'local', 's3'              | Default: 'default'
         'rules' => ['required', 'file', 'max:2048', 'mimes:jpg,jpeg,png,webp,pdf'],       // 
         'directory' => null,   // Example: 'tmp'                      | Default: 'livewire-tmp'
         'middleware' => 'livewire-upload',   

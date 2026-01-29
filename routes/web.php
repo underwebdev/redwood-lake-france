@@ -9,6 +9,7 @@ use App\Http\Controllers\WebhookController;
 use App\Http\Controllers\EndpointController;
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\MailhookController;
+use App\Http\Controllers\AssetController;
 
 /*
 |--------------------------------------------------------------------------
@@ -105,3 +106,8 @@ Route::middleware(['guest'])->group(function () {
 	Route::get('forgot-password', [LoginController::class, 'forgot']);
 	Route::post('forgot-password', [LoginController::class, 'reset']);	
 });
+
+Route::get('assets/lake-gallery/{gallery}', [AssetController::class, 'gallery']);
+Route::get('assets/stock/{side}/{stock}', [AssetController::class, 'stock']);
+Route::get('assets/catch-reports/{side}/{report}', [AssetController::class, 'report']);
+Route::get('assets/stocking/{side}/{fish}', [AssetController::class, 'stocking']);
