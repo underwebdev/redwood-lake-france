@@ -14,46 +14,49 @@ class AssetController extends Controller
 {
     public function gallery(Fishgallery $gallery)
     {
-        $path = 'public/'  . Str::after($gallery->thumbnail, '/storage/');
+        $path = 'redwoodlake/public/'  . Str::after($gallery->thumbnail, '/storage/');
 
-        $this->asset($path);
+        return Storage::disk('s3')->response($path, null, [
+            'Content-Disposition' => 'inline',
+            'Cache-Control' => 'private, max-age=300',
+        ]);
     }
 
     public function stock($side, Stock $stock)
     {
         $photo = $stock->{$side}; // side1 or side2
     
-        $path = 'public/' . Str::after($photo, '/storage/');
+        $path = 'redwoodlake/public/' . Str::after($photo, '/storage/');
         
 
-        $this->asset($path);
+        return Storage::disk('s3')->response($path, null, [
+            'Content-Disposition' => 'inline',
+            'Cache-Control' => 'private, max-age=300',
+        ]);
     }
 
     public function report($side, Report $report)
     {
         $photo = $report->{$side . 'thumb'}; // side1 or side2
 
-        $path = 'public/' . Str::after($photo, '/storage/');
+        $path = 'redwoodlake/public/' . Str::after($photo, '/storage/');
 
-        $this->asset($path);
+        return Storage::disk('s3')->response($path, null, [
+            'Content-Disposition' => 'inline',
+            'Cache-Control' => 'private, max-age=300',
+        ]);
     }
 
     public function stocking($side, Item $fish)
     {
         $photo = $fish->{$side}; // side1 or side2
 
-        $path = 'public/' . Str::after($photo, '/storage/');
+        $path = 'redwoodlake/public/' . Str::after($photo, '/storage/');
 
-        $this->asset($path);
-    }
-
-    public function asset($path)
-    {
         return Storage::disk('s3')->response($path, null, [
             'Content-Disposition' => 'inline',
             'Cache-Control' => 'private, max-age=300',
         ]);
-
     }
 
 }
