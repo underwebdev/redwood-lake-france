@@ -9,7 +9,7 @@
 	<div class="cell small-12 large-8">
 		<div class="feature-container">	 
 			@isset($article->cover)
-				<img src="{{ $article->cover }}" class="news-feature">
+				<img src="/assets/article-cover/{{ $article->id }}" class="news-feature">
 			@endisset
 		
 			<h2>{{ $article->title }}</h2>
@@ -23,8 +23,8 @@
 				@foreach($article->images as $image)
 				<div class="cell small-12 medium-6 ml-4 large-6 xlarge-4 text-center">
 					<div class="news-thumb">
-						<a href="{{ $image->image}}" data-lity>
-						<img src="{{ $image->thumbnail }}">
+						<a href="/assets/article-gallery/{{ $image->id }}.{{ Str::afterLast($image->image, '.') }}" data-lity>
+						<img src="/assets/article-gallery/{{ $image->id }}.{{ Str::afterLast($image->image, '.') }}">
 						</a>
 					</div>
 				</div>

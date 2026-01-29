@@ -46,7 +46,11 @@
         <div class="grid-x grid-padding-x">
             <div class="cell small-12">
                 <form wire:submit.prevent="savePost">
-                    <img src="{{ $diary->photo }}">
+                    @if($photo)
+                        <img src="{{ $photo->temporaryUrl() }}">
+                    @else
+                        <img src="/assets/photo-diary/{{ $diary->id }}">
+                    @endif
                     @error('photo')<label><span class="error">{{ $message }}</span></label>@enderror
                     <input type="file" wire:model="photo">
 
@@ -67,7 +71,7 @@
             <div class="cell small-12 text-center">
                 <h3>Are you sure you want to delete this photo?</h3>
                 <p><span class="error">This acton can not be undone.</span></p>
-                <img src="{{ $diary->photo }}">
+                <img src="/assets/photo-diary/{{ $diary->id }}">
                 <div class="button-group text-center">
                     <button class="button alert" wire:click="delete">Delete Image</button>
                     <button class="button warning" wire:click="$set('mode', null)">Cancel</button>
@@ -80,14 +84,14 @@
         <div class="grid-x grid-padding-x">
             <div class="cell small-12 large-6">
                 @isset($featured)
-                    <img src="{{ $featured->photo }}" class="news-feature">
+                    <img src="/assets/photo-diary/{{ $featured->id }}" class="news-feature">
                     <p class="text-center"><strong>{{ $featured->caption }} - {{ date('j/m/y', strtotime ($featured->date)) }}</strong></p>
                 @endif 
             </div>
 
             <div class="cell small-12 large-6">
                 @isset($secondary)
-                    <img src="{{ $secondary->photo }}" class="news-feature">
+                    <img src="/assets/photo-diary/{{ $secondary->id }}" class="news-feature">
                     <p class="text-center"><strong>{{ $secondary->caption }} - {{ date('j/m/y', strtotime ($secondary->date)) }}</strong></p>
                 @endif
             </div>
@@ -97,8 +101,8 @@
             @unless($photo->is_featured != Null)
             <div class="cell small-12 medium-6 ml-4 large-4 xlarge-3 text-center">
                 <div class="photo-border-block">
-                    <a href="{{ $photo->photo }}" data-lity>
-                    <img src="{{ $photo->thumbnail }}">
+                    <a href="/assets/photo-diary/{{ $photo->id }}.{{ Str::afterLast($photo->photo, '.') }}" data-lity>
+                    <img src="/assets/photo-diary/{{ $photo->id }}">
                     </a>
                 </div>
                 <p>{{ $photo->caption }} - {{ date('j/m/y', strtotime ($photo->date)) }}</p>

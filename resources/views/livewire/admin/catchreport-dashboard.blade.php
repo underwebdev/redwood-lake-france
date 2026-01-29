@@ -35,18 +35,22 @@
         <div class="grid-x grid-padding-x">
             @if($mode == 1)
                 @if($view)
-                    @foreach($reports as $report)
+                    @foreach($reports->whereNotNull('sideone') as $report)
                     <div class="cell small-12 medium-6 ml-4 large-4 xlarge-3 text-center">
+                        @isset($report->sideone)
                         <div class="photo-border-block">
-                            <a href="{{ $report->sideone }}" data-lity>
-                            <img src="{{ $report->sideonethumb }}?{{ $report->updated_at }}">
+                            <a href="/assets/catch-reports/sideone/{{ $report->id }}.{{ Str::afterLast($report->sideone, '.') }}" data-lity>
+                                <img src="/assets/catch-reports/sideone/{{ $report->id }}.{{ Str::afterLast($report->sideone, '.') }}">
                             </a>
                         </div>
+                        @endisset
+                        @isset($report->sidetwo)
                         <div class="photo-border-block">
-                            <a href="{{ $report->sidetwo }}" data-lity>
-                            <img src="{{ $report->sidetwothumb }}?{{ $report->updated_at }}">
+                            <a href="/assets/catch-reports/sidetwo/{{ $report->id }}.{{ Str::afterLast($report->sidetwo, '.') }}" data-lity>
+                                <img src="/assets/catch-reports/sidetwo/{{ $report->id }}.{{ Str::afterLast($report->sidetwo, '.') }}">
                             </a>
                         </div>
+                        @endisset
                         <p>{{ $report->lbs }}lbs {{ $report->oz }}oz<br>
                         {{ date('j/m/y', strtotime ($report->date)) }}</p>
                         <button class="button expanded alert" wire:click="selectReport('{{ $report->id }}')">Update Report</button> 
@@ -101,12 +105,12 @@
                                     <td class="text-center">{{ $report->specimen->name }}</td>
                                     <td class="text-center">
                                         @isset($report->sideone)
-                                        <a href="{{ $report->sideone }}" data-lity>
+                                        <a href="/assets/catch-reports/sideone/{{ $report->id }}.{{ Str::afterLast($report->sideone, '.') }}" data-lity>
                                             @include('icons.camera')
                                         </a>
                                         @endisset
                                         @isset($report->sidetwo)
-                                        <a href="{{ $report->sidetwo }}" data-lity>
+                                        <a href="/assets/catch-reports/sidetwo/{{ $report->id }}.{{ Str::afterLast($report->sidetwo, '.') }}" data-lity>
                                             @include('icons.camera')
                                         </a>
                                         @endisset
@@ -620,7 +624,7 @@
                 <div class="grid-x grid-padding-x">
                     <div class="cell small-12 medium-6">
                         @if($selectedReport->sideone != Null)
-                            <img src="{{ $selectedReport->sideone }}?{{ $selectedReport->updated_at }}">
+                            <img src="/assets/catch-reports/sideone/{{ $selectedReport->id }}.{{ Str::afterLast($selectedReport->sideone, '.') }}">
                             <div class="button-group">
                                 <button class="button expanded warning" wire:click="rotate('1')">Rotate Image</button>
                                 <button class="button expanded alert" wire:click="deleteImage('1')">Delete Photo</button>
@@ -636,7 +640,7 @@
                     </div><!-- End of cell-->
                     <div class="cell small-12 medium-6">
                         @if($selectedReport->sidetwo != Null)
-                            <img src="{{ $selectedReport->sidetwo }}?{{ $selectedReport->updated_at }}">
+                            <img src="/assets/catch-reports/sidetwo/{{ $selectedReport->id }}.{{ Str::afterLast($selectedReport->sidetwo, '.') }}">
                             <div class="button-group">
                                 <button class="button expanded warning" wire:click="rotate('2')">Rotate Image</button>
                                 <button class="button expanded alert" wire:click="deleteImage('2')">Delete Photo</button>

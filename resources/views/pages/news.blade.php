@@ -27,7 +27,7 @@
 				<div class="cell small-12 medium-12 ml-8" data-equalizer-watch>
 					@isset($featured->cover)
 					<a href="/article/{{ $featured->url }}">
-					    <img src="{{ $featured->cover }}" class="news-feature" >
+					    <img src="/assets/article-cover/{{ $featured->id }}" class="news-feature" >
 					</a>
 					@endisset
 				</div>
@@ -52,7 +52,7 @@
 			<div class="news-holder" data-equalizer-watch>
 				<div class="news-thumb">
 					<a href="/article/{{ $article->url }}">
-						<img src="{{ $article->thumbnail }}">
+						<img src="/assets/article-cover/{{ $article->id }}">
 					</a>
 				</div>
 				<h5><a href="/article/{{ $article->url }}">{{ $article->title }}</a></h5>

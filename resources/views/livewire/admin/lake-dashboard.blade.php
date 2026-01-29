@@ -45,7 +45,7 @@
         <div class="grid-x grid-padding-x">
             @foreach($lake->swims as $swim)
             <div class="cell small-12 medium-4 large-3">
-                @isset($swim->thumbnail)<img src="{{ $swim->thumbnail }}">@endisset
+                @isset($swim->thumbnail)<img src="/assets/swims/{{ $swim->id }}">@endisset
                 <h5 class="text-center">{{ $swim->name }}</h5>
                 <button class="button warning expanded" wire:click="selectSwim('{{ $swim->id }}')">Update Swim</button>  
             </div><!-- End of cell-->
@@ -54,7 +54,7 @@
         <div class="grid-x grid-padding-x">
             @foreach($lake->images as $image)
             <div class="cell small-12 medium-6 large-4">
-                <img src="{{ $image->photo }}">
+                <img src="/assets/lake-gallery/{{ $image->id }}">
                 <button class="button expanded warning" wire:click="selectFish('{{ $image->id }}')">Update Image</button>
             </div><!-- End of cell-->
             @endforeach
@@ -89,9 +89,11 @@
 
                 <button class="button success" wire:click="saveSwimChanges">Save Changes</button>
 
-                @isset($selectedSwim->photo)
-                <img src="{{ $selectedSwim->thumbnail }}">
-                @endisset
+                @if($photo)
+                <img src="{{ $photo->temporaryUrl() }}">
+                @elseif($selectedSwim->photo)
+                <img src="/assets/swims/{{ $selectedSwim->id }}">
+                @endif
 
                 <input type="file" wire:model="photo">
             </div>
@@ -112,8 +114,15 @@
         <div class="grid-x grid-padding-x">
             <div class="cell small-12 medium-8 large-6 medium-offset-2 large-offset-3">
                 <input type="file" wire:model="fishphoto">
-                @if($selectedFish)
-                <img src="{{ $selectedFish->photo }}">
+                @if($fishphoto)
+                <div>
+                    <img src="{{ $fishphoto->temporaryUrl() }}">
+                </div>
+                @elseif($selectedFish)
+                <div>
+                    <img src="/assets/lake-gallery/{{ $selectedFish->id }}">
+                </div>
+              
                 @endif
                 <button class="button success" wire:click="saveFish">Save Photo</button>              
             </div><!-- End of cell-->

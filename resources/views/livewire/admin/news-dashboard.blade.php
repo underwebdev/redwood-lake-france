@@ -77,7 +77,7 @@
 				<div class="cell small-12 medium-6 large-4">
 					<div class="news-holder" data-equalizer-watch>
 						<div class="news-thumb">
-							<img src="{{ $article->thumbnail }}">
+							<img src="/assets/article-cover/{{ $article->id }}">
 						</div>
 						<h5 class="heading-font"><strong>{{ $article->title }}</strong></h5>
 						<small><i class="far fa-calendar-alt"></i> {{ date('j M Y', strtotime ($article->created_at)) }} <span class="seperator">/</span> {{ date('H:i A', strtotime ($article->created_at)) }}</small><br>

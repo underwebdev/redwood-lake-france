@@ -178,7 +178,7 @@
             <div class="cell small-12 medium-4 large-3">
                 <div class="fish-list-block">
                     <div class="fish-photo-container"> 
-                        <img src="{{ $fish->sideone }}">
+                        <img src="/assets/stock/sideone/{{ $fish->id }}">
                     </div>
                 </div>
                 @isset($fish->name)<strong>{{ $fish->name }}</strong><br>@endisset
@@ -201,7 +201,7 @@
         <div class="grid-x grid-padding-x">
             @foreach($reports->whereNotNull('sideone') as $report)
             <div class="cell small-12 medium-4 large-3 text-center">
-                <img src="{{ $report->sideone }}">
+                <img src="/assets/catch-reports/sideone/{{ $report->id }}.{{ Str::afterLast($report->sideone, '.') }}">
                 <strong>{{ $report->lbs }}lb {{ $report->oz }}oz</strong>
                 <button class="button success expanded" wire:click="selectReport('{{ $report->id }}')">Look Up</button>
             </div><!-- End of cell-->
@@ -211,12 +211,12 @@
         <div class="grid-x grid-padding-x">
             <div class="cell small-12 medium-4" data-sticky-container>
                 <div class="sticky" data-sticky data-top-anchor="admin-nav:bottom" data-check-every="0">
-                    <a href="{{ $selectedReport->sideone }}" data-lity>
-                        <img src="{{ $selectedReport->sideonethumb }}">
+                    <a href="/assets/catch-reports/sideone/{{ $selectedReport->id }}.{{ Str::afterLast($selectedReport->sideone, '.') }}" data-lity>
+                        <img src="/assets/catch-reports/sideone/{{ $selectedReport->id }}">
                     </a>
                     @isset($selectedReport->sidetwothumb)
-                    <a href="{{ $selectedReport->sidetwo }}" data-lity>
-                        <img src="{{ $selectedReport->sidetwothumb }}">
+                    <a href="/assets/catch-reports/sidetwo/{{ $selectedReport->id }}.{{ Str::afterLast($selectedReport->sidetwo, '.') }}" data-lity>
+                        <img src="/assets/catch-reports/sidetwo/{{ $selectedReport->id }}">
                     </a>
                     @endisset
                     <div class="text-center">
@@ -233,7 +233,9 @@
                     @foreach($stock->where('specimen_id', $selectedReport->specimen_id) as $fish)
                     <div class="cell small-12 medium-6 text-center">
                         <div>
-                            <img src="{{ $fish->sideonethumb }}">
+                            
+                            <img src="/assets/stock/sideone/{{ $fish->id }}">
+                        
                         </div>
                         <strong>{{ $fish->lbs }}lbs {{ $fish->oz }}oz</strong>
                         <button class="button success expanded" wire:click="attachReport('{{ $fish->id }}')">Attach Fish</button>
@@ -241,7 +243,7 @@
                     <div class="cell small-12 medium-6">
                         @isset($fish->sidetwothumb)
                         <div>
-                            <img src="{{ $fish->sidetwothumb }}">
+                             <img src="/assets/stock/sidetwo/{{ $fish->id }}">
                         </div>
                         @else
                             <p class="text-center"><strong>Not Available</strong></p>
@@ -326,14 +328,14 @@
                 <div class="cell small-12 text-center" data-sticky-container>
                 <div class="sticky" data-sticky data-top-anchor="dark-container:bottom">
                     <div class="photo-border-block">
-                        <a href="{{ $selectedFish->sideone }}" data-lity>
-                        <img src="{{ $selectedFish->sideone }}">
+                        <a href="/assets/stock/sideone/{{ $selectedFish->id }}.{{ Str::afterLast($selectedFish->sideone, '.') }}" data-lity>
+                            <img src="/assets/stock/sideone/{{ $selectedFish->id }}">
                         </a>
                     </div>
                     @isset($selectedFish->sidetwo)
                     <div class="photo-border-block">
-                        <a href="{{ $selectedFish->sidetwo }}" data-lity>
-                        <img src="{{ $selectedFish->sidetwo }}">
+                        <a href="/assets/stock/sidetwo/{{ $selectedFish->id }}.{{ Str::afterLast($selectedFish->sidetwo, '.') }}" data-lity>
+                        <img src="/assets/stock/sidetwo/{{ $selectedFish->id }}">
                         </a>
                     </div>
                     @endisset
@@ -410,12 +412,12 @@
                                 
                                 <td class="text-center">
                                     @isset($report->sideone)
-                                        <a href="{{ $report->sideone }}" data-lity>
+                                        <a href="/assets/catch-reports/sideone/{{ $report->id }}.{{ Str::afterLast($report->sideone, '.') }}" data-lity>
                                             <i class="fas fa-camera"></i>
                                         </a>
                                     @endif
                                     @isset($report->sidetwo)
-                                        <a href="{{ $report->sidetwo }}" data-lity>
+                                        <a href="/assets/catch-reports/sidetwo/{{ $report->id }}.{{ Str::afterLast($report->sidetwo, '.') }}" data-lity>
                                             <i class="fas fa-camera"></i>
                                         </a>
                                     @endif
@@ -437,10 +439,10 @@
                                 <td>Stocked</td>
                                 <td>{{ $selectedFish->item->lbs }}lbs {{ $selectedFish->item->oz }}oz</td>
                                 <td class="text-center">
-                                    <a href="{{ $selectedFish->item->side1 }}" data-lity>
+                                    <a href="/assets/stocking/side1/{{ $selectedFish->item->id }}.{{ Str::afterLast($selectedFish->item->side1, '.') }}" data-lity>
                                         <i class="fas fa-camera"></i>
                                     </a>
-                                    <a href="{{ $selectedFish->item->side2 }}" data-lity>
+                                    <a href="/assets/stocking/side2/{{ $selectedFish->item->id }}.{{ Str::afterLast($selectedFish->item->side2, '.') }}" data-lity>
                                         <i class="fas fa-camera"></i>
                                     </a>    
                                 </td>
@@ -487,7 +489,7 @@
         <div class="grid-x grid-padding-x">
             @foreach($deadlist as $fish)
             <div class="cell small-12 medium-4 large-3">
-                <img src="{{ $fish->sideone }}">
+                <img src="/assets/stock/sideone/{{ $fish->id }}">
                 @isset($fish->name)<strong>{{ $fish->name }}</strong>@endisset
                 <strong>Top Weight:</strong> {{ $fish->lbs }}lb {{ $fish->oz }}oz<br>
                 <strong>Last Capture:</strong> 

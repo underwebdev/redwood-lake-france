@@ -60,9 +60,13 @@
                             @enderror
                         </label>
                         <input type="file" wire:model="sideone">
-                        @if($report->sideone)
+                        @if($sideone)
                         <div class="photo-preview">
-                            <img src="{{ $report->sideone }}">
+                            <img src="{{ $sideone->temporaryUrl() }}">
+                        </div>
+                        @elseif($report->sideone)
+                        <div class="photo-preview">
+                            <img src="/assets/catch-reports/sideone/{{ $report->id }}.{{ Str::afterLast($report->sideone, '.') }}">
                         </div>
                         @endif
                           
@@ -74,9 +78,13 @@
                             @enderror
                         </label>
                         <input type="file" wire:model="sidetwo">
-                        @if($report->sidetwo)
+                        @if($sidetwo)
                         <div class="photo-preview">
-                            <img src="{{ $report->sidetwo }}">
+                            <img src="{{ $sidetwo->temporaryUrl() }}">
+                        </div>
+                        @elseif($report->sidetwo)
+                        <div class="photo-preview">
+                            <img src="/assets/catch-reports/sidetwo/{{ $report->id }}.{{ Str::afterLast($report->sidetwo, '.') }}">
                         </div>
                         @endif
                     </div><!-- End of cell-->

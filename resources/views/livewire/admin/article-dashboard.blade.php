@@ -56,7 +56,7 @@
             @if($mode == 1)
                 <div class="cell small-12 large-8 large-offset-2">
                     
-                    <img src="{{ $article->cover }}">
+                    <img src="/assets/article-cover/{{ $article->id }}">
 
                     <div class="profilewhitebx">
                         <h1>{{ $article->title }}</h1>
@@ -78,8 +78,8 @@
                             @foreach($article->images as $image)
                             <div class="cell small-12 medium-6 ml-4 large-4 xlarge-3 text-center">
                                 <div class="photo-border-block">
-                                    <a href="{{ $image->image }}" data-lity>
-                                    <img src="{{ $image->image }}">
+                                    <a href="/assets/article-gallery/{{ $image->id }}.{{ Str::afterLast($image->image, '.') }}" data-lity>
+                                    <img src="/assets/article-gallery/{{ $image->id }}.{{ Str::afterLast($image->image, '.') }}">
                                     </a>
                                 </div>
 
@@ -97,7 +97,7 @@
                 </div><!-- End of cell-->
             @elseif($mode == 3)
                 <div class="cell small-12 large-8 large-offset-2">
-                    <img src="{{ $article->cover }}">
+                    <img src="/assets/article-cover/{{ $article->id }}">
                     <br><br>
                     <input type="file" wire:model="cover">
                     

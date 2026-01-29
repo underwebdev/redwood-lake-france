@@ -3,7 +3,7 @@
         <div class="cell small-12 large-8">
             @if($selectedSwim)
                 @isset($selectedSwim->photo)
-                    <img src="{{ $selectedSwim->photo }}" class="lake-map">
+                    <img src="/assets/swims/{{ $selectedSwim->id }}" class="lake-map">
                 @endisset
             @else
                 <img src="/img/redwood-map.png" class="lake-map">

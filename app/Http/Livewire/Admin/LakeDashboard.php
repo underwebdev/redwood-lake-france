@@ -162,6 +162,10 @@ class LakeDashboard extends Component
 
     public function saveFish()
     {
+        $data = $this->validate([
+            'fishphoto' => 'required'
+        ]);
+        
         $lake = Lake::find(1);
 
         $photo = $this->fishphoto;

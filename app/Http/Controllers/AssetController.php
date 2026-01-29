@@ -9,6 +9,11 @@ use App\Models\Fishgallery;
 use App\Models\Stock;
 use App\Models\Report;
 use App\Models\Item;
+use App\Models\Swim;
+use App\Models\Photodiary;
+use App\Models\Article;
+use App\Models\Articleimage;
+
 
 class AssetController extends Controller
 {
@@ -47,11 +52,41 @@ class AssetController extends Controller
         return $this->asset($path);
     }
 
+    public function swims(Swim $swim)
+    {
+        $path = 'public/'  . Str::after($swim->photo, '/storage/');
+
+        return $this->asset($path);
+    }
+
+    public function photodiary(Photodiary $photodiary)
+    {
+        $path = 'public/'  . Str::after($photodiary->photo, '/storage/');
+
+        return $this->asset($path);
+    }
+
+    public function article(Article $article)
+    {
+        $path = 'public/'  . Str::after($article->cover, '/storage/');
+
+        return $this->asset($path);
+    }
+
+    public function articleimage(Articleimage $articleimage)
+    {
+        $path = 'public/'  . Str::after($articleimage->image, '/storage/');
+
+        return $this->asset($path);
+    }
+
+
+
     public function asset($path)
     {
         return Storage::disk('s3')->response($path, null, [
             'Content-Disposition' => 'inline',
-            'Cache-Control' => 'private, max-age=300',
+            'Cache-Control' => 'private, max-age=0, must-revalidate',
         ]);
     }
 

@@ -77,10 +77,11 @@
                                     <td>{{ $report->specimen->name }}</td>
                                     <td class="text-center">
                                         @isset($report->sideone)
-                                            <a href="{{ $report->sideone }}" data-lity><i class="fas fa-camera"></i></a>
+                                            <a href="/assets/catch-reports/sideone/{{ $report->id }}.{{ Str::afterLast($report->sideone, '.') }}" data-lity><i class="fas fa-camera"></i></a>
+                                          
                                         @endisset
                                         @isset($report->sidetwo)
-                                            <a href="{{ $report->sidetwo }}" data-lity><i class="fas fa-camera"></i></a>
+                                            <a href="/assets/catch-reports/sidetwo/{{ $report->id }}.{{ Str::afterLast($report->sidetwo, '.') }}" data-lity><i class="fas fa-camera"></i></a>
                                         @endisset
                                     </td>
                                     <td class="text-center">

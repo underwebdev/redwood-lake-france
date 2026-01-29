@@ -269,11 +269,11 @@
         @elseif($mode == 5)
             <div class="cell small-12 medium-4">
                 <div class="fish-photo">
-                    <img src="{{ $selectedFish->side1 }}">
+                    <img src="/assets/stock/sideone/{{ $selectedFish->id }}">
                 </div>
 
                 <div class="fish-photo">
-                    <img src="{{ $selectedFish->side2 }}">
+                    <img src="/assets/stock/sidetwo/{{ $selectedFish->id }}">
                 </div>
 
                 <button class="button alert expanded" wire:click="$set('mode', 2)">Go Back</button>

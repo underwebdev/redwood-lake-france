@@ -30,13 +30,13 @@
 			</div><!-- End of cell-->
 			<div class="cell small-12 medium-6 text-center">
 				<div class="photo-diary-hero">
-					<img src="{{ $featured->photo }}">
+					<img src="/assets/photo-diary/{{ $featured->id }}.{{ Str::afterLast($featured->photo, '.') }}">
 				</div>
 				<p class="text-center"><strong>{{ $featured->caption }}</strong></p>
 			</div><!-- End of cell-->
 			<div class="cell small-12 medium-6 text-center">
 				<div class="photo-diary-hero">
-					<img src="{{ $secondary->photo }}">
+					<img src="/assets/photo-diary/{{ $secondary->id }}.{{ Str::afterLast($secondary->photo, '.') }}">
 				</div>
 				<p class="text-center"><strong>{{ $secondary->caption }}</strong></p>
 			</div><!-- End of cell-->
@@ -47,8 +47,8 @@
 			@foreach($photos as $photo)
 			<div class="cell small-6 medium-4 large-3">
 				<div class="photo-diary-thumb">
-					<a href="{{ $photo->photo }}" data-lity>
-						<img src="{{ $photo->thumbnail }}">
+					<a href="/assets/photo-diary/{{ $photo->id }}.{{ Str::afterLast($photo->photo, '.') }}" data-lity>
+						<img src="/assets/photo-diary/{{ $photo->id }}.{{ Str::afterLast($photo->photo, '.') }}">
 					</a>
 				</div>
 				<div class="photo-diary-caption">
