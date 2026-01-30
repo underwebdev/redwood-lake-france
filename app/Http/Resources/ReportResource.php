@@ -15,6 +15,7 @@ class ReportResource extends JsonResource
     public function toArray($request)
     {
         return [
+            'id' => $this->id,
             'date' => $this->date,
             'angler' => $this->angler->firstName . ' ' . $this->angler->lastName,
             'specimen' => $this->specimen->name,
