@@ -117,7 +117,9 @@ class PageController extends Controller
         $stock = Stock::whereNotNull('alive')->orderBy('lbs', 'desc')->orderBy('oz', 'desc')->get();
         $uncaught = Stock::whereNotNull('alive')->whereDoesntHave('reports')->count();
 
-        return view('pages.stock', compact('page', 'stock', 'uncaught'));
+        $allstock = Stock::whereNotNull('alive')->orderBy('lbs', 'desc')->orderBy('oz', 'desc')->simplepaginate(50);
+
+        return view('pages.stock', compact('page', 'stock', 'uncaught', 'allstock'));
     }
 
     public function fish(Stock $stock)

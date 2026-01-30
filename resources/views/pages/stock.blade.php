@@ -88,7 +88,7 @@
 
 <div class="grid-container full">
 	<div class="grid-x grid-padding-x">
-		@foreach($stock as $fish)
+		@foreach($allstock as $fish)
 		@if($fish->reports()->exists())
 		<div class="cell small-12 medium-4 large-3">
 			<div class="fish-list-block">
@@ -110,6 +110,15 @@
 		</div><!-- End of cell-->
 		@endif
 		@endforeach
+		
+		    
+		        <div class="cell small-12 text-center">
+		        	{{ $allstock->links() }}
+		                
+		        </div><!-- End of cell-->  
+		 
+		
+		
 	</div><!--end of grid-x -->
 </div><!--End of grid container-->
 </div>
