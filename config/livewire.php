@@ -97,7 +97,7 @@ return [
 
     'temporary_file_upload' => [
         'disk' => 'local',        // Example: 'local', 's3'              | Default: 'default'
-        'rules' => ['required', 'file', 'max:2048', 'mimes:jpg,jpeg,png,webp,pdf'],       // 
+        'rules' => ['required', 'file', 'max:8000', 'mimes:jpg,jpeg,png,webp,pdf'],       // 
         'directory' => null,   // Example: 'tmp'                      | Default: 'livewire-tmp'
         'middleware' => 'livewire-upload',   
         'preview_mimes' => [   // Supported file types for temporary pre-signed file URLs...

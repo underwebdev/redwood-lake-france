@@ -20,12 +20,12 @@
 <div class="off-canvas position-left" id="offCanvasLeft" data-off-canvas data-transition="push">
   <div class="mobile-menu" data-sticky-container>
         <i class="fas fa-times-circle"></i><button data-close="offCanvasLeft"><strong>Close Menu</strong></button><br>
-				<i class="fas fa-tree"></i><a href="/my-account">My Account</a>
-				<i class="fas fa-tree"></i><a href="/my-account/bookings">Bookings</a>
-				<i class="fas fa-tree"></i><a href="/my-account/my-reports">My Reports</a>
-				<i class="fas fa-tree"></i><a href="/my-account/catch-reports">Catch Reports</a>
-				<i class="fas fa-tree"></i><a href="/my-account/contact">Contact</a>
-				<i class="fas fa-tree"></i><a href="/my-account/settings">Settings</a>
+				<i class="fas fa-tree"></i><a href="/my-account">My Account</a><br>
+				<i class="fas fa-tree"></i><a href="/my-account/bookings">Bookings</a><br>
+				<i class="fas fa-tree"></i><a href="/my-account/my-reports">My Reports</a><br>
+				<i class="fas fa-tree"></i><a href="/my-account/catch-reports">Catch Reports</a><br>
+				<i class="fas fa-tree"></i><a href="/my-account/contact">Contact</a><br>
+				<i class="fas fa-tree"></i><a href="/my-account/settings">Settings</a><br>
 				<i class="fas fa-tree"></i><a href="/logout">Logout</a>
   </div>
 </div>
