@@ -113,7 +113,9 @@
 		
 		    
 		        <div class="cell small-12 text-center">
+		        	<nav aria-label="Pagination">
 		        	{{ $allstock->links() }}
+		        </nav>
 		                
 		        </div><!-- End of cell-->  
 		 
