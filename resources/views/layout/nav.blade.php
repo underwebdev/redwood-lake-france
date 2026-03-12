@@ -18,7 +18,7 @@
 			<li><a href="/location">Finding Us</a></li>
 			<li><a href="/facilities">Facilities</a></li>
 			<li><a href="/rules">Rules</a></li>
-			<li><a href="/news">News</a></li>
+			<li><a href="/news">Blog</a></li>
 			<li><a href="/photo-diary">Gallery</a></li>
 			<li><a href="/weather">Weather</a></li>
 		</ul>
@@ -107,7 +107,7 @@
 				<i class="far fa-newspaper"></i> 
 			</div>
 			<div class="link-container">
-				<a href="/news">News</a>
+				<a href="/news">Blog</a>
 			</div>
 		</div>
 		<div class="mobile-menu-item">

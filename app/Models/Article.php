@@ -20,4 +20,9 @@ class Article extends Model
     {
         return $this->hasMany(Articleimage::class);
     }
+
+    public function breadcrumbs()
+    {
+        return $this->hasMany(Breadcrumb::class);
+    }
 }

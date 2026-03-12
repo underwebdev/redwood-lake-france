@@ -60,9 +60,19 @@
 
                     <div class="profilewhitebx">
                         <h1>{{ $article->title }}</h1>
+                        <nav aria-label="You are here:" role="navigation">
+                        <ul class="breadcrumbs">
+                            @foreach($article->breadcrumbs as $breadcrumb)
+                            <li><a href="{{ $breadcrumb->url }}">{{ $breadcrumb->title }}</a></li>
+                            @endforeach
+                        </ul>
+                        </nav>
+
                         <p><small>{{ $article->created_at->diffForHumans() }}</small><br>
                             {!! nl2br(e($article->body)) !!}
                         </p>
+
+                        
                     </div>
                 </div><!-- End of cell-->
 
@@ -132,6 +142,42 @@
 
                         <button class="button success">Save Changes</button>
                     </form>
+
+                    @foreach($article->breadcrumbs as $breadcrumb)
+                    <div class="grid-x grid-padding-x">
+                        <div class="cell auto">
+                            {{ $breadcrumb->title }}
+                        </div>
+                        <div class="cell auto">
+                            {{ $breadcrumb->url }}
+                        </div>
+                        <div class="cell auto text-right">
+                            <button class="button alert tiny" wire:click="deleteBreadcrumb('{{ $breadcrumb->id }}')">Delete</button>
+                        </div>
+                    </div>
+                    @endforeach
+
+                    
+
+                    @if($createBreadcrumb)
+                    
+                    <label for="">Breadcrumb Title</label>
+                    <input type="text" placeholder="" wire:model="breadcrumbtitle">
+
+                    <label for="">Breadcrumb URL</label>
+                    <input type="text" placeholder="" wire:model="breadcrumburl">
+
+                    <div class="button-group stacked">
+                        <button class="button success" wire:click="saveBreadcrumb">Save Breadcrumb</button>
+
+                        <button class="button alert" wire:click="$toggle('createBreadcrumb')">Cancel</button>
+                    </div>
+                    @else
+                    <button class="" wire:click="$toggle('createBreadcrumb')">Add Breadcrumb +</button>
+                    @endif
+
+                    <br>
+                    <br>
                       
                 </div><!-- End of cell-->
             @endif

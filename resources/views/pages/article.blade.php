@@ -13,6 +13,15 @@
 			@endisset
 		
 			<h2>{{ $article->title }}</h2>
+			@if($article->breadcrumbs()->count() > 0)
+			<nav aria-label="You are here:" role="navigation">
+			<ul class="breadcrumbs">
+				@foreach($article->breadcrumbs as $breadcrumb)
+				<li><a href="{{ $breadcrumb->url }}">{{ $breadcrumb->title }}</a></li>
+				@endforeach
+			</ul>
+			</nav>
+			@endif
 			<p><small><i class="far fa-calendar-alt"></i> {{ date('j M Y', strtotime ($article->created_at)) }}  <span class="seperator"> / </span> {{ date('H:i A', strtotime ($article->created_at)) }} </small><br>
 			{!! nl2br(e($article->body)) !!}</p>
 

@@ -24,6 +24,10 @@ class ArticleDashboard extends Component
     public $metakeywords;
     public $url;
 
+    public $createBreadcrumb = false;
+    public $breadcrumbtitle, $breadcrumburl;
+
+
     public function mount()
     {
         $this->title = $this->article->title;
@@ -216,6 +220,36 @@ class ArticleDashboard extends Component
 
         return redirect()->to('admin/news')->with('success', 'Article Deleted'); 
 
+    }
+
+    public function saveBreadcrumb()
+    {
+        $data = $this->validate([
+            'breadcrumbtitle' => 'required',
+            'breadcrumburl' => 'required'
+        ]);
+
+        $this->article->breadcrumbs()->create([
+            'title' => $data['breadcrumbtitle'],
+            'url' => $data['breadcrumburl'],
+            'order' => $this->article->breadcrumbs()->count() + 1
+        ]);
+
+        $this->article->refresh();
+
+        $this->reset(['breadcrumbtitle', 'breadcrumburl', 'createBreadcrumb']);
+
+        session()->flash('success', 'Breadcrumb Saved!');
+    }
+
+    public function deleteBreadcrumb($id)
+    {
+        $breadcrumb = $this->article->breadcrumbs()->findOrFail($id);
+        $breadcrumb->delete();
+
+        $this->article->refresh();
+
+        session()->flash('success', 'Breadcrumb Deleted!');
     }
 
     public function render()
