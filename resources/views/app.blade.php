@@ -14,11 +14,14 @@
 	    <meta property="og:type" content="website"/>
 	    <meta property="og:image" content="https://redwoodlake.co.uk/img/rob-burgess-common.JPG"/>
 	    <meta property="og:locale" content="en_UK"/>
+	    <link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 		<link rel="manifest" href="/site.webmanifest">
+		<link rel="preload" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap" as="style">
 		<title>@yield('title')</title>
 		<style>
 			.hero{color:#fff;background-repeat:no-repeat;background-position:center top;background-attachment:fixed}.hero.home{background-image:url('/img/backgrounds/original-background.jpg')}.webp .hero.home{background-image:url('/img/backgrounds/original-background.webp')}.hero .button{font-weight:normal}.hero-text h1{margin-bottom:0;font-weight:800;filter:drop-shadow(5px 5px 5px #222);font-family:'Work Sans',sans-serif;padding-top:10%}.hero-text h2{filter:drop-shadow(5px 5px 5px #222);margin-bottom:25px;line-height:45px;font-family:'Work Sans',sans-serif}.hero-review{margin:15px 0 25px;font-size:25px;font-weight:700;padding:10px 5px}.hero-review p{filter:drop-shadow(5px 5px 5px #222);font-family:'Work Sans',sans-serif;font-style:italic}.hero svg{display:block;width:100%}
@@ -29,8 +32,6 @@
 		<link rel="canonical" href="@yield('url')">
 		<script defer src="https://underweb.co.uk/assets/ieQDGy"></script>
 
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap" rel="stylesheet">
 		
 		<script type="application/ld+json">
