@@ -33,7 +33,7 @@
 		<div class="grid-container">
 			<div class="grid-x grid-padding-x">
 				<div class="cell small-12">
-					<h3 class="text-center"><span class="weighted">Welcome to</span> Redwood Lake</h3>
+					<h2 class="text-center"><span class="weighted">Welcome to</span> Redwood Lake</h2>
 					@foreach($page->modules->where('order', 1) as $module)
 					<p>{!! nl2br(e($module->content)) !!}</p>
 					@endforeach
@@ -60,7 +60,7 @@
 				<div class="cell small-12 ml-6 align-self-middle text-right">
 					<div class="lake-video">
 						<iframe
-							src="https://www.youtube.com/embed/7VjuPR-cLFQ?si=1IUe-TqWhTpd3oYj&amp;controls=0" 
+							src="https://www.youtube-nocookie.com/embed/7VjuPR-cLFQ?si=1IUe-TqWhTpd3oYj&amp;controls=0" 
 							title="YouTube video player" 
 							frameborder="0" 
 							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
