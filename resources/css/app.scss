@@ -816,6 +816,50 @@ textarea {
   border-radius: 8px;
 }
 
+.youtube-facade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  display: block;
+}
+.youtube-facade img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.youtube-facade-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 68px;
+  height: 48px;
+  margin: -24px 0 0 -34px;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 12px;
+  pointer-events: none;
+}
+.youtube-facade-play::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -14px 0 0 -6px;
+  border: 14px solid transparent;
+  border-left-color: #fff;
+  border-width: 14px 22px 14px 22px;
+  margin-left: 4px;
+}
+.youtube-facade:hover .youtube-facade-play {
+  background: rgba(204, 0, 0, 0.9);
+}
+
 #fish-desc {
 
 	width: 99%

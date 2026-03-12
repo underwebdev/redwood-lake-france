@@ -59,14 +59,31 @@
 				</div><!-- End of cell-->
 				<div class="cell small-12 ml-6 align-self-middle text-right">
 					<div class="lake-video">
-						<iframe
-							src="https://www.youtube-nocookie.com/embed/7VjuPR-cLFQ?si=1IUe-TqWhTpd3oYj&amp;controls=0" 
-							title="YouTube video player" 
-							frameborder="0" 
-							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-							referrerpolicy="strict-origin-when-cross-origin" 
-							allowfullscreen></iframe> 
-					</div> 
+						<div class="youtube-facade" data-embed-url="https://www.youtube-nocookie.com/embed/7VjuPR-cLFQ?si=1IUe-TqWhTpd3oYj&amp;controls=0&amp;autoplay=1" role="button" tabindex="0" aria-label="Play video">
+							<img src="https://img.youtube.com/vi/7VjuPR-cLFQ/hqdefault.jpg" alt="" width="560" height="315" loading="lazy">
+							<span class="youtube-facade-play" aria-hidden="true"></span>
+						</div>
+					</div>
+					<script>
+					(function(){
+						var facade = document.querySelector('.youtube-facade');
+						if (!facade) return;
+						function loadEmbed() {
+							var url = facade.getAttribute('data-embed-url');
+							if (!url) return;
+							var iframe = document.createElement('iframe');
+							iframe.src = url;
+							iframe.title = 'YouTube video player';
+							iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+							iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+							iframe.allowFullscreen = true;
+							iframe.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;border-radius:8px;border:0;';
+							facade.parentNode.replaceChild(iframe, facade);
+						}
+						facade.addEventListener('click', loadEmbed);
+						facade.addEventListener('keydown', function(e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); loadEmbed(); } });
+					})();
+					</script>
 				</div><!-- End of cell-->
 			</div><!--end of grid-x -->
 		</div>
