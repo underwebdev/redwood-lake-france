@@ -1,2 +1,3 @@
+# Valid directives only: User-agent, Allow, Disallow, Sitemap (Content-Signal is invalid)
 User-agent: *
 Disallow:

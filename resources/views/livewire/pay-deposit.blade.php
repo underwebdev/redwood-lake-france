@@ -16,7 +16,8 @@
 
                             <p><strong>Please confirm you have read all the <a data-open="terms">booking terms and conditions</a> by selecting the dropdown box below to continue.</strong></p>
                             
-                            <select id="" wire:model="terms">
+                            <label for="paydep-terms">Confirm terms</label>
+                            <select id="paydep-terms" wire:model="terms">
                                 <option value="">Please Confirm</option>
                                 <option value="1">I have read and accept the booking terms & conditions</option> 
                             </select>
@@ -30,51 +31,51 @@
                         @elseif($step == 2)
                             <h4 class="text-center">Lead Booking Details</h4>
                             
-                            <label for="">First Name
+                            <label for="paydep-first-name">First Name
                                 @error('firstName')<span class="error">This field is required</span>@enderror
                             </label>
-                            <input type="text" placeholder="" wire:model="firstName">
+                            <input type="text" id="paydep-first-name" placeholder="" wire:model="firstName">
 
-                            <label for="">Last Name
+                            <label for="paydep-last-name">Last Name
                                 @error('lastName')<span class="error">This field is required</span>@enderror
                             </label>
-                            <input type="text" placeholder="" wire:model="lastName">
+                            <input type="text" id="paydep-last-name" placeholder="" wire:model="lastName">
 
-                            <label for="">Email
+                            <label for="paydep-email">Email
                                 @error('email')<span class="error">{{ $message }}</span>@enderror
                             </label>
-                            <input type="text" placeholder="" wire:model="email">
+                            <input type="text" id="paydep-email" placeholder="" wire:model="email">
 
-                            <label for="">Confirm Email
+                            <label for="paydep-email-confirmation">Confirm Email
                                 @error('email_confirmation')<span class="error">{{ $message }}</span>@enderror
                             </label>
-                            <input type="text" placeholder="" wire:model="email_confirmation">
+                            <input type="text" id="paydep-email-confirmation" placeholder="" wire:model="email_confirmation">
 
-                            <label for="">Telephone
+                            <label for="paydep-telephone">Telephone
                                 @error('telephone')<span class="error">This field is required</span>@enderror
                             </label>
-                            <input type="text" placeholder="" wire:model="telephone">
+                            <input type="text" id="paydep-telephone" placeholder="" wire:model="telephone">
 
-                            <label for="">Address
+                            <label for="paydep-address1">Address
                                 @error('address1')<span class="error">This field is required</span>@enderror
                             </label>
-                            <input type="text" placeholder="" wire:model="address1">
+                            <input type="text" id="paydep-address1" placeholder="" wire:model="address1">
 
-                            <label for="">Address Line 2 (optional)</label>
-                            <input type="text" placeholder="" wire:model="address2">
+                            <label for="paydep-address2">Address Line 2 (optional)</label>
+                            <input type="text" id="paydep-address2" placeholder="" wire:model="address2">
 
-                            <label for="">County (optional)</label>
-                            <input type="text" placeholder="" wire:model="address3">
+                            <label for="paydep-address3">County (optional)</label>
+                            <input type="text" id="paydep-address3" placeholder="" wire:model="address3">
 
-                            <label for="">Post Code
+                            <label for="paydep-postcode">Post Code
                                 @error('postcode')<span class="error">This field is required</span>@enderror
                             </label>
-                            <input type="text" placeholder="" wire:model="postcode">
+                            <input type="text" id="paydep-postcode" placeholder="" wire:model="postcode">
 
-                            <label for="">Number Of Anglers (Including lead)
+                            <label for="paydep-anglers">Number Of Anglers (Including lead)
                                 @error('anglers')<span class="error">This field is required</span>@enderror
                             </label>
-                            <select id=""wire:model="anglers">
+                            <select id="paydep-anglers" wire:model="anglers">
                                 <option value="">Please select</option>
                                 <option value="1">1</option> 
                                 <option value="2">2</option> 

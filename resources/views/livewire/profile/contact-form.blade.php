@@ -9,18 +9,18 @@
                     <h5 class="info-bar">Contact Us</h5>
                     <p>If you have any queries or questions about your booking or in general please use the form below to write a message, your account information will automatically be attach to the message</p>
 
-                    <label for="">Enquiry Type</label>
-                    <select id="" wire:model="type">
+                    <label for="profile-contact-type">Enquiry Type</label>
+                    <select id="profile-contact-type" wire:model="type">
                         <option value="0">General</option>
                         @foreach($bookings as $booking)
                         <option value="{{ $booking->id }}">Booking {{ date('j/m/y', strtotime ($booking->arrival)) }}</option>
                         @endforeach 
                     </select>
 
-                    <label for="">Message
+                    <label for="profile-contact-message">Message
                         @error('message')<span class="error">{{ $message }}</span>@enderror
                     </label>
-                    <textarea wire:model="message" cols="50" rows="10"></textarea>
+                    <textarea id="profile-contact-message" wire:model="message" cols="50" rows="10"></textarea>
 
                     <button class="button success" wire:click="sendMessage">Send Message</button>
                 @endif

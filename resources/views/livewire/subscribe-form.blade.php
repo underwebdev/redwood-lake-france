@@ -7,14 +7,14 @@
             @else
                 <h3 class="text-center">Subscribe For Updates</h3>
                 <p>We occasionally have weeks become available at short notice, these will usually be offered at a discounted rate, to get email notifications when these places become available enter your name and email below.</p>
-                <label for="">First Name
+                <label for="subscribe-first-name">First Name
                     @error('firstName')<span class="error">{{ $message }}</span>@enderror
                 </label>
-                <input type="text" placeholder="" wire:model="firstName">
-                <label for="">Email
+                <input type="text" id="subscribe-first-name" placeholder="" wire:model="firstName">
+                <label for="subscribe-email">Email
                     @error('email')<span class="error">{{ $message }}</span>@enderror
                 </label>
-                <input type="text" placeholder="" wire:model="email">
+                <input type="text" id="subscribe-email" placeholder="" wire:model="email">
                 <button class="button expanded secondary hollow" wire:click="subscribe">Get Notified</button>
             @endif
         </div><!-- End of cell-->
