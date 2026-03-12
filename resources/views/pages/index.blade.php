@@ -79,7 +79,10 @@
 		<div class="grid-x grid-padding-x">
 			<div class="cell small-12 ml-6 align-self-middle">
 				<div class="show-for-medium" id="fish-image">
-			    	<img src="/img/rob-burgess-common.JPG" class="photo-border-block" alt="Rob Burgess French Common Carp - Redwood Lake"> 
+			    	<picture>
+			    		<source type="image/webp" srcset="/img/rob-burgess-common-630w.webp 630w, /img/rob-burgess-common.webp 800w" sizes="(max-width: 768px) 100vw, 629px">
+			    		<img src="/img/rob-burgess-common.JPG" class="photo-border-block" alt="Rob Burgess French Common Carp - Redwood Lake" width="800" height="578" loading="lazy">
+			    	</picture>
 			  </div>
 			</div><!-- End of cell-->
 			<div class="cell small-12 ml-6">
@@ -89,7 +92,10 @@
 					<p>{!! nl2br(e($module->content)) !!}</p>
 				@endforeach
 
-				<img src="/img/rob-burgess-common.JPG" class="mobile-border-block hide-for-medium" alt="Rob Burgess French Common Carp - Redwood Lake">   
+				<picture>
+					<source type="image/webp" srcset="/img/rob-burgess-common-630w.webp 630w, /img/rob-burgess-common.webp 800w" sizes="(max-width: 768px) 100vw, 629px">
+					<img src="/img/rob-burgess-common.JPG" class="mobile-border-block hide-for-medium" alt="Rob Burgess French Common Carp - Redwood Lake" width="800" height="578" loading="lazy">
+				</picture>
 				</div>
 			</div><!-- End of cell-->
 		</div><!--end of grid-x -->
@@ -111,9 +117,15 @@
 			</div><!-- End of cell-->
 			<div class="cell small-12 large-6 align-self-middle text-right">
 				<div class="show-for-medium" id="facility-image">
-			  	<img src="/img/new-facillity.jpg" class="photo-border-block" alt="lake exclusive carp fishing in france facilities">
+			  	<picture>
+			  		<source type="image/webp" srcset="/img/new-facillity-620w.webp 620w, /img/new-facillity.webp 700w" sizes="(max-width: 768px) 100vw, 621px">
+			  		<img src="/img/new-facillity.jpg" class="photo-border-block" alt="lake exclusive carp fishing in france facilities" width="700" height="525" loading="lazy">
+			  	</picture>
 			  </div>
-			  <img src="/img/new-facillity.jpg" class="mobile-border-block hide-for-medium" alt="lake exclusive carp fishing in france facilities">   
+			  <picture>
+			  	<source type="image/webp" srcset="/img/new-facillity-620w.webp 620w, /img/new-facillity.webp 700w" sizes="(max-width: 768px) 100vw, 621px">
+			  	<img src="/img/new-facillity.jpg" class="mobile-border-block hide-for-medium" alt="lake exclusive carp fishing in france facilities" width="700" height="525" loading="lazy">
+			  </picture>
 			</div><!-- End of cell-->
 		</div><!--end of grid-x -->
 	</div>

@@ -16,7 +16,7 @@
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 		<link rel="manifest" href="/site.webmanifest">
-		<link rel="preload" href="/img/backgrounds/original-background.jpg" as="image">
+		<link rel="preload" href="/img/backgrounds/original-background.jpg" as="image" fetchpriority="high">
 		<title>@yield('title')</title>
 		<style>
 			.hero{color:#fff;background-repeat:no-repeat;background-position:center top;background-attachment:fixed}.hero.home{background-image:url('/img/backgrounds/original-background.jpg')}.hero .button{font-weight:normal}.hero-text h1{margin-bottom:0;font-weight:800;filter:drop-shadow(5px 5px 5px #222);font-family:'Work Sans',sans-serif;padding-top:10%}.hero-text h2{filter:drop-shadow(5px 5px 5px #222);margin-bottom:25px;line-height:45px;font-family:'Work Sans',sans-serif}.hero-review{margin:15px 0 25px;font-size:25px;font-weight:700;padding:10px 5px}.hero-review p{filter:drop-shadow(5px 5px 5px #222);font-family:'Work Sans',sans-serif;font-style:italic}.hero svg{display:block;width:100%}
@@ -48,9 +48,9 @@
 		</script>
 	</head>
 	<body>
-
+		<main id="main-content">
 			@yield('content')
-
+		</main>
 		@include('layout.footer')
 		
 		@livewireScripts

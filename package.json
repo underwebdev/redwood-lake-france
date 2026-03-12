@@ -3,7 +3,8 @@
     "scripts": {
         "dev": "vite",
         "build": "vite build",
-        "optimize-hero": "node scripts/optimize-hero-images.js"
+        "optimize-hero": "node scripts/optimize-hero-images.js",
+        "optimize-content-images": "node scripts/optimize-content-images.js"
     },
     "devDependencies": {
         "axios": "^0.25",
