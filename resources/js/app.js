@@ -1,10 +1,13 @@
 require('./foundation');
 require('./lity');
 
-function initScrollAnimations() {
-	if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
-	gsap.registerPlugin(ScrollTrigger);
+var gsap = require('gsap');
+var ScrollTrigger = require('gsap/ScrollTrigger');
+gsap.registerPlugin(ScrollTrigger);
+window.gsap = gsap;
+window.ScrollTrigger = ScrollTrigger;
 
+function initScrollAnimations() {
 	gsap.to(".hero", {
 	scrollTrigger: {
 		start: "center bottom",

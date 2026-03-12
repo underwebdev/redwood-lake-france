@@ -1,7 +1,7 @@
 <div data-sticky-container>
 <div class="grid-x title-bar align-left hide-for-ml sticky" data-hide-for="ml" data-sticky data-options="marginTop:0;" data-sticky-on="small">
-    <button class="menu-icon" type="button" data-open="offCanvasLeft"></button>
-    <div class="title-bar-title"><a data-open="offCanvasLeft">Menu</a></div>
+    <button class="menu-icon" type="button" data-open="offCanvasLeft" aria-label="Open menu" aria-expanded="false" aria-controls="offCanvasLeft"></button>
+    <div class="title-bar-title"><a data-open="offCanvasLeft" role="button" aria-expanded="false" aria-controls="offCanvasLeft">Menu</a></div>
   </div>
 </div>
 

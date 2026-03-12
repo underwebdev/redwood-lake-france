@@ -57,8 +57,6 @@
 		@include('layout.footer')
 		
 		@livewireScripts
-		<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
-		<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
 		<script defer src="{{ mix('js/app.js') }}"></script>
 		<script>
 		  window.addEventListener('activate-gsap', event => {
@@ -82,9 +80,6 @@
 						}
 					});
 		  })
-		</script>
-		<script>
-		    $(document).foundation(); 
 		</script>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;600;800&family=Work+Sans:ital,wght@1,300&display=swap" media="print" onload="this.media='all'">
 		<script>
