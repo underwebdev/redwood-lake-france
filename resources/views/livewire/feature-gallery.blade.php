@@ -12,7 +12,7 @@
             @foreach($thumbnails as $thumbnail)
             <div class="cell large-3">
                 <div class="gallery-block">
-                    <button wire:click="selectImage('{{ $thumbnail->id }}')"><img src="/assets/feature-gallery/{{ $thumbnail->id }}"></button>
+                    <button wire:click="selectImage('{{ $thumbnail->id }}')"><img src="/assets/feature-gallery/{{ $thumbnail->id }}" alt="{{ $thumbnail->alt }}"></button>
                 </div>
             </div><!-- End of cell-->
             @endforeach
