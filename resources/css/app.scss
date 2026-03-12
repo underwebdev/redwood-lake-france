@@ -26,6 +26,9 @@ hero-wave svg {
 	.home {
 		background-image: url('/img/backgrounds/original-background.jpg');
 	}
+	.webp .home {
+		background-image: url('/img/backgrounds/original-background.webp');
+	}
 
 	.lakebg {
 		background-image: url('/img/backgrounds/lake-background-2025.jpg');
@@ -80,6 +83,9 @@ hero-wave svg {
 	.home {
 		background-image: url('/img/backgrounds/tablet/original-background.jpg');
 	}
+	.webp .home {
+		background-image: url('/img/backgrounds/tablet/original-background.webp');
+	}
 
 	.lakebg {
 		background-image: url('/img/backgrounds/tablet/lake-background-2025.jpg');
@@ -132,6 +138,9 @@ hero-wave svg {
 @media all and (max-width: 429px) {
 	.home {
 			background-image: url('/img/backgrounds/mobile/original-background.jpg');
+		}
+		.webp .home {
+			background-image: url('/img/backgrounds/mobile/original-background.webp');
 		}
 
 		.lakebg {

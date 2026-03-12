@@ -1,15 +1,6 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en">
+<html class="no-js {{ request()->cookie('webp') ? 'webp' : '' }}" lang="en">
   <head>
-  		<!-- Google tag (gtag.js) -->
-			<script async src="https://www.googletagmanager.com/gtag/js?id=G-7RLZB3HEBM"></script>
-			<script>
-			  window.dataLayer = window.dataLayer || [];
-			  function gtag(){dataLayer.push(arguments);}
-			  gtag('js', new Date());
-
-			  gtag('config', 'G-7RLZB3HEBM');
-			</script>
 	    <meta charset="utf-8" />
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	    <meta name="description" content="@yield('metadescription')">
@@ -25,7 +16,11 @@
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 		<link rel="manifest" href="/site.webmanifest">
+		<link rel="preload" href="/img/backgrounds/original-background.jpg" as="image">
 		<title>@yield('title')</title>
+		<style>
+			.hero{color:#fff;background-repeat:no-repeat;background-position:center top;background-attachment:fixed}.hero.home{background-image:url('/img/backgrounds/original-background.jpg')}.hero .button{font-weight:normal}.hero-text h1{margin-bottom:0;font-weight:800;filter:drop-shadow(5px 5px 5px #222);font-family:'Work Sans',sans-serif;padding-top:10%}.hero-text h2{filter:drop-shadow(5px 5px 5px #222);margin-bottom:25px;line-height:45px;font-family:'Work Sans',sans-serif}.hero-review{margin:15px 0 25px;font-size:25px;font-weight:700;padding:10px 5px}.hero-review p{filter:drop-shadow(5px 5px 5px #222);font-family:'Work Sans',sans-serif;font-style:italic}.hero svg{display:block;width:100%}
+		</style>
 		<link rel="stylesheet" href="{{ mix('css/app.css') }}">
 		@livewireStyles
 
@@ -34,9 +29,7 @@
 
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;600;800&display=swap" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@1,300&display=swap" rel="stylesheet">
 		
 		<script type="application/ld+json">
 	    { "@context" : "http://schema.org",
@@ -89,6 +82,18 @@
 		</script>
 		<script>
 		    $(document).foundation(); 
+		</script>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;600;800&family=Work+Sans:ital,wght@1,300&display=swap" media="print" onload="this.media='all'">
+		<script>
+			(function(){var w=document.createElement('img');w.onload=function(){document.documentElement.classList.add('webp');document.cookie='webp=1;path=/;max-age=31536000'};w.onerror=function(){};w.src='data:image/webp;base64,UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdASoBAAEAAwA0JaQAA3AA/vuUAAA='})();
+		</script>
+		<!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-7RLZB3HEBM"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+		  gtag('config', 'G-7RLZB3HEBM');
 		</script>
 	</body>
 </html>
