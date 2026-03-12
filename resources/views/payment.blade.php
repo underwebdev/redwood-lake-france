@@ -16,7 +16,8 @@
 		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 		<link rel="manifest" href="/site.webmanifest">
 		<title>@yield('title')</title>
-		<link href="/css/app.css" rel="stylesheet" type="text/css">
+		<link rel="preload" href="/css/app.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+		<noscript><link rel="stylesheet" href="/css/app.css" type="text/css"></noscript>
 		@livewireStyles
 		<script src="https://js.stripe.com/v3/"></script>
 		<link rel="canonical" href="@yield('url')">
@@ -24,10 +25,8 @@
 
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;600;800&display=swap" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css2?family=Expletus+Sans:wght@500&display=swap" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+		<link rel="preload" href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;600;800&family=Expletus+Sans:wght@500&family=Kaushan+Script&family=Poppins:wght@500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+		<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;600;800&family=Expletus+Sans:wght@500&family=Kaushan+Script&family=Poppins:wght@500&display=swap"></noscript>
 
 	    <script type="application/ld+json">
 	    	{ 
