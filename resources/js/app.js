@@ -12,6 +12,10 @@ function initScrollAnimations() {
 	}
 });
 
+gsap.config({
+	nullTargetWarn: false
+  });
+
 gsap.to(".hero-text", {
 	y: 20,
 	duration: 2,
