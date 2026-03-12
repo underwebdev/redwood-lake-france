@@ -108,6 +108,7 @@ Route::middleware(['guest'])->group(function () {
 });
 
 Route::get('assets/lake-gallery/{gallery}', [AssetController::class, 'gallery']);
+Route::get('assets/feature-gallery/{gallery}', [AssetController::class, 'features']);
 Route::get('assets/stock/{side}/{stock}', [AssetController::class, 'stock']);
 Route::get('assets/catch-reports/{side}/{report}', [AssetController::class, 'report']);
 Route::get('assets/stocking/{side}/{fish}', [AssetController::class, 'stocking']);

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use App\Models\Fishgallery;
+use App\Models\Gallery;
 use App\Models\Stock;
 use App\Models\Report;
 use App\Models\Item;
@@ -18,6 +19,13 @@ use App\Models\Articleimage;
 class AssetController extends Controller
 {
     public function gallery(Fishgallery $gallery)
+    {
+        $path = 'public/'  . Str::after($gallery->thumbnail, '/storage/');
+
+        return $this->asset($path);
+    }
+
+    public function features(Gallery $gallery)
     {
         $path = 'public/'  . Str::after($gallery->thumbnail, '/storage/');
 
