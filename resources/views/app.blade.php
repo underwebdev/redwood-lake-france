@@ -26,8 +26,7 @@
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 		<link rel="manifest" href="/site.webmanifest">
 		<title>@yield('title')</title>
-		<link rel="preload" href="{{ mix('css/app.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-		<noscript><link rel="stylesheet" href="{{ mix('css/app.css') }}"></noscript>
+		<link rel="stylesheet" href="{{ mix('css/app.css') }}">
 		@livewireStyles
 
 		<link rel="canonical" href="@yield('url')">
@@ -35,8 +34,9 @@
 
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link rel="preload" href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;600;800&family=Work+Sans:ital,wght@0,300;1,300&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-		<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;600;800&family=Work+Sans:ital,wght@0,300;1,300&display=swap"></noscript>
+		<link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;600;800&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@1,300&display=swap" rel="stylesheet">
 		
 		<script type="application/ld+json">
 	    { "@context" : "http://schema.org",
