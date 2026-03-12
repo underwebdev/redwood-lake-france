@@ -1,9 +1,11 @@
 require('./foundation');
 require('./lity');
 
-gsap.registerPlugin(ScrollTrigger);
+function initScrollAnimations() {
+	if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+	gsap.registerPlugin(ScrollTrigger);
 
-gsap.to(".hero", {
+	gsap.to(".hero", {
 	scrollTrigger: {
 		start: "center bottom",
 		end: "center top"
@@ -248,15 +250,21 @@ gsap.to(".pricing", {
 	duration: 3
 });
 
-gsap.to(".lake-info-container", {
-	scrollTrigger: {
-		trigger: ".lake-info-container",
-		start: "top center",
-		end: "bottom center",
-		scrub: true,
-		toggleActions: "restart pause reverse pause"
-	},
-	y: 100,
-	duration: 3
-});
+	gsap.to(".lake-info-container", {
+		scrollTrigger: {
+			trigger: ".lake-info-container",
+			start: "top center",
+			end: "bottom center",
+			scrub: true,
+			toggleActions: "restart pause reverse pause"
+		},
+		y: 100,
+		duration: 3
+	});
+}
 
+if (typeof requestIdleCallback !== 'undefined') {
+	requestIdleCallback(initScrollAnimations, { timeout: 2000 });
+} else {
+	setTimeout(initScrollAnimations, 1);
+}

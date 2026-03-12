@@ -57,9 +57,9 @@
 		@include('layout.footer')
 		
 		@livewireScripts
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
-		<script src="{{ mix('js/app.js') }}"></script>
+		<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+		<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
+		<script defer src="{{ mix('js/app.js') }}"></script>
 		<script>
 		  window.addEventListener('activate-gsap', event => {
 		      gsap.to(".date-container", {
