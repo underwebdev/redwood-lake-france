@@ -3,6 +3,8 @@
     "scripts": {
         "dev": "vite",
         "build": "vite build",
+        "mix": "npx mix",
+        "mix:prod": "npx mix --production",
         "optimize-hero": "node scripts/optimize-hero-images.js",
         "optimize-content-images": "node scripts/optimize-content-images.js"
     },

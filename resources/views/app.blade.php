@@ -4,7 +4,7 @@
 	    <meta charset="utf-8" />
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	    <script>
-	    (function(){try{var c=document.createElement('canvas');c.width=1;c.height=1;if(c.getContext&&c.getContext('2d')){var d=c.toDataURL('image/webp');if(d&&d.indexOf('data:image/webp')===0){document.documentElement.classList.add('webp');var l=document.createElement('link');l.rel='preload';l.as='image';l.href='/img/backgrounds/original-background.webp';l.fetchPriority='high';document.head.appendChild(l);return;}}var l=document.createElement('link');l.rel='preload';l.as='image';l.href='/img/backgrounds/original-background.jpg';l.fetchPriority='high';document.head.appendChild(l);}catch(e){var l=document.createElement('link');l.rel='preload';l.as='image';l.href='/img/backgrounds/original-background.jpg';l.fetchPriority='high';document.head.appendChild(l);}})();
+	    (function(){var w=window.innerWidth||document.documentElement.clientWidth||980;var dir=w<=429?'mobile/':w<=1024?'tablet/':'';var webp=false;try{var c=document.createElement('canvas');c.width=1;c.height=1;if(c.getContext&&c.getContext('2d')){var d=c.toDataURL('image/webp');if(d&&d.indexOf('data:image/webp')===0){webp=true;document.documentElement.classList.add('webp');}}}catch(e){}var ext=webp?'webp':'jpg';var url='/img/backgrounds/'+dir+'original-background.'+ext;var l=document.createElement('link');l.rel='preload';l.as='image';l.href=url;l.fetchPriority='high';document.head.appendChild(l);var s=document.createElement('style');s.textContent='.hero.home,.webp .hero.home{background-image:url(\''+url+'\')}';document.head.appendChild(s);})();
 	    </script>
 	    <meta name="description" content="@yield('metadescription')">
 	    <meta name="google-site-verification" content=""/>
@@ -24,7 +24,7 @@
 		<link rel="preload" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap" as="style">
 		<title>@yield('title')</title>
 		<style>
-			.hero{color:#fff;background-repeat:no-repeat;background-position:center top;background-attachment:fixed}.hero.home{background-image:url('/img/backgrounds/original-background.jpg')}.webp .hero.home{background-image:url('/img/backgrounds/original-background.webp')}.hero .button{font-weight:normal}.hero-text h1{margin-bottom:0;font-weight:800;filter:drop-shadow(5px 5px 5px #222);font-family:'Work Sans',sans-serif;padding-top:10%}.hero-text h2{filter:drop-shadow(5px 5px 5px #222);margin-bottom:25px;line-height:45px;font-family:'Work Sans',sans-serif}.hero-review{margin:15px 0 25px;font-size:25px;font-weight:700;padding:10px 5px}.hero-review p{filter:drop-shadow(5px 5px 5px #222);font-family:'Work Sans',sans-serif;font-style:italic}.hero svg{display:block;width:100%}
+			.hero{color:#fff;background-repeat:no-repeat;background-position:center top;background-attachment:fixed}.hero .button{font-weight:normal}.hero-text h1{margin-bottom:0;font-weight:800;filter:drop-shadow(5px 5px 5px #222);font-family:'Work Sans',sans-serif;padding-top:10%}.hero-text h2{filter:drop-shadow(5px 5px 5px #222);margin-bottom:25px;line-height:45px;font-family:'Work Sans',sans-serif}.hero-review{margin:15px 0 25px;font-size:25px;font-weight:700;padding:10px 5px}.hero-review p{filter:drop-shadow(5px 5px 5px #222);font-family:'Work Sans',sans-serif;font-style:italic}.hero svg{display:block;width:100%}
 		</style>
 		<link rel="stylesheet" href="{{ mix('css/app.css') }}">
 		@livewireStyles
@@ -59,7 +59,7 @@
 		@livewireScripts
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
-		<script src="/js/app.js"></script>
+		<script src="{{ mix('js/app.js') }}"></script>
 		<script>
 		  window.addEventListener('activate-gsap', event => {
 		      gsap.to(".date-container", {
