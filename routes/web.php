@@ -34,6 +34,7 @@ Route::get('facilities', [PageController::class, 'facilities']);
 Route::get('location', [PageController::class, 'location']);
 Route::get('news', [PageController::class, 'news']);
 Route::get('article/{article}', [PageController::class, 'article']);
+Route::get('carp-fishing-france', [PageController::class, 'carpfishingfrance']);
 Route::get('photo-diary', [PageController::class, 'diary']);
 Route::get('weather', [PageController::class, 'openweather']);
 Route::get('contact', [PageController::class, 'contact']);

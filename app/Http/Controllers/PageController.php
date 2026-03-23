@@ -223,6 +223,11 @@ class PageController extends Controller
         return view('pages.openweather', compact('page', 'data', 'dayone', 'daytwo', 'daythree', 'dayfour'));
     } 
 
+    public function carpfishingfrance()
+    {
+        return view('pages.carpfishingfrance');
+    }
+
     public function contact()
     {
         $page = Page::find(14);
