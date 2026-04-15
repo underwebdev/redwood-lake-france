@@ -19,7 +19,7 @@ Please read the important information below regarding your upcoming trip to Redw
 
 <p>The plug for the fridge is located above it.</p>
 
-<p>There is a tap on the outside rear wall of the cabin, this is tank water and can be used for washing up, etc, please do not drink this water.</p>
+<p>There is a tap on the outside rear wall of the cabin, this is tank water and can be used for washing up, etc, <strong>please do not drink this water.</strong></p>
 
 <p>Our electric system works on solar charging, which means that the power we generate from the sun in the daytime is stored in batteries so we have electricity to use during the hours of darkness.</p> 
 
@@ -27,17 +27,34 @@ Please read the important information below regarding your upcoming trip to Redw
 
 <p>The shower also runs off the solar, so again where possible please use this in the daytime. We are reliant on the sun and can't guarantee it will always shine so any help with reserving the power is greatly appreciated.</p>
 
+<p><strong>Fish Care & Biosecurity</strong></p>
+
+
+<p>All anglers must use the dip tank provided to dip nets and slings prior to fishing. This is an important measure to protect the health of our fish stock and to help prevent the spread of disease between fisheries. Thank you for your cooperation and for helping us maintain high standards of fish care. 🎣</p>
+
+<p><strong>Rubbish Disposal</strong></p>
+
+<p>All recycling rubbish (bottles, cans, and plastic) must be taken to the recycling bins. These can be found in any of the larger local hamlets.</p>
+
+<p>A general rubbish only bin is located at the entrance at the top of our track. The big silver key for it is in the lodge.</p>
+
 <p><strong>Departure</strong><br>
 
-<p>Please remember to turn the pump off, empty the fridge leave the door open, and switch it off at the plug.<br>
+<p>Please remember to:</p>
 
-Lock the cabin up and put the key back in the lockbox.<br>
+<ul>
+	<li>Turn the water pump off</li>
+	<li>empty the fridge leave the door open, and switch it off at the plug.</li>
 
-All rubbish must be taken away there are recycling bins located a short drive away in either direction.<br>
+	<li>Lock the cabin up and put the key back in the lockbox.</li>
+	<li>Ensure the cabin is left tidy</li>
 
-Please remember to lock the gate when you leave.<br>
+	<li>Lock the gate when you leave</li>
+</ul>
 
-We hope you enjoyed your trip, any feedback good or bad is greatly appreciated.</p> 
+
+
+<p>We hope you enjoy your trip, any feedback good or bad is greatly appreciated.</p> 
 
 
 @component('mail::button', ['url' => 'https://www.redwoodlake.co.uk/rules', 'color' => 'blue'])
