@@ -45,10 +45,8 @@ Please read the important information below regarding your upcoming trip to Redw
 <ul>
 	<li>Turn the water pump off</li>
 	<li>empty the fridge leave the door open, and switch it off at the plug.</li>
-
 	<li>Lock the cabin up and put the key back in the lockbox.</li>
 	<li>Ensure the cabin is left tidy</li>
-
 	<li>Lock the gate when you leave</li>
 </ul>
 
