@@ -15,7 +15,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        //$schedule->command('command:send-booking-notifications')->dailyAt('13:00');
+        $schedule->command('command:send-booking-notifications')->dailyAt('13:00');
         $schedule->command('backup:run --only-db')->daily();
         $schedule->command('backup:run --only-files')->weekly()->fridays();
         $schedule->command('backup:clean')->weekly()->fridays();

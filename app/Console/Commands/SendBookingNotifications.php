@@ -132,7 +132,7 @@ class SendBookingNotifications extends Command
             {
                 \Log::info('Booking #' . $booking->id . ' Feedback request');
 
-                SendReviewRequest::dispatch($booking);
+                //SendReviewRequest::dispatch($booking);
             }
         } 
 
