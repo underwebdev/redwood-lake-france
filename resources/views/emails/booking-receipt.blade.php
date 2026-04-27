@@ -14,10 +14,15 @@ Thank you for booking your french carp fishing holiday at Redwood Lake. Please f
 <strong>Total:</strong> £{{ $booking->total / 100 }}<br>
 <strong>Payments:</strong> £{{ $booking->payments()->sum('total') / 100 }}</p>
 @endcomponent
+
 @if($booking->payments()->sum('total') < $booking->total)
 <strong>Your final balance of £{{ ($booking->total - $booking->payments()->sum('total')) / 100 }} is due by 
 	{{ Carbon\Carbon::parse($booking->arrival)->subDays($booking->priceguide->due)->format('d/m/Y') }}.</strong> Payments can be made through our website via credit/debit or bank transfer.
 @endif
 
 <p>If you wish to purchase extra pellet for your trip, this can be done on the website under your booking.</p>
+
+<p>If you need to contact us about your trip you can contact us on email; info@redwoodlake.co.uk or for urgent enquiries by the telephone numbers below;<br>
+	Toby: 07930 523443<br>
+Scott: 07950 931713</p>
 @endcomponent

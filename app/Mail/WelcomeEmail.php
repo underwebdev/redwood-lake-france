@@ -31,6 +31,6 @@ class WelcomeEmail extends Mailable
      */
     public function build()
     {
-        return $this->from('info@redwoodlake.co.uk', 'Redwood Lake')->subject('Important information about your trip')->replyto('info@redwoodlake.co.uk')->markdown('emails.welcome-email');
+        return $this->from('info@redwoodlake.co.uk', 'Redwood Lake')->subject('Important information about your trip')->replyto('info@redwoodlake.co.uk')->cc('info@redwoodlake.co.uk')->markdown('emails.welcome-email');
     }
 }
