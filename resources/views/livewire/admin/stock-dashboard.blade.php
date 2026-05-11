@@ -207,14 +207,30 @@
         @elseif($mode == 2)
         <div class="grid-x grid-padding-x">
             @foreach($reports as $report)
-           
+            @if($loop->iteration <= $limit)
             <div class="cell small-12 medium-4 large-3 text-center">
                 <img src="/assets/catch-reports/sideone/{{ $report->id }}.{{ Str::afterLast($report->sideone, '.') }}">
                 <strong>{{ $report->lbs }}lb {{ $report->oz }}oz</strong>
                 <button class="button success expanded" wire:click="selectReport('{{ $report->id }}')">Look Up</button>
             </div><!-- End of cell-->
-          
+            @endif
+
             @endforeach
+
+            <div class="cell small-12 text-center">
+		        <button wire:click="viewmore" class="button small"><i class="fas fa-arrow-circle-down"></i> 
+						Show More
+					</button>
+					@endunless
+				
+
+					@if($limit > 10)
+					<button wire:click="viewless" class="button small hollow"> 
+						Show Less 
+						<i class="fas fa-arrow-circle-up"></i>
+					</button> 
+					@endif
+		    </div><!-- End of cell-->  
 
           
         </div><!--end of grid-x -->
