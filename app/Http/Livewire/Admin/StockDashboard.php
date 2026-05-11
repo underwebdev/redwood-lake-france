@@ -18,6 +18,13 @@ class StockDashboard extends Component
     public $selectedWeight;
     public $symbol;
     public $setPhoto = false;
+    public $reports;
+    public $limit = 10;
+
+    public function mount()
+    {
+        $this->reports = Report::whereNull('stock_id')->whereNotNull('sideone')->get();
+    }
 
     public function selectReport($id)
     {
@@ -250,19 +257,29 @@ class StockDashboard extends Component
         $this->mode = 5;        
     }
 
+    public function viewmore()
+	{
+		$this->limit = $this->limit + 10; 
+	}
+
+	public function viewless()
+	{
+		$this->limit = $this->limit - 10;
+	}
+
     public function render()
     {
         $specimen = $this->selectedSpecies;
         $weight = $this->selectedWeight;
 
         return view('livewire.admin.stock-dashboard',[
-            'reports' => Report::whereNull('stock_id')->get(),
+            
             'stock' => Stock::whereNotNull('alive')->orderBy('lbs', 'desc')->orderBy('oz', 'desc')->get(),
             'fishlist' => Stock::whereNotNull('alive')->when($specimen, function ($query) use ($specimen) {
                     return $query->where('specimen_id', $specimen);
                 })->when($weight, function ($query) use ($weight) {
                     return $query->where('lbs', $this->symbol, $weight);
-                })->orderBy('lbs', 'desc')->orderBy('oz', 'desc')->get(),
+                })->orderBy('lbs', 'desc')->orderBy('oz', 'desc')->simplePaginate(20),
             'deadlist' => Stock::whereNull('alive')->orderBy('lbs', 'desc')->orderBy('oz', 'desc')->get()
         ]);
     }

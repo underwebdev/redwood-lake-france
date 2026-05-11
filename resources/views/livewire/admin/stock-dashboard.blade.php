@@ -196,23 +196,34 @@
                 <button class="button success expanded" wire:click="selectFish('{{ $fish->id }}')">View Fish</button>
             </div><!-- End of cell-->
             @endforeach
+
+            <div class="cell small-12 text-center">
+		        	<nav aria-label="Pagination">
+		        	{{ $fishlist->links() }}
+		        </nav>
+		                
+		        </div><!-- End of cell-->  
         </div>
         @elseif($mode == 2)
         <div class="grid-x grid-padding-x">
-            @foreach($reports->whereNotNull('sideone') as $report)
+            @foreach($reports as $report)
+           
             <div class="cell small-12 medium-4 large-3 text-center">
                 <img src="/assets/catch-reports/sideone/{{ $report->id }}.{{ Str::afterLast($report->sideone, '.') }}">
                 <strong>{{ $report->lbs }}lb {{ $report->oz }}oz</strong>
                 <button class="button success expanded" wire:click="selectReport('{{ $report->id }}')">Look Up</button>
             </div><!-- End of cell-->
+          
             @endforeach
+
+          
         </div><!--end of grid-x -->
         @elseif($mode == 3)
         <div class="grid-x grid-padding-x">
-            <div class="cell small-12 medium-4" data-sticky-container>
+            <div class="cell small-12 medium-4" data-sticky-container wire:ignore>
                 <div class="sticky" data-sticky data-top-anchor="admin-nav:bottom" data-check-every="0">
                     <a href="/assets/catch-reports/sideone/{{ $selectedReport->id }}.{{ Str::afterLast($selectedReport->sideone, '.') }}" data-lity>
-                        <img src="/assets/catch-reports/sideone/{{ $selectedReport->id }}">
+                        <img src="/assets/catch-reports/sideone/{{ $selectedReport->id }}" wire:loading.class="opacity-50">
                     </a>
                     @isset($selectedReport->sidetwothumb)
                     <a href="/assets/catch-reports/sidetwo/{{ $selectedReport->id }}.{{ Str::afterLast($selectedReport->sidetwo, '.') }}" data-lity>
@@ -231,6 +242,7 @@
             <div class="cell small-12 medium-8">
                 <div class="grid-x grid-padding-x">
                     @foreach($stock->where('specimen_id', $selectedReport->specimen_id) as $fish)
+                    @if($loop->iteration <= $limit)
                     <div class="cell small-12 medium-6 text-center">
                         <div>
                             
@@ -249,7 +261,27 @@
                             <p class="text-center"><strong>Not Available</strong></p>
                         @endisset
                     </div><!-- End of cell-->
+                    @endif
                     @endforeach
+
+                    <div class="cell small-12 text-center">
+
+                    @unless($limit > $stock->where('specimen_id', $selectedReport->specimen_id)->count())
+					<button wire:click="viewmore" class="button small"><i class="fas fa-arrow-circle-down"></i> 
+						Show More
+					</button>
+					@endunless
+				
+
+					@if($limit > 10)
+					<button wire:click="viewless" class="button small hollow"> 
+						Show Less 
+						<i class="fas fa-arrow-circle-up"></i>
+					</button> 
+					@endif
+                    </div>
+
+
                 </div><!--end of grid-x -->
             </div><!-- End of cell-->
         </div><!--end of grid-x -->
