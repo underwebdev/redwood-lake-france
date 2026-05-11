@@ -221,7 +221,7 @@
 		        <button wire:click="viewmore" class="button small"><i class="fas fa-arrow-circle-down"></i> 
 						Show More
 					</button>
-					@endunless
+					
 				
 
 					@if($limit > 10)
