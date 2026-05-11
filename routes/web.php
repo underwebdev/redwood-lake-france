@@ -112,6 +112,7 @@ Route::get('assets/lake-gallery/{gallery}', [AssetController::class, 'gallery'])
 Route::get('assets/feature-gallery/{gallery}', [AssetController::class, 'features']);
 Route::get('assets/stock/{side}/{stock}', [AssetController::class, 'stock']);
 Route::get('assets/catch-reports/{side}/{report}', [AssetController::class, 'report']);
+Route::get('assets/catch-reports/{side}/{report}.jpg', [AssetController::class, 'report']);
 Route::get('assets/stocking/{side}/{fish}', [AssetController::class, 'stocking']);
 Route::get('assets/swims/{swim}', [AssetController::class, 'swims']);
 Route::get('assets/photo-diary/{photodiary}', [AssetController::class, 'photodiary']);
