@@ -26,7 +26,7 @@ class PageController extends Controller
     {
         $page = Page::find(1);
         $review = Review::where('featured', 1)->first();
-        $priceguides = Priceguide::whereNotNull('featured')->orderBy('start', 'asc')->where('end', '>', Carbon::today())->get();
+        $priceguides = Priceguide::where('featured', 1)->orderBy('start', 'asc')->where('end', '>', Carbon::today())->get();
         
         $firstdate = Priceguide::where('end', '>', Carbon::today())->orderBy('start', 'asc')->pluck('start')->first();
         $latestdate = Priceguide::orderBy('end', 'desc')->pluck('end')->first();
@@ -52,7 +52,7 @@ class PageController extends Controller
     {
         $page = Page::find(3);
 
-        $priceguides = Priceguide::whereNotNull('featured')->orderBy('start', 'asc')->where('end', '>', Carbon::today())->get();
+        $priceguides = Priceguide::where('featured', 1)->orderBy('start', 'asc')->where('end', '>', Carbon::today())->get();
 
     	return view('pages.booking', compact('page', 'priceguides'));
     }
