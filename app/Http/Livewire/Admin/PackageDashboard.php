@@ -47,7 +47,7 @@ class PackageDashboard extends Component
     public function deactivatePackage()
     {
         $this->selectedPackage->update([
-            'active' => Null
+            'active' => 0
         ]);
     }
 
@@ -164,7 +164,7 @@ class PackageDashboard extends Component
             'price' => 'required|numeric',
             'deposit' => 'required|numeric',
             'due' => 'required|numeric',
-            'featured' => 'nullable'
+            'featured' => 'numeric'
         ]);
 
         $this->selectedPriceguide->update([

@@ -173,7 +173,7 @@
                 <label for="">Feature On Website</label>
                 <select id="" wire:model="featured">
                     <option value="">Please select</option>
-                    <option value="">No</option>
+                    <option value="0">No</option>
                     <option value="1">Yes</option> 
                 </select>
 
