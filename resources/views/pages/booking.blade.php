@@ -3,6 +3,7 @@
 @section('url') {{ $page->url }} @endsection
 @section('metadescription') {{ $page->metadescription }} @endsection
 @section('title') {{ $page->metatitle }} @endsection
+@section('robots')noindex, nofollow @endsection
 
 @section('content')
 <div class="hero content {{ $page->css }}">
@@ -64,3 +65,4 @@
 	@livewire('booking-calendar')
 </div>
 </div>
+@endsection

@@ -8,7 +8,7 @@
 	    </script>
 	    <meta name="description" content="@yield('metadescription')">
 	    <meta name="google-site-verification" content=""/>
-	    <meta name="robots" content="index, follow">
+	    <meta name="robots" content="@yield('robots', 'index, follow')">
 	    <meta property="og:site_name" content="Redwood Lake"/>
 	    <meta property="og:title" content="Redwood Lake"/>
 	    <meta property="og:type" content="website"/>

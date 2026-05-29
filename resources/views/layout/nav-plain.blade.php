@@ -10,7 +10,7 @@
 	<a href="/">Redwood Lake</a>
 	<li><a href="/lake">The Lake</a></li>
 	<li><a href="/stock">The Fish</a></li>
-	<li><a href="/booking">Book Now</a></li>
+
 	<li><a href="#">Information</a>
 		<ul class="menu">
 			<li><a href="/catch-reports">Catch Reports</a></li>
@@ -24,7 +24,7 @@
 		</ul>
 	</li>
 	<li><a href="/contact">Contact</a></li>
-	<li><a href="/login">My Booking</a></li>
+	<li><a href="/login">Log In</a></li>
 </ul>
 </div>
 
@@ -62,14 +62,7 @@
     			<a href="/stock">The Fish</a>
 			</div>
 		</div>
-		<div class="mobile-menu-item">
-			<div class="icon-container">
-				<i class="far fa-calendar"></i> 
-			</div>
-			<div class="link-container">
-				<a href="/booking">Book Now</a>
-			</div>
-		</div>
+		
 		<div class="mobile-menu-item">
 			<div class="icon-container">
 				<i class="fas fa-camera"></i> 
@@ -139,7 +132,7 @@
 				<i class="fas fa-user-circle"></i> 
 			</div>
 			<div class="link-container">
-				<a href="/login">My Booking</a>
+				<a href="/login">Log In</a>
   			</div>
   		</div>
 	</div>

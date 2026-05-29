@@ -10,7 +10,7 @@
 				<h5>Quick Links</h5>
 				<a href="/">Home</a><br>
 				<a href="/lake">Lake</a><br>
-				<a href="/booking">Availability</a>
+		
 			</div><!-- End of cell-->
 			<div class="cell small-12 medium-4 large-3">
 				<h5>Information</h5>
@@ -20,7 +20,7 @@
 			</div><!-- End of cell-->
 			<div class="cell small-12 medium-4 large-3">
 				<h5>T<span class="show-for-large">erms</span> & C<span class="show-for-large">onditions</span></h5>
-				<a href="/booking-terms">Booking T&C</a><br>
+		
 				<a href="/terms-conditions">Website T&C</a><br>
 				<a href="/privacy-policy">Privacy Policy</a>      
 			</div><!-- End of cell-->
