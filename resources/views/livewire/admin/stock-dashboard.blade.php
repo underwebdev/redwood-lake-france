@@ -508,7 +508,7 @@
                         @isset($report->sideone)
                         <div class="cell small-12 medium-6">
                             <div class="photo-border-block">
-                                <img src="{{ $report->sideonethumb }}">
+                                <img src="/assets/catch-reports/sideone/{{ $report->id }}.{{ Str::afterLast($report->sideone, '.') }}"><!-- this --> 
                             </div>
                             <div class="button-group">
                                 <button class="button expanded" wire:click="selectphoto('{{ $report->sideone }}', '{{ $report->sideonethumb }}', 1)">Primary</button>
@@ -520,7 +520,7 @@
                         @isset($report->sidetwo)
                         <div class="cell small-12 medium-6">
                             <div class="photo-border-block">
-                                <img src="{{ $report->sidetwothumb }}">
+                                <img src="/assets/catch-reports/sidetwo/{{ $report->id }}.{{ Str::afterLast($report->sidetwo, '.') }}">
                             </div>
                             <div class="button-group">
                                 <button class="button expanded" wire:click="selectphoto('{{ $report->sidetwo }}', '{{ $report->sidetwothumb }}', 1)">Primary</button>
