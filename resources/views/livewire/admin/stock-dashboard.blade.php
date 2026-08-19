@@ -26,7 +26,7 @@
         </div><!--end of grid-x -->
         @include('layout.alerts')
     </div><!--End of grid container-->
-    <div class="grid-container full">
+    <div class="grid-container full" wire:key="stock-mode-{{ $mode }}">
         @if($mode == 1)
         <div class="grid-x grid-padding-x">
         <div class="cell small-12">
@@ -305,13 +305,17 @@
         <div class="grid-x grid-padding-x">
             <div class="cell small-12">
                 <h4>Create new fish</h4>
-                <img src="{{ $selectedReport->sideonethumb }}">
-                <img src="{{ $selectedReport->sidetwothumb }}">
+                <div>
+                    <img src="/assets/catch-reports/sideone/{{ $selectedReport->id }}">
+                    <img src="/assets/catch-reports/sidetwo/{{ $selectedReport->id }}">
+                </div>
+            </div>
+            <div class="cell small-12 medium-8 large-6">
                 <strong>Weight:</strong> {{ $selectedReport->lbs }}lb {{ $selectedReport->oz }}oz<br>
                 <strong>Species:</strong> {{ $selectedReport->specimen->name }}
                 <label for="">Name (optional)</label>
                 <input type="text" placeholder="" wire:model="name">
-                <label for=""></label>
+                <label for="">Description (optional)</label>
                 <textarea wire:model="description" cols="50" rows="10"></textarea>
                 <label for="">Destock</label>
                 <select id="" wire:model="destock">

@@ -18,13 +18,7 @@ class StockDashboard extends Component
     public $selectedWeight;
     public $symbol;
     public $setPhoto = false;
-    public $reports;
     public $limit = 10;
-
-    public function mount()
-    {
-        $this->reports = Report::whereNull('stock_id')->whereNotNull('sideone')->get();
-    }
 
     public function selectReport($id)
     {
@@ -32,6 +26,13 @@ class StockDashboard extends Component
 
         $this->mode = 3;
         $this->dispatchBrowserEvent('activate-foundation');
+    }
+
+    public function updatedMode($value)
+    {
+        if ((int) $value === 3) {
+            $this->dispatchBrowserEvent('activate-foundation');
+        }
     }
 
     public function saveFish()
@@ -280,7 +281,8 @@ class StockDashboard extends Component
                 })->when($weight, function ($query) use ($weight) {
                     return $query->where('lbs', $this->symbol, $weight);
                 })->orderBy('lbs', 'desc')->orderBy('oz', 'desc')->simplePaginate(20),
-            'deadlist' => Stock::whereNull('alive')->orderBy('lbs', 'desc')->orderBy('oz', 'desc')->get()
+            'deadlist' => Stock::whereNull('alive')->orderBy('lbs', 'desc')->orderBy('oz', 'desc')->get(),
+            'reports' => Report::whereNull('stock_id')->whereNotNull('sideone')->get(),
         ]);
     }
 }
