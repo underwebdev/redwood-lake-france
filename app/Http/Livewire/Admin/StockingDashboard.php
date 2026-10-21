@@ -11,7 +11,7 @@ use App\Models\Farm;
 use App\Models\Specimen;
 use App\Models\Item;
 use Carbon\Carbon;
-use Image;
+use App\Support\Image;
 
 class StockingDashboard extends Component
 {
@@ -138,7 +138,7 @@ class StockingDashboard extends Component
 
     public function updatedMode()
     {
-        $this->dispatchBrowserEvent('activate-datepicker');
+        $this->dispatch('activate-datepicker');
     }
 
     public function back()

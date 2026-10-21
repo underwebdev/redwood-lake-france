@@ -49,16 +49,16 @@
             <div class="cell small-12">
                 <form wire:submit.prevent="saveMailshot">
                     <label for="">Title @error('title')<span class="error">{{ $message }}</span>@enderror</label>
-                    <input type="text" placeholder="" wire:model="title">
+                    <input type="text" placeholder="" wire:model.live="title">
 
                     <label for="">Subject @error('subject')<span class="error">{{ $message }}</span>@enderror</label>
-                    <input type="text" placeholder="" wire:model="subject">
+                    <input type="text" placeholder="" wire:model.live="subject">
 
                     <label for="">Body @error('body')<span class="error">{{ $message }}</span>@enderror</label>
-                    <textarea wire:model="body" cols="50" rows="10"></textarea>
+                    <textarea wire:model.live="body" cols="50" rows="10"></textarea>
 
                     <label for="">Link (optional) @error('link')<span class="error">{{ $message }}</span>@enderror</label>
-                    <input type="text" placeholder="" wire:model="link">
+                    <input type="text" placeholder="" wire:model.live="link">
 
                     <button class="button success">Save & Continue</button>
                 </form>
@@ -72,16 +72,16 @@
             @if($edit)
                 <form wire:submit.prevent="updateMail">
                     <label for="">Title @error('title')<span class="error">{{ $message }}</span>@enderror</label>
-                    <input type="text" placeholder="" wire:model="title">
+                    <input type="text" placeholder="" wire:model.live="title">
 
                     <label for="">Subject @error('subject')<span class="error">{{ $message }}</span>@enderror</label>
-                    <input type="text" placeholder="" wire:model="subject">
+                    <input type="text" placeholder="" wire:model.live="subject">
 
                     <label for="">Body @error('body')<span class="error">{{ $message }}</span>@enderror</label>
-                    <textarea wire:model="body" cols="50" rows="10"></textarea>
+                    <textarea wire:model.live="body" cols="50" rows="10"></textarea>
 
                     <label for="">Link (optional) @error('link')<span class="error">{{ $message }}</span>@enderror</label>
-                    <input type="text" placeholder="" wire:model="link">
+                    <input type="text" placeholder="" wire:model.live="link">
 
                     <button class="button success">Save Changes</button>
                 </form>
@@ -103,10 +103,10 @@
                             <strong>Schedule:</strong>
                         </div>
                         <div class="cell small-12 medium-3">
-                            <input type="text" id="datepicker" placeholder="dd/mm/yy" wire:model="date">
+                            <input type="text" id="datepicker" placeholder="dd/mm/yy" wire:model.live="date">
                         </div><!-- End of cell-->
                         <div class="cell small-12 medium-3">
-                            <select id="" wire:model="time" required>
+                            <select id="" wire:model.live="time" required>
                                 <option>Please Select</option>
                                 <option value="00:00">12:00 AM</option>
                                 <option value="00:30">12:30 AM</option>

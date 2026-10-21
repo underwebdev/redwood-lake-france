@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Models\Lake;
 use App\Models\Swim;
 use App\Models\Fishgallery;
-use Image;
+use App\Support\Image;
 
 class LakeDashboard extends Component
 {

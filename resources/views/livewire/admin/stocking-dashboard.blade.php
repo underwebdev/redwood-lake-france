@@ -176,7 +176,7 @@
                 <label for="">Fish Farm
                     @error('farm')<span class="error">{{ $message }}</span>@enderror
                 </label>
-                <select id="" wire:model="selectedFarm">
+                <select id="" wire:model.live="selectedFarm">
                     <option value="">Please Select</option>
                     @foreach($farms as $farm)
                     <option value="{{ $farm->id }}">{{ $farm->name }}</option>
@@ -186,7 +186,7 @@
 
                 @if($selectedFarm == 'create')
                 <label for="">Farm Name</label>
-                <input type="text" wire:model="name">
+                <input type="text" wire:model.live="name">
                 <button class="button success" wire:click="saveFarm">Save Farm</button>
                 @else
                 <button class="button success" wire:click="saveStocking">Create Stocking</button>
@@ -195,19 +195,19 @@
         @elseif($mode == 4)
             <div class="cell small-12 medium-8 large-6 medium-offset-2 large-offset-3">
                 <label for="">Number</label>
-                <input type="text" wire:model="number">
+                <input type="text" wire:model.live="number">
                     <div class="grid-x grid-padding-x">
                         <div class="cell small-6">
                             <label for="">lbs</label>
-                            <input type="text" wire:model="lbs">  
+                            <input type="text" wire:model.live="lbs">  
                         </div><!-- End of cell-->
                         <div class="cell small-6">
                             <label for="">oz</label>
-                            <input type="text" wire:model="oz">    
+                            <input type="text" wire:model.live="oz">    
                         </div><!-- End of cell-->
                     </div><!--end of grid-x -->
                 <label for="">Class</label>
-                <select id=""wire:model="class">
+                <select id=""wire:model.live="class">
                     <option value="">Please select</option>
                     <option value="C1">C1</option>
                     <option value="C2">C2</option>
@@ -217,7 +217,7 @@
                     <option value="C6">C6</option>  
                 </select>
                 <label for="">Species</label>
-                <select id=""wire:model="species">
+                <select id=""wire:model.live="species">
                     <option value="">Please select</option>
                     @foreach($specimens as $specimen)
                         <option value="{{ $specimen->id }}">{{ $specimen->name }}</option>
@@ -225,16 +225,16 @@
                 </select>
 
                 <label for="">Price per lb</label>
-                <input type="text" wire:model="price">
+                <input type="text" wire:model.live="price">
 
                 <label for="">Side 1
                     @error('sideone')<span class="error">{{ $message }}</span>@enderror
                 </label>
-                <input type="file" wire:model="sideone">
+                <input type="file" wire:model.live="sideone">
                 <label for="">Side 2
                     @error('sidetwo')<span class="error">{{ $message }}</span>@enderror
                 </label>
-                <input type="file" wire:model="sidetwo">
+                <input type="file" wire:model.live="sidetwo">
 
                 <div class="grid-x grid-padding-x">
                     <div class="cell small-12 medium-6">
@@ -282,19 +282,19 @@
             <div class="cell small-12 medium-8">
                 @if($editfish)
                     <label for="">Number</label>
-                    <input type="text" wire:model="number">
+                    <input type="text" wire:model.live="number">
                         <div class="grid-x grid-padding-x">
                             <div class="cell small-6">
                                 <label for="">lbs</label>
-                                <input type="text" wire:model="lbs">  
+                                <input type="text" wire:model.live="lbs">  
                             </div><!-- End of cell-->
                             <div class="cell small-6">
                                 <label for="">oz</label>
-                                <input type="text" wire:model="oz">    
+                                <input type="text" wire:model.live="oz">    
                             </div><!-- End of cell-->
                         </div><!--end of grid-x -->
                     <label for="">Class</label>
-                    <select id=""wire:model="class">
+                    <select id=""wire:model.live="class">
                         <option value="">Please select</option>
                         <option value="C1">C1</option>
                         <option value="C2">C2</option>
@@ -304,7 +304,7 @@
                         <option value="C6">C6</option>  
                     </select>
                     <label for="">Species</label>
-                    <select id=""wire:model="species">
+                    <select id=""wire:model.live="species">
                         <option value="">Please select</option>
                         @foreach($specimens as $specimen)
                             <option value="{{ $specimen->id }}">{{ $specimen->name }}</option>
@@ -312,12 +312,12 @@
                     </select>
 
                     <label for="">Price</label>
-                    <input type="text" wire:model="price">
+                    <input type="text" wire:model.live="price">
 
                     <label for="">Side 1</label>
-                    <input type="file" wire:model="sideone">
+                    <input type="file" wire:model.live="sideone">
                     <label for="">Side 2</label>
-                    <input type="file" wire:model="sidetwo">
+                    <input type="file" wire:model.live="sidetwo">
 
                     <div wire:loading wire:target="sideone">
                         Uploading photo one...

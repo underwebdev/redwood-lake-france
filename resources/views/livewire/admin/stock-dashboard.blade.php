@@ -314,11 +314,11 @@
                 <strong>Weight:</strong> {{ $selectedReport->lbs }}lb {{ $selectedReport->oz }}oz<br>
                 <strong>Species:</strong> {{ $selectedReport->specimen->name }}
                 <label for="">Name (optional)</label>
-                <input type="text" placeholder="" wire:model="name">
+                <input type="text" placeholder="" wire:model.live="name">
                 <label for="">Description (optional)</label>
-                <textarea wire:model="description" cols="50" rows="10"></textarea>
+                <textarea wire:model.live="description" cols="50" rows="10"></textarea>
                 <label for="">Destock</label>
-                <select id="" wire:model="destock">
+                <select id="" wire:model.live="destock">
                     <option value="0">No</option>
                     <option value="1">Yes</option> 
                 </select>
@@ -566,7 +566,7 @@
                     Name                            
                     @error('Name')<span class="error">{{ $message }}</span>@enderror
                 </label>
-                <input type="text" placeholder="" wire:model="name">
+                <input type="text" placeholder="" wire:model.live="name">
 
                 <button class="button expanded success" wire:click="setname">Save Name</button>
             </div><!-- End of cell-->
@@ -575,7 +575,7 @@
         <div class="grid-x grid-padding-x">
             <div class="cell small-12 medium-8 large-6 medium-offset-2 large-offset-3">
                 <label for="">Description</label>
-                <textarea wire:model="description" cols="50" rows="10"></textarea>
+                <textarea wire:model.live="description" cols="50" rows="10"></textarea>
 
                 <button class="button expanded success" wire:click="setdescription">Save Description</button>
             </div><!-- End of cell-->

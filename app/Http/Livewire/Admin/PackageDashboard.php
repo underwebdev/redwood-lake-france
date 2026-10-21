@@ -150,7 +150,7 @@ class PackageDashboard extends Component
         $this->due = $this->selectedPriceguide->due;
         $this->featured = $this->selectedPriceguide->featured;
 
-        $this->dispatchBrowserEvent('activate-datepicker');
+        $this->dispatch('activate-datepicker');
         $this->mode = 4;
     }
 
@@ -197,7 +197,7 @@ class PackageDashboard extends Component
     {
         if($this->mode == 4)
         {
-            $this->dispatchBrowserEvent('activate-datepicker');
+            $this->dispatch('activate-datepicker');
         }
     }
 

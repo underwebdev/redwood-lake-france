@@ -28,10 +28,10 @@
             <div class="cell small-12">
                 <form wire:submit.prevent="savePost">
                     @error('photo')<label><span class="error">{{ $message }}</span></label>@enderror
-                    <input type="file" wire:model="photo">
+                    <input type="file" wire:model.live="photo">
 
                     <label for="">Caption @error('caption')<span class="error">{{ $message }}</span>@enderror</label>
-                    <input type="text" placeholder="Photo caption" wire:model="caption">
+                    <input type="text" placeholder="Photo caption" wire:model.live="caption">
 
                     <label for="">Date @error('date')<span class="error">{{ $message }}</span>@enderror</label>
                     <input type="text" id="datepicker" placeholder="dd/mm/yyyy" wire:model.lazy="date">
@@ -52,13 +52,13 @@
                         <img src="/assets/photo-diary/{{ $diary->id }}">
                     @endif
                     @error('photo')<label><span class="error">{{ $message }}</span></label>@enderror
-                    <input type="file" wire:model="photo">
+                    <input type="file" wire:model.live="photo">
 
                     <label for="">Caption @error('caption')<span class="error">{{ $message }}</span>@enderror</label>
-                    <input type="text" placeholder="Photo caption" wire:model="caption">
+                    <input type="text" placeholder="Photo caption" wire:model.live="caption">
 
                     <label for="">Date @error('date')<span class="error">{{ $message }}</span>@enderror</label>
-                    <input type="text" id="datepicker" placeholder="dd/mm/yyyy" wire:model="date">
+                    <input type="text" id="datepicker" placeholder="dd/mm/yyyy" wire:model.live="date">
 
                     <button class="button expanded success">Update Post</button>
                 </form>

@@ -46,11 +46,11 @@
                     <label for="">New Password (min 6 characters)
                         @error('password')<span class="error">{{ $message }} </span>@enderror
                     </label>
-                    <input type="password" placeholder="" wire:model="password">
+                    <input type="password" placeholder="" wire:model.live="password">
                     <label for="">Confirm Password
                         @error('password_confirmed')<span class="error">{{ $message }} </span>@enderror
                     </label>
-                    <input type="password" placeholder="" wire:model="password_confirmation">
+                    <input type="password" placeholder="" wire:model.live="password_confirmation">
                     <div class="button-group">
                         <button class="button success" wire:click="savePassword">Save Password</button>
                         <button class="button alert" wire:click="$set('mode', 1)">Cancel</button>
@@ -61,16 +61,16 @@
                     <label for="">New Email
                         @error('email')<span class="error">{{ $message }} </span>@enderror
                     </label>
-                    <input type="text" placeholder="" wire:model="email">
+                    <input type="text" placeholder="" wire:model.live="email">
                     <label for="">Confirm email
                         @error('email_confirmed')<span class="error">{{ $message }} </span>@enderror
                     </label>
-                    <input type="text" placeholder="" wire:model="email_confirmation">
+                    <input type="text" placeholder="" wire:model.live="email_confirmation">
 
                     <label for="">Telephone
                         @error('telephone')<span class="error">{{ $message }}</span>@enderror
                     </label>
-                    <input type="text" wire:model="telephone">
+                    <input type="text" wire:model.live="telephone">
                     <div class="button-group">
                         <button class="button success" wire:click="saveContact">Save Password</button>
                         <button class="button alert" wire:click="$set('mode', 1)">Cancel</button>

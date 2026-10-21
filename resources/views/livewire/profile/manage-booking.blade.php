@@ -128,26 +128,26 @@
                 <label for="">First Name
                     @error('firstName')<span class="error">{{ $message }}</span>@enderror
                 </label>
-                <input type="text" placeholder="" wire:model="firstName">
+                <input type="text" placeholder="" wire:model.live="firstName">
                 <label for="">Last Name
                     @error('lastName')<span class="error">{{ $message }}</span>@enderror
                 </label>
-                <input type="text" placeholder="" wire:model="lastName">
+                <input type="text" placeholder="" wire:model.live="lastName">
 
                 <label for="">Telephone
                     @error('telephone')<span class="error">{{ $message }}</span>@enderror
                 </label>
-                <input type="text" placeholder="" wire:model="telephone">
+                <input type="text" placeholder="" wire:model.live="telephone">
 
                 <label for="">Email
                     @error('email')<span class="error">{{ $message }}</span>@enderror
                 </label>
-                <input type="text" placeholder="" wire:model="email">
+                <input type="text" placeholder="" wire:model.live="email">
 
                 <label for="">Confirm Email
                     @error('email_confirmation')<span class="error">{{ $message }}</span>@enderror
                 </label>
-                <input type="text" placeholder="" wire:model="email_confirmation">
+                <input type="text" placeholder="" wire:model.live="email_confirmation">
 
                 <button class="button success" wire:click="saveAngler">Add Angler</button>
                 <button class="button alert" wire:click="$set('mode', 1)">Cancel</button>
@@ -158,16 +158,16 @@
                 <h5 class="info-bar">Update Angler</h5>
                 <p>Updating details for {{ $selectedAngler->firstName }} {{ $selectedAngler->lastName }}</p>
                 <label for="">First Name</label>
-                <input type="text" placeholder="" wire:model="firstName">
+                <input type="text" placeholder="" wire:model.live="firstName">
                 <label for="">Last Name</label>
-                <input type="text" placeholder="" wire:model="lastName">
+                <input type="text" placeholder="" wire:model.live="lastName">
 
                 <label for="">Telephone</label>
-                <input type="text" placeholder="" wire:model="telephone">
+                <input type="text" placeholder="" wire:model.live="telephone">
                 <label for="">Email
                     @error('email')<span class="error">{{ $message }}</span>@enderror
                 </label>
-                <input type="text" placeholder="" wire:model="email">
+                <input type="text" placeholder="" wire:model.live="email">
 
                 <label for="">Confirm Email
                     @error('email_confirmation')<span class="error">{{ $message }}</span>@enderror
@@ -186,7 +186,7 @@
                         <label for="">Payment Method
                             @error('paymentMethod')<span class="error">{{ $message }}</span>@enderror
                         </label>
-                        <select id="" wire:model="paymentMethod">
+                        <select id="" wire:model.live="paymentMethod">
                             <option value="">Please Select</option>
                             <option value="1">Bank Transfer</option>
                             <option value="2">Credit/Debit</option> 
@@ -197,7 +197,7 @@
                         <label for="">Payment Amount
                             @error('paymentAmount')<span class="error">{{ $message }}</span>@enderror
                         </label>
-                        <select id="" wire:model="paymentAmount">
+                        <select id="" wire:model.live="paymentAmount">
                             <option value="">Please Select</option>
                             <option value="1">Remaining Balance</option>
                             <option value="2">Other Amount</option> 
@@ -207,7 +207,7 @@
                         <label for="">Enter Amount £
                             @error('amountToPay')<span class="error">{{ $message }}</span>@enderror
                         </label>
-                        <input type="text" placeholder="" wire:model="amountToPay">
+                        <input type="text" placeholder="" wire:model.live="amountToPay">
                         @endif
 
                         <div class="button-group">
@@ -233,7 +233,7 @@
                         @error('confirm')
                             <span class="error">Please confirm you have transfered funds to the account listed above</span>      
                         @enderror
-                        <select id="" wire:model="confirm">
+                        <select id="" wire:model.live="confirm">
                             <option value="">Please Confirm</option>
                             <option value="1">I confirm I have ALREADY transfered £{{ $amountToPay / 100 }} to the above bank account.</option> 
                         </select>
@@ -313,7 +313,7 @@
                             Option                            
                             @error('option')<span class="error">{{ $message }}</span>@enderror
                         </label>
-                        <select id="" wire:model="option">
+                        <select id="" wire:model.live="option">
                             <option value="">Please select</option>
                             @foreach($products as $product)
                             <option value="{{ $product->id }}">{{ $product->name }} - £{{ $product->price / 100 }}</option>
@@ -324,7 +324,7 @@
                             Quantity                            
                             @error('quantity')<span class="error">{{ $message }}</span>@enderror
                         </label>
-                        <select id="" wire:model="quantity">
+                        <select id="" wire:model.live="quantity">
                             <option value="">Please select</option> 
                             <option value="1">1</option> 
                             <option value="2">2</option> 
@@ -347,7 +347,7 @@
                             @error('paymentMethod')<span class="error">{{ $message }}</span>@enderror
                         </label>
 
-                        <select id="" wire:model="paymentMethod">
+                        <select id="" wire:model.live="paymentMethod">
                             <option value="">Please Select</option>
                             <option value="1">Bank Transfer</option>
                             <option value="2">Credit/Debit</option> 

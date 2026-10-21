@@ -25,13 +25,13 @@ class StockDashboard extends Component
         $this->selectedReport = Report::findOrFail($id);
 
         $this->mode = 3;
-        $this->dispatchBrowserEvent('activate-foundation');
+        $this->dispatch('activate-foundation');
     }
 
     public function updatedMode($value)
     {
         if ((int) $value === 3) {
-            $this->dispatchBrowserEvent('activate-foundation');
+            $this->dispatch('activate-foundation');
         }
     }
 

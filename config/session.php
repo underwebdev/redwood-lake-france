@@ -198,4 +198,18 @@ return [
 
     'same_site' => 'lax',
 
+    /*
+    |--------------------------------------------------------------------------
+    | Serialization
+    |--------------------------------------------------------------------------
+    |
+    | This option controls the serialization format for session data. JSON
+    | avoids PHP object gadget chains if APP_KEY is ever leaked.
+    |
+    | Supported: "php", "json"
+    |
+    */
+
+    'serialization' => 'json',
+
 ];

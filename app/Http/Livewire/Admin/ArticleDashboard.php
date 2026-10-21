@@ -7,7 +7,7 @@ use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
-use Image;
+use App\Support\Image;
 
 class ArticleDashboard extends Component
 {

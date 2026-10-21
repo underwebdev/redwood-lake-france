@@ -59,7 +59,7 @@ class BookingCalendar extends Component
             
         }
 
-        $this->dispatchBrowserEvent('activate-gsap');
+        $this->dispatch('activate-gsap');
 
         
     }
@@ -86,13 +86,13 @@ class BookingCalendar extends Component
             $this->filteredRange = true;
         }
 
-        $this->dispatchBrowserEvent('activate-gsap');
+        $this->dispatch('activate-gsap');
     }
 
     public function clearFilter()
     {
         $this->reset(['selectedMonth', 'selectedYear', 'filteredRange']);
-        $this->dispatchBrowserEvent('activate-gsap');
+        $this->dispatch('activate-gsap');
     }
 
     public function render()

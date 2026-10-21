@@ -80,7 +80,7 @@
                     <div class="cell small-12 large-8 large-offset-2">
                         <br>
                         <h4>Add photos to this articles gallery</h4>
-                        <input type="file" wire:model="gallery">       
+                        <input type="file" wire:model.live="gallery">       
                     
 
                         @if($article->images()->count() > 0)
@@ -109,36 +109,36 @@
                 <div class="cell small-12 large-8 large-offset-2">
                     <img src="/assets/article-cover/{{ $article->id }}">
                     <br><br>
-                    <input type="file" wire:model="cover">
+                    <input type="file" wire:model.live="cover">
                     
                     <form wire:submit.prevent="saveChanges">
                         <label for="">Title</label>
-                        <input type="text" placeholder="" wire:model="title">
+                        <input type="text" placeholder="" wire:model.live="title">
 
                         <label for="">Body</label>
-                        <textarea wire:model="body" cols="50" rows="10"></textarea>
+                        <textarea wire:model.live="body" cols="50" rows="10"></textarea>
 
                         <hr>
 
                         <label for="">Url (https://redwoodlake.co.uk/news/)
                             @error('url')<span class="error">{{ $message }}</span>@enderror
                         </label>
-                        <input type="text" placeholder="" wire:model="url">
+                        <input type="text" placeholder="" wire:model.live="url">
 
                         <label for="">Meta Title
                             @error('metatitle')<span class="error">This field is required if the article is active.</span> @enderror
                         </label>
-                        <input type="text" placeholder="" wire:model="metatitle">
+                        <input type="text" placeholder="" wire:model.live="metatitle">
 
                         <label for="">Meta Description
                             @error('metadesc')<span class="error">This field is required if the article is active.</span> @enderror
                         </label>
-                        <input type="text" placeholder="" wire:model="metadesc">
+                        <input type="text" placeholder="" wire:model.live="metadesc">
 
                         <label for="">Meta Keywords
                             @error('metakeywords')<span class="error">This field is required if the article is active.</span> @enderror
                         </label>
-                        <input type="text" placeholder="" wire:model="metakeywords">
+                        <input type="text" placeholder="" wire:model.live="metakeywords">
 
                         <button class="button success">Save Changes</button>
                     </form>
@@ -162,10 +162,10 @@
                     @if($createBreadcrumb)
                     
                     <label for="">Breadcrumb Title</label>
-                    <input type="text" placeholder="" wire:model="breadcrumbtitle">
+                    <input type="text" placeholder="" wire:model.live="breadcrumbtitle">
 
                     <label for="">Breadcrumb URL</label>
-                    <input type="text" placeholder="" wire:model="breadcrumburl">
+                    <input type="text" placeholder="" wire:model.live="breadcrumburl">
 
                     <div class="button-group stacked">
                         <button class="button success" wire:click="saveBreadcrumb">Save Breadcrumb</button>

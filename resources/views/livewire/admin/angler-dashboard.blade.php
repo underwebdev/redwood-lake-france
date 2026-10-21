@@ -25,7 +25,7 @@
         <div class="grid-x grid-padding-x">
             @if($mode == 1)
             <div class="cell small-12">
-                <input type="text" wire:model="lookup" placeholder="Search angler by first or last name">
+                <input type="text" wire:model.live="lookup" placeholder="Search angler by first or last name">
                 <div class="table-scroll">
                     <table>
                         <thead>
@@ -73,19 +73,19 @@
                 <label for="">First Name
                     @error('firstName')<span class="error">{{ $message }}</span>@enderror
                 </label>
-                <input type="text" placeholder="" wire:model="firstName">
+                <input type="text" placeholder="" wire:model.live="firstName">
                 <label for="">Last Name
                     @error('lastName')<span class="error">{{ $message }}</span>@enderror
                 </label>
-                <input type="text" placeholder="" wire:model="lastName">
+                <input type="text" placeholder="" wire:model.live="lastName">
                 <label for="">Telephone
                     @error('telephone')<span class="error">{{ $message }}</span>@enderror
                 </label>
-                <input type="text" placeholder="" wire:model="telephone">
+                <input type="text" placeholder="" wire:model.live="telephone">
                 <label for="">Create A login for this angler?
                     @error('account')<span class="error">{{ $message }}</span>@enderror
                 </label>
-                <select id="" wire:model="account">
+                <select id="" wire:model.live="account">
                     <option value="">Please select</option>
                     <option value="1">Yes</option>
                     <option value="2">No</option> 
@@ -94,9 +94,9 @@
                 <label for="">Email
                     @error('email')<span class="error">{{ $message }}</span>@enderror
                 </label>
-                <input type="text" placeholder="" wire:model="email">
+                <input type="text" placeholder="" wire:model.live="email">
                 <label for="">Confirm email</label>
-                <input type="text" placeholder="" wire:model="email_confirmation">
+                <input type="text" placeholder="" wire:model.live="email_confirmation">
                 @endif
                 <button class="button success" wire:click="saveAngler">Create Angler</button>
             </div><!-- End of cell-->
@@ -137,15 +137,15 @@
                 <label for="">First Name
                     @error('firstName')<span class="error">{{ $message }}</span>@enderror
                 </label>
-                <input type="text" placeholder="" wire:model="firstName">
+                <input type="text" placeholder="" wire:model.live="firstName">
                 <label for="">Last Name
                     @error('lastName')<span class="error">{{ $message }}</span>@enderror
                 </label>
-                <input type="text" placeholder="" wire:model="lastName">
+                <input type="text" placeholder="" wire:model.live="lastName">
                 <label for="">Telephone
                     @error('telephone')<span class="error">{{ $message }}</span>@enderror
                 </label>
-                <input type="text" placeholder="" wire:model="telephone">
+                <input type="text" placeholder="" wire:model.live="telephone">
                 <button class="button success" wire:click="saveAnglerChanges">Save Changes</button>
             </div><!-- End of cell-->
             @elseif($mode == 5)
@@ -153,9 +153,9 @@
                 <label for="">Email
                     @error('email')<span class="error">{{ $message }}</span>@enderror
                 </label>
-                <input type="text" placeholder="" wire:model="email">
+                <input type="text" placeholder="" wire:model.live="email">
                 <label for="">Confirm Email</label>
-                <input type="text" placeholder="" wire:model="email_confirmation">
+                <input type="text" placeholder="" wire:model.live="email_confirmation">
                 <button class="button success" wire:click="saveAnglerEmail">Save Email</button>
             </div>
             @endif

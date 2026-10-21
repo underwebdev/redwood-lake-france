@@ -58,41 +58,41 @@
                 <label for="">Page Name
                     @error('name')<span class="error">{{ $message }} </span> @enderror
                 </label>
-                <input type="text" placeholder="" wire:model="name">
+                <input type="text" placeholder="" wire:model.live="name">
 
                 <label for="">Url
                     @error('url')<span class="error">{{ $message }}</span>@enderror
                 </label>
-                <input type="text" placeholder="" wire:model="url">
+                <input type="text" placeholder="" wire:model.live="url">
 
                 <label for="">Meta Title
                     @error('metatitle')<span class="error">{{ $message }} </span> @enderror
                 </label>
-                <input type="text" placeholder="" wire:model="metatitle">
+                <input type="text" placeholder="" wire:model.live="metatitle">
 
                 <label for="">Meta Description
                     @error('metadesc')<span class="error">{{ $message }} </span> @enderror
                 </label>
-                <input type="text" placeholder="" wire:model="metadesc">
+                <input type="text" placeholder="" wire:model.live="metadesc">
 
                 <label for="">Meta Keywords
                     @error('metakeywords')<span class="error">{{ $message }} </span> @enderror
                 </label>
-                <input type="text" placeholder="" wire:model="metakeywords">
+                <input type="text" placeholder="" wire:model.live="metakeywords">
 
                 <label for="">Heading
                     @error('heading')<span class="error">{{ $message }} </span> @enderror
                 </label>
-                <input type="text" placeholder="" wire:model="heading">
+                <input type="text" placeholder="" wire:model.live="heading">
 
                 <label for="">Sub Heading</label>
-                <input type="text" placeholder="" wire:model="subheading">
+                <input type="text" placeholder="" wire:model.live="subheading">
 
                 <label for="">CTA Button</label>
-                <input type="text" placeholder="" wire:model="ctabutton">
+                <input type="text" placeholder="" wire:model.live="ctabutton">
 
                 <label for="">CTA Link</label>
-                <input type="text" placeholder="" wire:model="ctalink">
+                <input type="text" placeholder="" wire:model.live="ctalink">
 
                 <button class="button success" wire:click="savePage">Save Page</button>
 
@@ -145,10 +145,10 @@
 
                 @if($module)
                 <label for="">Title</label>
-                <input type="text" placeholder="" wire:model="title">
+                <input type="text" placeholder="" wire:model.live="title">
 
                 <label for=""></label>
-                <textarea wire:model="content" cols="50" rows="10"></textarea>
+                <textarea wire:model.live="content" cols="50" rows="10"></textarea>
 
                 <button class="button success" wire:click="saveModule">Save Module</button>
                 <button class="button alert" wire:click="$set('module', false)">Cancel</button>
@@ -181,51 +181,51 @@
                 <label for="">Page Name
                     @error('name')<span class="error">{{ $message }} </span> @enderror
                 </label>
-                <input type="text" placeholder="" wire:model="name">
+                <input type="text" placeholder="" wire:model.live="name">
 
                 <label for="">Url
                     @error('url')<span class="error">{{ $message }}</span>@enderror
                 </label>
-                <input type="text" placeholder="" wire:model="url">
+                <input type="text" placeholder="" wire:model.live="url">
 
                 <label for="">Meta Title
                     @error('metatitle')<span class="error">{{ $message }} </span> @enderror
                 </label>
-                <input type="text" placeholder="" wire:model="metatitle">
+                <input type="text" placeholder="" wire:model.live="metatitle">
 
                 <label for="">Meta Description
                     @error('metadesc')<span class="error">{{ $message }} </span> @enderror
                 </label>
-                <input type="text" placeholder="" wire:model="metadesc">
+                <input type="text" placeholder="" wire:model.live="metadesc">
 
                 <label for="">Meta Keywords
                     @error('metakeywords')<span class="error">{{ $message }} </span> @enderror
                 </label>
-                <input type="text" placeholder="" wire:model="metakeywords">
+                <input type="text" placeholder="" wire:model.live="metakeywords">
 
                 <label for="">Heading
                     @error('heading')<span class="error">{{ $message }} </span> @enderror
                 </label>
-                <input type="text" placeholder="" wire:model="heading">
+                <input type="text" placeholder="" wire:model.live="heading">
 
                 <label for="">Sub Heading</label>
-                <input type="text" placeholder="" wire:model="subheading">
+                <input type="text" placeholder="" wire:model.live="subheading">
 
                 <label for="">CTA Button</label>
-                <input type="text" placeholder="" wire:model="ctabutton">
+                <input type="text" placeholder="" wire:model.live="ctabutton">
 
                 <label for="">CTA Link</label>
-                <input type="text" placeholder="" wire:model="ctalink">
+                <input type="text" placeholder="" wire:model.live="ctalink">
 
                 <button class="button success" wire:click="savePageChanges">Save Page</button>
                 <button class="button alert" wire:click="$set('mode', 3)">Cancel</button>
             @elseif($mode == 5)
             <div class="cell small-12">
                 <label for="">Title</label>
-                <input type="text" placeholder="" wire:model="title">
+                <input type="text" placeholder="" wire:model.live="title">
 
                 <label for=""></label>
-                <textarea wire:model="content" cols="50" rows="10"></textarea>
+                <textarea wire:model.live="content" cols="50" rows="10"></textarea>
 
                 <button class="button success" wire:click="saveModuleChanges">Save Changes</button>
                 <button class="button alert" wire:click="$set('mode', 3)">Cancel</button>
@@ -235,13 +235,13 @@
                 <p>Image aspect ratio must be 2:1, files will be automatically cropped to 1400px x 750px</p>
                 <label>@error('file')<span class="error">{{ $message }}</span>@enderror
                 </label> 
-                <input type="file" wire:model="photo">
+                <input type="file" wire:model.live="photo">
                 <label for="">Alt Text
                     @error('alt')
                         <span class="error">{{ $message }}</span>
                     @enderror
                 </label>
-                <input type="text" placeholder="" wire:model="alt">
+                <input type="text" placeholder="" wire:model.live="alt">
                 <div class="button-group">
                     <button class="button success" wire:click="saveImage">Upload Image</button>
                     <button class="button alert" wire:click="$set('mode', 3)">Cancel</button>

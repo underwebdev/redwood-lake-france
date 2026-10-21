@@ -105,7 +105,7 @@
             @elseif($mode == 2)
             <div class="cell small-12 medium-8 large-6 medium-offset-2 large-offset-3">
                 <label for="">Package Name</label>
-                <input type="text" placeholder="" wire:model="name">
+                <input type="text" placeholder="" wire:model.live="name">
 
                 <button class="button success" wire:click="savePackage">Save Package</button>
             </div>
@@ -113,7 +113,7 @@
             <div class="cell small-12 medium-8 large-6 medium-offset-2 large-offset-3">
                 <h4>{{ $selectedPackage->name }}</h4>
                 <label for="">Feature</label>
-                <input type="text" placeholder="" wire:model="breakdown">
+                <input type="text" placeholder="" wire:model.live="breakdown">
 
                 @if($selectedBreakdown)
                 <button class="button success" wire:click="saveBreakdownChanges">Save Changes</button>
@@ -135,7 +135,7 @@
                 <label for="">Package
                     @error('package')<span class="error">{{ $message }}</span>@enderror
                 </label>
-                <select id="" wire:model="package">
+                <select id="" wire:model.live="package">
                     <option value="">Please Select</option>
                     @foreach($packages as $package)
                     <option value="{{ $package->id }}">{{ $package->name }}</option>
@@ -143,7 +143,7 @@
                 </select>
 
                 <label for="">Name (optional)</label>
-                <input type="text" placeholder="" wire:model="name">
+                <input type="text" placeholder="" wire:model.live="name">
 
                 <label for="">Valid From
                     @error('start')<span class="error">{{ $message }}</span>@enderror
@@ -158,20 +158,20 @@
                 <label for="">Price
                     @error('price')<span class="error">{{ $message }}</span>@enderror
                 </label>
-                <input type="text" placeholder="" wire:model="price">
+                <input type="text" placeholder="" wire:model.live="price">
 
                 <label for="">Deposit £
                     @error('deposit')<span class="error">{{ $message }}</span>@enderror
                 </label>
-                <input type="text" placeholder="" wire:model="deposit">
+                <input type="text" placeholder="" wire:model.live="deposit">
 
                 <label for="">Balance Due (days before departure)
                     @error('due')<span class="error">{{ $message }}</span>@enderror
                 </label>
-                <input type="text" placeholder="" wire:model="due">
+                <input type="text" placeholder="" wire:model.live="due">
 
                 <label for="">Feature On Website</label>
-                <select id="" wire:model="featured">
+                <select id="" wire:model.live="featured">
                     <option value="">Please select</option>
                     <option value="0">No</option>
                     <option value="1">Yes</option> 

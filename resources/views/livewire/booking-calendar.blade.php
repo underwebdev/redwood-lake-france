@@ -8,7 +8,7 @@
     </div>
     <div class="grid-x grid-padding-x">
         <div class="cell small-12 medium-6">
-            <select id="" wire:model="selectedMonth">
+            <select id="" wire:model.live="selectedMonth">
                 <option value="">Select Month</option>
                 <option value="01">January</option>
                 <option value="02">February</option>
@@ -25,7 +25,7 @@
             </select>
         </div><!-- End of cell--> 
         <div class="cell small-12 medium-6">
-            <select id="" wire:model="selectedYear">
+            <select id="" wire:model.live="selectedYear">
                 <option value="">Select Year</option>
                 <option value="{{ Carbon\Carbon::now()->format('Y') }}">{{ Carbon\Carbon::now()->format('Y') }}</option>
                 <option value="{{ Carbon\Carbon::now()->addyear()->format('Y') }}">{{ Carbon\Carbon::now()->addyear()->format('Y') }}</option>  

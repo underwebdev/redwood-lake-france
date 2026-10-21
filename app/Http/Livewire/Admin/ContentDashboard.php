@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use App\Models\Page;
 use App\Models\Module;
-use Image;
+use App\Support\Image;
 
 class ContentDashboard extends Component
 {

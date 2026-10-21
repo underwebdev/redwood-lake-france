@@ -38,7 +38,7 @@ class SettingsDashboard extends Component
 		{
 			$this->mode = 1;
 
-			$this->dispatchBrowserEvent('activate-datepicker');
+			$this->dispatch('activate-datepicker');
 		}
 	}
 

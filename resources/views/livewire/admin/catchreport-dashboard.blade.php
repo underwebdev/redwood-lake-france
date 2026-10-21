@@ -289,7 +289,7 @@
                             <thead>
                                 <tr>
                                     <td>
-                                        <select id="" wire:model="filteryear">
+                                        <select id="" wire:model.live="filteryear">
                                             <option value="{{ Carbon\Carbon::now()->subYear()->year }}">{{ Carbon\Carbon::now()->subYear()->year }}</option> 
                                             <option value="{{ Carbon\Carbon::now()->subYears(2)->year }}">{{ Carbon\Carbon::now()->subYears(2)->year }}</option> 
                                             <option value="{{ Carbon\Carbon::now()->subYears(3)->year }}">{{ Carbon\Carbon::now()->subYears(3)->year }}</option> 
@@ -446,14 +446,14 @@
             @elseif($mode == 2)
             <div class="cell small-12 medium-8 large-6 medium-offset-2 large-offset-3">
                 <label for="">Search Angler</label>
-                <input type="text" placeholder="" wire:model="anglerLookup">
+                <input type="text" placeholder="" wire:model.live="anglerLookup">
 
                 <label for="">Angler
                     @error('angler')
                         <span class="error">{{ $message }}</span>
                     @enderror
                 </label>
-                <select id="" wire:model="angler">
+                <select id="" wire:model.live="angler">
                     <option value="">Please select</option>
                     @foreach($anglers as $angler)
                     <option value="{{ $angler->id }}">{{ $angler->firstName }} {{ $angler->lastName }}</option>
@@ -466,14 +466,14 @@
                         @error('lbs')
                             <span class="error">{{ $message }}</span>
                         @enderror</label>
-                        <input type="text" placeholder="" wire:model="lbs">      
+                        <input type="text" placeholder="" wire:model.live="lbs">      
                     </div><!-- End of cell-->
                     <div class="cell small-6">
                         <label for="">oz
                             @error('oz')
                                 <span class="error">{{ $message }}</span>
                             @enderror</label>
-                        <input type="text" placeholder="" wire:model="oz">
+                        <input type="text" placeholder="" wire:model.live="oz">
                     </div><!-- End of cell-->
                 </div><!--end of grid-x -->
 
@@ -482,7 +482,7 @@
                         <span class="error">{{ $message }}</span>
                     @enderror
                 </label>
-                <select id="" wire:model="specimen">
+                <select id="" wire:model.live="specimen">
                     <option value="">Select a species</option>
                     @foreach($species as $specimen)
                     <option value="{{ $specimen->id }}">{{ $specimen->name }}</option>
@@ -496,7 +496,7 @@
                 <input type="text" id="datepicker" wire:model.lazy="date">
 
                 <label for="">Swim</label>
-                <select id="" wire:model="swim">
+                <select id="" wire:model.live="swim">
                     <option value="">Please Select</option>
                     @foreach($swims as $swim)
                     <option value="{{ $swim->id }}">{{ $swim->name }}</option>
@@ -504,10 +504,10 @@
                 </select>
 
                 <label for="">Bait (optional)</label>
-                <input type="text" placeholder="" wire:model="bait">
+                <input type="text" placeholder="" wire:model.live="bait">
 
                 <label for="">Notes (optional)
-                <textarea wire:model="notes" cols="50" rows="10"></textarea>
+                <textarea wire:model.live="notes" cols="50" rows="10"></textarea>
 
                 <div class="grid-x grid-padding-x">
                     <div class="cell small-12 medium-6">
@@ -516,7 +516,7 @@
                                 <span class="error">{{ $message }}</span>
                             @enderror
                         </label>
-                        <input type="file" wire:model="sideone">
+                        <input type="file" wire:model.live="sideone">
                         @if($sideone)
                         <div class="photo-preview">
                             <img src="{{ $sideone->temporaryUrl() }}">
@@ -531,7 +531,7 @@
                                 <span class="error">{{ $message }}</span>
                             @enderror
                         </label>
-                        <input type="file" wire:model="sidetwo">
+                        <input type="file" wire:model.live="sidetwo">
                         @if($sidetwo)
                         <div class="photo-preview">
                             <img src="{{ $sidetwo->temporaryUrl() }}">
@@ -555,14 +555,14 @@
             @elseif($mode == 3)
             <div class="cell small-12 medium-8 large-6 medium-offset-2 large-offset-3">
                 <label for="">Search Angler</label>
-                <input type="text" placeholder="" wire:model="anglerLookup">
+                <input type="text" placeholder="" wire:model.live="anglerLookup">
 
                 <label for="">Angler
                     @error('angler')
                         <span class="error">{{ $message }}</span>
                     @enderror
                 </label>
-                <select id="" wire:model="angler">
+                <select id="" wire:model.live="angler">
                     <option value="">Please select</option>
                     @foreach($anglers as $angler)
                     <option value="{{ $angler->id }}">{{ $angler->firstName }} {{ $angler->lastName }}</option>
@@ -575,14 +575,14 @@
                         @error('lbs')
                             <span class="error">{{ $message }}</span>
                         @enderror</label>
-                        <input type="text" placeholder="" wire:model="lbs">      
+                        <input type="text" placeholder="" wire:model.live="lbs">      
                     </div><!-- End of cell-->
                     <div class="cell small-6">
                         <label for="">oz
                             @error('oz')
                                 <span class="error">{{ $message }}</span>
                             @enderror</label>
-                        <input type="text" placeholder="" wire:model="oz">
+                        <input type="text" placeholder="" wire:model.live="oz">
                     </div><!-- End of cell-->
                 </div><!--end of grid-x -->
 
@@ -592,7 +592,7 @@
                     @enderror
                 </label>
 
-                <select id="" wire:model="specimen">
+                <select id="" wire:model.live="specimen">
                     <option value="">Select a species</option>
                     @foreach($species as $specimen)
                     <option value="{{ $specimen->id }}">{{ $specimen->name }}</option>
@@ -606,7 +606,7 @@
                 <input type="text" id="datepicker" wire:model.lazy="date">
 
                 <label for="">Swim</label>
-                <select id="" wire:model="swim">
+                <select id="" wire:model.live="swim">
                     <option value="">Please Select</option>
                     @foreach($swims as $swim)
                     <option value="{{ $swim->id }}">{{ $swim->name }}</option>
@@ -614,10 +614,10 @@
                 </select>
 
                 <label for="">Bait</label>
-                <input type="text" placeholder="" wire:model="bait">
+                <input type="text" placeholder="" wire:model.live="bait">
 
                 <label for="">Notes (optional)
-                <textarea wire:model="notes" cols="50" rows="10"></textarea>
+                <textarea wire:model.live="notes" cols="50" rows="10"></textarea>
 
                 <button class="button success" wire:click="saveReportChanges">Save Changes</button>
 
@@ -635,7 +635,7 @@
                                 <span class="error">{{ $message }}</span>
                             @enderror
                             </label>
-                            <input type="file" wire:model="sideone">
+                            <input type="file" wire:model.live="sideone">
                         @endif
                     </div><!-- End of cell-->
                     <div class="cell small-12 medium-6">
@@ -651,7 +651,7 @@
                                 <span class="error">{{ $message }}</span>
                             @enderror
                             </label>
-                            <input type="file" wire:model="sidetwo">
+                            <input type="file" wire:model.live="sidetwo">
                         @endif
                     </div><!-- End of cell-->
                 </div>

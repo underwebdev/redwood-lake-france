@@ -7,7 +7,7 @@ use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Photodiary;
 use Carbon\Carbon;
-use Image;
+use App\Support\Image;
 
 class DiaryDashboard extends Component
 {
@@ -26,14 +26,14 @@ class DiaryDashboard extends Component
         {
             $this->mode = 1;
 
-            $this->dispatchBrowserEvent('activate-datepicker');
+            $this->dispatch('activate-datepicker');
         } elseif($id == 2)
         {
             $this->diary = Photodiary::findOrFail($photo);
             $this->mode = 2;
             $this->date = $this->diary->date;
             $this->caption = $this->caption;
-            $this->dispatchBrowserEvent('activate-datepicker');
+            $this->dispatch('activate-datepicker');
 
         } elseif($id == 3)
         {

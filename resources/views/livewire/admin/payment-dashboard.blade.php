@@ -24,7 +24,7 @@
         <div class="grid-x grid-padding-x">
             @if($mode == 1)
             <div class="cell small-12">
-                <input type="text" placeholder="Search payments by name or booking ref" wire:model="lookup">
+                <input type="text" placeholder="Search payments by name or booking ref" wire:model.live="lookup">
                 <div class="table-scroll">
                     <table>
                         <thead>
@@ -69,7 +69,7 @@
                         <span class="error">{{ $message }}</span>
                     @enderror
                     </label>
-                <select id="" wire:model="booking">
+                <select id="" wire:model.live="booking">
                     <option value="">Please Select</option>
                     @foreach($bookings as $booking)
                     <option value="{{ $booking->id }}">{{ date('j/m/y', strtotime ($booking->arrival)) }} - {{ $booking->angler->lastName }}</option>
@@ -82,7 +82,7 @@
                         <span class="error">{{ $message }}</span>
                     @enderror
                     </label>
-                <select id="" wire:model="angler">
+                <select id="" wire:model.live="angler">
                     <option value="">Please Select</option>
                     @isset($selectedBooking)
                     <option value="{{ $booking->angler->id }}">{{ $booking->angler->firstName }} {{ $booking->angler->lastName }}</option>
@@ -97,7 +97,7 @@
                         <span class="error">{{ $message }}</span>
                     @enderror
                     </label>
-                <input type="text" wire:model="amount">
+                <input type="text" wire:model.live="amount">
 
                 <button class="button success" wire:click="confirmTransfer">Save Payment</button>
             </div>

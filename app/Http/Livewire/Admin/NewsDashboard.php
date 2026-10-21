@@ -6,7 +6,7 @@ use Livewire\Component;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Article;
-use Image;
+use App\Support\Image;
 use Auth;
 
 class NewsDashboard extends Component

@@ -28,7 +28,7 @@
                     
                 <div class="grid-x grid-padding-x">
                     <div class="cell small-12 medium-4">
-                        <select wire:model="selectedSpecies">
+                        <select wire:model.live="selectedSpecies">
                             <option value="">Select Species</option>
                             @foreach($species as $specimen)
                             <option value="{{ $specimen->id }}">{{ $specimen->name }}</option>
@@ -36,7 +36,7 @@
                         </select>  
                     </div><!-- End of cell-->
                     <div class="cell small-12 medium-4">
-                       <select wire:model="selectedWeight">
+                       <select wire:model.live="selectedWeight">
                             <option value="">Select Weight</option>
                             <option value="10">10+</option>
                             <option value="20">20+</option>
@@ -45,7 +45,7 @@
                         </select>        
                     </div><!-- End of cell-->
                     <div class="cell small-12 medium-4">
-                        <select wire:model="selectedSwim">
+                        <select wire:model.live="selectedSwim">
                             <option value="">Select Swim</option>
                             @foreach($swims as $swim)
                             <option value="{{ $swim->id }}">{{ $swim->name }}</option>

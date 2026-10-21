@@ -24,7 +24,7 @@
         <div class="grid-x grid-padding-x">
             @if($mode == 1)
             <div class="cell small-12">
-                <input type="text" placeholder="search voucher by code" wire:model="lookup">
+                <input type="text" placeholder="search voucher by code" wire:model.live="lookup">
                 <div class="table-scroll">
                     <table>
                         <thead>
@@ -72,17 +72,17 @@
                 <label for="">Code
                     @error('code')<span class="error">{{ $message }}</span>@enderror
                 </label>
-                <input type="text" placeholder="" wire:model="code">
+                <input type="text" placeholder="" wire:model.live="code">
 
                 <label for="">Discount Amount
                     @error('amount')<span class="error">{{ $message }}</span>@enderror
                 </label>
-                <input type="text" placeholder="" wire:model="amount">
+                <input type="text" placeholder="" wire:model.live="amount">
 
                 <label for="">Discount Usage Limit
                     @error('limit')<span class="error">{{ $message }}</span>@enderror
                 </label>
-                <input type="text" placeholder="" wire:model="limit">
+                <input type="text" placeholder="" wire:model.live="limit">
 
                 <label for="">Valid On
                     @error('start')<span class="error">{{ $message }}</span>@enderror
@@ -92,7 +92,7 @@
                 <label for="">Will the discount be valid for more than one date?
                     @error('validity')<span class="error">{{ $message }}</span>@enderror
                 </label>
-                <select id="" wire:model="validity">
+                <select id="" wire:model.live="validity">
                     <option value="">No</option>
                     <option value="1">Yes</option> 
                 </select>

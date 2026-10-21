@@ -28,38 +28,38 @@
 				<div class="cell small-12 medium-10 large-8 medium-offset-1 large-offset-2">
 					<form wire:submit.prevent="saveArticle">
 						<label for="">Title @error('title')<span class="error">{{ $message }}</span>@enderror</label>
-						<input type="text" placeholder="" wire:model="title">
+						<input type="text" placeholder="" wire:model.live="title">
 
 						<label for="">Body @error('body')<span class="error">{{ $message }}</span>@enderror</label>
-						<textarea wire:model="body" cols="25" rows="10"></textarea>
+						<textarea wire:model.live="body" cols="25" rows="10"></textarea>
 
 						<label for="">Cover Image (1200px x 900px) @error('cover')<span class="error">{{ $message }}</span>@enderror</label>
-						<input type="file" placeholder="" wire:model="cover">
+						<input type="file" placeholder="" wire:model.live="cover">
 
 						<hr>
 
 						<label for="">Url (https://etangdeseuil.co.uk/news/)
 		                    @error('url')<span class="error">{{ $message }}</span>@enderror
 		                </label>
-		                <input type="text" placeholder="" wire:model="url">
+		                <input type="text" placeholder="" wire:model.live="url">
 
 		                <label for="">Meta Title
 		                    @error('metatitle')<span class="error">This field is required if the article is active.</span> @enderror
 		                </label>
-		                <input type="text" placeholder="" wire:model="metatitle">
+		                <input type="text" placeholder="" wire:model.live="metatitle">
 
 		                <label for="">Meta Description
 		                    @error('metadesc')<span class="error">This field is required if the article is active.</span> @enderror
 		                </label>
-		                <input type="text" placeholder="" wire:model="metadesc">
+		                <input type="text" placeholder="" wire:model.live="metadesc">
 
 		                <label for="">Meta Keywords
 		                    @error('metakeywords')<span class="error">This field is required if the article is active.</span> @enderror
 		                </label>
-		                <input type="text" placeholder="" wire:model="metakeywords">
+		                <input type="text" placeholder="" wire:model.live="metakeywords">
 
 		                <label for="">Status</label>
-		                <select id="" wire:model="status">
+		                <select id="" wire:model.live="status">
 		                	<option value="1">Draft</option>
 		                	<option value="2">Active</option>
 		                </select>

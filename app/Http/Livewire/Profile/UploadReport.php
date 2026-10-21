@@ -11,7 +11,7 @@ use App\Models\Report;
 use App\Models\Specimen;
 use App\Models\Swim;
 use Carbon\Carbon;
-use Image;
+use App\Support\Image;
 use Auth;
 
 class UploadReport extends Component

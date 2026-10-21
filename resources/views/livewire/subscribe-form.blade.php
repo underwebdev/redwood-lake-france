@@ -10,11 +10,11 @@
                 <label for="subscribe-first-name">First Name
                     @error('firstName')<span class="error">{{ $message }}</span>@enderror
                 </label>
-                <input type="text" id="subscribe-first-name" placeholder="" wire:model="firstName">
+                <input type="text" id="subscribe-first-name" placeholder="" wire:model.live="firstName">
                 <label for="subscribe-email">Email
                     @error('email')<span class="error">{{ $message }}</span>@enderror
                 </label>
-                <input type="text" id="subscribe-email" placeholder="" wire:model="email">
+                <input type="text" id="subscribe-email" placeholder="" wire:model.live="email">
                 <button class="button expanded secondary hollow" wire:click="subscribe">Get Notified</button>
             @endif
         </div><!-- End of cell-->

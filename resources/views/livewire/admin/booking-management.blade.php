@@ -286,7 +286,7 @@
                     <span class="error">{{ $message }}</span>
                 @enderror
                 </label>
-                <select id="" wire:model="angler">
+                <select id="" wire:model.live="angler">
                     <option value="">Please Select</option>
                     <option value="{{ $booking->angler->id }}">{{ $booking->angler->firstName }} {{ $booking->angler->lastName }}</option>
                     @foreach($booking->guests as $guest)
@@ -300,7 +300,7 @@
                         <span class="error">{{ $message }}</span>
                     @enderror
                     </label>
-                <input type="text" wire:model="amount">
+                <input type="text" wire:model.live="amount">
 
                 <button class="button success" wire:click="confirmTransfer">Save Payment</button>
             </div>
@@ -311,23 +311,23 @@
                 <label for="">First Name
                     @error('firstName')<span class="error">{{ $message }}</span>@enderror
                 </label>
-                <input type="text" placeholder="" wire:model="firstName">
+                <input type="text" placeholder="" wire:model.live="firstName">
                 <label for="">Last Name
                     @error('lastName')<span class="error">{{ $message }}</span>@enderror
                 </label>
-                <input type="text" placeholder="" wire:model="lastName">
+                <input type="text" placeholder="" wire:model.live="lastName">
 
                 <label for="">Telephone
                     @error('telephone')<span class="error">{{ $message }}</span>@enderror
                 </label>
-                <input type="text" placeholder="" wire:model="telephone">
+                <input type="text" placeholder="" wire:model.live="telephone">
 
                 <label for="">Email
                     @error('email')<span class="error">{{ $message }}</span>@enderror
                 </label>
-                <input type="text" placeholder="" wire:model="email">
+                <input type="text" placeholder="" wire:model.live="email">
                 <label for="">Confirm Email</label>
-                <input type="text" placeholder="" wire:model="email_confirmation">
+                <input type="text" placeholder="" wire:model.live="email_confirmation">
 
                 <button class="button success" wire:click="saveAngler">Add Angler</button>
 
@@ -338,15 +338,15 @@
                 <h5 class="info-bar">Update Angler</h5>
                 <p>Updating details for {{ $selectedAngler->firstName }} {{ $selectedAngler->lastName }}</p>
                 <label for="">First Name</label>
-                <input type="text" placeholder="" wire:model="firstName">
+                <input type="text" placeholder="" wire:model.live="firstName">
                 <label for="">Last Name</label>
-                <input type="text" placeholder="" wire:model="lastName">
+                <input type="text" placeholder="" wire:model.live="lastName">
 
                 <label for="">Email</label>
-                <input type="text" placeholder="" wire:model="email">
+                <input type="text" placeholder="" wire:model.live="email">
 
                 <label for="">Telephone</label>
-                <input type="text" placeholder="" wire:model="telephone">
+                <input type="text" placeholder="" wire:model.live="telephone">
                 <div class="button-group">
                     <button class="button success" wire:click="saveAnglerChanges">Save Angler</button>
                     @unless($booking->angler_id == $selectedAngler->id) 
@@ -383,7 +383,7 @@
             <div class="cell small-12">
                 <div class="grid-x grid-padding-x">
                     <div class="cell small-12 medium-6">
-                        <select id="" wire:model="selectedMonth">
+                        <select id="" wire:model.live="selectedMonth">
                             <option value="">Select Month</option>
                             <option value="01">January</option>
                             <option value="02">Febuary</option>
@@ -400,7 +400,7 @@
                         </select>
                     </div><!-- End of cell-->
                     <div class="cell small-12 medium-6">
-                        <select id="" wire:model="selectedYear">
+                        <select id="" wire:model.live="selectedYear">
                             <option value="">Select Year</option>
                             <option value="{{ Carbon\Carbon::now()->format('Y') }}">{{ Carbon\Carbon::now()->format('Y') }}</option>
                             <option value="{{ Carbon\Carbon::now()->addyear()->format('Y') }}">{{ Carbon\Carbon::now()->addyear()->format('Y') }}</option>  
@@ -449,10 +449,10 @@
             @elseif($mode == 7)
             <div class="cell small-12 medium-10 medium-offset-1">
                 <label for="">Total Cost</label>
-                <input type="text" placeholder="" wire:model="total">
+                <input type="text" placeholder="" wire:model.live="total">
 
                 <label for="">Lead Angler</label>
-                <select id="" wire:model="lead">
+                <select id="" wire:model.live="lead">
                     <option value="{{ $booking->angler->id }}">{{ $booking->angler->firstName }} {{ $booking->angler->lastName }}</option>
                     @foreach($booking->guests as $guest)
                     <option value="{{ $guest->id }}">{{ $guest->firstName }} {{ $guest->lastName }}</option>
@@ -462,13 +462,13 @@
 
                 @if($lead == 'new')
                 <label for="">First Name</label>
-                <input type="text" placeholder="" wire:model="firstName">
+                <input type="text" placeholder="" wire:model.live="firstName">
                 <label for="">Last Name</label>
-                <input type="text" placeholder="" wire:model="lastName">
+                <input type="text" placeholder="" wire:model.live="lastName">
                 <label for="">Telephone</label>
-                <input type="text" placeholder="" wire:model="telephone">
+                <input type="text" placeholder="" wire:model.live="telephone">
                 <label for="">Email</label>
-                <input type="text" placeholder="" wire:model="email">
+                <input type="text" placeholder="" wire:model.live="email">
                 @endif
 
                 <div class="button-group">
@@ -505,7 +505,7 @@
                     Option                            
                     @error('option')<span class="error">{{ $message }}</span>@enderror
                 </label>
-                <select id="" wire:model="option">
+                <select id="" wire:model.live="option">
                     <option value="">Please select</option>
                     @foreach($products as $product)
                     <option value="{{ $product->id }}">{{ $product->name }} - £{{ $product->price / 100 }}</option>
@@ -516,7 +516,7 @@
                     Quantity                            
                     @error('quantity')<span class="error">{{ $message }}</span>@enderror
                 </label>
-                <select id="" wire:model="quantity">
+                <select id="" wire:model.live="quantity">
                     <option value="">Please select</option> 
                     <option value="1">1</option> 
                     <option value="2">2</option> 
@@ -539,13 +539,13 @@
                     Total £                            
                     @error('total')<span class="error">{{ $message }}</span>@enderror
                 </label>
-                <input type="text" placeholder="" wire:model="total">
+                <input type="text" placeholder="" wire:model.live="total">
 
                 <label for="">Payment
                     @error('payment')<span class="error">{{ $message }}</span>@enderror
                 </label>
 
-                <select id="" wire:model="payment">
+                <select id="" wire:model.live="payment">
                     <option value="">Please Select</option>
                     <option value="paid">Paid</option>
                     <option value="unpaid">Unpaid</option>

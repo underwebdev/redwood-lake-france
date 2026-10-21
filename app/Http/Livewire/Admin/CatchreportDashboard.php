@@ -13,7 +13,7 @@ use App\Models\Specimen;
 use App\Models\Swim;
 use App\Models\Francereport;
 use Carbon\Carbon;
-use Image;
+use App\Support\Image;
 
 class CatchreportDashboard extends Component
 {
@@ -191,7 +191,7 @@ class CatchreportDashboard extends Component
         $this->sideone = $this->selectedReport->sideone;
         $this->sidetwo = $this->selectedReport->sidetwo;
 
-        $this->dispatchBrowserEvent('activate-datepicker');
+        $this->dispatch('activate-datepicker');
 
         $this->mode = 3;
     }
@@ -381,7 +381,7 @@ class CatchreportDashboard extends Component
 
     public function updatedMode()
     {
-        $this->dispatchBrowserEvent('activate-datepicker');
+        $this->dispatch('activate-datepicker');
     }
 
     public function back()

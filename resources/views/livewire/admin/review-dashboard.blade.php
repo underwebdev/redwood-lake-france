@@ -52,11 +52,11 @@
             @elseif($mode == 2)
             <div class="cell small-12 medium-8 large-6 medium-offset-2 large-offset-3">
                 <label for="">Review</label>
-                <textarea wire:model="body" cols="50" rows="10"></textarea>
+                <textarea wire:model.live="body" cols="50" rows="10"></textarea>
                 <label for="">Name</label>
-                <input type="text" placeholder="" wire:model="name">
+                <input type="text" placeholder="" wire:model.live="name">
                 <label for="">Featured</label>
-                <select id="" wire:model="featured">
+                <select id="" wire:model.live="featured">
                     <option value="">Please select</option>
                     <option value="">No</option>
                     <option value="1">Yes</option> 
@@ -66,11 +66,11 @@
             @elseif($mode == 3)
             <div class="cell small-12 medium-8 large-6 medium-offset-2 large-offset-3">
                 <label for="">Review</label>
-                <textarea wire:model="body" cols="50" rows="10"></textarea>
+                <textarea wire:model.live="body" cols="50" rows="10"></textarea>
                 <label for="">Name</label>
-                <input type="text" placeholder="" wire:model="name">
+                <input type="text" placeholder="" wire:model.live="name">
                 <label for="">Featured</label>
-                <select id="" wire:model="featured">
+                <select id="" wire:model.live="featured">
                     <option value="">No</option>
                     <option value="1">Yes</option> 
                 </select>

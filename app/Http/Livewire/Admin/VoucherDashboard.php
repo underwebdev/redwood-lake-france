@@ -71,7 +71,7 @@ class VoucherDashboard extends Component
 
         $this->status = $this->selectedVoucher->active;
 
-        $this->dispatchBrowserEvent('activate-datepicker');
+        $this->dispatch('activate-datepicker');
 
         $this->mode = 2;
 
@@ -117,12 +117,12 @@ class VoucherDashboard extends Component
             $this->reset(['end']);
         }
 
-        $this->dispatchBrowserEvent('activate-datepicker');
+        $this->dispatch('activate-datepicker');
     }
 
     public function updatedMode()
     {
-        $this->dispatchBrowserEvent('activate-datepicker');
+        $this->dispatch('activate-datepicker');
     }
 
     public function back()

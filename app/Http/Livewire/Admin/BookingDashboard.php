@@ -190,7 +190,7 @@ class BookingDashboard extends Component
 
     public function updatedMode()
     {
-        $this->dispatchBrowserEvent('activate-datepicker');
+        $this->dispatch('activate-datepicker');
     }
 
     public function back()

@@ -8,26 +8,26 @@
         <label for="contact-name">Name
             @error('name')<span class="error">{{ $message }}</span>@endif
         </label>
-        <input type="text" id="contact-name" placeholder="" wire:model="name">
+        <input type="text" id="contact-name" placeholder="" wire:model.live="name">
 
         <label for="contact-email">Email
             @error('email')<span class="error">{{ $message }}</span>@endif
         </label>
-        <input type="text" id="contact-email" placeholder="" wire:model="email">
+        <input type="text" id="contact-email" placeholder="" wire:model.live="email">
 
         <label for="contact-telephone">Telephone
             @error('telephone')<span class="error">{{ $message }}</span>@endif
         </label>
-        <input type="text" id="contact-telephone" placeholder="" wire:model="telephone">
+        <input type="text" id="contact-telephone" placeholder="" wire:model.live="telephone">
 
         <label for="contact-message">Message
             @error('message')<span class="error">{{ $message }}</span>@endif
         </label>
-        <textarea id="contact-message" wire:model="message" cols="50" rows="10"></textarea>
+        <textarea id="contact-message" wire:model.live="message" cols="50" rows="10"></textarea>
 
         <div class="grid-x grid-padding-x">
             <div class="cell small-12 medium-1 ">
-                <input type="checkbox" id="contact-gdpr" wire:model="gdpr" value="1"> 
+                <input type="checkbox" id="contact-gdpr" wire:model.live="gdpr" value="1"> 
             </div>
             <div class="cell small-10 medium-11 ">
                 @error('gdpr')<span class="error">{{ $message }}</span>@endif
@@ -35,7 +35,7 @@
             </div>
         </div>
 
-        <input type="checkbox" wire:model="fax" value="1" style="display:none !important" tabindex="-1" autocomplete="off">
+        <input type="checkbox" wire:model.live="fax" value="1" style="display:none !important" tabindex="-1" autocomplete="off">
 
         <button class="button success large" wire:click="send">Send Message</button>
     @endif

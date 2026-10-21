@@ -68,16 +68,16 @@
 			<div class="cell small-12 medium-8 large-6 medium-offset-2 large-offset-3">
 				<form wire:submit.prevent="saveAdmin">
 					<label for="">First Name @error('firstName')<span class="error">{{ $message }}</span>@enderror</label> 
-					<input type="text" placeholder="" wire:model="firstName">
+					<input type="text" placeholder="" wire:model.live="firstName">
 
 					<label for="">Last Name @error('lastName')<span class="error">{{ $message }}</span>@enderror</label> 
-					<input type="text" placeholder="" wire:model="lastName">
+					<input type="text" placeholder="" wire:model.live="lastName">
 
 					<label for="">Email @error('email')<span class="error">{{ $message }}</span>@enderror</label> 
-					<input type="text" placeholder="" wire:model="email">
+					<input type="text" placeholder="" wire:model.live="email">
 
 					<label for="">Password @error('passtype')<span class="error">{{ $message }}</span>@enderror</label> 
-					<select id="" wire:model="passtype">
+					<select id="" wire:model.live="passtype">
 						<option value="">Please Select</option>
 						<option value="1">Enter Manually</option>
 						<option value="2">Generate Random Password</option> 
@@ -85,10 +85,10 @@
 
 					@if($passtype == 1)
 					<label for="">Password @error('password')<span class="error">{{ $message }}</span>@enderror</label> 
-					<input type="password" placeholder="" wire:model="password">
+					<input type="password" placeholder="" wire:model.live="password">
 
 					<label for="">Confirm Password</label>
-					<input type="password" placeholder="" wire:model="password_confirmation">
+					<input type="password" placeholder="" wire:model.live="password_confirmation">
 					@elseif($passtype == 2)
 						<p><span class="error">A password will be generated and emailed to the user</span></p>
 					@endif
@@ -100,7 +100,7 @@
 			@elseif($mode == 4)
 			<div class="cell small-12 medium-8 large-6 medium-offset-2 large-offset-3">
 				<label for="">Password @error('passtype')<span class="error">{{ $message }}</span>@enderror</label> 
-				<select id="" wire:model="passtype">
+				<select id="" wire:model.live="passtype">
 					<option value="">Please Select</option>
 					<option value="1">Enter Manually</option>
 					<option value="2">Generate Random Password</option> 
@@ -108,10 +108,10 @@
 
 				@if($passtype == 1)
 				<label for="">Password @error('password')<span class="error">{{ $message }}</span>@enderror</label> 
-				<input type="password" placeholder="" wire:model="password">
+				<input type="password" placeholder="" wire:model.live="password">
 
 				<label for="">Confirm Password</label>
-				<input type="password" placeholder="" wire:model="password_confirmation">
+				<input type="password" placeholder="" wire:model.live="password_confirmation">
 				@elseif($passtype == 2)
 					<p><span class="error">A password will be generated and emailed to the user</span></p>
 				@endif

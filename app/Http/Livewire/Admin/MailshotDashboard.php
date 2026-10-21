@@ -38,7 +38,7 @@ class MailshotDashboard extends Component
 
         $this->mode = 2;
 
-        $this->dispatchBrowserEvent('activate-datepicker');
+        $this->dispatch('activate-datepicker');
     }
 
     public function selectList($id)
@@ -81,7 +81,7 @@ class MailshotDashboard extends Component
 
         $this->mode = 2;
 
-        $this->dispatchBrowserEvent('activate-datepicker');
+        $this->dispatch('activate-datepicker');
     }
 
     public function scheduleEmail()
@@ -106,7 +106,7 @@ class MailshotDashboard extends Component
             'scheduled' => Null
         ]);
 
-        $this->dispatchBrowserEvent('activate-datepicker');
+        $this->dispatch('activate-datepicker');
     }
 
     public function editMail()

@@ -63,19 +63,19 @@
         <div class="grid-x grid-padding-x">
             <div class="cell small-12 medium-8 large-6 medium-offset-2 large-offset-3">
                 <label for="">Size</label>
-                <input type="text" placeholder="" wire:model="size">
+                <input type="text" placeholder="" wire:model.live="size">
                 <label for="">Rod Limit</label>
-                <input type="text" placeholder="" wire:model="rodlimit">
+                <input type="text" placeholder="" wire:model.live="rodlimit">
                 <label for="">Open</label>
-                <input type="text" placeholder="" wire:model="open">
+                <input type="text" placeholder="" wire:model.live="open">
                 <label for="">Lake Record Common</label>
-                <input type="text" placeholder="" wire:model="lrcommon">
+                <input type="text" placeholder="" wire:model.live="lrcommon">
                 <label for="">Lake Record Mirror</label>
-                <input type="text" placeholder="" wire:model="lrmirror">
+                <input type="text" placeholder="" wire:model.live="lrmirror">
                 <label for="">Total Fish</label>
-                <input type="text" placeholder="" wire:model="stock">
+                <input type="text" placeholder="" wire:model.live="stock">
                 <label for="">Average Size</label>
-                <input type="text" placeholder="" wire:model="avgsize">
+                <input type="text" placeholder="" wire:model.live="avgsize">
                 <button class="button success" wire:click="saveLakeChanges">Save Changes</button>
             </div>
         </div><!--end of grid-x -->
@@ -83,9 +83,9 @@
         <div class="grid-x grid-padding-x">
             <div class="cell small-12 medium-8 large-6 medium-offset-2 large-offset-3">
                 <label for="">Swim Name</label>
-                <input type="text" placeholder="" wire:model="name">
+                <input type="text" placeholder="" wire:model.live="name">
                 <label for="">Short Name</label>
-                <input type="text" placeholder="" wire:model="shortname">
+                <input type="text" placeholder="" wire:model.live="shortname">
 
                 <button class="button success" wire:click="saveSwimChanges">Save Changes</button>
 
@@ -95,17 +95,17 @@
                 <img src="/assets/swims/{{ $selectedSwim->id }}">
                 @endif
 
-                <input type="file" wire:model="photo">
+                <input type="file" wire:model.live="photo">
             </div>
          </div><!--end of grid-x -->
         @elseif($mode == 4)
         <div class="grid-x grid-padding-x">
             <div class="cell small-12 medium-8 large-6 medium-offset-2 large-offset-3">
                 <label for="">Swim Name</label>
-                <input type="text" placeholder="" wire:model="name">
+                <input type="text" placeholder="" wire:model.live="name">
 
                 <label for="">Short Name</label>
-                <input type="text" placeholder="" wire:model="shortname">
+                <input type="text" placeholder="" wire:model.live="shortname">
 
                 <button class="button success" wire:click="saveSwim">Save Swim</button>
             </div>
@@ -113,7 +113,7 @@
         @elseif($mode == 5)
         <div class="grid-x grid-padding-x">
             <div class="cell small-12 medium-8 large-6 medium-offset-2 large-offset-3">
-                <input type="file" wire:model="fishphoto">
+                <input type="file" wire:model.live="fishphoto">
                 @if($fishphoto)
                 <div>
                     <img src="{{ $fishphoto->temporaryUrl() }}">

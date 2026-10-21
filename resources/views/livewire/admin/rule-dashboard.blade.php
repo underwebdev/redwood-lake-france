@@ -50,14 +50,14 @@
             @elseif($mode == 2)
             <div class="cell small-12 medium-8 large-6 medium-offset-2 large-offset-3">
                 <label for="">Rule</label>
-                <textarea wire:model="body" cols="50" rows="10"></textarea>
+                <textarea wire:model.live="body" cols="50" rows="10"></textarea>
                 <button class="button success" wire:click="saveRule">Save Rule</button>
                 <button class="button alert" wire:click="$set('mode', 1)">Cancel</button>
             </div><!-- End of cell-->
             @elseif($mode == 3)
             <div class="cell small-12 medium-8 large-6 medium-offset-2 large-offset-3">
                 <label for="">Rule</label>
-                <textarea wire:model="body" cols="50" rows="10"></textarea>
+                <textarea wire:model.live="body" cols="50" rows="10"></textarea>
                 <button class="button success" wire:click="saveRuleChanges">Save Rule</button>
                 <button class="button alert" wire:click="delete('{{ $selectedRule->id }}')">Delete</button>
             </div><!-- End of cell-->
