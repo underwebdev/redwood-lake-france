@@ -30,8 +30,8 @@
 		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
 		
 		<script type="application/ld+json">
-	    { "@context" : "http://schema.org",
-	      "@type" : "Organization",
+	    { "@@context" : "http://schema.org",
+	      "@@type" : "Organization",
 	      "name" : "Underwood Web Services",
 	      "logo": "https://redwoodlake.co.uk/img/logo/RedwoodLake.png",
 	      "url" : "https://redwoodlake.co.uk",

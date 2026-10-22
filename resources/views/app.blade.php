@@ -35,8 +35,8 @@
 		<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap" rel="stylesheet">
 		
 		<script type="application/ld+json">
-	    { "@context" : "http://schema.org",
-	      "@type" : "Organization",
+	    { "@@context" : "http://schema.org",
+	      "@@type" : "Organization",
 	      "name" : "Redwood Lake",
 	      "logo": "https://redwoodlake.co.uk/img/logo/RedwoodLogo.png",
 	      "url" : "https://redwoodlake.co.uk",
